@@ -17,7 +17,9 @@ public class Game implements Serializable{
     private int numberOfSaves;
     private long totalTime;
     private Player player;
+    private Map map;
 
+    //Class public functions
     public Game() {
     }
 
@@ -54,8 +56,19 @@ public class Game implements Serializable{
         this.player = player;
     }
     
-    
+    // Map class getter and setter functions
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
+    
+    //Class Hash, Equals, and toString override functions
     @Override
     public int hashCode() {
         int hash = 3;

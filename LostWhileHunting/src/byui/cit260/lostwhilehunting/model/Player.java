@@ -50,7 +50,7 @@ public class Player implements Serializable{
     }
     
     
-
+    //Class Hash, Equals, and toString override functions
     @Override
     public int hashCode() {
         int hash = 7;
