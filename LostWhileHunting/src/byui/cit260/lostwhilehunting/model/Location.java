@@ -29,7 +29,7 @@ public class Location implements Serializable{
        
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
@@ -37,7 +37,7 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public double getRow() {
+    public int getRow() {
         return row;
     }
 
