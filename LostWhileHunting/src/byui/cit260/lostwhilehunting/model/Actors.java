@@ -14,7 +14,7 @@ package byui.cit260.lostwhilehunting.model;
 public enum Actors {
     
     Spinster("Spinster", "", "more Life", ""),
-    TopshotYounster("Top-shot Youngster", "", "speed", ""),
+    TopshotYoungster("Top-shot Youngster", "", "speed", ""),
     BurlyMan("Burly Man", "", "strength", ""),
     Coyote("coyote", "", "speed", ""),
     Bear("bear", "", "strength", ""),
