@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,9 @@ public class Items implements Serializable{
     private String type;
     private int quantityInStock;
     private String status;
+    private Game game;
+    private ArrayList<ResourceSceneAmount> resourceSceneAmount = new 
+        ArrayList<ResourceSceneAmount>();
 
     public Items() {
     }
@@ -33,6 +37,14 @@ public class Items implements Serializable{
         return quantityInStock;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public ArrayList<ResourceSceneAmount> getResourceSceneAmount() {
+        return resourceSceneAmount;
+    }
+    
     public void setQuantityInStock(int quantityInStock) {
         this.quantityInStock = quantityInStock;
     }
@@ -45,6 +57,14 @@ public class Items implements Serializable{
         this.status = status;
     }
 
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void setResourceSceneAmount(ArrayList<ResourceSceneAmount> resourceSceneAmount) {
+        this.resourceSceneAmount = resourceSceneAmount;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
