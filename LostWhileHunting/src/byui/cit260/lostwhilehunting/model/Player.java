@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author Entire Group with Trevon as Scribe
  */
 public class Player implements Serializable{
     
