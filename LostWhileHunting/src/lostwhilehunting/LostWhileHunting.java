@@ -45,6 +45,7 @@ public class LostWhileHunting {
         playerLocation.setAttribute("Calm");
         
         System.out.println("");
+        System.out.println("Location Class details ------------");
         
         System.out.println("Player COlumn Location: "+playerLocation.getColumn());
         System.out.println("Player Row Location: "+playerLocation.getRow());
@@ -52,6 +53,7 @@ public class LostWhileHunting {
         System.out.println("Player Location Attribute: "+playerLocation.getAttribute());
         
         System.out.println("");
+        System.out.println("Map Class details ------------");
         
         System.out.println(Map.Start.toString());
         System.out.println(Map.Stream.toString());
