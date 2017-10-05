@@ -17,8 +17,8 @@ public class Location implements Serializable{
     
    
     //class instance variables
-    private double column;
-    private double row;
+    private int column;
+    private int row;
     private boolean visited;
     private String attribute;
     private ArrayList<Actors> actors = new ArrayList<Actors>();
@@ -33,7 +33,7 @@ public class Location implements Serializable{
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -41,7 +41,7 @@ public class Location implements Serializable{
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
