@@ -31,8 +31,10 @@ public class LostWhileHunting {
         System.out.println(Actors.TopshotYoungster.toString());
         System.out.println(Actors.BurlyMan.toString());
         System.out.println(Actors.Coyote.toString());
+        System.out.println(Actors.Wolf.toString());
+        System.out.println(Actors.SmallWolf.toString());
         System.out.println(Actors.Bear.toString());
-        System.out.println(Actors.Mugger.toString());
+        System.out.println(Actors.Thieves.toString());
         
     }
     
