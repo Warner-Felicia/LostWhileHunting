@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,11 +15,13 @@ import java.util.Objects;
  */
 public class Actors implements Serializable{
     
-    public String name;
-    public String description;
-    public String mainStat;
-    public String location;
-
+    private String name;
+    private String description;
+    private String mainStat;
+    private ArrayList<Player> player = new ArrayList<Player>();
+    private Game game;
+    private Location location;
+            
     public Actors() {
     }
     
