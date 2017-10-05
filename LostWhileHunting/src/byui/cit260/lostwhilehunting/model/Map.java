@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
+ * Map Class
  * @author Trevon Morris
  */
 public enum Map implements Serializable{

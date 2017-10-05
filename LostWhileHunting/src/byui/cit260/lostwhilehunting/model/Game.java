@@ -8,7 +8,7 @@ package byui.cit260.lostwhilehunting.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 /**
- *
+ * Game Class
  * @author Entire group with Trevon as Scribe
  */
 public class Game implements Serializable{

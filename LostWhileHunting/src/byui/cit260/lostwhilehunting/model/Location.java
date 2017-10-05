@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
+ * Location Class
  * @author Trevon Morris
  */
 public class Location implements Serializable{

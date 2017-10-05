@@ -12,7 +12,7 @@ import byui.cit260.lostwhilehunting.model.Location;
 
 /**
  *
- * @author Administrator
+ * @author All group members
  */
 public class LostWhileHunting {
 

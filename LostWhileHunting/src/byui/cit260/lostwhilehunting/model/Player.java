@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.ArrayList;
 
 /**
- *
+ * Player Class
  * @author Entire Group with Trevon as Scribe
  */
 public class Player implements Serializable{
