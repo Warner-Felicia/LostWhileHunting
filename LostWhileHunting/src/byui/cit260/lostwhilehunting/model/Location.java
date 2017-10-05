@@ -10,38 +10,38 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
+ * Location Class
  * @author Trevon Morris
  */
 public class Location implements Serializable{
     
+   
     //class instance variables
-    private double column;
-    private double row;
+    private int column;
+    private int row;
     private boolean visited;
     private String attribute;
     private ArrayList<Actors> actors = new ArrayList<Actors>();
-    private Map map;
 
     //Public Functions for Location
 
     public Location() {
-        map = new Map();
+       
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
-    public double getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
