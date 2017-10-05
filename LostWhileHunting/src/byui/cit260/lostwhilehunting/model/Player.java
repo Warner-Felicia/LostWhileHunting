@@ -49,6 +49,14 @@ public class Player implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
+
+    public Actors getActors() {
+        return actors;
+    }
+
+    public void setActors(Actors actors) {
+        this.actors = actors;
+    }
     
     
     //Class Hash, Equals, and toString override functions
