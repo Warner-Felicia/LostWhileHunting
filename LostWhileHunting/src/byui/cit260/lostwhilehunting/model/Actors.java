@@ -23,6 +23,8 @@ public enum Actors {
             "strength", new Point(1,2)),
     Coyote("coyote", "A hungry dog like animal who makes a lot of noise.", 
             "speed", new Point(1,4)),
+    Wolf("wolf", "Leader of the wolf pack, if he is killed they all disburse.",
+        "speed", new Point(2,1)),
     SmallWolf("pups", "Wolves that follow the Alpha", "speed", new Point(2,2)),
     Bear("bear", "A huge bear who is often seen by the great river catching Salmon",
         "strength", new Point(5,1)),
