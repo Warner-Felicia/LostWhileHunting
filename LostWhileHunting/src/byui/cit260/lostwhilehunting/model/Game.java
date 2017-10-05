@@ -58,6 +58,22 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public ArrayList<Items> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Items> items) {
+        this.items = items;
+    }
+
+    public Actors getActors() {
+        return actors;
+    }
+
+    public void setActors(Actors actors) {
+        this.actors = actors;
+    }
     
     // Map class getter and setter functions
 
