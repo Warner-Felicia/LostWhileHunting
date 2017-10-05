@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class ResourceSceneAmount implements Serializable{
     
     private int amount;
+    private Items items;
 
     public ResourceSceneAmount() {
     }
@@ -22,8 +23,16 @@ public class ResourceSceneAmount implements Serializable{
         return amount;
     }
 
+    public Items getItems() {
+        return items;
+    }
+
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public void setItems(Items items) {
+        this.items = items;
     }
 
     @Override
