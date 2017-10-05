@@ -19,6 +19,7 @@ public class Player implements Serializable{
     private String name;
     private int numberOfSurePasses;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private Actors actors;
     
     public Player() {
     }
