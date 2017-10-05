@@ -9,7 +9,7 @@ package byui.cit260.lostwhilehunting.model;
 
 /**
  *
- * @author New User
+ * @author Felicia Warner
  */
 public enum Actors {
     
@@ -17,7 +17,7 @@ public enum Actors {
     TopshotYounster("Top-shot Youngster", "", "speed", ""),
     BurlyMan("Burly Man", "", "strength", ""),
     Coyote("coyote", "", "speed", ""),
-    Bear("bear", "", "strenght", ""),
+    Bear("bear", "", "strength", ""),
     Mugger("mugger", "", "speed", "");    
         
     private String name;
@@ -31,4 +31,28 @@ public enum Actors {
         this.mainStat = mainStat;
         this.location = location;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getMainStat() {
+        return mainStat;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    @Override
+    public String toString() {
+        return "Actors{" + "name=" + name + ", description=" + description + ", mainStat=" + mainStat + ", location=" + location + '}';
+    }
+
+    
+    
 }
