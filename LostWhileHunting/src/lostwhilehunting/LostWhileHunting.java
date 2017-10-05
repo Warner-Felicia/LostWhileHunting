@@ -7,6 +7,8 @@ package lostwhilehunting;
 
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Player;
+import byui.cit260.lostwhilehunting.model.Map;
+import byui.cit260.lostwhilehunting.model.Location;
 
 /**
  *
@@ -36,6 +38,26 @@ public class LostWhileHunting {
         System.out.println(Actors.Bear.toString());
         System.out.println(Actors.Thieves.toString());
         
+        Location playerLocation = new Location();
+        playerLocation.setColumn(3);
+        playerLocation.setRow(3);
+        playerLocation.setVisited(true);
+        playerLocation.setAttribute("Calm");
+        
+        System.out.println("/n");
+        
+        System.out.println("Player COlumn Location: "+playerLocation.getColumn());
+        System.out.println("Player Row Location: "+playerLocation.getRow());
+        System.out.println("Player Location Visited: "+playerLocation.isVisited());
+        System.out.println("Player Location Attribute: "+playerLocation.getAttribute());
+        
+        System.out.println(Map.Start.toString());
+        System.out.println(Map.Stream.toString());
+        System.out.println(Map.Cave.toString());
+        System.out.println(Map.Caverns.toString());
+        System.out.println(Map.River.toString());
+        System.out.println(Map.Town.toString());
+        System.out.println(Map.Goal.toString());
     }
     
 }

@@ -15,18 +15,18 @@ import java.util.Objects;
  */
 public class Location implements Serializable{
     
+   
     //class instance variables
     private double column;
     private double row;
     private boolean visited;
     private String attribute;
     private ArrayList<Actors> actors = new ArrayList<Actors>();
-    private Map map;
 
     //Public Functions for Location
 
     public Location() {
-        map = new Map();
+       
     }
 
     public double getColumn() {
