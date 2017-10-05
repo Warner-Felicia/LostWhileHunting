@@ -51,6 +51,8 @@ public class LostWhileHunting {
         System.out.println("Player Location Visited: "+playerLocation.isVisited());
         System.out.println("Player Location Attribute: "+playerLocation.getAttribute());
         
+        System.out.println("");
+        
         System.out.println(Map.Start.toString());
         System.out.println(Map.Stream.toString());
         System.out.println(Map.Cave.toString());
