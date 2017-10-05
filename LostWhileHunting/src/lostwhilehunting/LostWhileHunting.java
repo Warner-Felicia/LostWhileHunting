@@ -44,7 +44,7 @@ public class LostWhileHunting {
         playerLocation.setVisited(true);
         playerLocation.setAttribute("Calm");
         
-        System.out.println("/n");
+        System.out.println("");
         
         System.out.println("Player COlumn Location: "+playerLocation.getColumn());
         System.out.println("Player Row Location: "+playerLocation.getRow());
