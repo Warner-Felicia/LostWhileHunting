@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Administrator
+ * @author Trevon Morris
  */
 public class Location implements Serializable{
     
