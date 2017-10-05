@@ -20,6 +20,7 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private ArrayList<Items> items = new ArrayList<Items>();
+    private Actors actors;
 
     //Class public functions
     public Game() {
