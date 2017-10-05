@@ -25,8 +25,6 @@ public class Actors implements Serializable{
     public Actors() {
     }
     
-    
-
     public String getName() {
         return name;
     }
@@ -39,6 +37,18 @@ public class Actors implements Serializable{
         return description;
     }
 
+    public ArrayList<Player> getPlayer() {
+        return player;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -51,11 +61,15 @@ public class Actors implements Serializable{
         this.mainStat = mainStat;
     }
 
-    public String getLocation() {
-        return location;
+    public void setPlayer(ArrayList<Player> player) {
+        this.player = player;
     }
 
-    public void setLocation(String location) {
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void setLocation(Location location) {
         this.location = location;
     }
 
@@ -65,7 +79,7 @@ public class Actors implements Serializable{
         hash = 73 * hash + Objects.hashCode(this.name);
         hash = 73 * hash + Objects.hashCode(this.description);
         hash = 73 * hash + Objects.hashCode(this.mainStat);
-        hash = 73 * hash + Objects.hashCode(this.location);
+        
         return hash;
     }
 
@@ -90,16 +104,16 @@ public class Actors implements Serializable{
         if (!Objects.equals(this.mainStat, other.mainStat)) {
             return false;
         }
-        if (!Objects.equals(this.location, other.location)) {
-            return false;
-        }
+        
         return true;
     }
 
     @Override
     public String toString() {
-        return "Actors{" + "name=" + name + ", description=" + description + ", mainStat=" + mainStat + ", location=" + location + '}';
+        return "Actors{" + "name=" + name + ", description=" + description + ", mainStat=" + mainStat + ", player=" + player + ", game=" + game + ", location=" + location + '}';
     }
+
+    
     
     
     
