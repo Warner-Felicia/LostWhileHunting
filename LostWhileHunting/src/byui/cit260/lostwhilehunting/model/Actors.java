@@ -5,6 +5,8 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.awt.Point;
+
 
 
 /**
@@ -13,19 +15,27 @@ package byui.cit260.lostwhilehunting.model;
  */
 public enum Actors {
     
-    Spinster("Spinster", "", "more Life", ""),
-    TopshotYoungster("Top-shot Youngster", "", "speed", ""),
-    BurlyMan("Burly Man", "", "strength", ""),
-    Coyote("coyote", "", "speed", ""),
-    Bear("bear", "", "strength", ""),
-    Mugger("mugger", "", "speed", "");    
+    Spinster("Sue", "A sweet lady very good at hunting with traps", "health", 
+        new Point(1,1)),
+    TopshotYoungster("Timmy", "A young teen taught by his father how to shoot "
+            + "from distance", "speed", new Point(0,1)),
+    BurlyMan("Butch", "A super strong farmer, known to have won many fights", 
+            "strength", new Point(1,2)),
+    Coyote("coyote", "A hungry dog like animal who makes a lot of noise.", 
+            "speed", new Point(1,4)),
+    SmallWolf("pups", "Wolves that follow the Alpha", "speed", new Point(2,2)),
+    Bear("bear", "A huge bear who is often seen by the great river catching Salmon",
+        "strength", new Point(5,1)),
+    Thieves("muggers", "Men who have no regard for property.", "health", 
+        new Point(6,2));
+    
         
     private String name;
     private String description;
     private String mainStat;
-    private String location;
+    private Point location;
     
-    Actors(String name, String description, String mainStat, String location){
+    Actors(String name, String description, String mainStat, Point location){
         this.name = name;
         this.description = description;
         this.mainStat = mainStat;
@@ -44,7 +54,7 @@ public enum Actors {
         return mainStat;
     }
 
-    public String getLocation() {
+    public Point getLocation() {
         return location;
     }
 
