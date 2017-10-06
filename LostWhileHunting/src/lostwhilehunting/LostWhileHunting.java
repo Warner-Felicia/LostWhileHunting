@@ -10,6 +10,7 @@ import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
 
 /**
  *
@@ -68,6 +69,13 @@ public class LostWhileHunting {
         itemOne.setStatus("equipped");
         
         System.out.println(itemOne.toString());
+        
+        ResourceSceneAmount resourceSceneAmount = new ResourceSceneAmount();
+        
+        resourceSceneAmount.setAmount(2);
+        
+        System.out.println(resourceSceneAmount.toString());
+        
         
     }
     
