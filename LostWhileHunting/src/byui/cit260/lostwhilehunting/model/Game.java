@@ -20,8 +20,7 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private ArrayList<Items> items = new ArrayList<Items>();
-    private Actors actors;
-
+    
     //Class public functions
     public Game() {
     }
@@ -67,14 +66,6 @@ public class Game implements Serializable{
         this.items = items;
     }
 
-    public Actors getActors() {
-        return actors;
-    }
-
-    public void setActors(Actors actors) {
-        this.actors = actors;
-    }
-    
     // Map class getter and setter functions
 
     public Map getMap() {
