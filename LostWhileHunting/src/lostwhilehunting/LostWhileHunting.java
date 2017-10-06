@@ -9,6 +9,7 @@ import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Location;
+import byui.cit260.lostwhilehunting.model.Items;
 
 /**
  *
@@ -23,9 +24,6 @@ public class LostWhileHunting {
         Player playerOne = new Player();
         playerOne.setName("Fred Flintstone");
         playerOne.setNumberOfSurePasses(4);
-        
-        String playerOneName = playerOne.getName();
-        int playerOneSurePasses = playerOne.getNumberOfSurePasses();
         
         System.out.println(playerOne.toString());
         
@@ -62,6 +60,17 @@ public class LostWhileHunting {
         System.out.println(Map.River.toString());
         System.out.println(Map.Town.toString());
         System.out.println(Map.Goal.toString());
+        
+        Items itemOne = new Items();
+        
+        itemOne.setType("weapon");
+        itemOne.setQuantityInStock(3);
+        itemOne.setStatus("equipped");
+        
+        System.out.println(itemOne.toString());
+        
     }
+    
+    
     
 }
