@@ -5,97 +5,41 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
+
 
 /**
  *
  * @author New User
  */
-public class Items implements Serializable{
+public enum Items {
+    
+    Rifle("weapon", 25, "not equipped"),
+    Bullets("ammunition", 25, "not equipped"),
+    SharpKnife("weapon", 25, "not equipped"),
+    MeatFromAnimals("food", 25, "not equipped"),
+    AnOldMap("map", 10, "not equipped"),
+    ExtraLife("health", 5, "not equipped");
     
     private String type;
     private int quantityInStock;
     private String status;
-    private Game game;
-    private ArrayList<ResourceSceneAmount> resourceSceneAmount = new 
-        ArrayList<ResourceSceneAmount>();
-
-    public Items() {
+    
+    Items(String type, int quantityInStock, String status) {
+        this.type = type;
+        this.quantityInStock = quantityInStock;
+        this.status = status;
     }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getQuantityInStock() {
         return quantityInStock;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public ArrayList<ResourceSceneAmount> getResourceSceneAmount() {
-        return resourceSceneAmount;
-    }
-    
-    public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public void setResourceSceneAmount(ArrayList<ResourceSceneAmount> resourceSceneAmount) {
-        this.resourceSceneAmount = resourceSceneAmount;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 73 * hash + Objects.hashCode(this.type);
-        hash = 73 * hash + this.quantityInStock;
-        hash = 73 * hash + Objects.hashCode(this.status);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Items other = (Items) obj;
-        if (this.quantityInStock != other.quantityInStock) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.status, other.status)) {
-            return false;
-        }
-        return true;
     }
 
     @Override
@@ -103,4 +47,7 @@ public class Items implements Serializable{
         return "Items{" + "type=" + type + ", quantityInStock=" + quantityInStock + ", status=" + status + '}';
     }
     
+    
 }
+
+   
