@@ -10,7 +10,10 @@ import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Questions;
+import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
+import byui.cit260.lostwhilehunting.model.SceneQuestions;
 
 /**
  *
@@ -74,6 +77,32 @@ public class LostWhileHunting {
         resourceSceneAmount.setAmount(2);
         
         System.out.println(resourceSceneAmount.toString());
+        
+        // The test for classes Questions, SceneQuestions, RegularSceneType
+        Questions questionPlayer = new Questions();
+        
+        questionPlayer.setQuestion("Do you want to rest or continue?");
+        questionPlayer.setAnswer("Rest");
+        System.out.println(questionPlayer.toString());
+        
+        
+        SceneQuestions scenePlayerOne = new SceneQuestions();
+        
+        scenePlayerOne.setFightAnswer("Yes");
+        scenePlayerOne.setFlightAnswer("No");
+        scenePlayerOne.setEvadeAnswer("Yes");
+        scenePlayerOne.setItemReward(23.50);
+        scenePlayerOne.setStatusUpdate("Health: good");
+        System.out.println(scenePlayerOne.toString());
+        
+        
+        RegularSceneType regularScenePOne = new RegularSceneType();
+        
+        regularScenePOne.setNameOfScene("Desert");
+        regularScenePOne.setDescription("Here is the description");
+        regularScenePOne.setSafe("Not Safe");
+        System.out.println(regularScenePOne.toString());
+        
         
         
     }

@@ -7,6 +7,7 @@ package byui.cit260.lostwhilehunting.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Arrays;
 /**
  *
  * @author Fiorald Ismaili
@@ -16,6 +17,10 @@ public class Questions implements Serializable  {
     // Questions class instance variables
     private String question;
     private String answer;
+    
+    // Implementing the many to many associate relationship with SceneQuestions class
+    private SceneQuestions[] sceneQuestions = new SceneQuestions[10];
+
 
     public Questions() {
     }
@@ -39,6 +44,15 @@ public class Questions implements Serializable  {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    public SceneQuestions[] getSceneQuestions() {
+        return sceneQuestions;
+    }
+
+    public void setSceneQuestions(SceneQuestions[] sceneQuestions) {
+        this.sceneQuestions = sceneQuestions;
+    }
+    
     
     
     //Class Hash, Equals, and toString override functions
@@ -75,6 +89,10 @@ public class Questions implements Serializable  {
     @Override
     public String toString() {
         return "Questions{" + "question=" + question + ", answer=" + answer + '}';
+    }
+
+    public void setQuestion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

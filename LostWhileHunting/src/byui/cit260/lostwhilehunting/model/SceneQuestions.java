@@ -22,6 +22,8 @@ public class SceneQuestions implements Serializable {
     private double itemReward;
     private String statusUpdate;
     
+    private Questions[] questions = new Questions[10];
+    
     // The constructor of the class
 
     public SceneQuestions() {
@@ -68,6 +70,14 @@ public class SceneQuestions implements Serializable {
 
     public void setStatusUpdate(String statusUpdate) {
         this.statusUpdate = statusUpdate;
+    }
+
+    public Questions[] getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Questions[] questions) {
+        this.questions = questions;
     }
    
     
