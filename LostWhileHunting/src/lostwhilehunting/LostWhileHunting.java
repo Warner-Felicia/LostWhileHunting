@@ -62,13 +62,12 @@ public class LostWhileHunting {
         System.out.println(Map.Town.toString());
         System.out.println(Map.Goal.toString());
         
-        Items itemOne = new Items();
-        
-        itemOne.setType("weapon");
-        itemOne.setQuantityInStock(3);
-        itemOne.setStatus("equipped");
-        
-        System.out.println(itemOne.toString());
+        System.out.println(Items.Rifle.toString());
+        System.out.println(Items.Bullets.toString());
+        System.out.println(Items.SharpKnife.toString());
+        System.out.println(Items.MeatFromAnimals.toString());
+        System.out.println(Items.AnOldMap.toString());
+        System.out.println(Items.ExtraLife.toString());
         
         ResourceSceneAmount resourceSceneAmount = new ResourceSceneAmount();
         
