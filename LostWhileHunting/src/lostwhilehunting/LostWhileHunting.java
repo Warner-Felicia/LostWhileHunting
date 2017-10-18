@@ -14,6 +14,8 @@ import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
+import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.control.ItemControl;
 
 /**
  *
@@ -103,7 +105,7 @@ public class LostWhileHunting {
         regularScenePOne.setSafe("Not Safe");
         System.out.println(regularScenePOne.toString());
         
-        
+        QuestionsAndSceneControl.loadCombatActions("BurlyMan","Gun","Bullets","Knife");
         
     }
     
