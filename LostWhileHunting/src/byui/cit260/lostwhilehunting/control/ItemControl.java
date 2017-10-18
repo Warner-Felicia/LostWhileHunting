@@ -31,8 +31,25 @@ public class ItemControl {
         }else{
             item = "Knife";
         }
-                
-       System.out.println("The item generated is: "+item);
+        
+       /* switch(itemSpawn){
+            case 1: item = "Meat";
+            break;
+            case 2: item = "Gun";
+            break;
+            case 3: item = "Bullets";
+            break;
+            case 4: item = "Map";
+            break;
+            case 5: item = "ExtraLife";
+            break;
+            case 6: item = "Knife";
+            break;
+            default: item = "invalid number";
+            break;
+        }*/
+       System.out.println();         
+       System.out.println("You found a: "+item);
        return item;
     }
     

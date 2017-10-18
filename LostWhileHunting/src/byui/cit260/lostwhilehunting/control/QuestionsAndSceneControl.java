@@ -43,16 +43,19 @@ public class QuestionsAndSceneControl {
                      
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    System.out.println();
+                    System.out.println("You lost "+item1);
                     item1 = ItemControl.generateItemFromItems();
                     System.out.println();
-                    System.out.println();
-                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ "Number of items: "+ itemsEquipped + "SuccessFailureBoundary of: " + successFailureBoundary);
-                    System.out.println("Item1 status :"+ item1 );
+                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    System.out.println("Item1 status: "+ item1 );
                 }else{
                     // do nothing
-                   item1 = "";
-                   System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ "Number of items: "+ itemsEquipped + "SuccessFailureBoundary of: " + successFailureBoundary);
-                   System.out.println("Item1 status :"+ item1 );
+                    System.out.println();
+                    System.out.println("You lost "+item1);
+                    item1 = "";
+                    System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    System.out.println("Item1 status: "+ item1 );
                 }
                         
         }else{
@@ -62,18 +65,22 @@ public class QuestionsAndSceneControl {
         
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    System.out.println();
+                    System.out.println("You lost "+item1);
                     item1 = ItemControl.generateItemFromItems();
                     System.out.println();
                     System.out.println();
-                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ "Number of items: "+ itemsEquipped + "SuccessFailureBoundary of: " + successFailureBoundary);
+                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status :"+ item1 );
                 }else{
                     // do nothing
+                    System.out.println();
+                    System.out.println("You lost "+item1);
                     item1 = "";
                     System.out.println();
                     System.out.println();
-                    System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ "Number of items: "+ itemsEquipped + "SuccessFailureBoundary of: " + successFailureBoundary);
-                    System.out.println("Item1 status :"+ item1 );
+                    System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    System.out.println("Item1 status: "+ item1 );
                 }
                 
         
