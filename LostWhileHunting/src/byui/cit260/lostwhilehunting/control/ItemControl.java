@@ -16,7 +16,7 @@ public class ItemControl {
         String item = "";
         double itemSpawn = 0;
         
-        itemSpawn = Math.random()*6;
+        itemSpawn = Math.floor(Math.random()*6);
         
         if(itemSpawn==1){
             item = "Meat";
