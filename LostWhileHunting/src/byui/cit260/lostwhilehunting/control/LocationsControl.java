@@ -22,7 +22,12 @@ public class LocationsControl {
         double returnSuccessFailure= 0;
         
         // This if statement checks the surePass for amount
-        if(surePass != 0){
+        if(surePass < 0 || surePass > 4){ //Checks for anomalies
+            
+            System.out.println("Hacking attempt detected or Major Catastrophy detected.");
+            returnSuccessFailure = 99999; // assign 99999 for test class
+            
+        }else if(surePass != 0){
             
             //This generates a random number between 1 and 100
             randomizerNum = Math.random()*100;
@@ -49,14 +54,7 @@ public class LocationsControl {
                 returnSuccessFailure = 0;// assign 0 for test class
                 
             }
-            
-        }else if(surePass < 0 || surePass > 4){ //Checks for anomalies
-            
-            System.out.println("Hacking attempt detected or Major Catastrophy detected.");
-            returnSuccessFailure = 99999; // assign 99999 for test class
-            
-        }
-        else{
+        }else{
             
             System.out.println("You have no Sure Passes left sadly, be careful on your journey");
             returnSuccessFailure = 99999; // assign 99999 for test class
