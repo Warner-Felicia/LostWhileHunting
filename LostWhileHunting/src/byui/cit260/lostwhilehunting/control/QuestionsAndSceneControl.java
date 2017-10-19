@@ -61,6 +61,10 @@ public class QuestionsAndSceneControl {
                     returnNumber = 0;
                 }
                         
+        }else if(hero.equals("")){
+            System.out.println();
+            System.out.println("No hero detected ");
+            returnNumber = 99999;
         }else{
                 
             successFailureBoundary = successFailureBoundary + (itemsEquipped * 10);   
