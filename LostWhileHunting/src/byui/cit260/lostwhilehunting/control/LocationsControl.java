@@ -16,7 +16,7 @@ public class LocationsControl {
     
     public static double incrementLocationsMapSceneTypeIfSurePass(int surePass){
         
-        //Declare Variables
+        //Declare Variables used by function
         String inventoryItem = "";
         double randomizerNum = 0;
         double returnSuccessFailure= 0;
