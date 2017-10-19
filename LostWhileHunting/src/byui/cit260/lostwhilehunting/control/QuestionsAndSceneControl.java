@@ -13,7 +13,7 @@ import byui.cit260.lostwhilehunting.control.ItemControl;
 
 public class QuestionsAndSceneControl {
     
-    public static void loadCombatActions(String hero, String item1, String item2, String item3){
+    public static double loadCombatActions(String hero, String item1, String item2, String item3){
         
         //Variables
         int itemsEquipped = 0;
@@ -22,6 +22,7 @@ public class QuestionsAndSceneControl {
         double randomizerNum = 0;
         double successFailureBoundary = 50;
         double classBonus = 0;
+        double returnNumber = 0;
         
         
         if(item1 != ""){
@@ -49,6 +50,7 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status: "+ item1 );
+                    returnNumber = 1;
                 }else{
                     // do nothing
                     System.out.println();
@@ -56,6 +58,7 @@ public class QuestionsAndSceneControl {
                     item1 = "";
                     System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status: "+ item1 );
+                    returnNumber = 0;
                 }
                         
         }else{
@@ -72,6 +75,7 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status :"+ item1 );
+                    returnNumber = 1;
                 }else{
                     // do nothing
                     System.out.println();
@@ -81,10 +85,12 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status: "+ item1 );
+                    returnNumber = 0;
                 }
                 
         
         }
+        return returnNumber;
         
        
         
