@@ -13,7 +13,7 @@ import byui.cit260.lostwhilehunting.control.ItemControl;
 
 public class QuestionsAndSceneControl {
     
-    public static void loadCombatActions(String hero, String item1, String item2, String item3){
+    public static double loadCombatActions(String hero, String item1, String item2, String item3){
         
         //Variables
         int itemsEquipped = 0;
