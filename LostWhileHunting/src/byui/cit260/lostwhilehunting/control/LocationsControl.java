@@ -64,4 +64,22 @@ public class LocationsControl {
         return returnSuccessFailure;
     }
     
+        public static double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
+        
+        if(column == row){
+            if(column == 0 || column == 3 || column == 5 || column == 7){
+                loadMajorSceneIfMapCoordTrue(column, row);
+            }else{
+                QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
+            }
+        }else{
+            QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
+        }
+        return 0;
+    }
+
+    private static void loadMajorSceneIfMapCoordTrue(int column, int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
