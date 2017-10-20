@@ -11,6 +11,7 @@ package byui.cit260.lostwhilehunting.control;
  */
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 
 public class LocationsControl {
     
@@ -66,14 +67,19 @@ public class LocationsControl {
     
         public static double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
         
+        //Declare variable
+        double returnBoolean = 0;
+            
         if(column == row){
             if(column == 0 || column == 3 || column == 5 || column == 7){
                 loadMajorSceneIfMapCoordTrue(column, row);
+                returnBoolean = 1;
             }else{
-                QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
+              //  QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene(); function not written yet
+                returnBoolean = 1;
             }
         }else{
-            QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
+           // QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene(); function not written yet
         }
         return 0;
     }
