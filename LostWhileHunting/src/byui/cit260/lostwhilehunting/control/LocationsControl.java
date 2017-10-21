@@ -68,7 +68,7 @@ public class LocationsControl {
     public static double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
         
         //Declare variable
-        double returnResult = 0;
+        int returnResult = 0;
         
         /*This if statement checks if the column and row is equal
         Due to each major scene being at 0,0 3,3 5,5 7,7*/
@@ -79,7 +79,7 @@ public class LocationsControl {
                 
                 System.out.println("You are now at a Major Scene, pay attention to new commands");
                 //loadMajorSceneIfMapCoordTrue(column, row); -- not written yet
-                returnResult = 1;
+                returnResult = 3;
                 
             }else{
                 

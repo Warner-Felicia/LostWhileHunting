@@ -141,66 +141,68 @@ public class LocationsControlTest {
      */
     @Test
     public void testLoadSimpleSceneIfNotMajorMapCoord() {
-        System.out.println();
-        System.out.println();
+        
         System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 1");
+        System.out.println();
+        System.out.println();
+        
+        // --- Test Case #1 --- 
+        System.out.println("Test Case 1");
         int column = 0;
         int row = 0;
-        double expResult = 1;
+        double expResult = 3.0;
         double result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
-        assertEquals(expResult, result, 1);
+        assertEquals(expResult, result, 1);  
         
+         // --- Test Case #2 --- 
         System.out.println();
         System.out.println();
-        System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 2");
+        System.out.println("Test Case 2");
         column = 3;
         row = 3;
-        expResult = 1;
+        expResult = 3.0;
         result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
-        assertEquals(expResult, result, 1);
+        assertEquals(expResult, result, 1); 
         
+        // --- Test Case #3 --- 
         System.out.println();
         System.out.println();
-        System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 3");
+        System.out.println("Test Case 3");
         column = 5;
         row = 5;
-        expResult = 1;
+        expResult = 3.0;
         result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
         assertEquals(expResult, result, 1);
         
+        // --- Test Case #4 --- 
         System.out.println();
         System.out.println();
-        System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 4");
+        System.out.println("Test Case 4");
         column = 7;
         row = 7;
-        expResult = 1;
+        expResult = 3.0;
+        result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
+        assertEquals(expResult, result, 1); 
+        
+         // --- Test Case #5 --- 
+        System.out.println();
+        System.out.println();
+        System.out.println("Test Case 5");
+        column = 1;
+        row = 1;
+        expResult = 5.0;
         result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
         assertEquals(expResult, result, 1);
         
+          // --- Test Case #6 --- 
         System.out.println();
         System.out.println();
-        System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 5");
+        System.out.println("Test Case 6");
         column = 5;
-        row = 7;
-        expResult = 5;
+        row = 4;
+        expResult = 5.0;
         result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
-        assertEquals(expResult, result, 5);
-        
-        System.out.println();
-        System.out.println();
-        System.out.println("loadSimpleSceneIfNotMajorMapCoord");
-        System.out.println("Test Scenario 6");
-        column = 2;
-        row = 2;
-        expResult = 5;
-        result = LocationsControl.loadSimpleSceneIfNotMajorMapCoord(column, row);
-        assertEquals(expResult, result, 5);
-        
+        assertEquals(expResult, result, 1);
     }
-    
+  
 }
