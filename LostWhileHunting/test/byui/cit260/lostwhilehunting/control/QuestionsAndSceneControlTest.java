@@ -110,13 +110,115 @@ public class QuestionsAndSceneControlTest {
          
         // test to see if the result returned equals the expected result
         assertEquals(returnNumber, result, 99999);
+   }
+
+    /**
+     * Test of loadFlightActions method, of class QuestionsAndSceneControl.
+     */
+    @Test
+    public void testLoadFlightActions() {
+        System.out.println("loadFlightActions");
         
+        // Test Case 1
+        System.out.println("\tTest Case 1");
         
+        //define input variables
+        String hero = "BurlyMan";
+        String item1 = "knife";
+        String item2 = "";
+        String item3 = "";
         
+        //define the expected result
+        double expResult = 0.0;
         
+        //call the method
+        double result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
         
+        //test to see if the result returned equals the expected result;
+        assertEquals(expResult, result, 1);
         
+        // Test Case 2
+        System.out.println("\tTest Case 2");
         
+        //define input variables
+        hero = "TopshotYoungster";
+        item1 = "meat";
+        item2 = "rifle";
+        item3 = "";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        //call the method
+        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
+        
+        //test to see if the result returned equals the expected result;
+        assertEquals(expResult, result, 1);
+        
+        // Test Case 3
+        System.out.println("\tTest Case 3");
+        
+        //define input variables
+        hero = "Spinster";
+        item1 = "rifle";
+        item2 = "meat";
+        item3 = "knife";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        //call the method
+        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
+        
+        //test to see if the result returned equals the expected result;
+        assertEquals(expResult, result, 1);
+        
+        // Test Case 4
+        System.out.println("\tTest Case 4");
+        
+        //define input variables
+        hero = "BurlyMan";
+        item1 = "";
+        item2 = "";
+        item3 = "";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        //call the method
+        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
+        
+        //test to see if the result returned equals the expected result;
+        assertEquals(expResult, result, 1);
+            
+        // Test Case 5
+        System.out.println("\tTest Case 5");
+        
+        //define input variables
+        hero = "";
+        item1 = "rifle";
+        item2 = "";
+        item3 = "meat";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        //call the method
+        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
+        
+        //test to see if the result returned equals the expected result;
+        assertEquals(expResult, result, 1);
+    }
+
+    /**
+     * Test of checkSceneQuestionChoiceAndReturnNewScene method, of class QuestionsAndSceneControl.
+     */
+    @Test
+    public void testCheckSceneQuestionChoiceAndReturnNewScene() {
+        System.out.println("checkSceneQuestionChoiceAndReturnNewScene");
+        QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
      

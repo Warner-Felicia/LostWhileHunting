@@ -100,6 +100,66 @@ public class QuestionsAndSceneControl {
         
                  
     }
+    
+    public static double loadFlightActions(String hero, String item1, String item2, String item3){
+        
+        //Variables
+        int itemsEquipped = 0;
+        int locationIncrement = 0;
+        int regularSceneTypeAmount = 0;
+        double randomizerNum = 0;
+        double successFailureBoundary = 50;
+        double classBonus = 0;
+        double returnNumber = 0;
+        
+        if(item1 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item2 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item3 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        
+        randomizerNum = Math.random()*100;
+        
+        if(hero.equals("TopshotYoungster")){
+            classBonus=classBonus+10;
+        }
+        
+        else if(hero.equals("")){
+            System.out.println();
+            System.out.println("No hero detected ");
+            returnNumber = 99999;
+            return returnNumber;
+        }
+        successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
+            
+        if(randomizerNum <= successFailureBoundary){
+             //moveToNextLocation();
+            System.out.println();
+            System.out.println("You lost "+item1);
+            System.out.println();
+            System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            item1 = ItemControl.generateItemFromItems();
+            System.out.println("Item1 status: "+ item1 );
+            returnNumber = 1;
+        }
+        else{
+            // do nothing
+            System.out.println();
+            System.out.println("You lost "+item1);
+            item1 = "";
+            System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            System.out.println("Item1 status: none");
+            returnNumber = 0;
+        }
+        
+        return returnNumber;                        
+    }
+        
+    
 
     static void checkSceneQuestionChoiceAndReturnNewScene() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
