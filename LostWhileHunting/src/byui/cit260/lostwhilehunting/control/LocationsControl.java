@@ -12,15 +12,26 @@ package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.model.Player;
 
 public class LocationsControl {
     
-    public static double incrementLocationsMapSceneTypeIfSurePass(int surePass){
+    ItemControl itemcontrol = new ItemControl();
+    Player p = new Player();
+    
+    public double incrementLocationsMapSceneTypeIfSurePass(int surePass){
         
         //Declare Variables used by function
         String inventoryItem = "";
         double randomizerNum = 0;
         double returnSuccessFailure= 0;
+        
+        //always get the latest surePass Amount
+        if(surePass > p.getNumberOfSurePasses() || surePass < p.getNumberOfSurePasses()){
+            surePass = p.getNumberOfSurePasses();
+        }else{
+            //do nothing
+        }
         
         // This if statement checks the surePass for amount
         if(surePass < 0 || surePass > 4){ //Checks for anomalies
@@ -43,15 +54,19 @@ public class LocationsControl {
                 
                 System.out.println("Congrats you have managed to bypass the danger successfully.");
                 surePass = surePass - 1; // decrease surePass by 1
+                p.setNumberOfSurePasses(surePass);
+                System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                 returnSuccessFailure = 1;// assign 1 for test class
                 
             }else{
                 
                 surePass = surePass - 1; // decrease surePass by 1
-                
+                p.setNumberOfSurePasses(surePass);
                 //This item will be written to the SetInventoryItem function in future iterations
-                inventoryItem = ItemControl.generateItemFromItems();
+                inventoryItem = itemcontrol.generateItemFromItems();
+                itemcontrol.viewInventory(inventoryItem);
                 System.out.println("Your Sure Pass failed this time, but you found a " + inventoryItem);
+                System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                 returnSuccessFailure = 0;// assign 0 for test class
                 
             }
@@ -65,7 +80,7 @@ public class LocationsControl {
         return returnSuccessFailure;
     }
     
-    public static double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
+    public double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
         
         //Declare variable
         int returnResult = 0;
@@ -98,7 +113,7 @@ public class LocationsControl {
         return returnResult;
     }
 
-    private static void loadMajorSceneIfMapCoordTrue(int column, int row) {
+    private void loadMajorSceneIfMapCoordTrue(int column, int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

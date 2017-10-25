@@ -10,10 +10,14 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.Items;
 
 public class QuestionsAndSceneControl {
     
-    public static double loadCombatActions(String hero, String item1, String item2, String item3){
+    ItemControl itemcontrol = new ItemControl();
+    Items items = new Items();
+    
+    public double loadCombatActions(String hero, String item1, String item2, String item3){
         
         //Variables
         int itemsEquipped = 0;
@@ -46,7 +50,8 @@ public class QuestionsAndSceneControl {
                     //moveToNextLocation();
                     System.out.println();
                     System.out.println("You lost "+item1);
-                    item1 = ItemControl.generateItemFromItems();
+                    item1 = itemcontrol.generateItemFromItems();
+                    items.setItem1(item1);
                     System.out.println();
                     System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status: "+ item1 );
@@ -56,6 +61,7 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     System.out.println("You lost "+item1);
                     item1 = "";
+                    items.setItem1(item1);
                     System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     System.out.println("Item1 status: "+ item1 );
                     returnNumber = 0;
@@ -74,7 +80,8 @@ public class QuestionsAndSceneControl {
                     //moveToNextLocation();
                     System.out.println();
                     System.out.println("You lost "+item1);
-                    item1 = ItemControl.generateItemFromItems();
+                    item1 = itemcontrol.generateItemFromItems();
+                    items.setItem1(item1);
                     System.out.println();
                     System.out.println();
                     System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
@@ -85,6 +92,7 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     System.out.println("You lost "+item1);
                     item1 = "";
+                    items.setItem1(item1);
                     System.out.println();
                     System.out.println();
                     System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
@@ -101,7 +109,7 @@ public class QuestionsAndSceneControl {
                  
     }
     
-    public static double loadFlightActions(String hero, String item1, String item2, String item3){
+    public double loadFlightActions(String hero, String item1, String item2, String item3){
         
         //Variables
         int itemsEquipped = 0;
@@ -124,7 +132,7 @@ public class QuestionsAndSceneControl {
         
         randomizerNum = Math.random()*100;
         
-        if(hero.equals("TopshotYoungster")){
+        if(hero.equals("YoungTopshot")){
             classBonus=classBonus+10;
         }
         
@@ -142,7 +150,8 @@ public class QuestionsAndSceneControl {
             System.out.println("You lost "+item1);
             System.out.println();
             System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            item1 = ItemControl.generateItemFromItems();
+            item1 = itemcontrol.generateItemFromItems();
+            items.setItem1(item1);
             System.out.println("Item1 status: "+ item1 );
             returnNumber = 1;
         }
@@ -150,7 +159,9 @@ public class QuestionsAndSceneControl {
             // do nothing
             System.out.println();
             System.out.println("You lost "+item1);
+            System.out.println();
             item1 = "";
+            items.setItem1(item1);
             System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
             System.out.println("Item1 status: none");
             returnNumber = 0;
@@ -159,7 +170,7 @@ public class QuestionsAndSceneControl {
         return returnNumber;                        
     }
     
-    public static double loadEvadeActions(String hero, String item1, String item2, String item3){
+    public double loadEvadeActions(String hero, String item1, String item2, String item3){
         
         //Variables
         int itemsEquipped = 0;
@@ -200,7 +211,8 @@ public class QuestionsAndSceneControl {
             System.out.println("You lost "+item1);
             System.out.println();
             System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            item1 = ItemControl.generateItemFromItems();
+            item1 = itemcontrol.generateItemFromItems();
+            items.setItem1(item1);
             System.out.println("Item1 status: "+ item1 );
             returnNumber = 1;
         }
@@ -209,6 +221,7 @@ public class QuestionsAndSceneControl {
             System.out.println();
             System.out.println("You lost "+item1);
             item1 = "";
+            items.setItem1(item1);
             System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
             System.out.println("Item1 status: none");
             returnNumber = 0;
@@ -219,7 +232,7 @@ public class QuestionsAndSceneControl {
         
     
 
-    static void checkSceneQuestionChoiceAndReturnNewScene() {
+    public void checkSceneQuestionChoiceAndReturnNewScene() {
         
         
         

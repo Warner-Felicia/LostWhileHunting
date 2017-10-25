@@ -6,17 +6,27 @@
 package byui.cit260.lostwhilehunting.control;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author New User
+ * @author Administrator
  */
 public class QuestionsAndSceneControlTest {
     
     public QuestionsAndSceneControlTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
     }
     
     @Before
@@ -33,84 +43,16 @@ public class QuestionsAndSceneControlTest {
     @Test
     public void testLoadCombatActions() {
         System.out.println("loadCombatActions");
-        
-        // --- Test case 1 ---
-        System.out.println("\tTest case 1");
-        
-        //define the input variables
-        String hero = "burlyMan";
-        String item1 = "knife";
-        String item2 = "";
+        String hero = "BurlyMan";
+        String item1 = "Knife";
+        String item2 = "Rifle";
         String item3 = "";
-        double successFailureBoundary = 70;
-        double returnNumber = 1;
+        QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        double expResult = 1.0;
+        double result = instance.loadCombatActions(hero, item1, item2, item3);
+        assertEquals(expResult, result, 1.0);
         
-        // call the method
-        double result = QuestionsAndSceneControl.loadCombatActions(hero, item1, item2, item3);
-         
-        // test to see if the result returned equals the expected result
-        assertEquals(returnNumber, result, 1);
-        
-        // --- Test case 2 ---
-        System.out.println("\tTest case 2");
-        hero = "topshotYoungster";
-        item1 = "meat";
-        item2 = "rifle";
-        item3 = "";
-        successFailureBoundary = 70;
-        returnNumber = 1;
-        
-        // call the method
-        result = QuestionsAndSceneControl.loadCombatActions(hero, item1, item2, item3);
-         
-        // test to see if the result returned equals the expected result
-        assertEquals(returnNumber, result, 1);
-        
-        // --- Test case 3 ---
-        System.out.println("\tTest case 3");
-        hero = "spinster";
-        item1 = "rifle";
-        item2 = "meat";
-        item3 = "knife";
-        successFailureBoundary = 70;
-        returnNumber = 1;
-        
-        // call the method
-        result = QuestionsAndSceneControl.loadCombatActions(hero, item1, item2, item3);
-         
-        // test to see if the result returned equals the expected result
-        assertEquals(returnNumber, result, 1);
-        
-        // --- Test case 4 --
-        System.out.println("\tTest case 4");
-        hero = "burlyMan";
-        item1 = "";
-        item2 = "";
-        item3 = "";
-        successFailureBoundary = 60;
-        returnNumber = 1;
-        
-        // call the method
-        result = QuestionsAndSceneControl.loadCombatActions(hero, item1, item2, item3);
-         
-        // test to see if the result returned equals the expected result
-        assertEquals(returnNumber, result, 1);
-        
-        // --- Test case 5 --
-        System.out.println("\tTest case 5");
-        hero = "";
-        item1 = "meat";
-        item2 = "rifle";
-        item3 = "";
-        successFailureBoundary = 70;
-        returnNumber = 99999;
-        
-        // call the method
-        result = QuestionsAndSceneControl.loadCombatActions(hero, item1, item2, item3);
-         
-        // test to see if the result returned equals the expected result
-        assertEquals(returnNumber, result, 99999);
-   }
+    }
 
     /**
      * Test of loadFlightActions method, of class QuestionsAndSceneControl.
@@ -118,96 +60,32 @@ public class QuestionsAndSceneControlTest {
     @Test
     public void testLoadFlightActions() {
         System.out.println("loadFlightActions");
-        
-        // Test Case 1
-        System.out.println("\tTest Case 1");
-        
-        //define input variables
-        String hero = "BurlyMan";
-        String item1 = "knife";
-        String item2 = "";
-        String item3 = "";
-        
-        //define the expected result
+        String hero = "YoungTopShot";
+        String item1 = "Gun";
+        String item2 = "Bullets";
+        String item3 = "Knife";
+        QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
         double expResult = 0.0;
+        double result = instance.loadFlightActions(hero, item1, item2, item3);
+        assertEquals(expResult, result, 0.0);
         
-        //call the method
-        double result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
+    }
+
+    /**
+     * Test of loadEvadeActions method, of class QuestionsAndSceneControl.
+     */
+    @Test
+    public void testLoadEvadeActions() {
+        System.out.println("loadEvadeActions");
+        String hero = "Spinster";
+        String item1 = "Map";
+        String item2 = "ExtraLife";
+        String item3 = "Knife";
+        QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        double expResult = 1.0;
+        double result = instance.loadEvadeActions(hero, item1, item2, item3);
+        assertEquals(expResult, result, 1.0);
         
-        //test to see if the result returned equals the expected result;
-        assertEquals(expResult, result, 1);
-        
-        // Test Case 2
-        System.out.println("\tTest Case 2");
-        
-        //define input variables
-        hero = "TopshotYoungster";
-        item1 = "meat";
-        item2 = "rifle";
-        item3 = "";
-        
-        //define the expected result
-        expResult = 0.0;
-        
-        //call the method
-        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
-        
-        //test to see if the result returned equals the expected result;
-        assertEquals(expResult, result, 1);
-        
-        // Test Case 3
-        System.out.println("\tTest Case 3");
-        
-        //define input variables
-        hero = "Spinster";
-        item1 = "rifle";
-        item2 = "meat";
-        item3 = "knife";
-        
-        //define the expected result
-        expResult = 0.0;
-        
-        //call the method
-        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
-        
-        //test to see if the result returned equals the expected result;
-        assertEquals(expResult, result, 1);
-        
-        // Test Case 4
-        System.out.println("\tTest Case 4");
-        
-        //define input variables
-        hero = "BurlyMan";
-        item1 = "";
-        item2 = "";
-        item3 = "";
-        
-        //define the expected result
-        expResult = 0.0;
-        
-        //call the method
-        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
-        
-        //test to see if the result returned equals the expected result;
-        assertEquals(expResult, result, 1);
-            
-        // Test Case 5
-        System.out.println("\tTest Case 5");
-        
-        //define input variables
-        hero = "";
-        item1 = "rifle";
-        item2 = "";
-        item3 = "meat";
-        
-        //define the expected result
-        expResult = 0.0;
-        
-        //call the method
-        result = QuestionsAndSceneControl.loadFlightActions(hero, item1, item2, item3);
-        
-        //test to see if the result returned equals the expected result;
-        assertEquals(expResult, result, 1);
     }
 
     /**
@@ -216,11 +94,9 @@ public class QuestionsAndSceneControlTest {
     @Test
     public void testCheckSceneQuestionChoiceAndReturnNewScene() {
         System.out.println("checkSceneQuestionChoiceAndReturnNewScene");
-        QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        instance.checkSceneQuestionChoiceAndReturnNewScene();
+        
     }
-    
-     
     
 }

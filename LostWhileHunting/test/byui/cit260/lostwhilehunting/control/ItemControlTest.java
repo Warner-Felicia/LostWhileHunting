@@ -43,15 +43,12 @@ public class ItemControlTest {
     @Test
     public void testGenerateItemFromItems() {
         System.out.println("generateItemFromItems");
-        
-        String expResult = "Meat";
-        String result = ItemControl.generateItemFromItems();
-        
-        if(expResult == result){
+        ItemControl instance = new ItemControl();
+        String expResult = "";
+        String result = instance.generateItemFromItems();
         assertEquals(expResult, result);
-        }else{
-        System.out.println("returned item was: "+ result);
-        }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -60,11 +57,13 @@ public class ItemControlTest {
     @Test
     public void testViewInventory() {
         System.out.println("viewInventory");
-        String newItem = "Gun";
-        int expResult=2;
-        
-        int result = ItemControl.viewInventory(newItem);
+        String newItem = "";
+        ItemControl instance = new ItemControl();
+        int expResult = 0;
+        int result = instance.viewInventory(newItem);
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

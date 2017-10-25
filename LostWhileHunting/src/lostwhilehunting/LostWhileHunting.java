@@ -27,6 +27,8 @@ public class LostWhileHunting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+              
         Player playerOne = new Player();
         playerOne.setName("Fred Flintstone");
         playerOne.setNumberOfSurePasses(4);
@@ -67,12 +69,47 @@ public class LostWhileHunting {
         System.out.println(Map.Town.toString());
         System.out.println(Map.Goal.toString());
         
-        System.out.println(Items.Rifle.toString());
+        /*System.out.println(Items.Rifle.toString());
         System.out.println(Items.Bullets.toString());
         System.out.println(Items.SharpKnife.toString());
         System.out.println(Items.MeatFromAnimals.toString());
         System.out.println(Items.AnOldMap.toString());
-        System.out.println(Items.ExtraLife.toString());
+        System.out.println(Items.ExtraLife.toString());*/
+        
+       System.out.println("");
+       System.out.println("Item COntrol and Items Class details ------------"); 
+       Items items = new Items();
+       
+       items.setItem1("Rifle");
+       items.setItem2("Bullets");
+       items.setItem3("Map");
+       
+       System.out.println("item 1 has equipped: "+items.getItem1());
+       System.out.println("item 2 has equipped: "+items.getItem2());
+       System.out.println("item 3 has equipped: "+items.getItem3());
+       
+       ItemControl itemcontrol = new ItemControl();
+       
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       
+       System.out.println("item 1 has equipped: "+items.getItem1());
+        System.out.println("");
+       System.out.println("items Meat quantity: "+items.getMeatQuantity());
+        System.out.println("");
+       System.out.println("items Rifle quantity: "+items.getRifleQuantity());
+       System.out.println("");
+       System.out.println("items bullet quantity: "+items.getBulletsQuantity());
+        System.out.println("");
+       System.out.println("items Map quantity: "+items.getMapQuantity());
+        System.out.println("");
+       System.out.println("items Knife quantity: "+items.getKnifeQuantity());
+        System.out.println("");
+       System.out.println("items ExtraLife quantity: "+items.getExtraLifeQuantity());
         
         ResourceSceneAmount resourceSceneAmount = new ResourceSceneAmount();
         
@@ -105,8 +142,11 @@ public class LostWhileHunting {
         regularScenePOne.setSafe("Not Safe");
         System.out.println(regularScenePOne.toString());
         
-        QuestionsAndSceneControl.loadCombatActions("BurlyMan","Gun","Bullets","Knife");
+        QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();
         
+        questionsandscenecontrol.loadCombatActions("BurlyMan","Gun","Bullets","Knife");
+        questionsandscenecontrol.loadFlightActions("TopShotYoungster","Gun","Bullets","Knife");
+        questionsandscenecontrol.loadEvadeActions("Spinster","Gun","Bullets","Knife");
     }
     
     
