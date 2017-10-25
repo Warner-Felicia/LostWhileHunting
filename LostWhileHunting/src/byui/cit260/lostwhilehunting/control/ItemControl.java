@@ -14,8 +14,7 @@ import byui.cit260.lostwhilehunting.model.Items;
 
 public class ItemControl {
     
-     Items items = new Items();
-     
+         
      private int itemId = 0;
      private int meatAmount = 0;
      private int knifeAmount = 0;
@@ -25,8 +24,6 @@ public class ItemControl {
      private int extraLifeAmount = 0;
    
     public String generateItemFromItems(){
-        
-       
         
         String item = "";
         double itemSpawn = 0;
@@ -69,7 +66,7 @@ public class ItemControl {
        }else{
        System.out.println("You found a: "+item);
        }
-       items.setItem1(item);
+       Items.setItem1(item);
        this.viewInventory(item);
        
        return item;
@@ -84,32 +81,32 @@ public class ItemControl {
                 
                 itemId=1;
                 meatAmount++;
-                items.setMeatQuantity(meatAmount);
-                System.out.println("You have "+items.getMeatQuantity()+" "+items.getMeat());  
+                Items.setMeatQuantity(meatAmount);
+                System.out.println("You have "+Items.getMeatQuantity()+" "+Items.getMeat());  
                 
                 break;
             case "Rifle":
                 
                 itemId=2;
                 rifleAmount++;
-                items.setRifleQuantity(rifleAmount);
-                System.out.println("You have "+items.getRifleQuantity()+" "+items.getRifle());
+                Items.setRifleQuantity(rifleAmount);
+                System.out.println("You have "+Items.getRifleQuantity()+" "+Items.getRifle());
                 
                 break;
             case "Bullets":
                 
                 itemId=3;
                 bulletAmount++;
-                items.setBulletsQuantity(bulletAmount);
-                System.out.println("You have "+items.getBulletsQuantity()+" "+items.getBullets());
+                Items.setBulletsQuantity(bulletAmount);
+                System.out.println("You have "+Items.getBulletsQuantity()+" "+Items.getBullets());
                 
                 break;
             case "Map":
                 
                 itemId=4;
                 mapAmount++;
-                items.setMapQuantity(mapAmount);
-                System.out.println("You have "+items.getMapQuantity()+" "+items.getMap());
+                Items.setMapQuantity(mapAmount);
+                System.out.println("You have "+Items.getMapQuantity()+" "+Items.getMap());
                 
                 break;
                 
@@ -117,8 +114,8 @@ public class ItemControl {
                 
                 itemId=5;
                 extraLifeAmount++;
-                items.setExtraLifeQuantity(extraLifeAmount);
-                System.out.println("You have "+items.getExtraLifeQuantity()+" "+items.getExtraLife());
+                Items.setExtraLifeQuantity(extraLifeAmount);
+                System.out.println("You have "+Items.getExtraLifeQuantity()+" "+Items.getExtraLife());
                 
                 break;
                 
@@ -126,8 +123,8 @@ public class ItemControl {
                 
                 itemId=6;
                 knifeAmount++;
-                items.setKnifeQuantity(knifeAmount);
-                System.out.println("You have "+items.getKnifeQuantity()+" "+items.getKnife());
+                Items.setKnifeQuantity(knifeAmount);
+                System.out.println("You have "+Items.getKnifeQuantity()+" "+Items.getKnife());
                               
                 break;
                 

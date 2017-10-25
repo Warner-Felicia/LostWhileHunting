@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author New User
  */
-public class Items {
+public final class Items {
     
     /*Rifle("weapon", 25, "not equipped"),
     Bullets("ammunition", 25, "not equipped"),
@@ -24,202 +24,204 @@ public class Items {
     ExtraLife("health", 5, "not equipped");*/
     
      
-    private String rifle = "Rifle";
-    private int rifleQuantity = 0;
-    private String rifleStatus = "";
+    private static String rifle = "Rifle";
+    private static int rifleQuantity = 0;
+    private static String rifleStatus = "";
     
-    private String meat = "Meat";
-    private int meatQuantity = 0;
-    private String meatStatus = "";
+    private static String meat = "Meat";
+    private static int meatQuantity = 0;
+    private static String meatStatus = "";
     
-    private String bullets = "Bullets";
-    private int bulletsQuantity = 0;
-    private String bulletsStatus = "";
+    private static String bullets = "Bullets";
+    private static int bulletsQuantity = 0;
+    private static String bulletsStatus = "";
     
-    private String map = "Map";
-    private int mapQuantity = 0;
-    private String mapStatus = "";
+    private static String map = "Map";
+    private static int mapQuantity = 0;
+    private static String mapStatus = "";
     
-    private String extraLife = "ExtraLife";
-    private int extraLifeQuantity = 0;
-    private String extraLifeStatus = "";
+    private static String extraLife = "ExtraLife";
+    private static int extraLifeQuantity = 0;
+    private static String extraLifeStatus = "";
     
-    private String knife = "Knife";
-    private int knifeQuantity = 0;
-    private String knifeStatus = "";
+    private static String knife = "Knife";
+    private static int knifeQuantity = 0;
+    private static String knifeStatus = "";
     
-    private String item1 = "";
-    private String item2 = "";
-    private String item3 = "";
+    private static String item1 = "";
+    private static String item2 = "";
+    private static String item3 = "";
 
-    
-    public String getRifle() {
+    public static String getRifle() {
         return rifle;
     }
 
-    public void setRifle(String rifle) {
-        this.rifle = rifle;
+    public static void setRifle(String rifle) {
+        Items.rifle = rifle;
     }
 
-    public int getRifleQuantity() {
+    public static int getRifleQuantity() {
         return rifleQuantity;
     }
 
-    public void setRifleQuantity(int rifleQuantity) {
-        this.rifleQuantity = rifleQuantity;
+    public static void setRifleQuantity(int rifleQuantity) {
+        Items.rifleQuantity = rifleQuantity;
     }
 
-    public String getRifleStatus() {
+    public static String getRifleStatus() {
         return rifleStatus;
     }
 
-    public void setRifleStatus(String rifleStatus) {
-        this.rifleStatus = rifleStatus;
+    public static void setRifleStatus(String rifleStatus) {
+        Items.rifleStatus = rifleStatus;
     }
 
-    public String getMeat() {
+    public static String getMeat() {
         return meat;
     }
 
-    public void setMeat(String meat) {
-        this.meat = meat;
+    public static void setMeat(String meat) {
+        Items.meat = meat;
     }
 
-    public int getMeatQuantity() {
+    public static int getMeatQuantity() {
         return meatQuantity;
     }
 
-    public void setMeatQuantity(int meatQuantity) {
-        this.meatQuantity = meatQuantity;
+    public static void setMeatQuantity(int meatQuantity) {
+        Items.meatQuantity = meatQuantity;
     }
 
-    public String getMeatStatus() {
+    public static String getMeatStatus() {
         return meatStatus;
     }
 
-    public void setMeatStatus(String meatStatus) {
-        this.meatStatus = meatStatus;
+    public static void setMeatStatus(String meatStatus) {
+        Items.meatStatus = meatStatus;
     }
 
-    public String getBullets() {
+    public static String getBullets() {
         return bullets;
     }
 
-    public void setBullets(String bullets) {
-        this.bullets = bullets;
+    public static void setBullets(String bullets) {
+        Items.bullets = bullets;
     }
 
-    public int getBulletsQuantity() {
+    public static int getBulletsQuantity() {
         return bulletsQuantity;
     }
 
-    public void setBulletsQuantity(int bulletsQuantity) {
-        this.bulletsQuantity = bulletsQuantity;
+    public static void setBulletsQuantity(int bulletsQuantity) {
+        Items.bulletsQuantity = bulletsQuantity;
     }
 
-    public String getBulletsStatus() {
+    public static String getBulletsStatus() {
         return bulletsStatus;
     }
 
-    public void setBulletsStatus(String bulletsStatus) {
-        this.bulletsStatus = bulletsStatus;
+    public static void setBulletsStatus(String bulletsStatus) {
+        Items.bulletsStatus = bulletsStatus;
     }
 
-    public String getMap() {
+    public static String getMap() {
         return map;
     }
 
-    public void setMap(String map) {
-        this.map = map;
+    public static void setMap(String map) {
+        Items.map = map;
     }
 
-    public int getMapQuantity() {
+    public static int getMapQuantity() {
         return mapQuantity;
     }
 
-    public void setMapQuantity(int mapQuantity) {
-        this.mapQuantity = mapQuantity;
+    public static void setMapQuantity(int mapQuantity) {
+        Items.mapQuantity = mapQuantity;
     }
 
-    public String getMapStatus() {
+    public static String getMapStatus() {
         return mapStatus;
     }
 
-    public void setMapStatus(String mapStatus) {
-        this.mapStatus = mapStatus;
+    public static void setMapStatus(String mapStatus) {
+        Items.mapStatus = mapStatus;
     }
 
-    public String getExtraLife() {
+    public static String getExtraLife() {
         return extraLife;
     }
 
-    public void setExtraLife(String extraLife) {
-        this.extraLife = extraLife;
+    public static void setExtraLife(String extraLife) {
+        Items.extraLife = extraLife;
     }
 
-    public int getExtraLifeQuantity() {
+    public static int getExtraLifeQuantity() {
         return extraLifeQuantity;
     }
 
-    public void setExtraLifeQuantity(int extraLifeQuantity) {
-        this.extraLifeQuantity = extraLifeQuantity;
+    public static void setExtraLifeQuantity(int extraLifeQuantity) {
+        Items.extraLifeQuantity = extraLifeQuantity;
     }
 
-    public String getExtraLifeStatus() {
+    public static String getExtraLifeStatus() {
         return extraLifeStatus;
     }
 
-    public void setExtraLifeStatus(String extraLifeStatus) {
-        this.extraLifeStatus = extraLifeStatus;
+    public static void setExtraLifeStatus(String extraLifeStatus) {
+        Items.extraLifeStatus = extraLifeStatus;
     }
 
-    public String getKnife() {
+    public static String getKnife() {
         return knife;
     }
 
-    public void setKnife(String knife) {
-        this.knife = knife;
+    public static void setKnife(String knife) {
+        Items.knife = knife;
     }
 
-    public int getKnifeQuantity() {
+    public static int getKnifeQuantity() {
         return knifeQuantity;
     }
 
-    public void setKnifeQuantity(int knifeQuantity) {
-        this.knifeQuantity = knifeQuantity;
+    public static void setKnifeQuantity(int knifeQuantity) {
+        Items.knifeQuantity = knifeQuantity;
     }
 
-    public String getKnifeStatus() {
+    public static String getKnifeStatus() {
         return knifeStatus;
     }
 
-    public void setKnifeStatus(String knifeStatus) {
-        this.knifeStatus = knifeStatus;
+    public static void setKnifeStatus(String knifeStatus) {
+        Items.knifeStatus = knifeStatus;
     }
 
-    public String getItem1() {
+    public static String getItem1() {
         return item1;
     }
 
-    public void setItem1(String item1) {
-        this.item1 = item1;
+    public static void setItem1(String item1) {
+        Items.item1 = item1;
     }
 
-    public String getItem2() {
+    public static String getItem2() {
         return item2;
     }
 
-    public void setItem2(String item2) {
-        this.item2 = item2;
+    public static void setItem2(String item2) {
+        Items.item2 = item2;
     }
 
-    public String getItem3() {
+    public static String getItem3() {
         return item3;
     }
 
-    public void setItem3(String item3) {
-        this.item3 = item3;
+    public static void setItem3(String item3) {
+        Items.item3 = item3;
     }
+
+    
+    
 
     @Override
     public int hashCode() {
