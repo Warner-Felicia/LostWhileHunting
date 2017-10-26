@@ -16,6 +16,7 @@ import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.view.StartProgramView;
 
 /**
  *
@@ -28,8 +29,10 @@ public class LostWhileHunting {
      */
     public static void main(String[] args) {
         
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
               
-        Player playerOne = new Player();
+       /* Player playerOne = new Player();
         playerOne.setName("Fred Flintstone");
         playerOne.setNumberOfSurePasses(4);
         
@@ -69,24 +72,18 @@ public class LostWhileHunting {
         System.out.println(Map.Town.toString());
         System.out.println(Map.Goal.toString());
         
-        /*System.out.println(Items.Rifle.toString());
-        System.out.println(Items.Bullets.toString());
-        System.out.println(Items.SharpKnife.toString());
-        System.out.println(Items.MeatFromAnimals.toString());
-        System.out.println(Items.AnOldMap.toString());
-        System.out.println(Items.ExtraLife.toString());*/
-        
+              
        System.out.println("");
        System.out.println("Item COntrol and Items Class details ------------"); 
-       Items items = new Items();
        
-       items.setItem1("Rifle");
-       items.setItem2("Bullets");
-       items.setItem3("Map");
        
-       System.out.println("item 1 has equipped: "+items.getItem1());
-       System.out.println("item 2 has equipped: "+items.getItem2());
-       System.out.println("item 3 has equipped: "+items.getItem3());
+       Items.setItem1("Rifle");
+       Items.setItem2("Bullets");
+       Items.setItem3("Map");
+       
+       System.out.println("item 1 has equipped: "+Items.getItem1());
+       System.out.println("item 2 has equipped: "+Items.getItem2());
+       System.out.println("item 3 has equipped: "+Items.getItem3());
        
        ItemControl itemcontrol = new ItemControl();
        
@@ -96,27 +93,38 @@ public class LostWhileHunting {
        itemcontrol.generateItemFromItems();
        itemcontrol.generateItemFromItems();
        itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
+       itemcontrol.generateItemFromItems();
        
-       System.out.println("item 1 has equipped: "+items.getItem1());
+       System.out.println("item 1 has equipped: "+Items.getItem1());
         System.out.println("");
-       System.out.println("items Meat quantity: "+items.getMeatQuantity());
+       System.out.println("items Meat quantity: "+Items.getMeatQuantity());
         System.out.println("");
-       System.out.println("items Rifle quantity: "+items.getRifleQuantity());
+       System.out.println("items Rifle quantity: "+Items.getRifleQuantity());
        System.out.println("");
-       System.out.println("items bullet quantity: "+items.getBulletsQuantity());
+       System.out.println("items bullet quantity: "+Items.getBulletsQuantity());
         System.out.println("");
-       System.out.println("items Map quantity: "+items.getMapQuantity());
+       System.out.println("items Map quantity: "+Items.getMapQuantity());
         System.out.println("");
-       System.out.println("items Knife quantity: "+items.getKnifeQuantity());
+       System.out.println("items Knife quantity: "+Items.getKnifeQuantity());
         System.out.println("");
-       System.out.println("items ExtraLife quantity: "+items.getExtraLifeQuantity());
+       System.out.println("items ExtraLife quantity: "+Items.getExtraLifeQuantity());
         
+       System.out.println("");
+       System.out.println("Scene Resource Amount ------------");
+       
+       System.out.println("");
         ResourceSceneAmount resourceSceneAmount = new ResourceSceneAmount();
         
         resourceSceneAmount.setAmount(2);
         
         System.out.println(resourceSceneAmount.toString());
         
+        System.out.println("");
         // The test for classes Questions, SceneQuestions, RegularSceneType
         Questions questionPlayer = new Questions();
         
@@ -146,7 +154,7 @@ public class LostWhileHunting {
         
         questionsandscenecontrol.loadCombatActions("BurlyMan","Gun","Bullets","Knife");
         questionsandscenecontrol.loadFlightActions("TopShotYoungster","Gun","Bullets","Knife");
-        questionsandscenecontrol.loadEvadeActions("Spinster","Gun","Bullets","Knife");
+        questionsandscenecontrol.loadEvadeActions("Spinster","Gun","Bullets","Knife");*/
     }
     
     

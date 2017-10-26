@@ -16,20 +16,20 @@ import java.awt.Point;
 public enum Actors {
     
     Spinster("Sue", "A sweet lady very good at hunting with traps.", "health", 
-        new Point(1,1)),
+        new Point(0,0)),
     TopshotYoungster("Timmy", "A young teen taught by his father how to shoot "
-            + "from a distance.", "speed", new Point(0,1)),
+            + "from a distance.", "speed", new Point(0,0)),
     BurlyMan("Butch", "A super strong farmer, known to have won many fights.", 
-            "strength", new Point(1,2)),
+            "strength", new Point(0,0)),
     Coyote("coyote", "A hungry dog like animal who makes a lot of noise.", 
-            "speed", new Point(1,4)),
+            "speed", new Point(0,1)),
     Wolf("wolf", "Leader of the wolf pack, if he is killed they all disburse.",
-        "speed", new Point(2,1)),
-    SmallWolf("pups", "Wolves that follow the Alpha.", "speed", new Point(2,2)),
+        "speed", new Point(3,1)),
+    SmallWolf("pups", "Wolves that follow the Alpha.", "speed", new Point(5,1)),
     Bear("bear", "A huge bear who is often seen by the great river catching salmon.",
-        "strength", new Point(5,1)),
+        "strength", new Point(7,1)),
     Thieves("muggers", "Men who have no regard for property.", "health", 
-        new Point(6,2));
+        new Point(7,2));
     
         
     private String name;
