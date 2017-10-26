@@ -16,6 +16,7 @@ import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.view.StartProgramView;
 
 /**
@@ -27,10 +28,16 @@ public class LostWhileHunting {
     /**
      * @param args the command line arguments
      */
+    private static Game currentGame = null;
+    private static Player player = null;
+    
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        
+        
               
        /* Player playerOne = new Player();
         playerOne.setName("Fred Flintstone");
@@ -155,6 +162,22 @@ public class LostWhileHunting {
         questionsandscenecontrol.loadCombatActions("BurlyMan","Gun","Bullets","Knife");
         questionsandscenecontrol.loadFlightActions("TopShotYoungster","Gun","Bullets","Knife");
         questionsandscenecontrol.loadEvadeActions("Spinster","Gun","Bullets","Knife");*/
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        LostWhileHunting.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+    
+    public static void setPlayer(Player player) {
+        LostWhileHunting.player = player;
     }
     
     
