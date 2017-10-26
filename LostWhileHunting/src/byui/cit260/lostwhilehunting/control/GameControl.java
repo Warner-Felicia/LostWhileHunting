@@ -5,7 +5,9 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.model.Player;
 import static javafx.application.Platform.exit;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -57,6 +59,19 @@ public class GameControl {
     
     public static void checkIfActorIsInjuredDeadOrAlive(){
         
+    }
+
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        LostWhileHunting.setPlayer(player); // save the player
+        
+        return player;
     }
     
 }
