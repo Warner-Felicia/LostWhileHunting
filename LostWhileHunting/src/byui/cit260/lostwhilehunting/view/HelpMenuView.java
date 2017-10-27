@@ -5,45 +5,44 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
-import byui.cit260.lostwhilehunting.control.GameControl;
 import java.util.Scanner;
-import lostwhilehunting.LostWhileHunting;
 
 /**
  *
  * @author New User
  */
-public class MainMenuView {
+public class HelpMenuView {
     
     private String menu;
 
-    public MainMenuView() {
+    public HelpMenuView() {
         this.menu = "\n"
                     + "\n----------------------------------------"
-                    + "\n| Main Menu                            |"
+                    + "\n| Help Menu                            |"
                     + "\n----------------------------------------"
-                    + "\nN - Start A New Game"
-                    + "\nC - Continue A Saved Game"
-                    + "\nH - Help Menu"
-                    + "\nS - Save game"
+                    + "\n1 - What is the goal of the game?"
+                    + "\n2 - How to move"
+                    + "\n3 - Chance system explained"
+                    + "\n4 - Tools explained"
+                    + "\n5 - Player strengths and weaknesses"
                     + "\nQ - Quit"
                     + "\n----------------------------------------";
     }
-    void displayMainMenuView() {
+    void displayHelpMenuView() {
         
         boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
+            String helpMenuOption = this.getHelpMenuOption();
+            if (helpMenuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
             // do the requested action and display the next view
-            done = this.doAction(menuOption);
+            done = this.doAction(helpMenuOption);
         } while (!done);
     }
 
-    private String getMenuOption() {
+    private String getHelpMenuOption() {
        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -70,17 +69,20 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "1": 
+                this.goalOfTheGame();
                 break;
-            case "C": // get and start an existing game
-                this.startExistingGame();
+            case "2":
+                this.howToMove();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
+            case "3":
+                this.chanceSystemExplained();
                 break;
-            case "S": // save the current game
-                this.saveGame();
+            case "4": 
+                this.toolsExplained();
+                break;
+            case "5": 
+                this.playerStrengthsAndWeaknesses();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -90,29 +92,25 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        GameControl.createNewGame(LostWhileHunting.getPlayer());
-        
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void goalOfTheGame() {
+        System.out.println("\n goalOfTheGame() function called");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void howToMove() {
+        System.out.println("\n howToMove() function called");
     }
 
-    private void displayHelpMenu() {
-        // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-        
-        // Display the main menu view
-        helpMenuView.displayHelpMenuView();
+    private void chanceSystemExplained() {
+        System.out.println("\n chanceSystemExplained() function called");
     }
 
-    private void saveGame() {
-        System.out.println("** saveGame function called ***");
+    private void toolsExplained() {
+        System.out.println("\n toolsExplained() function called");
     }
-    
+
+    private void playerStrengthsAndWeaknesses() {
+        System.out.println("\n playerStrengthsAndWeaknesses() function called");
+    }
+
     
 }
