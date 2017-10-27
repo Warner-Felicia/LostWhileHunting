@@ -36,10 +36,7 @@ public class LostWhileHunting {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
         
-        
-        
-              
-       /* Player playerOne = new Player();
+        /* Player playerOne = new Player();
         playerOne.setName("Fred Flintstone");
         playerOne.setNumberOfSurePasses(4);
         
