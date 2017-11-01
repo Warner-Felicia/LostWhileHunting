@@ -98,7 +98,10 @@ public class GameMenuView {
     }
 
     private void moveToNextLocation() {
-        System.out.println("\n *** moveToNextLocation() function called");
+        CombatMenuView combatmenuview = new CombatMenuView();
+        
+        //call combat view
+        combatmenuview.displayCombatMenuView();
     }
 
     private void useSurePass() {
