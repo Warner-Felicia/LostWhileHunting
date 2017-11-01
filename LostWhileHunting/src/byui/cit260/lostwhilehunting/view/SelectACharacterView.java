@@ -72,7 +72,7 @@ public class SelectACharacterView {
         
         return value;
             
-        }
+    }
 
     private boolean doAction(String choice) {
         

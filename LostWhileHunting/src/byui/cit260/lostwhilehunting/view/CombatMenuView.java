@@ -5,15 +5,24 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.control.GameControl;
+import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Game;
+import java.util.Scanner;
+
 /**
  *
  * @author Sony
  */
 public class CombatMenuView {
-
+    
+    Game game = new Game();
+    QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
     
     public CombatMenuView() {
+        
         this.menu = "\n"
                     + "\n---------------------------------------"
                     + "\n What will you do?"
@@ -63,12 +72,29 @@ public class CombatMenuView {
     }
 
     private String getCombatMenuOption() {
-       System.out.println("getCombatMenuOption is called");
-        return null;
+       Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.menu);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1) {
+                System.out.println("Please make a selection");
+                continue;
+            }
+            
+            break;
+        }    
+        
+        return value;
     }
 
     private void fight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
     }
 
     private void flight() {
