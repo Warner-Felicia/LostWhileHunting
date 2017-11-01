@@ -87,15 +87,15 @@ public class MainMenuView {
                 break;
         }
         
-        return false;
+        return true;
     }
 
     private void startNewGame() {
         GameControl.createNewGame(LostWhileHunting.getPlayer());
         
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        //display the select a character menu
+        SelectACharacterView selectACharacterView = new SelectACharacterView();
+        selectACharacterView.displaySelectACharacterMenu();
     }
 
     private void startExistingGame() {

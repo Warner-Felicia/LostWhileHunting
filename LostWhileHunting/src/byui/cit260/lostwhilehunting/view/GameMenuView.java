@@ -15,8 +15,8 @@ public class GameMenuView {
     public GameMenuView() {
     }
     
-    void displayMenu() {
-        System.out.println("\n*** dsiplayMenu() function called");
+    void displayGameMenu() {
+        System.out.println("\n*** displayGameMenu() function called");
     
 }
 }
