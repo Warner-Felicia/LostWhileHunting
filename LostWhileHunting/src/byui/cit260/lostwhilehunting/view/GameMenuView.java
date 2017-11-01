@@ -102,11 +102,14 @@ public class GameMenuView {
     }
 
     private void useSurePass() {
-         System.out.println("\n *** useSurePass() function called");
+         
     }
 
     private void equipItems() {
-         System.out.println("\n *** equipItems() function called");
+        EquipItemView equipitem = new EquipItemView();
+        
+        // Display the main menu view
+        equipitem.displayEquipItems();
     }
 
     private void searchCurrentLocation() {
@@ -114,7 +117,11 @@ public class GameMenuView {
     }
 
     private void viewInventory() {
-         System.out.println("\n *** viewInventory() function called");
+         ViewInventoryView inventoryView = new ViewInventoryView();
+        
+        // Display the main menu view
+        inventoryView.displayViewInventoryView();
+         
     }
 
 }
