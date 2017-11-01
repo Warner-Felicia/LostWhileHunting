@@ -46,7 +46,7 @@ public class GameControl {
     }
     
     public static void checkPlayerStatus(){
-        
+        System.out.println("\n *** checkPlayerStatus() function called");
     }
     
     public static void endGameWithCredits(){
