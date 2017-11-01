@@ -20,7 +20,7 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private ArrayList<Items> items = new ArrayList<Items>();
-    private String heroClass="";
+    private static String heroClass="";
 
        
     //Class public functions
