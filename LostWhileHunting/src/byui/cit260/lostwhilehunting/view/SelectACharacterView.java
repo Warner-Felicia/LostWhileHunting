@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.model.Game;
 import java.util.Scanner;
 
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
  */
 public class SelectACharacterView {
     
+    Game game = new Game();
     private String menu;
     
     public SelectACharacterView() {
@@ -82,15 +84,15 @@ public class SelectACharacterView {
         switch (choice) {
             case "B":
                 hero = "burlyMan";
-                
+                game.setHeroClass(hero);
                 break;
             case "T":
-                hero = "topshotYoungster";
-                
+                hero = "TopShotYoungster";
+                game.setHeroClass(hero);
                 break;
             case "S":
-                hero = "spinster";
-                
+                hero = "Spinster";
+                game.setHeroClass(hero);
                 break;
             default:
                 System.out.println("You must choose a character from the list.");
