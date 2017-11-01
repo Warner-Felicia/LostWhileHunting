@@ -20,10 +20,13 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private ArrayList<Items> items = new ArrayList<Items>();
-    
+    private static String heroClass="";
+
+       
     //Class public functions
     public Game() {
     }
+   
 
     public double getTotalScore() {
         return totalScore;
@@ -75,6 +78,16 @@ public class Game implements Serializable{
     public void setMap(Map map) {
         this.map = map;
     }
+
+    public String getHeroClass() {
+        return heroClass;
+    }
+
+    public void setHeroClass(String heroClass) {
+        this.heroClass = heroClass;
+    }
+    
+    
     
     
     

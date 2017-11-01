@@ -17,6 +17,7 @@ import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.model.Game;
+import byui.cit260.lostwhilehunting.view.CombatMenuView;
 import byui.cit260.lostwhilehunting.view.StartProgramView;
 
 /**

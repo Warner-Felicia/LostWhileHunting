@@ -15,6 +15,8 @@ import lostwhilehunting.LostWhileHunting;
  */
 public class GameControl {
     
+    
+    
     public static void checkContinueAndLoadMainMenu(){
         
     }
@@ -54,6 +56,7 @@ public class GameControl {
     }
     
     public static void tiePlayerNameToHero(){
+        
         
     }
     
