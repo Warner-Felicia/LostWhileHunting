@@ -7,6 +7,7 @@ package byui.cit260.lostwhilehunting.view;
 
 import java.util.Scanner;
 
+
 /**
  *
  * @author New User
@@ -38,9 +39,10 @@ public class SelectACharacterView {
         boolean done = false;
         do {
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) 
+            if (menuOption.toUpperCase().equals("Q")) {
                 return;
-            
+            }
+                
             done = this.doAction(menuOption);
             }
         
@@ -75,23 +77,27 @@ public class SelectACharacterView {
     private boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
+        String hero = "";
 
         switch (choice) {
             case "B":
-                System.out.println("You selected Burly man");
+                hero = "burlyMan";
                 
                 break;
             case "T":
-                System.out.println("You selected Topshot Youngster");
+                hero = "topshotYoungster";
+                
                 break;
             case "S":
-                System.out.println("You selected Spinster");
+                hero = "spinster";
+                
                 break;
             default:
                 System.out.println("You must choose a character from the list.");
                 return false;
         }
-        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenu();
         return true;
         
         }
