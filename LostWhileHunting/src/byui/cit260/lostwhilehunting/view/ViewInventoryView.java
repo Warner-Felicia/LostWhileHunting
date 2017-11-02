@@ -29,6 +29,10 @@ public class ViewInventoryView {
                     + "\n"+Items.getMap()+" Amount: "+Items.getMapQuantity()
                     + "\n"+Items.getMeat()+" Amount: "+Items.getMeatQuantity()
                     + "\n"+Items.getExtraLife()+" Amount: "+Items.getExtraLifeQuantity()
+                    + "\n----------------------------------------------"
+                    + "\n| Equipped Items                            |"
+                    + "\n----------------------------------------------"
+                    + "\nItem1: "+Items.getItem1()+" Item2: "+Items.getItem2()+" Item3: "+Items.getItem3()+""
                     + "\nQ - Quit"
                     + "\n---------------------------------------------";
         
