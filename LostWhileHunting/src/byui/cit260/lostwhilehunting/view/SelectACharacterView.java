@@ -80,23 +80,23 @@ public class SelectACharacterView {
         
         choice = choice.toUpperCase();
         String hero = "";
-        String name = "";
+        String heroName = "";
         String heroType = "";
 
         switch (choice) {
             case "B":
                 hero = "burlyMan";
-                name = "Butch";
+                heroName = "Butch";
                 heroType = "Burly Man"; //used in welcome message 
                 break;
             case "T":
                 hero = "topShotYoungster";
-                name = "Timmy";
+                heroName = "Timmy";
                 heroType = "Topshot Youngster"; //used in welcome message
                 break;
             case "S":
                 hero = "spinster";
-                name = "Sue";
+                heroName = "Sue";
                 heroType = "Spinster"; //used in welcome message
                 break;
             default:
@@ -108,11 +108,11 @@ public class SelectACharacterView {
         // Display welcome message and GameMenu view
         System.out.println("\n ======================================"
                           + "\n You have chosen to be the " + heroType + "."
-                          + "\n Your name in the game will be " + name + "."
+                          + "\n Your name in the game will be " + heroName + "."
                           + "\n"
-                          + "\n You will have certain strengths based on "
-                          + "\n the character you chose.  Good luck "
-                          + "\n discovering those strengths."
+                          + "\n " + heroName + ","
+                          + "\n You have been given certain strengths."
+                          + "\n Good luck discovering them."
                           + "\n ======================================");
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenu();

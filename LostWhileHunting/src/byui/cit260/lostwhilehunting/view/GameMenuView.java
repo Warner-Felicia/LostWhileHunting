@@ -29,7 +29,8 @@ public class GameMenuView {
                     + "\nC - Check status of player"
                     + "\nE - Equip items"
                     + "\nQ - Return to Main Menu"
-                    + "\n----------------------------------------";
+                    + "\n----------------------------------------"
+                    + "\n Please make a selection.";
     }
     
     void displayGameMenu() {
