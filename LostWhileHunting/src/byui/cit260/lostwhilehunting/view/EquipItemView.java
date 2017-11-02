@@ -23,12 +23,12 @@ public class EquipItemView {
                     + "\n----------------------------------------------"
                     + "\n| Equip Items                                |"
                     + "\n----------------------------------------------"
-                    + "\nR - Equip Rifle"
-                    + "\nB - Equip Bullets"
-                    + "\nK - Equip Knife"
-                    + "\nM - Equip Map"
-                    + "\nN - Equip Meat"
-                    + "\nE - Equip ExtraLife"
+                    + "\nR - Equip Rifle "+Items.getRifleQuantity()
+                    + "\nB - Equip Bullets "+Items.getBulletsQuantity()
+                    + "\nK - Equip Knife "+Items.getKnifeQuantity()
+                    + "\nM - Equip Map "+Items.getMapQuantity()
+                    + "\nN - Equip Meat "+Items.getMeatQuantity()
+                    + "\nE - Equip ExtraLife "+Items.getExtraLifeQuantity()
                     + "\nQ - Quit"
                     + "\n---------------------------------------------";
         
@@ -111,81 +111,93 @@ public class EquipItemView {
     }
     
      private void equipItem(String item) {
+        
+         int deductMap;
+         int deductRifle;
+         int deductBullets;
+         int deductKnife;
+         int deductMeat;
+         int deductExtraLife;
          
-       if(item=="Map"){ 
-        if(Items.getMapQuantity()!=0){
-         int deductMap = Items.getMapQuantity();
-         deductMap = deductMap - 1;
-         Items.setExtraLifeQuantity(deductMap);
-        }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
+       if(null == item){
+           System.out.println("\nItem does not exist");
+       }else switch (item) {
+            case "Map":
+                if(Items.getMapQuantity()!=0){
+                    deductMap = Items.getMapQuantity();
+                    deductMap--;
+                    Items.setExtraLifeQuantity(deductMap);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }       break;
+            case "Rifle":
+                if(Items.getExtraLifeQuantity()!=0){
+                    deductRifle = Items.getRifleQuantity();
+                    deductRifle--;
+                    Items.setExtraLifeQuantity(deductRifle);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }        break;
+            case "Bullets":
+                if(Items.getBulletsQuantity()!=0){
+                    deductBullets = Items.getBulletsQuantity();
+                    deductBullets--;
+                    Items.setExtraLifeQuantity(deductBullets);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }      break;
+            case "Knife":
+                if(Items.getKnifeQuantity()!=0){
+                    deductKnife = Items.getKnifeQuantity();
+                    deductKnife--;
+                    Items.setExtraLifeQuantity(deductKnife);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }        break;
+            case "Meat":
+                if(Items.getMeatQuantity()!=0){
+                    deductMeat = Items.getMeatQuantity();
+                    deductMeat--;
+                    Items.setExtraLifeQuantity(deductMeat);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }      break;
+            case "ExtraLife":
+                if(Items.getExtraLifeQuantity()!=0){
+                    deductExtraLife = Items.getExtraLifeQuantity();
+                    deductExtraLife--;
+                    Items.setExtraLifeQuantity(deductExtraLife);
+                    this.assigntoSlot(item);
+                }else{
+                    System.out.println("\nYou have no "+ item +" in your inventory");
+                }      break;
+            default:
+                System.out.println("\nItem does not exist");
+                break;
         }
-       }else if(item=="Rifle"){ 
-         if(Items.getExtraLifeQuantity()!=0){
-         int deductRifle = Items.getRifleQuantity();
-         deductRifle = deductRifle - 1;
-         Items.setExtraLifeQuantity(deductRifle);
-         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
-       }
-       }else if(item=="Bullets"){ 
-         if(Items.getBulletsQuantity()!=0){
-         int deductBullets = Items.getBulletsQuantity();
-         deductBullets = deductBullets - 1;
-         Items.setExtraLifeQuantity(deductBullets);
-         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
-         }
-       }else if(item=="Knife"){  
-         if(Items.getKnifeQuantity()!=0){
-         int deductKnife = Items.getKnifeQuantity();
-         deductKnife = deductKnife - 1;
-         Items.setExtraLifeQuantity(deductKnife);
-         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
-       }
-       }else if(item=="Meat"){ 
-         if(Items.getMeatQuantity()!=0){
-         int deductMeat = Items.getMeatQuantity();
-         deductMeat = deductMeat - 1;
-         Items.setExtraLifeQuantity(deductMeat);
-         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
-         }
-       }else if(item=="ExtraLife"){ 
-         if(Items.getExtraLifeQuantity()!=0){
-         int deductExtraLife = Items.getExtraLifeQuantity();
-         deductExtraLife = deductExtraLife - 1;
-         Items.setExtraLifeQuantity(deductExtraLife);
-         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
-            return;
-         }
-       }else{
-            System.out.println("\nItem does not exist");
-            return;
-       }
          
-            if(Items.getItem1() == ""){
+      
+   
+    }
+     
+    public void assigntoSlot(String item){
+        if("".equals(Items.getItem1())){
                 Items.setItem1(item);
                 System.out.println(item+" assigned to Item1");
-            }else if(Items.getItem2()==""){
+            }else if("".equals(Items.getItem2())){
                 Items.setItem2(item); 
                 System.out.println(item+" assigned to Item2");
-            }else if(Items.getItem3()==""){
+            }else if("".equals(Items.getItem3())){
                 Items.setItem3(item); 
                 System.out.println(item+" assigned to Item3");
             }else{
                 this.overWriteItem(item);
             }
-    
-        
-   
     }
 
     public void overWriteItem(String item){
