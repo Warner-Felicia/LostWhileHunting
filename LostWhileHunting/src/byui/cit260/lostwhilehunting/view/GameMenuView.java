@@ -1,6 +1,8 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.GameControl;
+import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.control.LocationsControl;
 import java.util.Scanner;
 
 /*
@@ -108,11 +110,13 @@ public class GameMenuView {
     }
 
     private void useSurePass() {
-        System.out.println("*** useSurePass() function called");
+        LocationsControl locationscontrol = new LocationsControl();
+        locationscontrol.incrementLocationsMapSceneTypeIfSurePass(1);
     }
 
     private void searchCurrentLocation() {
-         System.out.println("\n *** searchCurrentLocation() function called");
+         ItemControl itemcontrol = new ItemControl();
+         itemcontrol.searchLocation();
     }
 
     private void viewInventory() {
