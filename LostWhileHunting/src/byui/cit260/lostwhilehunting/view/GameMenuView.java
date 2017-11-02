@@ -103,10 +103,10 @@ public class GameMenuView {
     }
 
     private void moveToNextLocation() {
-        CombatMenuView combatmenuview = new CombatMenuView();
+        CombatMenuView combatMenuView = new CombatMenuView();
         
         //call combat view
-        combatmenuview.displayCombatMenuView();
+        combatMenuView.displayCombatMenuView();
     }
 
     private void useSurePass() {
