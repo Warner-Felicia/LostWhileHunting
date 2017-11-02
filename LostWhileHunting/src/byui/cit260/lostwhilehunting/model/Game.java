@@ -85,6 +85,7 @@ public class Game implements Serializable{
 
     public void setHeroClass(String heroClass) {
         this.heroClass = heroClass;
+        System.out.println("\n"+heroClass+" Hero Class Selected");
     }
     
     

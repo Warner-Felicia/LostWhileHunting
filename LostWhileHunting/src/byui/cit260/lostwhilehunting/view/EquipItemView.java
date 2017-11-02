@@ -119,13 +119,16 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("Rifle");
+                System.out.println("Rifle assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("Rifle"); 
+                System.out.println("Rifle assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("Rifle"); 
+                System.out.println("Rifle assigned to Item3");
             }else{
                 
-                itemcontrol.overWriteItem("Rifle");
+                this.overWriteItem("Rifle");
                 
             }
             
@@ -144,12 +147,15 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("Bullets");
+                System.out.println("Bullets assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("Bullets"); 
+                System.out.println("Bullets assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("Bullets"); 
+                System.out.println("Bullets assigned to Item3");
             }else{
-                itemcontrol.overWriteItem("Bullets");
+                this.overWriteItem("Bullets");
             }
     
         }else{
@@ -166,12 +172,15 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("Knife");
+                System.out.println("Knife assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("Knife"); 
+                System.out.println("Knife assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("Knife"); 
+                System.out.println("Knife assigned to Item3");
             }else{
-                itemcontrol.overWriteItem("Knife");
+                this.overWriteItem("Knife");
             }
     
         }else{
@@ -188,12 +197,15 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("Map");
+                System.out.println("Map assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("Map"); 
+                System.out.println("Map assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("Map"); 
+                System.out.println("Map assigned to Item3");
             }else{
-                itemcontrol.overWriteItem("Map");
+                this.overWriteItem("Map");
             }
     
         }else{
@@ -211,12 +223,15 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("Meat");
+                System.out.println("Meat assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("Meat"); 
+                System.out.println("Meat assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("Meat"); 
+                System.out.println("Meat assigned to Item3");
             }else{
-                itemcontrol.overWriteItem("Meat");
+                this.overWriteItem("Meat");
             }
     
         }else{
@@ -233,16 +248,51 @@ public class EquipItemView {
          
             if(Items.getItem1() == ""){
                 Items.setItem1("ExtraLife");
+                System.out.println("ExtraLife assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2("ExtraLife"); 
+                System.out.println("ExtraLife assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3("ExtraLife"); 
+                System.out.println("ExtraLife assigned to Item3");
             }else{
-                itemcontrol.overWriteItem("ExtraLife");
+                this.overWriteItem("ExtraLife");
             }
     
         }else{
             System.out.println("\nSeriously? You know that item is empty right");
+        }
+    }
+    
+    public void overWriteItem(String item){
+        
+        System.out.println("\nAll item slots are full");
+        System.out.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
+        Scanner overWrite = new Scanner(System.in);
+        String overWriteChoice = "";
+        boolean checker = false;
+         
+                    
+        while(!checker){    
+            
+            overWriteChoice = overWrite.nextLine();
+            overWriteChoice = overWriteChoice.trim();
+            overWriteChoice = overWriteChoice.toUpperCase();
+            System.out.println("You Chose: "+overWriteChoice);    
+            
+            if(overWriteChoice == "Y"){
+                System.out.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
+                Items.setItem1(item);
+            
+            }else if(overWriteChoice == "N"){
+                System.out.println("\nNothing was changed");
+            
+            }else{
+               System.out.println("\nWrong command, please select Y or N");
+                continue;
+            }
+                
+            break;
         }
     }
     

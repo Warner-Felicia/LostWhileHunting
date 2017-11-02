@@ -140,31 +140,7 @@ public class ItemControl {
         return itemId;
     }
 
-    public void overWriteItem(String item){
-        
-        System.out.println("\nAll item slots are full");
-        System.out.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
-        Scanner overWrite = new Scanner(System.in);
-        String overWriteChoice = "";
-        boolean checker = false;
-         
-        overWriteChoice = overWrite.nextLine();
-               
-        while(!checker){    
-                
-            if (overWriteChoice.length() < 1 || overWriteChoice.toUpperCase() != "Y" || overWriteChoice.toUpperCase() != "N") {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }else if(overWriteChoice.toUpperCase() == "Y"){
-                System.out.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
-                Items.setItem1(item);
-            }else{
-                return;
-            }
-                
-            break;
-        }
-    }
+    
     
 }
 

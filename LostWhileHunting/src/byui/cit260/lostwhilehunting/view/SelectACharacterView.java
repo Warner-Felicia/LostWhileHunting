@@ -85,17 +85,17 @@ public class SelectACharacterView {
 
         switch (choice) {
             case "B":
-                hero = "burlyMan";
+                hero = "BurlyMan";
                 heroName = "Butch";
                 heroType = "Burly Man"; //used in welcome message 
                 break;
             case "T":
-                hero = "topShotYoungster";
+                hero = "TopShotYoungster";
                 heroName = "Timmy";
                 heroType = "Topshot Youngster"; //used in welcome message
                 break;
             case "S":
-                hero = "spinster";
+                hero = "Spinster";
                 heroName = "Sue";
                 heroType = "Spinster"; //used in welcome message
                 break;
