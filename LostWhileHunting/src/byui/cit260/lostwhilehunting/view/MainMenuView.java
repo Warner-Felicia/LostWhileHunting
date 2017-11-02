@@ -40,7 +40,8 @@ public class MainMenuView {
             
             // do the requested action and display the next view
             done = this.doAction(menuOption);
-        } while (!done);
+        } 
+        while (!done);
     }
 
     private String getMenuOption() {

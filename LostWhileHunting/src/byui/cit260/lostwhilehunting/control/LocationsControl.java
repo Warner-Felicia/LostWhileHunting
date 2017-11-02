@@ -15,7 +15,7 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.model.Player;
 
 public class LocationsControl {
-    
+
     ItemControl itemcontrol = new ItemControl();
     Player p = new Player();
     

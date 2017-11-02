@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.model.Game;
 import java.util.Scanner;
 
 
@@ -14,12 +15,13 @@ import java.util.Scanner;
  */
 public class SelectACharacterView {
     
+    Game game = new Game();
     private String menu;
     
     public SelectACharacterView() {
         this.menu = "\n"
                     + "\n----------------------------------------"
-                    + "\n| Select a Character                   |"
+                    + "\n| Please Select a Character            |"
                     + "\n----------------------------------------"
                     + "\nB - Burly Man"
                     + "\n     Butch"
@@ -78,24 +80,40 @@ public class SelectACharacterView {
         
         choice = choice.toUpperCase();
         String hero = "";
+        String heroName = "";
+        String heroType = "";
 
         switch (choice) {
             case "B":
                 hero = "burlyMan";
-                
+                heroName = "Butch";
+                heroType = "Burly Man"; //used in welcome message 
                 break;
             case "T":
-                hero = "topshotYoungster";
-                
+                hero = "topShotYoungster";
+                heroName = "Timmy";
+                heroType = "Topshot Youngster"; //used in welcome message
                 break;
             case "S":
                 hero = "spinster";
-                
+                heroName = "Sue";
+                heroType = "Spinster"; //used in welcome message
                 break;
             default:
                 System.out.println("You must choose a character from the list.");
                 return false;
         }
+        game.setHeroClass(hero);
+        
+        // Display welcome message and GameMenu view
+        System.out.println("\n ======================================"
+                          + "\n You have chosen to be the " + heroType + "."
+                          + "\n Your name in the game will be " + heroName + "."
+                          + "\n"
+                          + "\n " + heroName + ","
+                          + "\n You have been given certain strengths."
+                          + "\n Good luck discovering them."
+                          + "\n ======================================");
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenu();
         return true;

@@ -13,22 +13,13 @@ import java.util.Scanner;
  *
  * @author Administrator
  */
-public class InventoryAndEquipItemsView {
+public class EquipItemView {
     
     ItemControl itemcontrol= new ItemControl();
     private String menu;
 
-    public InventoryAndEquipItemsView() {
+    public EquipItemView() {
         this.menu = "\n"
-                    + "\n----------------------------------------------"
-                    + "\n| Inventory Items                            |"
-                    + "\n----------------------------------------------"
-                    + "\n"+Items.getRifle()+" Amount: "+Items.getRifleQuantity()
-                    + "\n"+Items.getBullets()+" Amount: "+Items.getBulletsQuantity()
-                    + "\n"+Items.getKnife()+" Amount: "+Items.getKnifeQuantity()
-                    + "\n"+Items.getMap()+" Amount: "+Items.getMapQuantity()
-                    + "\n"+Items.getMeat()+" Amount: "+Items.getMeatQuantity()
-                    + "\n"+Items.getExtraLife()+" Amount: "+Items.getExtraLifeQuantity()
                     + "\n----------------------------------------------"
                     + "\n| Equip Items                                |"
                     + "\n----------------------------------------------"
@@ -43,21 +34,21 @@ public class InventoryAndEquipItemsView {
         
     }
       
-    void displayInventoryAndEquipItemsView() {
+    void displayEquipItems() {
         
         boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            String inventoryandequipitemsoption = this.getInventoryAndEquipItemsOption();
-            if (inventoryandequipitemsoption.toUpperCase().equals("Q")) // user wants to quit
+            String equipitemsoption = this.getEquipItemsOption();
+            if (equipitemsoption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
             // do the requested action and display the next view
-            done = this.doAction(inventoryandequipitemsoption);
+            done = this.doAction(equipitemsoption);
         } while (!done);
     }
     
-    private String getInventoryAndEquipItemsOption() {
+    private String getEquipItemsOption() {
        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -86,27 +77,27 @@ public class InventoryAndEquipItemsView {
         switch (choice) {
             case "G": // create and start a new game
                 this.equipRifle();
-                System.out.println("\nRifle Equipped");
+                
                 break;
             case "B": // get and start an existing game
                 this.equipBullets();
-                System.out.println("\nBullets Equipped");
+                
                 break;
             case "K": // display the help menu
                 this.equipKnife();
-                System.out.println("\nKnife Equipped");
+                
                 break;
             case "M": // save the current game
                 this.equipMap();
-                System.out.println("\nMap Equipped");
+                
                 break;
             case "N": // save the current game
                 this.equipMeat();
-                System.out.println("\nMeat Equipped");
+                
                 break;
             case "E": // save the current game
                 this.equipExtraLife();
-                System.out.println("\nExtraLife Equipped");
+                
                 break;
             case "Q": // exit
                 System.out.println("\nExiting");
@@ -255,9 +246,4 @@ public class InventoryAndEquipItemsView {
         }
     }
     
-    private void overWriteItem(String item){
-        
-    }
-            
-            
 }
