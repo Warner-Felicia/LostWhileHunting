@@ -31,7 +31,7 @@ public class CombatMenuView {
                     + "\n A. Fight"
                     + "\n B. Flight"
                     + "\n C. Evade"
-                    + "\n Q. Quit"
+                    + "\n Q. Return to Game Menu"
                     + "\n"
                     + "\n---------------------------------------"
                     + "\n Choose Wisely!";              
