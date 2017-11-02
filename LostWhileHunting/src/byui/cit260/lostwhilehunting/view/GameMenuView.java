@@ -18,7 +18,9 @@ public class GameMenuView {
     private String menu;
 
     public GameMenuView() {
-        this.menu = "\n| Game Menu                             |"
+        this.menu = "\n" 
+                    + "\n-----------------------------------------"
+                    + "\n| Game Menu                             |"
                     + "\n----------------------------------------"
                     + "\nM - Move to the next location"
                     + "\nU - Use SurePass"
@@ -84,7 +86,7 @@ public class GameMenuView {
                 this.viewInventory();
                 break;
             case ("C"): // check player status
-                GameControl.checkPlayerStatus();
+                this.checkPlayerStatus();
                 break;
             case ("E"): // equip items
                 this.equipItems();
@@ -105,14 +107,7 @@ public class GameMenuView {
     }
 
     private void useSurePass() {
-         
-    }
-
-    private void equipItems() {
-        EquipItemView equipitem = new EquipItemView();
-        
-        // Display the main menu view
-        equipitem.displayEquipItems();
+        System.out.println("*** useSurePass() function called");
     }
 
     private void searchCurrentLocation() {
@@ -122,9 +117,20 @@ public class GameMenuView {
     private void viewInventory() {
          ViewInventoryView inventoryView = new ViewInventoryView();
         
-        // Display the main menu view
+        // Display the view inventory view
         inventoryView.displayViewInventoryView();
          
+    }
+    
+    private void checkPlayerStatus() {
+        GameControl.checkPlayerStatus();
+    }
+    
+    private void equipItems() {
+        EquipItemView equipitem = new EquipItemView();
+        
+        // Display the EquipItems view
+        equipitem.displayEquipItems();
     }
 
 }

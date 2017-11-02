@@ -21,7 +21,7 @@ public class SelectACharacterView {
     public SelectACharacterView() {
         this.menu = "\n"
                     + "\n----------------------------------------"
-                    + "\n| Select a Character                   |"
+                    + "\n| Please Select a Character            |"
                     + "\n----------------------------------------"
                     + "\nB - Burly Man"
                     + "\n     Butch"
@@ -80,24 +80,40 @@ public class SelectACharacterView {
         
         choice = choice.toUpperCase();
         String hero = "";
+        String name = "";
+        String heroType = "";
 
         switch (choice) {
             case "B":
                 hero = "burlyMan";
-                game.setHeroClass(hero);
+                name = "Butch";
+                heroType = "Burly Man"; //used in welcome message 
                 break;
             case "T":
-                hero = "TopShotYoungster";
-                game.setHeroClass(hero);
+                hero = "topShotYoungster";
+                name = "Timmy";
+                heroType = "Topshot Youngster"; //used in welcome message
                 break;
             case "S":
-                hero = "Spinster";
-                game.setHeroClass(hero);
+                hero = "spinster";
+                name = "Sue";
+                heroType = "Spinster"; //used in welcome message
                 break;
             default:
                 System.out.println("You must choose a character from the list.");
                 return false;
         }
+        game.setHeroClass(hero);
+        
+        // Display welcome message and GameMenu view
+        System.out.println("\n ======================================"
+                          + "\n You have chosen to be the " + heroType + "."
+                          + "\n Your name in the game will be " + name + "."
+                          + "\n"
+                          + "\n You will have certain strengths based on "
+                          + "\n the character you chose.  Good luck "
+                          + "\n discovering those strengths."
+                          + "\n ======================================");
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenu();
         return true;
