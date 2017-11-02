@@ -15,7 +15,7 @@ import lostwhilehunting.LostWhileHunting;
  */
 public class GameControl {
     
-    
+    Player p = new Player();
     
     public static void checkContinueAndLoadMainMenu(){
         
@@ -48,7 +48,8 @@ public class GameControl {
     }
     
     public static void checkPlayerStatus(){
-        System.out.println("\n *** checkPlayerStatus() function called");
+        Player.getHealthStatus();
+        
     }
     
     public static void endGameWithCredits(){

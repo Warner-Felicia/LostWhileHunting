@@ -18,7 +18,7 @@ public class Player implements Serializable{
     //class instance variables
     private String name;
     private static int numberOfSurePasses = 4;
-    private static String healthStatus;
+    private static String healthStatus="Healthy";
 
     public static String getHealthStatus() {
         return healthStatus;
