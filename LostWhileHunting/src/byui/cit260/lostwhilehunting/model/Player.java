@@ -18,6 +18,15 @@ public class Player implements Serializable{
     //class instance variables
     private String name;
     private static int numberOfSurePasses = 4;
+    private static String status;
+
+    public static String getStatus() {
+        return status;
+    }
+
+    public static void setStatus(String status) {
+        Player.status = status;
+    }
     private ArrayList<Game> games = new ArrayList<Game>();
         
     public Player() {
