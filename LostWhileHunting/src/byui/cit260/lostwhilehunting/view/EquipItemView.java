@@ -23,7 +23,7 @@ public class EquipItemView {
                     + "\n----------------------------------------------"
                     + "\n| Equip Items                                |"
                     + "\n----------------------------------------------"
-                    + "\nG - Equip Rifle"
+                    + "\nR - Equip Rifle"
                     + "\nB - Equip Bullets"
                     + "\nK - Equip Knife"
                     + "\nM - Equip Map"
@@ -75,28 +75,28 @@ public class EquipItemView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "G": // create and start a new game
-                this.equipRifle();
+            case "R": // create and start a new game
+                this.equipItem("Rifle");
                 
                 break;
             case "B": // get and start an existing game
-                this.equipBullets();
+                this.equipItem("Bullets");
                 
                 break;
             case "K": // display the help menu
-                this.equipKnife();
+                this.equipItem("Knife");
                 
                 break;
             case "M": // save the current game
-                this.equipMap();
+                this.equipItem("Map");
                 
                 break;
             case "N": // save the current game
-                this.equipMeat();
+                this.equipItem("Meat");
                 
                 break;
             case "E": // save the current game
-                this.equipExtraLife();
+                this.equipItem("ExtraLife");
                 
                 break;
             case "Q": // exit
@@ -109,161 +109,85 @@ public class EquipItemView {
         
         return true;
     }
-
-    private void equipRifle() {
-        
-        if(Items.getExtraLifeQuantity()!=0){
-         int deductRifle = Items.getRifleQuantity();
-         deductRifle = deductRifle - 1;
-         Items.setExtraLifeQuantity(deductRifle);
-         
-            if(Items.getItem1() == ""){
-                Items.setItem1("Rifle");
-                System.out.println("Rifle assigned to Item1");
-            }else if(Items.getItem2()==""){
-                Items.setItem2("Rifle"); 
-                System.out.println("Rifle assigned to Item2");
-            }else if(Items.getItem3()==""){
-                Items.setItem3("Rifle"); 
-                System.out.println("Rifle assigned to Item3");
-            }else{
-                
-                this.overWriteItem("Rifle");
-                
-            }
-            
     
-        }else{
-            System.out.println("\nSeriously? You know that item is empty right");
-        }
-    }
-
-    private void equipBullets() {
-        
-        if(Items.getBulletsQuantity()!=0){
-         int deductBullets = Items.getBulletsQuantity();
-         deductBullets = deductBullets - 1;
-         Items.setExtraLifeQuantity(deductBullets);
+     private void equipItem(String item) {
          
-            if(Items.getItem1() == ""){
-                Items.setItem1("Bullets");
-                System.out.println("Bullets assigned to Item1");
-            }else if(Items.getItem2()==""){
-                Items.setItem2("Bullets"); 
-                System.out.println("Bullets assigned to Item2");
-            }else if(Items.getItem3()==""){
-                Items.setItem3("Bullets"); 
-                System.out.println("Bullets assigned to Item3");
-            }else{
-                this.overWriteItem("Bullets");
-            }
-    
-        }else{
-            System.out.println("\nSeriously? You know that item is empty right");
-        }
-    }
-
-    private void equipKnife() {
-        
-        if(Items.getKnifeQuantity()!=0){
-         int deductKnife = Items.getKnifeQuantity();
-         deductKnife = deductKnife - 1;
-         Items.setExtraLifeQuantity(deductKnife);
-         
-            if(Items.getItem1() == ""){
-                Items.setItem1("Knife");
-                System.out.println("Knife assigned to Item1");
-            }else if(Items.getItem2()==""){
-                Items.setItem2("Knife"); 
-                System.out.println("Knife assigned to Item2");
-            }else if(Items.getItem3()==""){
-                Items.setItem3("Knife"); 
-                System.out.println("Knife assigned to Item3");
-            }else{
-                this.overWriteItem("Knife");
-            }
-    
-        }else{
-            System.out.println("\nSeriously? You know that item is empty right");
-        }
-    }
-
-    private void equipMap() {
-        
+       if(item=="Map"){ 
         if(Items.getMapQuantity()!=0){
          int deductMap = Items.getMapQuantity();
          deductMap = deductMap - 1;
          Items.setExtraLifeQuantity(deductMap);
-         
-            if(Items.getItem1() == ""){
-                Items.setItem1("Map");
-                System.out.println("Map assigned to Item1");
-            }else if(Items.getItem2()==""){
-                Items.setItem2("Map"); 
-                System.out.println("Map assigned to Item2");
-            }else if(Items.getItem3()==""){
-                Items.setItem3("Map"); 
-                System.out.println("Map assigned to Item3");
-            }else{
-                this.overWriteItem("Map");
-            }
-    
         }else{
-            System.out.println("\nSeriously? You know that item is empty right");
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
         }
-        
-    }
-
-    private void equipMeat() {
-        
-        if(Items.getMeatQuantity()!=0){
+       }else if(item=="Rifle"){ 
+         if(Items.getExtraLifeQuantity()!=0){
+         int deductRifle = Items.getRifleQuantity();
+         deductRifle = deductRifle - 1;
+         Items.setExtraLifeQuantity(deductRifle);
+         }else{
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
+       }
+       }else if(item=="Bullets"){ 
+         if(Items.getBulletsQuantity()!=0){
+         int deductBullets = Items.getBulletsQuantity();
+         deductBullets = deductBullets - 1;
+         Items.setExtraLifeQuantity(deductBullets);
+         }else{
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
+         }
+       }else if(item=="Knife"){  
+         if(Items.getKnifeQuantity()!=0){
+         int deductKnife = Items.getKnifeQuantity();
+         deductKnife = deductKnife - 1;
+         Items.setExtraLifeQuantity(deductKnife);
+         }else{
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
+       }
+       }else if(item=="Meat"){ 
+         if(Items.getMeatQuantity()!=0){
          int deductMeat = Items.getMeatQuantity();
          deductMeat = deductMeat - 1;
          Items.setExtraLifeQuantity(deductMeat);
-         
-            if(Items.getItem1() == ""){
-                Items.setItem1("Meat");
-                System.out.println("Meat assigned to Item1");
-            }else if(Items.getItem2()==""){
-                Items.setItem2("Meat"); 
-                System.out.println("Meat assigned to Item2");
-            }else if(Items.getItem3()==""){
-                Items.setItem3("Meat"); 
-                System.out.println("Meat assigned to Item3");
-            }else{
-                this.overWriteItem("Meat");
-            }
-    
-        }else{
-            System.out.println("\nSeriously? You know that item is empty right");
-        }
-    }
-
-    private void equipExtraLife() {
-     
-        if(Items.getExtraLifeQuantity()!=0){
+         }else{
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
+         }
+       }else if(item=="ExtraLife"){ 
+         if(Items.getExtraLifeQuantity()!=0){
          int deductExtraLife = Items.getExtraLifeQuantity();
          deductExtraLife = deductExtraLife - 1;
          Items.setExtraLifeQuantity(deductExtraLife);
+         }else{
+            System.out.println("\nYou have no "+ item +" in your inventory");
+            return;
+         }
+       }else{
+            System.out.println("\nItem does not exist");
+            return;
+       }
          
             if(Items.getItem1() == ""){
-                Items.setItem1("ExtraLife");
-                System.out.println("ExtraLife assigned to Item1");
+                Items.setItem1(item);
+                System.out.println(item+" assigned to Item1");
             }else if(Items.getItem2()==""){
-                Items.setItem2("ExtraLife"); 
-                System.out.println("ExtraLife assigned to Item2");
+                Items.setItem2(item); 
+                System.out.println(item+" assigned to Item2");
             }else if(Items.getItem3()==""){
-                Items.setItem3("ExtraLife"); 
-                System.out.println("ExtraLife assigned to Item3");
+                Items.setItem3(item); 
+                System.out.println(item+" assigned to Item3");
             }else{
-                this.overWriteItem("ExtraLife");
+                this.overWriteItem(item);
             }
     
-        }else{
-            System.out.println("\nSeriously? You know that item is empty right");
-        }
+        
+   
     }
-    
+
     public void overWriteItem(String item){
         
         System.out.println("\nAll item slots are full");
@@ -280,15 +204,18 @@ public class EquipItemView {
             overWriteChoice = overWriteChoice.toUpperCase();
             System.out.println("You Chose: "+overWriteChoice);    
             
-            if(overWriteChoice == "Y"){
+            switch (overWriteChoice) {
+            case "Y": // create and start a new game
                 System.out.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
                 Items.setItem1(item);
-            
-            }else if(overWriteChoice == "N"){
-                System.out.println("\nNothing was changed");
-            
-            }else{
-               System.out.println("\nWrong command, please select Y or N");
+                
+                break;
+            case "N": // get and start an existing game
+                 System.out.println("\nNothing was changed");
+                
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
                 continue;
             }
                 
