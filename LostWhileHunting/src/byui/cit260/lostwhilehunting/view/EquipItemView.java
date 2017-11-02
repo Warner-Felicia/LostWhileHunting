@@ -112,12 +112,12 @@ public class EquipItemView {
     
      private void equipItem(String item) {
         
-         int deductMap;
-         int deductRifle;
-         int deductBullets;
-         int deductKnife;
-         int deductMeat;
-         int deductExtraLife;
+         int deductMap=0;
+         int deductRifle=0;
+         int deductBullets=0;
+         int deductKnife=0;
+         int deductMeat=0;
+         int deductExtraLife=0;
          
        if(null == item){
            System.out.println("\nItem does not exist");
@@ -132,7 +132,7 @@ public class EquipItemView {
                     System.out.println("\nYou have no "+ item +" in your inventory");
                 }       break;
             case "Rifle":
-                if(Items.getExtraLifeQuantity()!=0){
+                if(Items.getRifleQuantity()!=0){
                     deductRifle = Items.getRifleQuantity();
                     deductRifle--;
                     Items.setExtraLifeQuantity(deductRifle);

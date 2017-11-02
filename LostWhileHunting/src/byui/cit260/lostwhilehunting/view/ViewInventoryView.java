@@ -32,7 +32,7 @@ public class ViewInventoryView {
                     + "\n----------------------------------------------"
                     + "\n| Equipped Items                            |"
                     + "\n----------------------------------------------"
-                    + "\nItem1: "+Items.getItem1()+" Item2: "+Items.getItem2()+" Item3: "+Items.getItem3()+""
+                    + "\nItem1: "+Items.getItem1()+" | Item2: "+Items.getItem2()+" | Item3: "+Items.getItem3()+""
                     + "\nQ - Quit"
                     + "\n---------------------------------------------";
         

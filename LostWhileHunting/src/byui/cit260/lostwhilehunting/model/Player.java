@@ -17,7 +17,7 @@ public class Player implements Serializable{
     
     //class instance variables
     private String name;
-    private int numberOfSurePasses = 4;
+    private static int numberOfSurePasses = 4;
     private ArrayList<Game> games = new ArrayList<Game>();
         
     public Player() {
