@@ -128,7 +128,8 @@ public class GameMenuView {
     }
     
     private void checkPlayerStatus() {
-        GameControl.checkPlayerStatus();
+        CheckPlayerStatusView playerStatus = new CheckPlayerStatusView();
+        playerStatus.displayPlayerStatus();
     }
     
     private void equipItems() {
