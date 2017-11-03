@@ -58,7 +58,7 @@ public class StartProgramView {
          
     }
     
-    private String getPlayersName() {
+    public String getPlayersName() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;

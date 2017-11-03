@@ -31,7 +31,7 @@ public class CombatMenuView {
                     + "\n A. Fight"
                     + "\n B. Flight"
                     + "\n C. Evade"
-                    + "\n Q. Quit"
+                    + "\n Q. Return to Game Menu"
                     + "\n"
                     + "\n---------------------------------------"
                     + "\n Choose Wisely!";              
@@ -95,14 +95,17 @@ public class CombatMenuView {
 
     private void fight() {
        questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       return;
     }
 
     private void flight() {
         questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        return;
     }
 
     private void evade() {
         questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        return;
     }
 
     
