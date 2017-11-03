@@ -29,6 +29,7 @@ public class QuestionsAndSceneControl {
         double returnNumber = 0;
         
         
+        
         if(item1 != ""){
             itemsEquipped = itemsEquipped + 1;
         }
@@ -39,7 +40,7 @@ public class QuestionsAndSceneControl {
             itemsEquipped = itemsEquipped + 1;
         }
         
-        randomizerNum = Math.random()*100;
+        randomizerNum = Math.floor(Math.random()*100);
         
         if(hero.equals("BurlyMan")){
             classBonus=classBonus+10;
@@ -58,6 +59,7 @@ public class QuestionsAndSceneControl {
                     returnNumber = 1;
                 }else{
                     // do nothing
+                    GameControl.assignInjuryOnFail();
                     System.out.println();
                     System.out.println("You lost "+item1);
                     item1 = "";
@@ -89,6 +91,7 @@ public class QuestionsAndSceneControl {
                     returnNumber = 1;
                 }else{
                     // do nothing
+                    GameControl.assignInjuryOnFail();
                     System.out.println();
                     System.out.println("You lost "+item1);
                     item1 = "";
@@ -130,7 +133,7 @@ public class QuestionsAndSceneControl {
             itemsEquipped = itemsEquipped + 1;
         }
         
-        randomizerNum = Math.random()*100;
+        randomizerNum = Math.floor(Math.random()*100);
         
         if(hero.equals("YoungTopshot")){
             classBonus=classBonus+10;
@@ -157,6 +160,7 @@ public class QuestionsAndSceneControl {
         }
         else{
             // do nothing
+            GameControl.assignInjuryOnFail();
             System.out.println();
             System.out.println("You lost "+item1);
             System.out.println();
@@ -191,7 +195,7 @@ public class QuestionsAndSceneControl {
             itemsEquipped = itemsEquipped + 1;
         }
         
-        randomizerNum = Math.random()*100;
+        randomizerNum = Math.floor(Math.random()*100);
         
         if(hero.equals("Spinster")){
             classBonus=classBonus+10;
@@ -218,6 +222,7 @@ public class QuestionsAndSceneControl {
         }
         else{
             // do nothing
+            GameControl.assignInjuryOnFail();
             System.out.println();
             System.out.println("You lost "+item1);
             item1 = "";
