@@ -126,7 +126,7 @@ public class EquipItemView {
                 if(Items.getMapQuantity()!=0){
                     deductMap = Items.getMapQuantity();
                     deductMap--;
-                    Items.setExtraLifeQuantity(deductMap);
+                    Items.setMapQuantity(deductMap);
                     this.assigntoSlot(item);
                 }else{
                     System.out.println("\nYou have no "+ item +" in your inventory");
@@ -135,7 +135,7 @@ public class EquipItemView {
                 if(Items.getRifleQuantity()!=0){
                     deductRifle = Items.getRifleQuantity();
                     deductRifle--;
-                    Items.setExtraLifeQuantity(deductRifle);
+                    Items.setRifleQuantity(deductRifle);
                     this.assigntoSlot(item);
                 }else{
                     System.out.println("\nYou have no "+ item +" in your inventory");
@@ -144,7 +144,7 @@ public class EquipItemView {
                 if(Items.getBulletsQuantity()!=0){
                     deductBullets = Items.getBulletsQuantity();
                     deductBullets--;
-                    Items.setExtraLifeQuantity(deductBullets);
+                    Items.setBulletsQuantity(deductBullets);
                     this.assigntoSlot(item);
                 }else{
                     System.out.println("\nYou have no "+ item +" in your inventory");
@@ -153,7 +153,7 @@ public class EquipItemView {
                 if(Items.getKnifeQuantity()!=0){
                     deductKnife = Items.getKnifeQuantity();
                     deductKnife--;
-                    Items.setExtraLifeQuantity(deductKnife);
+                    Items.setKnifeQuantity(deductKnife);
                     this.assigntoSlot(item);
                 }else{
                     System.out.println("\nYou have no "+ item +" in your inventory");
@@ -162,7 +162,7 @@ public class EquipItemView {
                 if(Items.getMeatQuantity()!=0){
                     deductMeat = Items.getMeatQuantity();
                     deductMeat--;
-                    Items.setExtraLifeQuantity(deductMeat);
+                    Items.setMeatQuantity(deductMeat);
                     this.assigntoSlot(item);
                 }else{
                     System.out.println("\nYou have no "+ item +" in your inventory");
