@@ -65,9 +65,9 @@ public class QuestionsAndSceneControlTest {
         String item2 = "Bullets";
         String item3 = "Knife";
         QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
-        double expResult = 0.0;
+        double expResult = 1.0;
         double result = instance.loadFlightActions(hero, item1, item2, item3);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 1.0);
         
     }
 
