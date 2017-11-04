@@ -49,7 +49,7 @@ public class ItemControlTest {
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned");
+            System.out.println("Another Item returned "+result);
         }
         
     }

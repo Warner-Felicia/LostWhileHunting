@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public class EquipItemView {
     
+    GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
     private String menu;
 
@@ -41,7 +42,7 @@ public class EquipItemView {
             // promt for and get players name
             String equipitemsoption = this.getEquipItemsOption();
             if (equipitemsoption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
+                gamemenu.displayGameMenu(); // exit the game
             
             // do the requested action and display the next view
             done = this.doAction(equipitemsoption);

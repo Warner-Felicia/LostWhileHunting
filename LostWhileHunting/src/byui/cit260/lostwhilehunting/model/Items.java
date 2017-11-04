@@ -16,13 +16,7 @@ import java.util.Objects;
  */
 public final class Items {
     
-    /*Rifle("weapon", 25, "not equipped"),
-    Bullets("ammunition", 25, "not equipped"),
-    SharpKnife("weapon", 25, "not equipped"),
-    MeatFromAnimals("food", 25, "not equipped"),
-    AnOldMap("map", 10, "not equipped"),
-    ExtraLife("health", 5, "not equipped");*/
-    
+       
      
     private static String rifle = "Rifle";
     private static int rifleQuantity = 0;

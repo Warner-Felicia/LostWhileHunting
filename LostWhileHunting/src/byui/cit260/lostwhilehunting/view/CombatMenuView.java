@@ -17,6 +17,7 @@ import java.util.Scanner;
  */
 public class CombatMenuView {
     
+    GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();
     QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
@@ -43,7 +44,7 @@ public class CombatMenuView {
             // promt for and get players name
             String CombatMenuOption = this.getCombatMenuOption();
             if (CombatMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
+                gamemenu.displayGameMenu(); // exit the game
             
             // do the requested action and display the next view
             done = this.doAction(CombatMenuOption);
@@ -95,16 +96,19 @@ public class CombatMenuView {
 
     private void fight() {
        questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       gamemenu.displayGameMenu();
        return;
     }
 
     private void flight() {
         questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        gamemenu.displayGameMenu();
         return;
     }
 
     private void evade() {
         questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        gamemenu.displayGameMenu();
         return;
     }
 
