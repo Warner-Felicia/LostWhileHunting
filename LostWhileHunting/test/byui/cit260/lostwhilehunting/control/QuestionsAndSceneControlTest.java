@@ -43,32 +43,160 @@ public class QuestionsAndSceneControlTest {
     @Test
     public void testLoadCombatActions() {
         System.out.println("loadCombatActions");
-        String hero = "BurlyMan";
-        String item1 = "Knife";
-        String item2 = "Rifle";
+        
+        // --- Test case 1 ---
+        System.out.println("\tTest case 1");
+        
+        //define the input variables
+        String hero = "burlyMan";
+        String item1 = "knife";
+        String item2 = "";
         String item3 = "";
         QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        //define the expected result
         double expResult = 1.0;
-        double result = instance.loadCombatActions(hero, item1, item2, item3);
+        
+        // call the method
+        double result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
         assertEquals(expResult, result, 1.0);
         
+        
+        // --- Test case 2 ---
+        System.out.println("\tTest case 2");
+        hero = "topshotYoungster";
+        item1 = "meat";
+        item2 = "rifle";
+        item3 = "";
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 1);
+        
+        // --- Test case 3 ---
+        System.out.println("\tTest case 3");
+        hero = "spinster";
+        item1 = "rifle";
+        item2 = "meat";
+        item3 = "knife";
+                
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);         
+        // test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 1);
+        
+        // --- Test case 4 --
+        System.out.println("\tTest case 4");
+        hero = "burlyMan";
+        item1 = "";
+        item2 = "";
+        item3 = "";
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);         
+        // test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 1);
+        
+        // --- Test case 5 --
+        System.out.println("\tTest case 5");
+        hero = "";
+        item1 = "meat";
+        item2 = "rifle";
+        item3 = "";
+        //define the expected result
+        expResult = 99999;
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);         
+        // test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 1);   
     }
-
+    
     /**
      * Test of loadFlightActions method, of class QuestionsAndSceneControl.
      */
     @Test
     public void testLoadFlightActions() {
         System.out.println("loadFlightActions");
-        String hero = "YoungTopShot";
-        String item1 = "Gun";
-        String item2 = "Bullets";
-        String item3 = "Knife";
+        
+        // Test Case 1
+        System.out.println("\tTest Case 1");
+        
+        //define input variables
+        String hero = "BurlyMan";
+        String item1 = "knife";
+        String item2 = "";
+        String item3 = "";
         QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        //define the expected result
         double expResult = 1.0;
+        
+        // call the method
         double result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
         assertEquals(expResult, result, 1.0);
         
+        // Test Case 2
+        System.out.println("\tTest Case 2");
+        
+        //define input variables
+        hero = "TopshotYoungster";
+        item1 = "meat";
+        item2 = "rifle";
+        item3 = "";
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+        
+        // Test Case 3
+        System.out.println("\tTest Case 3");
+        
+        //define input variables
+        hero = "Spinster";
+        item1 = "rifle";
+        item2 = "meat";
+        item3 = "knife";
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+        
+        // Test Case 4
+        System.out.println("\tTest Case 4");
+        
+        //define input variables
+        hero = "BurlyMan";
+        item1 = "";
+        item2 = "";
+        item3 = "";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+            
+        // Test Case 5
+        System.out.println("\tTest Case 5");
+        
+        //define input variables
+        hero = "";
+        item1 = "rifle";
+        item2 = "";
+        item3 = "meat";
+        
+        //define the expected result
+        expResult = 99999;
+        
+        // call the method
+        result = instance.loadFlightActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
     }
 
     /**
@@ -77,15 +205,85 @@ public class QuestionsAndSceneControlTest {
     @Test
     public void testLoadEvadeActions() {
         System.out.println("loadEvadeActions");
-        String hero = "Spinster";
-        String item1 = "Map";
-        String item2 = "ExtraLife";
-        String item3 = "Knife";
+        
+        // Test Case 1
+        System.out.println("\tTest Case 1");
+        
+        //define input variables
+        String hero = "BurlyMan";
+        String item1 = "knife";
+        String item2 = "";
+        String item3 = "";
         QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
+        //define the expected result
         double expResult = 1.0;
+        
+        // call the method
         double result = instance.loadEvadeActions(hero, item1, item2, item3);
+        // test to see if results match expected results
         assertEquals(expResult, result, 1.0);
         
+        // Test Case 2
+        System.out.println("\tTest Case 2");
+        
+        //define input variables
+        hero = "TopshotYoungster";
+        item1 = "meat";
+        item2 = "rifle";
+        item3 = "";
+        
+        // call the method
+        result = instance.loadEvadeActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+        
+        // Test Case 3
+        System.out.println("\tTest Case 3");
+        
+        //define input variables
+        hero = "Spinster";
+        item1 = "rifle";
+        item2 = "meat";
+        item3 = "knife";
+        
+        // call the method
+        result = instance.loadEvadeActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+        
+        // Test Case 4
+        System.out.println("\tTest Case 4");
+        
+        //define input variables
+        hero = "BurlyMan";
+        item1 = "";
+        item2 = "";
+        item3 = "";
+        
+        //define the expected result
+        expResult = 0.0;
+        
+        // call the method
+        result = instance.loadEvadeActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
+            
+        // Test Case 5
+        System.out.println("\tTest Case 5");
+        
+        //define input variables
+        hero = "";
+        item1 = "rifle";
+        item2 = "";
+        item3 = "meat";
+        
+        //define the expected result
+        expResult = 99999;
+        
+        // call the method
+        result = instance.loadEvadeActions(hero, item1, item2, item3);
+        // test to see if results match expected results
+        assertEquals(expResult, result, 1.0);
     }
 
     /**

@@ -29,7 +29,7 @@ public class QuestionsAndSceneControl {
         double returnNumber = 0;
         
         
-        
+        // loop to count items
         if(item1 != ""){
             itemsEquipped = itemsEquipped + 1;
         }
@@ -42,19 +42,27 @@ public class QuestionsAndSceneControl {
         
         randomizerNum = Math.floor(Math.random()*100);
         
+        //IF (hero = “BurlyMan”) THEN
         if(hero.equals("BurlyMan")){
+            //classBonus = classBonus + 10
             classBonus=classBonus+10;
+            //successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) +  classsBonus
             successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
             
-                     
+                //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
                     System.out.println();
+                    //Display “You lost” + item1
                     System.out.println("You lost "+item1);
+                    //item1 = generateItemFromItems(): String
                     item1 = itemcontrol.generateItemFromItems();
+                    //Set item1
                     items.setItem1(item1);
                     System.out.println();
+                    //Display: hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary)
                     System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    //Display Item1 status
                     System.out.println("Item1 status: "+ item1 );
                     returnNumber = 1;
                 }else{
