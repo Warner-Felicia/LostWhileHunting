@@ -42,10 +42,46 @@ public class ItemControlTest {
      */
     @Test
     public void testGenerateItemFromItems() {
-        System.out.println("generateItemFromItems");
+        System.out.println("\ngenerateItemFromItems ExtraLife Test");
         ItemControl instance = new ItemControl();
         String expResult = "ExtraLife";
         String result = instance.generateItemFromItems();
+        if(expResult == result){
+        assertEquals(expResult, result);
+        }else{
+            System.out.println("Another Item returned "+result);
+        }
+        
+        System.out.println("\ngenerateItemFromItems Meat Test");
+        expResult = "Meat";
+        result = instance.generateItemFromItems();
+        if(expResult == result){
+        assertEquals(expResult, result);
+        }else{
+            System.out.println("Another Item returned "+result);
+        }
+        
+        System.out.println("\ngenerateItemFromItems Rifle Test");
+        expResult = "Rifle";
+        result = instance.generateItemFromItems();
+        if(expResult == result){
+        assertEquals(expResult, result);
+        }else{
+            System.out.println("Another Item returned "+result);
+        }
+        
+        System.out.println("\ngenerateItemFromItems Map test");
+        expResult = "Map";
+        result = instance.generateItemFromItems();
+        if(expResult == result){
+        assertEquals(expResult, result);
+        }else{
+            System.out.println("Another Item returned "+result);
+        }
+        
+        System.out.println("\ngenerateItemFromItems Knife Test");
+        expResult = "Knife";
+        result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
@@ -59,12 +95,13 @@ public class ItemControlTest {
      */
     @Test
     public void testViewInventory() {
-        System.out.println("viewInventory");
+        System.out.println("\nviewInventory");
         String newItem = "Meat";
         ItemControl instance = new ItemControl();
         int expResult = 1;
         int result = instance.viewInventory(newItem);
         assertEquals(expResult, result);
+        
         
     }
     
