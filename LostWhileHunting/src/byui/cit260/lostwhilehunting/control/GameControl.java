@@ -45,7 +45,7 @@ public class GameControl {
     }
     
     public static void assignInjuryOnFail(){
-       int injure;
+       int injure = 0;
        injure = Player.getInjuryTracker();
        
        injure++;

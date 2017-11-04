@@ -17,6 +17,7 @@ import java.util.Scanner;
  */
 public class GameMenuView {
     
+    MainMenuView mainmenu = new MainMenuView();
     private String menu;
 
     public GameMenuView() {
@@ -41,7 +42,7 @@ public class GameMenuView {
         do {
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q"))
-                return;
+                mainmenu.displayMainMenuView();
             
             done = this.doAction(menuOption);
         }
