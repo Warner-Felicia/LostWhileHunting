@@ -3,6 +3,8 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.LocationsControl;
+import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Player;
 import java.util.Scanner;
 
 /*
@@ -104,10 +106,49 @@ public class GameMenuView {
     }
 
     private void moveToNextLocation() {
-        CombatMenuView combatMenuView = new CombatMenuView();
-        
-        //call combat view
-        combatMenuView.displayCombatMenuView();
+        if(Player.getInjuryTracker()< 3){
+            System.out.println("Injury Tracker: "+Player.getInjuryTracker());
+            CombatMenuView combatMenuView = new CombatMenuView();
+            //call combat view
+            combatMenuView.displayCombatMenuView();
+        }else{
+            System.out.println("\nYou are dead");
+            
+            if(Items.getExtraLifeQuantity() > 0){
+                
+                System.out.println("\nDo you want to use "+Items.getExtraLifeQuantity()+" of your ExtraLife");
+                System.out.println("\nEnter Y|N");
+                Scanner useLife = new Scanner(System.in);
+                String lifeWriteChoice = "";
+                boolean checker = false;
+         
+                    
+                while(!checker){    
+            
+                    lifeWriteChoice = useLife.nextLine();
+                    lifeWriteChoice = lifeWriteChoice.trim();
+                    lifeWriteChoice = lifeWriteChoice.toUpperCase();
+                    System.out.println("You Chose: "+lifeWriteChoice);    
+            
+                    switch (lifeWriteChoice) {
+                        case "Y": // create and start a new game
+                            System.out.println("\nYou were Revived by the Power of the Lord");
+                            Player.setInjuryTracker(0);
+                
+                            break;
+                        case "N": // get and start an existing game
+                            System.out.println("\nYou remain dead");
+                
+                            break;
+                        default:
+                            System.out.println("\n*** Invalid selection *** Try again");
+                            continue;
+                    }
+                
+                    break;
+                }
+            }
+        }
     }
 
     private void useSurePass() {
