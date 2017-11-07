@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class GameMenuView {
     
     MainMenuView mainmenu = new MainMenuView();
+    GameControl game = new GameControl();
     private String menu;
 
     public GameMenuView() {
@@ -134,6 +135,7 @@ public class GameMenuView {
                         case "Y": // create and start a new game
                             System.out.println("\nYou were Revived by the Power of the Lord");
                             Player.setInjuryTracker(0);
+                            GameControl.checkIfActorIsInjuredDeadOrAlive(Player.getInjuryTracker());
                 
                             break;
                         case "N": // get and start an existing game
