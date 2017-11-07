@@ -117,7 +117,7 @@ public class GameMenuView {
             
             if(Items.getExtraLifeQuantity() > 0){
                 
-                System.out.println("\nDo you want to use "+Items.getExtraLifeQuantity()+" of your ExtraLife");
+                System.out.println("\nYou have "+Items.getExtraLifeQuantity()+" ExtraLife. Do you want to Use?");
                 System.out.println("\nEnter Y|N");
                 Scanner useLife = new Scanner(System.in);
                 String lifeWriteChoice = "";
