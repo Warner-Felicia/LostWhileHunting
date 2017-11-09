@@ -36,7 +36,7 @@ public class HelpMenuView {
             // promt for and get players name
             String helpMenuOption = this.getHelpMenuOption();
             if (helpMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                mainmenu.displayMainMenuView(); // exit the game
+                mainmenu.display(); // exit the game
             
             // do the requested action and display the next view
             done = this.doAction(helpMenuOption);

@@ -45,7 +45,7 @@ public class GameMenuView {
         do {
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q"))
-                mainmenu.displayMainMenuView();
+                mainmenu.display();
             
             done = this.doAction(menuOption);
         }

@@ -13,60 +13,23 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     
-    private String menu;
-
     public MainMenuView() {
-        this.menu = "\n"
-                    + "\n----------------------------------------"
-                    + "\n| Main Menu                            |"
-                    + "\n----------------------------------------"
-                    + "\nN - Start A New Game"
-                    + "\nC - Continue A Saved Game"
-                    + "\nH - Help Menu"
-                    + "\nS - Save game"
-                    + "\nQ - Quit"
-                    + "\n----------------------------------------";
+        super("\n"
+                + "\n----------------------------------------"
+                + "\n| Main Menu                            |"
+                + "\n----------------------------------------"
+                + "\nN - Start A New Game"
+                + "\nC - Continue A Saved Game"
+                + "\nH - Help Menu"
+                + "\nS - Save game"
+                + "\nQ - Quit"
+                + "\n----------------------------------------");
     }
-    void displayMainMenuView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                System.exit(0); // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        } 
-        while (!done);
-    }
-
-    private String getMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop
-        }
-        
-        return value;  // return the value entered
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
        
         choice = choice.toUpperCase(); // convert choice to upper case
         
