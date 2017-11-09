@@ -13,14 +13,14 @@ import java.util.Scanner;
  *
  * @author Administrator
  */
-public class EquipItemView {
+public class EquipItemView extends View{
     
     GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
     private String menu;
 
     public EquipItemView() {
-        this.menu = "\n"
+        super("\n"
                     + "\n----------------------------------------------"
                     + "\n| Equip Items                                |"
                     + "\n----------------------------------------------"
@@ -31,47 +31,14 @@ public class EquipItemView {
                     + "\nN - Equip Meat "+Items.getMeatQuantity()
                     + "\nE - Equip ExtraLife "+Items.getExtraLifeQuantity()
                     + "\nQ - Quit"
-                    + "\n---------------------------------------------";
+                    + "\n---------------------------------------------");
         
     }
       
-    void displayEquipItems() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promt for and get players name
-            String equipitemsoption = this.getEquipItemsOption();
-            if (equipitemsoption.toUpperCase().equals("Q")) // user wants to quit
-                gamemenu.displayGameMenu(); // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(equipitemsoption);
-        } while (!done);
-    }
     
-    private String getEquipItemsOption() {
-       Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop
-        }
-        
-        return value;  // return the value entered
-    }
     
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
        
         choice = choice.toUpperCase(); // convert choice to upper case
         
