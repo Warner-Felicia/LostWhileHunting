@@ -23,7 +23,7 @@ public class ItemControl {
      private int bulletAmount = 0;
      private int mapAmount = 0;
      private int extraLifeAmount = 0;
-     static boolean searchAvailable = true;
+     public static boolean searchAvailable = true;
    
     public String searchLocation(){
         
