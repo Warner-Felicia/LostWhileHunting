@@ -17,65 +17,29 @@ import java.util.Scanner;
  *
  * @author New User
  */
-public class GameMenuView {
+public class GameMenuView extends View{
     
     MainMenuView mainmenu = new MainMenuView();
     GameControl game = new GameControl();
-    private String menu;
-
+    
     public GameMenuView() {
-        this.menu = "\n" 
-                    + "\n-----------------------------------------"
-                    + "\n| Game Menu                             |"
-                    + "\n----------------------------------------"
-                    + "\nM - Move to the next location"
-                    + "\nU - Use SurePass"
-                    + "\nS - Search Current Location"
-                    + "\nV - View Inventory"
-                    + "\nC - Check status of player"
-                    + "\nE - Equip items"
-                    + "\nQ - Return to Main Menu"
-                    + "\n----------------------------------------"
-                    + "\n Please make a selection.";
+        super("\n" 
+                + "\n-----------------------------------------"
+                + "\n| Game Menu                             |"
+                + "\n----------------------------------------"
+                + "\nM - Move to the next location"
+                + "\nU - Use SurePass"
+                + "\nS - Search Current Location"
+                + "\nV - View Inventory"
+                + "\nC - Check status of player"
+                + "\nE - Equip items"
+                + "\nQ - Return to Main Menu"
+                + "\n----------------------------------------"
+                + "\n Please make a selection.");
     }
     
-    void displayGameMenu() {
-        
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                mainmenu.display();
-            
-            done = this.doAction(menuOption);
-        }
-        while (!done);
-    }
-
-    private String getMenuOption() {
-        
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 0) {
-                System.out.println("Please make a selection");
-                continue;
-            }
-            
-            break;
-        }
-        
-        return value; 
-        
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
         

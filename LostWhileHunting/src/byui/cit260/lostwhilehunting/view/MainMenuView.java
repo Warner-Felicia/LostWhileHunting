@@ -59,7 +59,7 @@ public class MainMenuView extends View{
         
         //display the select a character menu
         SelectACharacterView selectACharacterView = new SelectACharacterView();
-        selectACharacterView.displaySelectACharacterMenu();
+        selectACharacterView.display();
     }
 
     private void startExistingGame() {
