@@ -167,7 +167,7 @@ public class GameMenuView {
          ViewInventoryView inventoryView = new ViewInventoryView();
         
         // Display the view inventory view
-        inventoryView.displayViewInventoryView();
+        inventoryView.display();
          
     }
     
@@ -180,7 +180,7 @@ public class GameMenuView {
         EquipItemView equipitem = new EquipItemView();
         
         // Display the EquipItems view
-        equipitem.displayEquipItems();
+        equipitem.display();
     }
 
 }
