@@ -71,6 +71,8 @@ public class GameMenuView extends View{
     }
 
     private void moveToNextLocation() {
+        // allows player to search again
+        ItemControl.searchAvailable = true;
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
             CombatMenuView combatMenuView = new CombatMenuView();
@@ -123,8 +125,14 @@ public class GameMenuView extends View{
     }
 
     private void searchCurrentLocation() {
-         ItemControl itemcontrol = new ItemControl();
-         itemcontrol.searchLocation();
+        ItemControl itemcontrol = new ItemControl();
+        if(ItemControl.searchAvailable) {
+            itemcontrol.searchLocation();
+        }
+        else {
+            System.out.println("\n You have already searched this location."
+                   + "\n You may only search a location once.");
+        }
     }
 
     private void viewInventory() {
