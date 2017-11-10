@@ -30,6 +30,8 @@ public class ItemControl {
         String item = "";
         double itemSpawn = 0;
         double searchChance = 0;
+        
+        searchAvailable = false;
      
         searchChance = Math.floor(Math.random()*10);
         itemSpawn = Math.floor(Math.random()*6);
