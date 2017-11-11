@@ -5,7 +5,6 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
-import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
@@ -15,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Sony
  */
-public class CombatMenuView {
+public class CombatMenuView extends View{
     
     GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();
@@ -44,14 +43,14 @@ public class CombatMenuView {
             // promt for and get players name
             String CombatMenuOption = this.getCombatMenuOption();
             if (CombatMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                gamemenu.displayGameMenu(); // exit the game
+                gamemenu.display(); // exit the game
             
             // do the requested action and display the next view
             done = this.doAction(CombatMenuOption);
         } while (!done);
     }
-
-    private boolean doAction(String choice) {
+@Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // Convert choice to uppercase
         
          switch (choice) {
@@ -96,20 +95,17 @@ public class CombatMenuView {
 
     private void fight() {
        questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
-       gamemenu.displayGameMenu();
-       return;
+       gamemenu.display();
     }
 
     private void flight() {
         questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
-        gamemenu.displayGameMenu();
-        return;
+        gamemenu.display();
     }
 
     private void evade() {
         questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
-        gamemenu.displayGameMenu();
-        return;
+        gamemenu.display();
     }
 
     
