@@ -41,7 +41,7 @@ public class CombatMenuView extends View{
              boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            String CombatMenuOption = this.getCombatMenuOption();
+            String CombatMenuOption = this.getInput();
             if (CombatMenuOption.toUpperCase().equals("Q")) // user wants to quit
                 gamemenu.display(); // exit the game
             
@@ -70,8 +70,8 @@ public class CombatMenuView extends View{
         
         return false;
     }
-
-    private String getCombatMenuOption() {
+@Override
+    public String getInput() {
        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
