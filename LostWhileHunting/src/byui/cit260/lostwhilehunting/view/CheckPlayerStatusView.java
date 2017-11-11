@@ -5,7 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
-import byui.cit260.lostwhilehunting.control.GameControl;
+
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Player;
@@ -15,11 +15,11 @@ import java.util.Scanner;
  *
  * @author Sony
  */
-public class CheckPlayerStatusView {
+public class CheckPlayerStatusView extends View {
     Player player = new Player();
     Game game = new Game();
 
-    private String playerStatus;
+    private final String playerStatus;
 
     public CheckPlayerStatusView() {
         this.playerStatus = "\n Player Status:"
@@ -27,7 +27,7 @@ public class CheckPlayerStatusView {
                 + "\n Player Name: " + playerName()
                 + "\n Hero: " + game.getHeroClass()
                 + "\n Items Equipped: " + Items.getItem1() + ", " + Items.getItem2() + ", " + Items.getItem3()
-                + "\n Health: " + player.getHealthStatus()
+                + "\n Health: " + Player.getHealthStatus()
                 + "\n -----------------------------------------------"
                 + "\n"
                 + "Q - Return To Game Menu";
@@ -68,8 +68,8 @@ public class CheckPlayerStatusView {
 
         return value;
     }
-
-    private boolean doAction(String choice) {
+@Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
 
         return false;
