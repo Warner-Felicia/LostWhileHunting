@@ -37,7 +37,7 @@ public class CheckPlayerStatusView extends View {
         boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            String PlayerStatusOption = this.getPlayerStatusOption();
+            String PlayerStatusOption = this.getInput();
             if (PlayerStatusOption.toUpperCase().equals("Q")) // user wants to quit
             {
                 return; // exit the game
@@ -46,8 +46,8 @@ public class CheckPlayerStatusView extends View {
             done = this.doAction(PlayerStatusOption);
         } while (!done);
     }
-
-    private String getPlayerStatusOption() {
+@Override
+    public String getInput() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
