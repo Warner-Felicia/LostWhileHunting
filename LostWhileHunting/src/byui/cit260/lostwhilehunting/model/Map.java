@@ -15,19 +15,14 @@ import java.util.Objects;
  */
 public class Map implements Serializable{
     
-    /*Start("Initial Cave",0,0),
-    Stream("Cool Stream",3,3),
-    Cave("Dark Cave",6,6),
-    Caverns("Deep Caverns",9,9),
-    River("Great River",12,12),
-    Town("Small Town",15,15),
-    Goal("Oregon Trail",18,18);*/
-    
     //class instance variables
     private String description;
     private int columnCount;
     private int rowCount;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private int[][] location;
+
+   
     
     //Public functions of Map Class
 
@@ -64,6 +59,14 @@ public class Map implements Serializable{
 
     public void setGames(ArrayList<Game> games) {
         this.games = games;
+    }
+    
+     public int[][] getLocation() {
+        return location;
+    }
+
+    public void setLocation(int[][] location) {
+        this.location = location;
     }
 
     @Override
