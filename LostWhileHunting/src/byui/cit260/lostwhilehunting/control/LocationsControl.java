@@ -12,10 +12,16 @@ package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
+import java.util.ArrayList;
 
 public class LocationsControl {
+
+    private static Location createLocations(int noOfRows, int noOfColumns) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     ItemControl itemcontrol = new ItemControl();
     Player p = new Player();
@@ -118,10 +124,29 @@ public class LocationsControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public static Map createMap(int noOfRows, int noOfColumns) {
-        System.out.println("createMap() function called");
+    public static Map createMap(int noOfRows, int noOfColumns, ArrayList items) {
+      
+    if (noOfRows < 0 || noOfColumns < 0)
+        return null;
+    
+    if (items == null || items.size() < 1)
+        return null;
+    
+    Map map = new Map();
+    map.setRowCount(noOfRows);
+    map.setColumnCount(noOfColumns);
+    
+    Location locations = createLocations(noOfRows, noOfColumns);
+    /*    
+ 
+locations = createLocations(noOfRows, noOfColumns)
+Assign the locations array to the map
+scenes = createScenes()
+questions = createQuestions()
+assignQuestionsToScenes()
+assignItemsToScenes() */
         
-        Map map = new Map();
+        
         return map;
     }
     
