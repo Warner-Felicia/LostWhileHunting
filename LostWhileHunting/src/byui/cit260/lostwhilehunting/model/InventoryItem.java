@@ -15,20 +15,52 @@ import java.util.Objects;
 public class InventoryItem {
 
     // review later
-    public static ArrayList createItem() {
-        System.out.println("createItem() function called");
-        
-        ArrayList<InventoryItem> itemsArray = new ArrayList<>();
-        return itemsArray; 
-    }
+    
     
     private String inventoryType;
     private int quantityInStock;
     private int requiredAmount;
 
-    public InventoryItem() {
+    public InventoryItem(String inventoryType, int quantityInStock, int requiredAmount) {
+    
+            this.setInventoryType(inventoryType);
+            this.setQuantityInStock(quantityInStock);
+            this.setRequiredAmount(requiredAmount);
     }
 
+    public static ArrayList createItem() {
+        
+        ArrayList<InventoryItem> itemsArray = new ArrayList<>();
+        
+        InventoryItem rifle = new InventoryItem("Rifle", 0, 0);
+        itemsArray.add(rifle);
+        
+        InventoryItem bullets = new InventoryItem("Bullets", 0, 0);
+        itemsArray.add(bullets);
+        
+        InventoryItem meat = new InventoryItem("Meat", 0, 0);
+        itemsArray.add(meat);
+        
+        InventoryItem map = new InventoryItem("Map", 0, 0);
+        itemsArray.add(map);
+        
+        InventoryItem extraLife = new InventoryItem("Extra Life", 0, 0);
+        itemsArray.add(extraLife);
+        
+        InventoryItem knife = new InventoryItem("Knife", 0, 0);
+        itemsArray.add(knife);
+        
+        // testing our ArrayList
+        for (int i = 0; i < itemsArray.size(); i++) {
+            
+            InventoryItem item = itemsArray.get(i);
+            System.out.println("\n\tItem: " + item.getInventoryType()
+                    + "\n\tQuantity: " + item.getQuantityInStock()
+                    + "\n\tRequired: " + item.getRequiredAmount());
+                    
+        }
+        return itemsArray; 
+    }
     public String getInventoryType() {
         return inventoryType;
     }
