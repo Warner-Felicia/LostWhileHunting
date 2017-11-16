@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -12,6 +13,14 @@ import java.util.Objects;
  * @author Administrator
  */
 public class InventoryItem {
+
+    // review later
+    public static ArrayList createItem() {
+        System.out.println("createItem() function called");
+        
+        ArrayList<InventoryItem> itemsArray = new ArrayList<>();
+        return itemsArray; 
+    }
     
     private String inventoryType;
     private int quantityInStock;

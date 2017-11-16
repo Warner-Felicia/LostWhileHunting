@@ -7,6 +7,7 @@ package byui.cit260.lostwhilehunting.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 /**
  * Game Class
  * @author Entire group with Trevon as Scribe
@@ -19,7 +20,7 @@ public class Game implements Serializable{
     private long totalTime;
     private Player player;
     private Map map;
-    private ArrayList<Items> items = new ArrayList<Items>();
+    private ArrayList<InventoryItem> items = new ArrayList<>();
     private static String heroClass="";
 
        
@@ -61,11 +62,11 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public ArrayList<Items> getItems() {
+    public ArrayList<InventoryItem> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Items> items) {
+    public void setItems(ArrayList<InventoryItem> items) {
         this.items = items;
     }
 

@@ -12,6 +12,7 @@ package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
 
 public class LocationsControl {
@@ -116,5 +117,12 @@ public class LocationsControl {
     private void loadMajorSceneIfMapCoordTrue(int column, int row) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public static Map createMap(int noOfRows, int noOfColumns) {
+        System.out.println("createMap() function called");
+        
+        Map map = new Map();
+        return map;
+    }
+    
 }

@@ -5,8 +5,12 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.model.Game;
+import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
+import java.util.ArrayList;
 import static javafx.application.Platform.exit;
 import lostwhilehunting.LostWhileHunting;
 
@@ -137,8 +141,27 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame function called ***");
+    public static int createNewGame(Player player) {
+        
+        if(player == null) 
+            return -1;
+        
+        Game game = new Game();
+        game.setPlayer(player);
+        
+        LostWhileHunting.setCurrentGame(game);
+        
+        ArrayList<InventoryItem> items = InventoryItem.createItem();
+        game.setItems(items);
+        
+        Map map = LocationsControl.createMap(0, 0);
+        
+        if (map == null){
+            return -1;
+        }else {
+            game.setMap(map);
+            return 1;
+        }
     }
     
 }
