@@ -28,6 +28,8 @@ public class LostWhileHunting {
     /**
      * @param args the command line arguments
      */
+    
+    // Felicia fix
     private static Game currentGame = null;
     private static Player player = null;
     

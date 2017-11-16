@@ -54,6 +54,7 @@ public class MainMenuView extends View{
         return false;
     }
 
+    // Felicia fix
     private void startNewGame() {
         GameControl.createNewGame(LostWhileHunting.getPlayer());
         

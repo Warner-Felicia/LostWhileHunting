@@ -128,6 +128,8 @@ public class GameControl {
         }
     }
 
+    // Felicia fix
+    
     public static Player createPlayer(String name) {
         if (name == null) {
             return null;
