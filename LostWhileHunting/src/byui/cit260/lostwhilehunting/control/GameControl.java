@@ -157,7 +157,7 @@ public class GameControl {
         game.setItems(items);
         LostWhileHunting.setCurrentGame(game);
         
-        Map map = LocationsControl.createMap(0, 0);
+        Map map = LocationsControl.createMap(0, 0, items);
         
         if (map == null){
             return -1;

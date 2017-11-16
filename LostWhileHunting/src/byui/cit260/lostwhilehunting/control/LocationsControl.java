@@ -19,9 +19,6 @@ import java.util.ArrayList;
 
 public class LocationsControl {
 
-    private static Location createLocations(int noOfRows, int noOfColumns) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     ItemControl itemcontrol = new ItemControl();
     Player p = new Player();
@@ -136,11 +133,12 @@ public class LocationsControl {
     map.setRowCount(noOfRows);
     map.setColumnCount(noOfColumns);
     
-    Location locations = createLocations(noOfRows, noOfColumns);
-    /*    
+        int[][] locations = createLocations(noOfRows, noOfColumns);
+        map.setLocation(locations);   
+    
+    /* Still to do   
  
-locations = createLocations(noOfRows, noOfColumns)
-Assign the locations array to the map
+
 scenes = createScenes()
 questions = createQuestions()
 assignQuestionsToScenes()
@@ -149,5 +147,11 @@ assignItemsToScenes() */
         
         return map;
     }
+    
+     private static int[][] createLocations(int noOfRows, int noOfColumns) {
+         int[][] locationsCord = new int[noOfRows][noOfColumns];
+         return locationsCord;
+    }
+
     
 }
