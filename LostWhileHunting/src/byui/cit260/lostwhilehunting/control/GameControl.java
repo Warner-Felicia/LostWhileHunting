@@ -155,6 +155,7 @@ public class GameControl {
         
         ArrayList<InventoryItem> items = InventoryItem.createItem();
         game.setItems(items);
+        LostWhileHunting.setCurrentGame(game);
         
         Map map = LocationsControl.createMap(0, 0);
         
@@ -162,8 +163,11 @@ public class GameControl {
             return -1;
         }else {
             game.setMap(map);
+            LostWhileHunting.setCurrentGame(game);
             return 1;
         }
+        
+        
     }
     
 }
