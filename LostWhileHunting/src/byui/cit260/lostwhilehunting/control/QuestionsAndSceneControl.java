@@ -11,7 +11,10 @@ package byui.cit260.lostwhilehunting.control;
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.QuestionType;
+import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
+import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
 
 public class QuestionsAndSceneControl {
@@ -311,9 +314,29 @@ public class QuestionsAndSceneControl {
         return scenesContainer;
          
     }
-        
     
-
+    public static Questions[] createQuestions() {
+      
+        Questions[] questionsContainer = new Questions[2];
+     
+        Questions question1 = new Questions();
+        question1.setQuestion("What will you do?");
+        question1.setAnswer("Player's choice");
+        questionsContainer[QuestionType.question1.ordinal()] = question1;
+        
+        Questions question2 = new Questions();
+        question2.setQuestion("Will you run?");
+        question2.setAnswer("Player's choice");
+        questionsContainer[QuestionType.question2.ordinal()] = question2;
+        
+        Questions question3 = new Questions();
+        question3.setQuestion("Will you stand and fight?");
+        question3.setAnswer("Player's choie");
+        questionsContainer[QuestionType.question3.ordinal()] = question3;
+      
+        return questionsContainer;
+    }
+        
     public void checkSceneQuestionChoiceAndReturnNewScene() {
         
         

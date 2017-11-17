@@ -21,6 +21,9 @@ public class Location implements Serializable{
     private int row;
     private boolean visited;
     private String attribute;
+    private RegularSceneType[] scenes;
+
+    
     private ArrayList<Actors> actors = new ArrayList<Actors>();
 
     //Public Functions for Location
@@ -69,6 +72,14 @@ public class Location implements Serializable{
 
     public void setActors(ArrayList<Actors> actors) {
         this.actors = actors;
+    }
+    
+    public RegularSceneType[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(RegularSceneType[] scenes) {
+        this.scenes = scenes;
     }
     
     //Class Hash, Equals, and toString override functions
