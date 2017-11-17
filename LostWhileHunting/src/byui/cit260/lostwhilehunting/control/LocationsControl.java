@@ -177,6 +177,33 @@ public class LocationsControl {
         
         //start point
         locations[0][0].setScenes(scenesContainer[SceneType.startingArea.ordinal()]);
+        locations[0][1].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][2].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][3].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][4].setScenes(scenesContainer[SceneType.coolStream.ordinal()]);
+        locations[0][5].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][6].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][7].setScenes(scenesContainer[SceneType.minor1.ordinal()]);
+        locations[0][8].setScenes(scenesContainer[SceneType.cave.ordinal()]);
+        locations[1][0].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][1].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][2].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][3].setScenes(scenesContainer[SceneType.deepCaverns.ordinal()]);
+        locations[1][4].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][5].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][6].setScenes(scenesContainer[SceneType.minor2.ordinal()]);
+        locations[1][7].setScenes(scenesContainer[SceneType.greatRiver.ordinal()]);
+        locations[1][8].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][0].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][1].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][2].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][3].setScenes(scenesContainer[SceneType.smallTown.ordinal()]);
+        locations[2][4].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][5].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][6].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][7].setScenes(scenesContainer[SceneType.minor3.ordinal()]);
+        locations[2][8].setScenes(scenesContainer[SceneType.goal.ordinal()]);
+        
         
      }
 

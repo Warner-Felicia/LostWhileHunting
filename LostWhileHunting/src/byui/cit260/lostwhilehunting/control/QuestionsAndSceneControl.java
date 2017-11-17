@@ -255,60 +255,70 @@ public class QuestionsAndSceneControl {
         startingArea.setNameOfScene("Starting Area");
         startingArea.setDescription("This is where the player will start.");
         startingArea.setSafe(true);
+        startingArea.setSymbol("SA");
         scenesContainer[SceneType.startingArea.ordinal()] = startingArea;
         
         RegularSceneType coolStream = new RegularSceneType();
         coolStream.setNameOfScene("Cool Stream");
         coolStream.setDescription("The player can be refreshed here.");
         coolStream.setSafe(true);
+        coolStream.setSymbol("CS");
         scenesContainer[SceneType.coolStream.ordinal()] = coolStream;
         
         RegularSceneType cave = new RegularSceneType();
         cave.setNameOfScene("Cave");
         cave.setDescription("Player can rest in this location");
         cave.setSafe(true);
+        cave.setSymbol(" C");
         scenesContainer[SceneType.cave.ordinal()] = cave;
         
         RegularSceneType deepCavern = new RegularSceneType();
         deepCavern.setNameOfScene("Deep Caverns");
         deepCavern.setDescription("The player has to be careful in this location.");
         deepCavern.setSafe(false);
+        deepCavern.setSymbol("DC");
         scenesContainer[SceneType.deepCaverns.ordinal()] = deepCavern;
         
         RegularSceneType greatRiver = new RegularSceneType();
         greatRiver.setNameOfScene("Great River");
         greatRiver.setDescription("Danger.  Player must beware.");
         greatRiver.setSafe(false);
+        greatRiver.setSymbol("GR");
         scenesContainer[SceneType.greatRiver.ordinal()] = greatRiver;
         
         RegularSceneType smallTown = new RegularSceneType();
         smallTown.setNameOfScene("Small Town");
         smallTown.setDescription("The player can trade items they have for other items.");
         smallTown.setSafe(true);
+        smallTown.setSymbol("ST");
         scenesContainer[SceneType.smallTown.ordinal()] = smallTown;
         
         RegularSceneType goal = new RegularSceneType();
         goal.setNameOfScene("Goal");
         goal.setDescription("player is successful, the game is complete.");
         goal.setSafe(false);
+        goal.setSymbol(" G");
         scenesContainer[SceneType.goal.ordinal()] = goal;
         
         RegularSceneType minor1 = new RegularSceneType();
         minor1.setNameOfScene("Minor 1");
         minor1.setDescription("The player can encounter Coyote or Wolf.");
         minor1.setSafe(false);
+        minor1.setSymbol("*1");
         scenesContainer[SceneType.minor1.ordinal()] = minor1;
         
         RegularSceneType minor2 = new RegularSceneType();
         minor2.setNameOfScene("Minor 2");
         minor2.setDescription("The player can encounter wolf or beer.");
         minor2.setSafe(false);
+        minor2.setSymbol("*2");
         scenesContainer[SceneType.minor2.ordinal()] = minor2;
         
         RegularSceneType minor3 = new RegularSceneType();
         minor3.setNameOfScene("Minor 3");
         minor3.setDescription("The player may encounter beer or muggers.");
         minor3.setSafe(false);
+        minor3.setSymbol("*3");
         scenesContainer[SceneType.minor3.ordinal()] = minor3;
         
         return scenesContainer;
@@ -317,7 +327,7 @@ public class QuestionsAndSceneControl {
     
     public static Questions[] createQuestions() {
       
-        Questions[] questionsContainer = new Questions[2];
+        Questions[] questionsContainer = new Questions[3];
      
         Questions question1 = new Questions();
         question1.setQuestion("What will you do?");

@@ -3,8 +3,10 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.LocationsControl;
+import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
@@ -32,9 +34,10 @@ public class GameMenuView extends View{
                 + "\nM - Move to the next location"
                 + "\nU - Use SurePass"
                 + "\nS - Search Current Location"
-                + "\nV - View Inventory"
+                + "\nI - View Inventory"
                 + "\nC - Check status of player"
                 + "\nE - Equip items"
+                + "\nV - View map"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -55,7 +58,7 @@ public class GameMenuView extends View{
             case ("S"): // search current location
                 this.searchCurrentLocation();
                 break;
-            case ("V"): // view inventory
+            case ("I"): // view inventory
                 this.viewInventory();
                 break;
             case ("C"): // check player status
@@ -63,6 +66,9 @@ public class GameMenuView extends View{
                 break;
             case ("E"): // equip items
                 this.equipItems();
+                break;
+            case ("V") : // view map
+                this.displayMap();
                 break;
             default: 
                 System.out.println("Please choose an action from this list");
@@ -155,6 +161,35 @@ public class GameMenuView extends View{
         
         // Display the EquipItems view
         equipitem.display();
+    }
+
+    private void displayMap() {
+        
+        Game game = new Game();
+        game = LostWhileHunting.getCurrentGame();
+        
+        Location[][] locations = game.getMap().getLocation();
+        
+        System.out.println("\n***Lost While Hunting Map***");
+        
+        for (int i = 0; i < locations.length; i++) {
+            System.out.println("----------------------------");
+            System.out.println("\n" + i + 1);
+            
+            for (int j = 0; j < locations[i].length; j++) {
+                System.out.print("|");
+                Location location = locations[i][j];
+                if (location.isVisited() == true) {
+                    System.out.print(location.getScenes().getSymbol());
+                } else {
+                    System.out.print("??");
+                }
+            }
+            System.out.print("|");
+        }
+        System.out.println("----------------------------");
+ 
+  
     }
 
 }

@@ -17,6 +17,7 @@ public class RegularSceneType implements Serializable {
     private String nameOfScene;
     private String description;
     private boolean safe;
+    private String symbol;
     
     // The constructor of the class
 
@@ -49,6 +50,16 @@ public class RegularSceneType implements Serializable {
     public void setSafe(boolean safe) {
         this.safe = safe;
     }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+    
+    
     
     //Class Hash, Equals, and toString override functions
 
