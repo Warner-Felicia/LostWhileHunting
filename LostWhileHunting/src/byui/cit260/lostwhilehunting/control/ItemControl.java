@@ -10,8 +10,10 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 
+import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 public class ItemControl {
     
@@ -28,137 +30,167 @@ public class ItemControl {
     public String searchLocation(){
         
         String item = "";
-        double itemSpawn = 0;
-        double searchChance = 0;
+        int itemSpawn = 0;
+        int searchChance = 0;
         
         searchAvailable = false;
      
-        searchChance = Math.floor(Math.random()*10);
-        itemSpawn = Math.floor(Math.random()*6);
+        searchChance = (int) Math.floor(Math.random()*10);
+        itemSpawn = (int) Math.floor(Math.random()*6);
         if(searchChance <= 2){
-        if(itemSpawn==1){
-            item = "Meat";
-        }else if (itemSpawn == 2){
-            item = "Rifle";
-        }else if (itemSpawn == 3){
-            item = "Bullets";
-        }else if (itemSpawn == 4){
-            item = "Map";
-        }else if (itemSpawn == 5){
-            item = "ExtraLife";
-        }else{
-            item = "Knife";  
-        }
+            switch (itemSpawn) {
+                case 1:
+                    item = "Meat";
+                    break;
+                case 2:
+                    item = "Rifle";
+                    break;
+                case 3:
+                    item = "Bullets";
+                    break;
+                case 4:
+                    item = "Map";
+                    break;
+                case 5:
+                    item = "ExtraLife";
+                    break;
+                default:
+                    item = "Knife";
+                    break;
+            }
+            //Ensure that an is used before the E and a before others
+            System.out.println();
+            if("ExtraLife".equals(item)){
+                System.out.println("You found an: "+item);
+            }else{
+                System.out.println("You found a: "+item);
+            }
         }
         else{ System.out.println("Search yielded nothing");
+        return null;
         }
-        
-       
-       System.out.println();
-       if(item == "ExtraLife"){
-           System.out.println("You found an: "+item);
-       }else{
-       System.out.println("You found a: "+item);
-       }
-       
-       this.viewInventory(item);
+                  
+       this.addToInventory(item);
        
        return item;
     } 
      
     public String generateItemFromItems(){
         
-        String item = "";
-        double itemSpawn = 0;
+        String item;
+        int itemSpawn;
         
-        itemSpawn = Math.floor(Math.random()*6);
+        itemSpawn = (int) Math.floor(Math.random()*6);
         
-        if(itemSpawn==1){
-            item = "Meat";
-        }else if (itemSpawn == 2){
-            item = "Rifle";
-        }else if (itemSpawn == 3){
-            item = "Bullets";
-        }else if (itemSpawn == 4){
-            item = "Map";
-        }else if (itemSpawn == 5){
-            item = "ExtraLife";
-        }else{
-            item = "Knife";  
-        }
+         switch (itemSpawn) {
+             case 1:
+                 item = "Meat";
+                 break;
+             case 2:
+                 item = "Rifle";
+                 break;
+             case 3:
+                 item = "Bullets";
+                 break;
+             case 4:
+                 item = "Map";
+                 break;
+             case 5:
+                 item = "ExtraLife";
+                 break;
+             default:
+                 item = "Knife";
+                 break;
+         }
         
        
        System.out.println();
-       if(item == "ExtraLife"){
+       if("ExtraLife".equals(item)){
            System.out.println("You found an: "+item);
        }else{
        System.out.println("You found a: "+item);
        }
        Items.setItem1(item);
-       this.viewInventory(item);
+       this.addToInventory(item);
        
        return item;
     }
     
-    public int viewInventory(String newItem){
-
-                     
+    public int addToInventory(String newItem){      
         
         switch(newItem){
             case "Meat":
                 
                 itemId=1;
-                meatAmount=Items.getMeatQuantity();
+                meatAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
                 meatAmount++;
-                Items.setMeatQuantity(meatAmount);
-                System.out.println("You have "+Items.getMeatQuantity()+" "+Items.getMeat());  
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(meatAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getInventoryType());  
                 
                 break;
             case "Rifle":
                 
                 itemId=2;
-                rifleAmount=Items.getRifleQuantity();
+                rifleAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
                 rifleAmount++;
-                Items.setRifleQuantity(rifleAmount);
-                System.out.println("You have "+Items.getRifleQuantity()+" "+Items.getRifle());
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(rifleAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getInventoryType());  
                 
                 break;
             case "Bullets":
                 
                 itemId=3;
-                bulletAmount=Items.getBulletsQuantity();
+                bulletAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock();
                 bulletAmount++;
-                Items.setBulletsQuantity(bulletAmount);
-                System.out.println("You have "+Items.getBulletsQuantity()+" "+Items.getBullets());
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(bulletAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getInventoryType());  
                 
                 break;
             case "Map":
                 
                 itemId=4;
-                mapAmount=Items.getMapQuantity();
+                mapAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
                 mapAmount++;
-                Items.setMapQuantity(mapAmount);
-                System.out.println("You have "+Items.getMapQuantity()+" "+Items.getMap());
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(mapAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getInventoryType());
                 
                 break;
                 
             case "ExtraLife":
                 
                 itemId=5;
-                extraLifeAmount=Items.getExtraLifeQuantity();
+                extraLifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
                 extraLifeAmount++;
-                Items.setExtraLifeQuantity(extraLifeAmount);
-                System.out.println("You have "+Items.getExtraLifeQuantity()+" "+Items.getExtraLife());
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(extraLifeAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getInventoryType());
                 
                 break;
                 
             case "Knife":
                 
                 itemId=6;
-                knifeAmount=Items.getKnifeQuantity();
+                knifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock();
                 knifeAmount++;
-                Items.setKnifeQuantity(knifeAmount);
-                System.out.println("You have "+Items.getKnifeQuantity()+" "+Items.getKnife());
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(knifeAmount);
+                System.out.println("You have "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()
+                                  +" "
+                                  +LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getInventoryType());
                               
                 break;
                 
@@ -176,55 +208,55 @@ public class ItemControl {
     public void equipItem(String item) {
          
        if(item=="Map"){ 
-        if(Items.getMapQuantity()!=0){
-         int deductMap = Items.getMapQuantity();
+        if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()!=0){
+         int deductMap = LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
          deductMap = deductMap - 1;
-         Items.setExtraLifeQuantity(deductMap);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductMap);
         }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;
         }
        }else if(item=="Rifle"){ 
-         if(Items.getExtraLifeQuantity()!=0){
-         int deductRifle = Items.getRifleQuantity();
+         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()!=0){
+         int deductRifle = LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
          deductRifle = deductRifle - 1;
-         Items.setExtraLifeQuantity(deductRifle);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductRifle);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;
        }
        }else if(item=="Bullets"){ 
-         if(Items.getBulletsQuantity()!=0){
-         int deductBullets = Items.getBulletsQuantity();
+         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()!=0){
+         int deductBullets = LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock();
          deductBullets = deductBullets - 1;
-         Items.setExtraLifeQuantity(deductBullets);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(deductBullets);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;
          }
        }else if(item=="Knife"){  
-         if(Items.getKnifeQuantity()!=0){
-         int deductKnife = Items.getKnifeQuantity();
+         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()!=0){
+         int deductKnife = LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock();
          deductKnife = deductKnife - 1;
-         Items.setExtraLifeQuantity(deductKnife);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(deductKnife);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;
        }
        }else if(item=="Meat"){ 
-         if(Items.getMeatQuantity()!=0){
-         int deductMeat = Items.getMeatQuantity();
+         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()!=0){
+         int deductMeat = LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
          deductMeat = deductMeat - 1;
-         Items.setExtraLifeQuantity(deductMeat);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(deductMeat);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;
          }
        }else if(item=="ExtraLife"){ 
-         if(Items.getExtraLifeQuantity()!=0){
-         int deductExtraLife = Items.getExtraLifeQuantity();
+         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()!=0){
+         int deductExtraLife = LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
          deductExtraLife = deductExtraLife - 1;
-         Items.setExtraLifeQuantity(deductExtraLife);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(deductExtraLife);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;

@@ -6,8 +6,10 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -24,12 +26,12 @@ public class EquipItemView extends View{
                     + "\n----------------------------------------------"
                     + "\n| Equip Items                                |"
                     + "\n----------------------------------------------"
-                    + "\nR - Equip Rifle "+Items.getRifleQuantity()
-                    + "\nB - Equip Bullets "+Items.getBulletsQuantity()
-                    + "\nK - Equip Knife "+Items.getKnifeQuantity()
-                    + "\nM - Equip Map "+Items.getMapQuantity()
-                    + "\nN - Equip Meat "+Items.getMeatQuantity()
-                    + "\nE - Equip ExtraLife "+Items.getExtraLifeQuantity()
+                    + "\nR - Equip Rifle "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()
+                    + "\nB - Equip Bullets "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()
+                    + "\nK - Equip Knife "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()
+                    + "\nM - Equip Map "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()
+                    + "\nN - Equip Meat "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()
+                    + "\nE - Equip ExtraLife "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()
                     + "\nQ - Quit"
                     + "\n---------------------------------------------");
         
@@ -44,27 +46,27 @@ public class EquipItemView extends View{
         
         switch (choice) {
             case "R": // create and start a new game
-                this.equipItem("Rifle");
+                itemcontrol.equipItem("Rifle");
                 
                 break;
             case "B": // get and start an existing game
-                this.equipItem("Bullets");
+                itemcontrol.equipItem("Bullets");
                 
                 break;
             case "K": // display the help menu
-                this.equipItem("Knife");
+                itemcontrol.equipItem("Knife");
                 
                 break;
             case "M": // save the current game
-                this.equipItem("Map");
+                itemcontrol.equipItem("Map");
                 
                 break;
             case "N": // save the current game
-                this.equipItem("Meat");
+                itemcontrol.equipItem("Meat");
                 
                 break;
             case "E": // save the current game
-                this.equipItem("ExtraLife");
+                itemcontrol.equipItem("ExtraLife");
                 
                 break;
             case "Q": // exit
@@ -78,80 +80,7 @@ public class EquipItemView extends View{
         return true;
     }
     
-     private void equipItem(String item) {
-        
-         int deductMap=0;
-         int deductRifle=0;
-         int deductBullets=0;
-         int deductKnife=0;
-         int deductMeat=0;
-         int deductExtraLife=0;
-         
-       if(null == item){
-           System.out.println("\nItem does not exist");
-       }else switch (item) {
-            case "Map":
-                if(Items.getMapQuantity()!=0){
-                    deductMap = Items.getMapQuantity();
-                    deductMap--;
-                    Items.setMapQuantity(deductMap);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }       break;
-            case "Rifle":
-                if(Items.getRifleQuantity()!=0){
-                    deductRifle = Items.getRifleQuantity();
-                    deductRifle--;
-                    Items.setRifleQuantity(deductRifle);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }        break;
-            case "Bullets":
-                if(Items.getBulletsQuantity()!=0){
-                    deductBullets = Items.getBulletsQuantity();
-                    deductBullets--;
-                    Items.setBulletsQuantity(deductBullets);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }      break;
-            case "Knife":
-                if(Items.getKnifeQuantity()!=0){
-                    deductKnife = Items.getKnifeQuantity();
-                    deductKnife--;
-                    Items.setKnifeQuantity(deductKnife);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }        break;
-            case "Meat":
-                if(Items.getMeatQuantity()!=0){
-                    deductMeat = Items.getMeatQuantity();
-                    deductMeat--;
-                    Items.setMeatQuantity(deductMeat);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }      break;
-            case "ExtraLife":
-                if(Items.getExtraLifeQuantity()!=0){
-                    deductExtraLife = Items.getExtraLifeQuantity();
-                    deductExtraLife--;
-                    Items.setExtraLifeQuantity(deductExtraLife);
-                    this.assigntoSlot(item);
-                }else{
-                    System.out.println("\nYou have no "+ item +" in your inventory");
-                }      break;
-            default:
-                System.out.println("\nItem does not exist");
-                break;
-        }
-         
-      
    
-    }
      
     public void assigntoSlot(String item){
         if("".equals(Items.getItem1())){

@@ -6,8 +6,13 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.Game;
+import byui.cit260.lostwhilehunting.model.InventoryItem;
+import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import java.util.ArrayList;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -15,21 +20,25 @@ import java.util.Scanner;
  */
 public class ViewInventoryView extends View{
     
+    ArrayList<InventoryItem> viewItems = new ArrayList<>();
+    
     GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
     private String menu;
-
+    
+    
     public ViewInventoryView() {
-               super("\n"
+       
+               super( "\n"
                     + "\n----------------------------------------------"
                     + "\n| Inventory Items                            |"
                     + "\n----------------------------------------------"
-                    + "\n"+Items.getRifle()+" Amount: "+Items.getRifleQuantity()
-                    + "\n"+Items.getBullets()+" Amount: "+Items.getBulletsQuantity()
-                    + "\n"+Items.getKnife()+" Amount: "+Items.getKnifeQuantity()
-                    + "\n"+Items.getMap()+" Amount: "+Items.getMapQuantity()
-                    + "\n"+Items.getMeat()+" Amount: "+Items.getMeatQuantity()
-                    + "\n"+Items.getExtraLife()+" Amount: "+Items.getExtraLifeQuantity()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()
+                    + "\n"+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getInventoryType()+" Amount: "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()
                     + "\n----------------------------------------------"
                     + "\n| Equipped Items                            |"
                     + "\n----------------------------------------------"
@@ -37,6 +46,7 @@ public class ViewInventoryView extends View{
                     + "\nQ - Quit"
                     + "\n---------------------------------------------");
         
+               
     }
       
       

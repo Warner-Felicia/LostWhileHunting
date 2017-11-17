@@ -7,6 +7,7 @@ package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
+import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
@@ -65,22 +66,22 @@ public class GameControl {
         
         heal = Player.getInjuryTracker();
         if(Player.getHealthStatus()=="Dead"){
-            if(Items.getExtraLifeQuantity() > 0){
+            if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock() > 0){
                 heal=0;
                 Player.setInjuryTracker(heal);
-                life=Items.getExtraLifeQuantity();
+                life=LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
                 life--;
-                Items.setExtraLifeQuantity(life);
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(life);
             }else{
                 System.out.println("You have no Extra Life");
             }
         }else if(Player.getHealthStatus() != "Healthy" && Player.getHealthStatus() != "Dead"){
-            if(Items.getMeatQuantity() > 0){
+            if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock() > 0){
                 heal--;
                 Player.setInjuryTracker(heal);
-                meat=Items.getMeatQuantity();
+                meat=LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
                 meat--;
-                Items.setMeatQuantity(meat);
+                LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(meat);
             }else{
                 System.out.println("You have no Meat left");
             }

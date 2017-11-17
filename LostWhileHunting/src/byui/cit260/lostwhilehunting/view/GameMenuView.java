@@ -3,9 +3,11 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.LocationsControl;
+import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -81,9 +83,9 @@ public class GameMenuView extends View{
         }else{
             System.out.println("\nYou are dead");
             
-            if(Items.getExtraLifeQuantity() > 0){
+            if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock() > 0){
                 
-                System.out.println("\nYou have "+Items.getExtraLifeQuantity()+" ExtraLife. Do you want to Use?");
+                System.out.println("\nYou have "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()+" ExtraLife. Do you want to Use?");
                 System.out.println("\nEnter Y|N");
                 Scanner useLife = new Scanner(System.in);
                 String lifeWriteChoice = "";
