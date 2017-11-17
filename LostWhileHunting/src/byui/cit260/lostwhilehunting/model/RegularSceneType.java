@@ -52,65 +52,65 @@ public class RegularSceneType implements Serializable {
     public static RegularSceneType[] createScenes() {
         RegularSceneType[] scenesContainer = new RegularSceneType[10];
         
-        RegularSceneType scene1 = new RegularSceneType();
-        scene1.nameOfScene = "Starting Area";
-        scene1.description = "This is where the player will start.";
-        scene1.safe = true;
-        scenesContainer[0] = scene1;
+        RegularSceneType startingArea = new RegularSceneType();
+        startingArea.nameOfScene = "Starting Area";
+        startingArea.description = "This is where the player will start.";
+        startingArea.safe = true;
+        scenesContainer[0] = startingArea;
         
-        RegularSceneType scene2 = new RegularSceneType();
-        scene2.nameOfScene = "Cool Stream";
-        scene2.description = "The player can be refreshed here.";
-        scene2.safe = true;
-        scenesContainer[1] = scene2;
+        RegularSceneType coolStream = new RegularSceneType();
+        coolStream.nameOfScene = "Cool Stream";
+        coolStream.description = "The player can be refreshed here.";
+        coolStream.safe = true;
+        scenesContainer[1] = coolStream;
         
-        RegularSceneType scene3 = new RegularSceneType();
-        scene3.nameOfScene = "Cave";
-        scene3.description = "Player can rest in this location";
-        scene3.safe = true;
-        scenesContainer[2] = scene3;
+        RegularSceneType cave = new RegularSceneType();
+        cave.nameOfScene = "Cave";
+        cave.description = "Player can rest in this location";
+        cave.safe = true;
+        scenesContainer[2] = cave;
         
-        RegularSceneType scene4 = new RegularSceneType();
-        scene4.nameOfScene = "Deep Caverns";
-        scene4.description = "The player has to be careful in this location.";
-        scene4.safe = false;
-        scenesContainer[3] = scene4;
+        RegularSceneType deepCavern = new RegularSceneType();
+        deepCavern.nameOfScene = "Deep Caverns";
+        deepCavern.description = "The player has to be careful in this location.";
+        deepCavern.safe = false;
+        scenesContainer[3] = deepCavern;
         
-        RegularSceneType scene5 = new RegularSceneType();
-        scene5.nameOfScene = "Great River";
-        scene5.description = "Danger.  Player must beware.";
-        scene5.safe = false;
-        scenesContainer[4] = scene5;
+        RegularSceneType greatRiver = new RegularSceneType();
+        greatRiver.nameOfScene = "Great River";
+        greatRiver.description = "Danger.  Player must beware.";
+        greatRiver.safe = false;
+        scenesContainer[4] = greatRiver;
         
-        RegularSceneType scene6 = new RegularSceneType();
-        scene6.nameOfScene = "Small Town";
-        scene6.description = "The player can trade items they have for other items.";
-        scene6.safe = true;
-        scenesContainer[5] = scene6;
+        RegularSceneType smallTown = new RegularSceneType();
+        smallTown.nameOfScene = "Small Town";
+        smallTown.description = "The player can trade items they have for other items.";
+        smallTown.safe = true;
+        scenesContainer[5] = smallTown;
         
-        RegularSceneType scene7 = new RegularSceneType();
-        scene7.nameOfScene = "Goal";
-        scene7.description = "player is successful, the game is complete.";
-        scene7.safe = false;
-        scenesContainer[6] = scene7;
+        RegularSceneType goal = new RegularSceneType();
+        goal.nameOfScene = "Goal";
+        goal.description = "player is successful, the game is complete.";
+        goal.safe = false;
+        scenesContainer[6] = goal;
         
-        RegularSceneType scene8 = new RegularSceneType();
-        scene8.nameOfScene = "Minor 1";
-        scene8.description = "The player can encounter Coyote or Wolf.";
-        scene8.safe = false;
-        scenesContainer[7] = scene8;
+        RegularSceneType minor1 = new RegularSceneType();
+        minor1.nameOfScene = "Minor 1";
+        minor1.description = "The player can encounter Coyote or Wolf.";
+        minor1.safe = false;
+        scenesContainer[7] = minor1;
         
-        RegularSceneType scene9 = new RegularSceneType();
-        scene9.nameOfScene = "Minor 2";
-        scene9.description = "The player can encounter wolf or beer.";
-        scene9.safe = false;
-        scenesContainer[8] = scene9;
+        RegularSceneType minor2 = new RegularSceneType();
+        minor2.nameOfScene = "Minor 2";
+        minor2.description = "The player can encounter wolf or beer.";
+        minor2.safe = false;
+        scenesContainer[8] = minor2;
         
-        RegularSceneType scene10 = new RegularSceneType();
-        scene10.nameOfScene = "Minor 3";
-        scene10.description = "The player may encounter beer or muggers.";
-        scene10.safe = false;
-        scenesContainer[9] = scene10;
+        RegularSceneType minor3 = new RegularSceneType();
+        minor3.nameOfScene = "Minor 3";
+        minor3.description = "The player may encounter beer or muggers.";
+        minor3.safe = false;
+        scenesContainer[9] = minor3;
         
         return scenesContainer;
          
