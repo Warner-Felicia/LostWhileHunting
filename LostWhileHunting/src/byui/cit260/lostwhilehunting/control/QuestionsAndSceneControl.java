@@ -249,63 +249,63 @@ public class QuestionsAndSceneControl {
         RegularSceneType[] scenesContainer = new RegularSceneType[10];
         
         RegularSceneType startingArea = new RegularSceneType();
-        startingArea.setNameOfScene(nameOfScene); = "Starting Area";
-        startingArea.description = "This is where the player will start.";
-        startingArea.safe = true;
+        startingArea.setNameOfScene("Starting Area");
+        startingArea.setDescription("This is where the player will start.");
+        startingArea.setSafe(true);
         scenesContainer[SceneType.startingArea.ordinal()] = startingArea;
         
         RegularSceneType coolStream = new RegularSceneType();
-        coolStream.nameOfScene = "Cool Stream";
-        coolStream.description = "The player can be refreshed here.";
-        coolStream.safe = true;
+        coolStream.setNameOfScene("Cool Stream");
+        coolStream.setDescription("The player can be refreshed here.");
+        coolStream.setSafe(true);
         scenesContainer[SceneType.coolStream.ordinal()] = coolStream;
         
         RegularSceneType cave = new RegularSceneType();
-        cave.nameOfScene = "Cave";
-        cave.description = "Player can rest in this location";
-        cave.safe = true;
+        cave.setNameOfScene("Cave");
+        cave.setDescription("Player can rest in this location");
+        cave.setSafe(true);
         scenesContainer[SceneType.cave.ordinal()] = cave;
         
         RegularSceneType deepCavern = new RegularSceneType();
-        deepCavern.nameOfScene = "Deep Caverns";
-        deepCavern.description = "The player has to be careful in this location.";
-        deepCavern.safe = false;
+        deepCavern.setNameOfScene("Deep Caverns");
+        deepCavern.setDescription("The player has to be careful in this location.");
+        deepCavern.setSafe(false);
         scenesContainer[SceneType.deepCaverns.ordinal()] = deepCavern;
         
         RegularSceneType greatRiver = new RegularSceneType();
-        greatRiver.nameOfScene = "Great River";
-        greatRiver.description = "Danger.  Player must beware.";
-        greatRiver.safe = false;
+        greatRiver.setNameOfScene("Great River");
+        greatRiver.setDescription("Danger.  Player must beware.");
+        greatRiver.setSafe(false);
         scenesContainer[SceneType.greatRiver.ordinal()] = greatRiver;
         
         RegularSceneType smallTown = new RegularSceneType();
-        smallTown.nameOfScene = "Small Town";
-        smallTown.description = "The player can trade items they have for other items.";
-        smallTown.safe = true;
+        smallTown.setNameOfScene("Small Town");
+        smallTown.setDescription("The player can trade items they have for other items.");
+        smallTown.setSafe(true);
         scenesContainer[SceneType.smallTown.ordinal()] = smallTown;
         
         RegularSceneType goal = new RegularSceneType();
-        goal.nameOfScene = "Goal";
-        goal.description = "player is successful, the game is complete.";
-        goal.safe = false;
+        goal.setNameOfScene("Goal");
+        goal.setDescription("player is successful, the game is complete.");
+        goal.setSafe(false);
         scenesContainer[SceneType.goal.ordinal()] = goal;
         
         RegularSceneType minor1 = new RegularSceneType();
-        minor1.nameOfScene = "Minor 1";
-        minor1.description = "The player can encounter Coyote or Wolf.";
-        minor1.safe = false;
+        minor1.setNameOfScene("Minor 1");
+        minor1.setDescription("The player can encounter Coyote or Wolf.");
+        minor1.setSafe(false);
         scenesContainer[SceneType.minor1.ordinal()] = minor1;
         
         RegularSceneType minor2 = new RegularSceneType();
-        minor2.nameOfScene = "Minor 2";
-        minor2.description = "The player can encounter wolf or beer.";
-        minor2.safe = false;
+        minor2.setNameOfScene("Minor 2");
+        minor2.setDescription("The player can encounter wolf or beer.");
+        minor2.setSafe(false);
         scenesContainer[SceneType.minor2.ordinal()] = minor2;
         
         RegularSceneType minor3 = new RegularSceneType();
-        minor3.nameOfScene = "Minor 3";
-        minor3.description = "The player may encounter beer or muggers.";
-        minor3.safe = false;
+        minor3.setNameOfScene("Minor 3");
+        minor3.setDescription("The player may encounter beer or muggers.");
+        minor3.setSafe(false);
         scenesContainer[SceneType.minor3.ordinal()] = minor3;
         
         return scenesContainer;
