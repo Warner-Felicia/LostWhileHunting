@@ -129,6 +129,12 @@ public class SceneQuestions implements Serializable {
         return "SceneQuestions{" + "fightAnswer=" + fightAnswer + ", flightAnswer=" + flightAnswer + ", evadeAnswer=" + evadeAnswer + ", itemReward=" + itemReward + ", statusUpdate=" + statusUpdate + '}';
     }
 
+    public static String[] createQuestions() {
+      System.out.println("*** createQuestions() is called ***");
+     String[] questionsContainer = new String[5];
+         return questionsContainer;
+    }
+
     
     
 }

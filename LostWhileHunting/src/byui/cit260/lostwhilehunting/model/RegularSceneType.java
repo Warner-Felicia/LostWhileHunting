@@ -49,7 +49,12 @@ public class RegularSceneType implements Serializable {
     public void setSafe(String safe) {
         this.safe = safe;
     }
-
+    public static String[] createScenes() {
+        System.out.println();
+        System.out.println("*** createScenes() is called ***");
+       String[] scenesContainer = new String[10];
+         return scenesContainer;
+    }
      //Class Hash, Equals, and toString override functions
 
     @Override
@@ -89,6 +94,8 @@ public class RegularSceneType implements Serializable {
     public String toString() {
         return "RegularSceneType{" + "nameOfScene=" + nameOfScene + ", description=" + description + ", safe=" + safe + '}';
     }
+
+    
     
     
     

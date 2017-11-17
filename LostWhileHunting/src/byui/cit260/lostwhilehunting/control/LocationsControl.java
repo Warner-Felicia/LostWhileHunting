@@ -15,6 +15,9 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
+import byui.cit260.lostwhilehunting.model.RegularSceneType;
+import byui.cit260.lostwhilehunting.model.SceneQuestions;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class LocationsControl {
@@ -136,13 +139,15 @@ public class LocationsControl {
         int[][] locations = createLocations(noOfRows, noOfColumns);
         map.setLocation(locations);   
     
-    /* Still to do   
- 
+    RegularSceneType scenes = new RegularSceneType();
+    RegularSceneType.createScenes();
+    
+    SceneQuestions questions = new SceneQuestions();
+    SceneQuestions.createQuestions();
+    
+    LocationsControl.assignQuestionsToScenes();
+    LocationsControl.assignScenesToLocations();
 
-scenes = createScenes()
-questions = createQuestions()
-assignQuestionsToScenes()
-assignItemsToScenes() */
         
         
         return map;
@@ -152,6 +157,14 @@ assignItemsToScenes() */
          int[][] locationsCord = new int[noOfRows][noOfColumns];
          return locationsCord;
     }
+     
+     private static void assignQuestionsToScenes(){
+         System.out.println("*** assignQuestionsToScenes() is called ***");
+     }
+     
+      private static void assignScenesToLocations(){
+         System.out.println("*** assignScenesToLocations() is called ***");
+     }
 
     
 }
