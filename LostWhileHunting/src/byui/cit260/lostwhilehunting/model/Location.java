@@ -21,7 +21,7 @@ public class Location implements Serializable{
     private int row;
     private boolean visited;
     private String attribute;
-    private RegularSceneType[] scenes;
+    private RegularSceneType scenes;
 
     
     private ArrayList<Actors> actors = new ArrayList<Actors>();
@@ -74,11 +74,11 @@ public class Location implements Serializable{
         this.actors = actors;
     }
     
-    public RegularSceneType[] getScenes() {
+    public RegularSceneType getScenes() {
         return scenes;
     }
 
-    public void setScenes(RegularSceneType[] scenes) {
+    public void setScenes(RegularSceneType scenes) {
         this.scenes = scenes;
     }
     
