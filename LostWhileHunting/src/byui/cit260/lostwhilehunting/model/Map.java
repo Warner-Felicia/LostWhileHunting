@@ -20,7 +20,7 @@ public class Map implements Serializable{
     private int columnCount;
     private int rowCount;
     private ArrayList<Game> games = new ArrayList<Game>();
-    private int[][] location;
+    private Location[][] location;
 
    
     
@@ -61,11 +61,11 @@ public class Map implements Serializable{
         this.games = games;
     }
     
-     public int[][] getLocation() {
+     public Location[][] getLocation() {
         return location;
     }
 
-    public void setLocation(int[][] location) {
+    public void setLocation(Location[][] location) {
         this.location = location;
     }
 
