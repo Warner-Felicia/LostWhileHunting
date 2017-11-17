@@ -83,50 +83,37 @@ public class RegularSceneType implements Serializable {
         scenesContainer[4] = scene5;
         
         RegularSceneType scene6 = new RegularSceneType();
-        scene6.nameOfScene = "Starting Area";
-        scene6.description = "This is where the player will start.";
+        scene6.nameOfScene = "Small Town";
+        scene6.description = "The player can trade items they have for other items.";
         scene6.safe = true;
         scenesContainer[5] = scene6;
         
         RegularSceneType scene7 = new RegularSceneType();
-        scene7.nameOfScene = "Starting Area";
-        scene7.description = "This is where the player will start.";
-        scene7.safe = true;
+        scene7.nameOfScene = "Goal";
+        scene7.description = "player is successful, the game is complete.";
+        scene7.safe = false;
         scenesContainer[6] = scene7;
         
         RegularSceneType scene8 = new RegularSceneType();
-        scene8.nameOfScene = "Starting Area";
-        scene8.description = "This is where the player will start.";
-        scene8.safe = true;
+        scene8.nameOfScene = "Minor 1";
+        scene8.description = "The player can encounter Coyote or Wolf.";
+        scene8.safe = false;
         scenesContainer[7] = scene8;
         
         RegularSceneType scene9 = new RegularSceneType();
-        scene9.nameOfScene = "Starting Area";
-        scene9.description = "This is where the player will start.";
-        scene9.safe = true;
+        scene9.nameOfScene = "Minor 2";
+        scene9.description = "The player can encounter wolf or beer.";
+        scene9.safe = false;
         scenesContainer[8] = scene9;
         
         RegularSceneType scene10 = new RegularSceneType();
-        scene10.nameOfScene = "Starting Area";
-        scene10.description = "This is where the player will start.";
-        scene10.safe = true;
+        scene10.nameOfScene = "Minor 3";
+        scene10.description = "The player may encounter beer or muggers.";
+        scene10.safe = false;
         scenesContainer[9] = scene10;
         
         return scenesContainer;
          
- /*        
-Assign scene1 to its position in the scenes array
-scene2 = Create a new ConstructionScene object
-Assign values to each attribute in the Scene object
-Assign scene2 to its position in the scenes array
-scene2 = Create a new ResourceScene object
-Assign values to each attribute in the Scene object
-Assign scene2 to its position in the scenes array
-…
-…
-…
-RETURN scenes
-}*/
     }
      //Class Hash, Equals, and toString override functions
 
