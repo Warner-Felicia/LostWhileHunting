@@ -68,7 +68,7 @@ public class CombatMenuView extends View{
                 break;
         }
         
-        return false;
+        return true;
     }
 @Override
     public String getInput() {

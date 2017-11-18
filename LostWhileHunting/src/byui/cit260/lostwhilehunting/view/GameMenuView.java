@@ -43,7 +43,7 @@ public class GameMenuView extends View{
                 + "\n Please make a selection.");
     }
     
-    @Override
+    /*@Override
     public void display() {
         boolean done = false; // set flag to not done
         do {
@@ -56,7 +56,7 @@ public class GameMenuView extends View{
             done = this.doAction(value);
         } 
         while (!done);
-    }
+    } */
     
     @Override
     public boolean doAction(String choice) {
