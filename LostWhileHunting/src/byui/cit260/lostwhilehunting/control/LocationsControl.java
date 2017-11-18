@@ -20,6 +20,7 @@ import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import lostwhilehunting.LostWhileHunting;
 
 public class LocationsControl {
 
@@ -33,6 +34,7 @@ public class LocationsControl {
         String inventoryItem = "";
         double randomizerNum = 0;
         double returnSuccessFailure= 0;
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         
         //always get the latest surePass Amount
         if(surePass > p.getNumberOfSurePasses() || surePass < p.getNumberOfSurePasses()){
@@ -64,6 +66,17 @@ public class LocationsControl {
                 surePass = surePass - 1; // decrease surePass by 1
                 p.setNumberOfSurePasses(surePass);
                 System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
+                 
+                for (Location[] rowCheck : location) {
+                for (Location surePassCheck : rowCheck) {
+                    if (surePassCheck.isVisited() == false) {
+                        surePassCheck.setVisited(true);
+                        
+                        return 1;
+                    }
+                }
+                }            
+                LostWhileHunting.getCurrentGame().getMap().setLocation(location);
                 returnSuccessFailure = 1;// assign 1 for test class
                 
             }else{
