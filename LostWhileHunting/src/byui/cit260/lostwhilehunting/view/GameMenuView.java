@@ -44,6 +44,21 @@ public class GameMenuView extends View{
     }
     
     @Override
+    public void display() {
+        boolean done = false; // set flag to not done
+        do {
+            // promt for and get players name
+            String value = this.getInput();
+            if (value.toUpperCase().equals("Q")) // user wants to quit
+                mainmenu.display(); // exit the game
+            
+            // do the requested action and display the next view
+            done = this.doAction(value);
+        } 
+        while (!done);
+    }
+    
+    @Override
     public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
