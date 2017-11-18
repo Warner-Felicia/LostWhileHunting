@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class EquipItemView extends View{
     
     @Override
     public boolean doAction(String choice) {
-       
+       System.out.println("You had overall "+ this.sumItems()+ " items");
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
@@ -76,7 +77,7 @@ public class EquipItemView extends View{
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-        
+        System.out.println("You now have "+ this.sumItems()+ " items in Inventory");
         return true;
     }
     
@@ -130,6 +131,20 @@ public class EquipItemView extends View{
                 
             break;
         }
+    }
+    
+    private int sumItems(){
+        
+        Game sumItems = LostWhileHunting.getCurrentGame();
+        int range = sumItems.getItems().size() - 1;
+        int total=0;
+        
+        for(int i=0; i <= range; i++){
+            total += sumItems.getItems().get(i).getQuantityInStock();
+            
+        }
+        
+        return total;
     }
     
 }

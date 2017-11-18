@@ -67,7 +67,7 @@ public class ItemControl {
             }
         }
         else{ System.out.println("Search yielded nothing");
-        return null;
+        return "";
         }
                   
        this.addToInventory(item);
@@ -199,10 +199,9 @@ public class ItemControl {
                 break;
             
         }
-        
-        System.out.println();
-        
-        return itemId;
+        int nonprivateint = itemId;
+              
+        return nonprivateint;
     }
 
     public void equipItem(String item) {
@@ -244,7 +243,8 @@ public class ItemControl {
             return;
        }
        }else if(item=="Meat"){ 
-         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()!=0){
+
+           if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()!=0){
          int deductMeat = LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
          deductMeat = deductMeat - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(deductMeat);

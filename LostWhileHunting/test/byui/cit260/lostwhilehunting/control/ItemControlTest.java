@@ -38,14 +38,64 @@ public class ItemControlTest {
     }
 
     /**
+     * Test of searchLocation method, of class ItemControl.
+     */
+    @Test
+    public void testSearchLocation() {
+        
+        
+        System.out.println("searchLocation");
+        ItemControl instance = new ItemControl();
+        String expResult = "Knife";
+        String result = instance.searchLocation();
+        assertEquals(expResult, result, "Knife");
+        
+        System.out.println("searchLocation");
+        expResult = "";
+        result = instance.searchLocation();
+        assertEquals(expResult, result, "");
+        
+        System.out.println("searchLocation");
+        expResult = "Meat";
+        result = instance.searchLocation();
+        assertEquals(expResult, result, "Meat");
+        
+        
+        System.out.println("searchLocation");
+        expResult = "Rifle";
+        result = instance.searchLocation();
+        assertEquals(expResult, result, "Rifle");
+        
+        
+        System.out.println("searchLocation");
+        expResult = "Bullets";
+        result = instance.searchLocation();
+        assertEquals(expResult, result, "Bullets");
+        
+             
+        System.out.println("searchLocation");
+        expResult = "ExtraLife";
+        result = instance.searchLocation();
+        assertEquals(expResult, result, "ExtraLife");
+        
+                
+    }
+
+    /**
      * Test of generateItemFromItems method, of class ItemControl.
      */
     @Test
     public void testGenerateItemFromItems() {
-        System.out.println("\ngenerateItemFromItems ExtraLife Test");
+        System.out.println("generateItemFromItems");
         ItemControl instance = new ItemControl();
-        String expResult = "ExtraLife";
+        String expResult = "";
         String result = instance.generateItemFromItems();
+        assertEquals(expResult, result);
+        
+        
+        System.out.println("\ngenerateItemFromItems ExtraLife Test");
+        expResult = "ExtraLife";
+        result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
@@ -87,22 +137,78 @@ public class ItemControlTest {
         }else{
             System.out.println("Another Item returned "+result);
         }
+    }
+
+    /**
+     * Test of addToInventory method, of class ItemControl.
+     */
+    @Test
+    public void testAddToInventory() {
+        System.out.println("addToInventory");
+        String newItem = "Meat";
+        ItemControl instance = new ItemControl();
+        int expResult = 1;
+        int result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        System.out.println("addToInventory");
+        newItem = "Rifle";
+        expResult = 2;
+        result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        System.out.println("addToInventory");
+        newItem = "Bullets";
+        expResult = 3;
+        result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        System.out.println("addToInventory");
+        newItem = "Map";
+        expResult = 4;
+        result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        System.out.println("addToInventory");
+        newItem = "ExtraLife";
+        expResult = 5;
+        result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        System.out.println("addToInventory");
+        newItem = "Knife";
+        expResult = 6;
+        result = instance.addToInventory(newItem);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
         
     }
 
     /**
-     * Test of viewInventory method, of class ItemControl.
+     * Test of equipItem method, of class ItemControl.
      */
     @Test
-    public void testViewInventory() {
-        System.out.println("\nviewInventory");
-        String newItem = "Meat";
+    public void testEquipItem() {
+        System.out.println("equipItem");
+        String item = "Meat";
         ItemControl instance = new ItemControl();
-        int expResult = 1;
-        int result = instance.viewInventory(newItem);
-        assertEquals(expResult, result);
-        
-        
+        instance.equipItem(item);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
+    
+    
     
 }
