@@ -171,11 +171,10 @@ public class GameMenuView extends View{
         Location[][] locations = game.getMap().getLocation();
         
         System.out.println("\n***Lost While Hunting Map***");
-        
+        System.out.print("   1  2  3  4  5  6  7  8  9");
         for (int i = 0; i < locations.length; i++) {
-            System.out.println("----------------------------");
-            System.out.println("\n" + i + 1);
-            
+            System.out.print("\n  ----------------------------");
+            System.out.print("\n" + (i + 1)+" ");           
             for (int j = 0; j < locations[i].length; j++) {
                 System.out.print("|");
                 Location location = locations[i][j];
@@ -187,7 +186,7 @@ public class GameMenuView extends View{
             }
             System.out.print("|");
         }
-        System.out.println("----------------------------");
+        System.out.println("\n  ----------------------------");
  
   
     }
