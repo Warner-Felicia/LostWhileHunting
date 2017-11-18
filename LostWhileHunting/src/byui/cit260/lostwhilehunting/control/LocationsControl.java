@@ -85,7 +85,6 @@ public class LocationsControl {
                 p.setNumberOfSurePasses(surePass);
                 //This item will be written to the SetInventoryItem function in future iterations
                 inventoryItem = itemcontrol.generateItemFromItems();
-                itemcontrol.addToInventory(inventoryItem);
                 System.out.println("Your Sure Pass failed this time, but you found a " + inventoryItem);
                 System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                 returnSuccessFailure = 0;// assign 0 for test class
