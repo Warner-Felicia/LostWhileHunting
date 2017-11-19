@@ -24,7 +24,6 @@ import lostwhilehunting.LostWhileHunting;
 
 public class LocationsControl {
 
-
     ItemControl itemcontrol = new ItemControl();
     Player p = new Player();
     
@@ -218,6 +217,27 @@ public class LocationsControl {
         
         
      }
+    
+     public static void incrementLocation() {
+        
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+        
+        if (location == null) {
+            System.out.println("Locations array unsuccessfully passed.");
+        }
+        
+        //Search for next unvisited location
+        for (Location[] row : location) {
+            for (Location column : row) {
+                if (column.isVisited() == false) {
+                    column.setVisited(true);
+                    return;
+                }
+            }
+        }
+    }   
+    
+    
 
     
 }
