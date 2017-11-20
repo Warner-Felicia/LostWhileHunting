@@ -96,6 +96,8 @@ public class GameMenuView extends View{
     private void moveToNextLocation() {
         // allows player to search again
         ItemControl.searchAvailable = true;
+        
+        LocationsControl.incrementLocation();
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
             CombatMenuView combatMenuView = new CombatMenuView();
