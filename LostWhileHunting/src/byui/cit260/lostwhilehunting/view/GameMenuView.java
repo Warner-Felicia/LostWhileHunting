@@ -184,6 +184,7 @@ public class GameMenuView extends View{
         
         Game game = new Game();
         game = LostWhileHunting.getCurrentGame();
+        LocationsControl checkVisitedStages = new LocationsControl();
         
         Location[][] locations = game.getMap().getLocation();
         
@@ -203,7 +204,8 @@ public class GameMenuView extends View{
             }
             System.out.print("|");
         }
-        System.out.println("\n  ----------------------------");
+        System.out.println("\n  ----------------------------" +"\n" 
+                            + "\n ^^^ You have visited " + checkVisitedStages.checkStages() + " stages ^^^");
  
   
     }

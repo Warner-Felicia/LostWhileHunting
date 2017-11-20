@@ -235,9 +235,26 @@ public class LocationsControl {
                 }
             }
         }
-    }   
-    
-    
-
-    
+    }
+     
+     public int checkStages(){
+       
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+        int total = 0; 
+        // Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+        
+        if (location == null) {
+            System.out.println("There is an error. The total number of visited stages is undefined.");
+        }
+        
+        //Search for next unvisited location
+        for (Location[] row : location) {
+            for (Location column : row) {
+                if (column.isVisited() == false) {
+                   total = total + 1;
+                }
+            }
+        }
+        return (27 - total);
+    }
 }

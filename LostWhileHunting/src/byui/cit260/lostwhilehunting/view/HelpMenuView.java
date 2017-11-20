@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.control.LocationsControl;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,6 @@ public class HelpMenuView {
     
     MainMenuView mainmenu = new MainMenuView();
     private String menu;
-
     public HelpMenuView() {
         this.menu = "\n"
                     + "\n----------------------------------------"
