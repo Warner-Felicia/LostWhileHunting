@@ -309,14 +309,14 @@ public class QuestionsAndSceneControl {
         
         RegularSceneType minor2 = new RegularSceneType();
         minor2.setNameOfScene("Minor 2");
-        minor2.setDescription("The player can encounter wolf or beer.");
+        minor2.setDescription("The player can encounter wolf or bear.");
         minor2.setSafe(false);
         minor2.setSymbol("*2");
         scenesContainer[SceneType.minor2.ordinal()] = minor2;
         
         RegularSceneType minor3 = new RegularSceneType();
         minor3.setNameOfScene("Minor 3");
-        minor3.setDescription("The player may encounter beer or muggers.");
+        minor3.setDescription("The player may encounter bear or muggers.");
         minor3.setSafe(false);
         minor3.setSymbol("*3");
         scenesContainer[SceneType.minor3.ordinal()] = minor3;
