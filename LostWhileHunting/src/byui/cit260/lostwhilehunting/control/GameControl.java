@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.ItemType;
@@ -170,5 +171,50 @@ public class GameControl {
         
         
     }
+    
+    public static String minor1(){
+        String actor;
+        int randomNum = (int) Math.random()*3;
+        
+        if(randomNum == 1){
+            actor = Actors.Coyote.getName();
+        }else if(randomNum == 2){
+            actor = Actors.SmallWolf.getName();
+        }else{
+            actor = Actors.Wolf.getName();
+        }
+        
+        return actor;
+    } 
+    
+    public static String minor2(){
+        String actor;
+        int randomNum = (int) Math.random()*3;
+        
+        if(randomNum == 1){
+            actor = Actors.Bear.getName();
+        }else if(randomNum == 2){
+            actor = Actors.SmallWolf.getName();
+        }else{
+            actor = Actors.Wolf.getName();
+        }
+        
+        return actor;
+    } 
+    
+    public static String minor3(){
+        String actor;
+        int randomNum = (int) Math.random()*3;
+        
+        if(randomNum == 1){
+            actor = Actors.Bear.getName();
+        }else if(randomNum == 2){
+            actor = Actors.Thieves.getName();
+        }else{
+            actor = Actors.Wolf.getName();
+        }
+        
+        return actor;
+    } 
     
 }

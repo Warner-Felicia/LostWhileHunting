@@ -10,7 +10,9 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.QuestionType;
 import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
@@ -253,56 +255,87 @@ public class QuestionsAndSceneControl {
         
         RegularSceneType startingArea = new RegularSceneType();
         startingArea.setNameOfScene("Starting Area");
-        startingArea.setDescription("This is where the player will start.");
+        startingArea.setDescription("\n"
+                                   +"\n---------------------------------------------"
+                                   + "\n You wake up in a small cave, its time to go|"
+                                   + "\n--------------------------------------------");
         startingArea.setSafe(true);
         startingArea.setSymbol("SA");
         scenesContainer[SceneType.startingArea.ordinal()] = startingArea;
         
         RegularSceneType coolStream = new RegularSceneType();
         coolStream.setNameOfScene("Cool Stream");
-        coolStream.setDescription("The player can be refreshed here.");
+        coolStream.setDescription("\n"
+                                   +"\n-------------------------------------------------------"
+                                   + "\n You found a cool steam, it looks refreshing and clean"
+                                   + "\n You are "+Player.getHealthStatus()+ ". Will you Drink?"
+                                   + "\n------------------------------------------------------");
         coolStream.setSafe(true);
         coolStream.setSymbol("CS");
         scenesContainer[SceneType.coolStream.ordinal()] = coolStream;
         
         RegularSceneType cave = new RegularSceneType();
         cave.setNameOfScene("Cave");
-        cave.setDescription("Player can rest in this location");
+        cave.setDescription("\n"
+                           +"\n----------------------------------------------"
+                           + "\n You found a cave, its dark, quiet and murky"
+                           + "\n You are "+Player.getHealthStatus()+ ". Will you Rest?"
+                           + "\n---------------------------------------------");
         cave.setSafe(true);
         cave.setSymbol(" C");
         scenesContainer[SceneType.cave.ordinal()] = cave;
         
         RegularSceneType deepCavern = new RegularSceneType();
         deepCavern.setNameOfScene("Deep Caverns");
-        deepCavern.setDescription("The player has to be careful in this location.");
+        deepCavern.setDescription("\n"
+                                   +"\n-----------------------------------------------------------------"
+                                   + "\n The cavern before you is deep, but has a grip on the other side"
+                                   + "\n You are "+Player.getHealthStatus()+ ". Will you make a jump for it?|"
+                                   + "\n----------------------------------------------------------------");
         deepCavern.setSafe(false);
         deepCavern.setSymbol("DC");
         scenesContainer[SceneType.deepCaverns.ordinal()] = deepCavern;
         
         RegularSceneType greatRiver = new RegularSceneType();
         greatRiver.setNameOfScene("Great River");
-        greatRiver.setDescription("Danger.  Player must beware.");
+        greatRiver.setDescription("\n"
+                                  +"\n-------------------------------------------------------"
+                                  + "\n The river is running fast, but you see a net and fishes."
+                                  + "\n You are "+Player.getHealthStatus()+ ". Will you grab the net and try to catch the fishes while crossing?"
+                                  + "\n--------------------------------------------");
         greatRiver.setSafe(false);
         greatRiver.setSymbol("GR");
         scenesContainer[SceneType.greatRiver.ordinal()] = greatRiver;
         
         RegularSceneType smallTown = new RegularSceneType();
         smallTown.setNameOfScene("Small Town");
-        smallTown.setDescription("The player can trade items they have for other items.");
+        smallTown.setDescription("\n"
+                                   +"\n--------------------------------------------------"
+                                   + "\n You found a small town, you can trade items here"
+                                   + "\n Choose the trade option below and start trading."
+                                   + "\n-------------------------------------------------");
         smallTown.setSafe(true);
         smallTown.setSymbol("ST");
         scenesContainer[SceneType.smallTown.ordinal()] = smallTown;
         
         RegularSceneType goal = new RegularSceneType();
         goal.setNameOfScene("Goal");
-        goal.setDescription("player is successful, the game is complete.");
+        goal.setDescription("\n"
+                                   +"\n-----------------THE END-----------------------------"
+                                   + "\n You have made it to the end, and rejoined the trail"
+                                   + "\n Congrats and we hope you enjoyed the game "
+                                   + "\n----------------------------------------------------");
         goal.setSafe(false);
         goal.setSymbol(" G");
         scenesContainer[SceneType.goal.ordinal()] = goal;
         
         RegularSceneType minor1 = new RegularSceneType();
         minor1.setNameOfScene("Minor 1");
-        minor1.setDescription("The player can encounter Coyote or Wolf.");
+        minor1.setDescription("\n"
+                             +"\n-------------------------------------------------"
+                             + "\n A "+GameControl.minor1()+" approaches, it looks hungry"
+                             + "\n You are "+Player.getHealthStatus()+ "." 
+                             + "\n-------------------------------------------------");
         minor1.setSafe(false);
         minor1.setSymbol("*1");
         scenesContainer[SceneType.minor1.ordinal()] = minor1;
