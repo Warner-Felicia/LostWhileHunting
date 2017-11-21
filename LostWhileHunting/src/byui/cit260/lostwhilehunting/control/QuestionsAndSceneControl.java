@@ -404,4 +404,133 @@ public class QuestionsAndSceneControl {
         return scene;        
     }
     
+    /* Everything below here is for the major scene questions*/
+    
+    public double majorSceneYes(String hero, String item1, String item2, String item3){
+        
+        //Variables
+        int itemsEquipped = 0;
+        int locationIncrement = 0;
+        int regularSceneTypeAmount = 0;
+        double randomizerNum = 0;
+        double successFailureBoundary = 50;
+        double classBonus = 0;
+        double returnNumber = 0;
+        
+        
+        // loop to count items
+        if(item1 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item2 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item3 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        
+        randomizerNum = Math.floor(Math.random()*100);
+        
+        //IF (hero = “BurlyMan”) THEN
+        if(hero != null){
+            //classBonus = classBonus + 10
+            classBonus=classBonus+10;
+            //successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) +  classsBonus
+            successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
+            
+                //IF (randomizerNumber <= successFailureBoundary)
+                if(randomizerNum <= successFailureBoundary){
+                    //moveToNextLocation();
+                    System.out.println();
+                    //Display “You lost” + item1
+                    System.out.println("Brave choice you found two items");
+                    //generate Item 1
+                    itemcontrol.generateItemFromItems();
+                    //generate Item 2
+                    itemcontrol.generateItemFromItems();
+                    System.out.println();
+                    //Display: You are one step closer to victory with that awesome choice. Good luck!
+                    System.out.println(hero + " You are one step closer to victory with that awesome choice. Good luck!");
+                    
+                    returnNumber = 1;
+                }else{
+                    // do nothing
+                    GameControl.assignInjuryOnFail();
+                    System.out.println();
+                    System.out.println("You made the wrong choice, you get nothing. Better luck next time.");
+                    item1 = "";
+                    items.setItem1(item1);
+                    System.out.println(hero + "You also lost an item sadly :( ");
+                    System.out.println("Item1 status: "+ item1 );
+                    returnNumber = 0;
+                }
+        
+        }
+        return returnNumber;      
+                 
+    }
+    
+    public double majorSceneNo(String hero, String item1, String item2, String item3){
+        
+        //Variables
+        int itemsEquipped = 0;
+        int locationIncrement = 0;
+        int regularSceneTypeAmount = 0;
+        double randomizerNum = 0;
+        double successFailureBoundary = 50;
+        double classBonus = 0;
+        double returnNumber = 0;
+        
+        
+        // loop to count items
+        if(item1 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item2 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        if(item3 != ""){
+            itemsEquipped = itemsEquipped + 1;
+        }
+        
+        randomizerNum = Math.floor(Math.random()*100);
+        
+        //IF (hero = “BurlyMan”) THEN
+        if(hero != null){
+            //classBonus = classBonus + 10
+            classBonus=classBonus+10;
+            //successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) +  classsBonus
+            successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
+            
+                //IF (randomizerNumber <= successFailureBoundary)
+                if(randomizerNum <= successFailureBoundary){
+                    //moveToNextLocation();
+                    System.out.println();
+                    //Display “You lost” + item1
+                    System.out.println("Good choice but you get nothing, no risk no reward");
+                   
+                    System.out.println();
+                    //Display: You are one step closer to victory with that awesome choice. Good luck!
+                    System.out.println(hero + " You are one step closer to victory with that lucky choice. Good luck!");
+                    
+                    returnNumber = 1;
+                }else{
+                    // do nothing
+                    GameControl.assignInjuryOnFail();
+                    System.out.println();
+                    System.out.println("You made the wrong choice, a risk is sometimes necessary for success.");
+                    item1 = "";
+                    items.setItem1(item1);
+                    System.out.println(hero + "You also lost an item sadly :( ");
+                    System.out.println("Item1 status: "+ item1 );
+                    returnNumber = 0;
+                }
+        
+        }
+        return returnNumber;      
+                 
+    }
+    
+    
+    
 }

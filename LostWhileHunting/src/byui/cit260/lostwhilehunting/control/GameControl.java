@@ -175,6 +175,7 @@ public class GameControl {
     public static String minor1(){
         String actor;
         int randomNum = (int) Math.random()*3;
+        System.out.println("Minor load: "+ randomNum);
         
         if(randomNum == 1){
             actor = Actors.Coyote.getName();

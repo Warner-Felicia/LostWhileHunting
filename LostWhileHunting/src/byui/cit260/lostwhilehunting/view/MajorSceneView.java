@@ -56,10 +56,10 @@ public class MajorSceneView extends View{
         
          switch (choice) {
             case "Y": 
-                this.fight();
+                this.yes();
                 break;
             case "N":
-                this.flight();
+                this.no();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -91,18 +91,13 @@ public class MajorSceneView extends View{
         return value;
     }
 
-    private void fight() {
-       questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
-       gamemenu.display();
-    }
-
-    private void flight() {
-        questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+    private void yes() {
+       questionsandscenecontrol.majorSceneYes(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
         gamemenu.display();
     }
-
-    private void evade() {
-        questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+    
+    private void no() {
+       questionsandscenecontrol.majorSceneNo(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
         gamemenu.display();
     }
 
