@@ -96,13 +96,20 @@ public class GameMenuView extends View{
     private void moveToNextLocation() {
         // allows player to search again
         ItemControl.searchAvailable = true;
+        LocationsControl lc = new LocationsControl();
         
         LocationsControl.incrementLocation();
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
+            if(lc.loadSimpleSceneIfNotMajorMapCoord()==0){
             CombatMenuView combatMenuView = new CombatMenuView();
             //call combat view
             combatMenuView.displayCombatMenuView();
+            }else{
+                MajorSceneView majorScene = new MajorSceneView();
+                //call the major scene
+                majorScene.displayMajorSceneView();
+            }
         }else{
             System.out.println("\nYou are dead");
             
