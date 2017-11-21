@@ -131,10 +131,53 @@ public class LocationsControl {
         }
         return returnResult;
     }
-
-    private void loadMajorSceneIfMapCoordTrue(int column, int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    private String loadMajorSceneIfMapCoordTrue() {
+        
+         Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+         String sceneStatus="";
+        
+        if (location == null) {
+            System.out.println("Locations array unsuccessfully passed.");
+        }
+        
+         for (int i = 0; i < location.length; i++ ){
+             for (int j = 0; j < location[i].length; j++ ) {
+                 
+                if (location[i][j].isVisited()==false) {
+                    if(location[i][j].getScenes().getSymbol()==null){
+                       System.out.println("Symbols bugged.");
+                       return null;
+                    }else switch(location[i][j].getScenes().getSymbol()){
+                        case "CS":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        case " C":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        case "DC":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        case "GR":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        case "ST":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        case " G":
+                            sceneStatus = "major";
+                            return sceneStatus;
+                        default:
+                            sceneStatus = "minor";
+                            return sceneStatus;                     
+                    }
+                  
+                }
+            }
+        }
+        return null;
+    }  
+    
     
     public static Map createMap(int noOfRows, int noOfColumns, ArrayList items) {
       

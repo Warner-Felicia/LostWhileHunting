@@ -9,36 +9,36 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
  * @author Sony
  */
-public class CombatMenuView extends View{
+public class MajorSceneView extends View{
     
     GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();
     QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
     
-    public CombatMenuView() {
+    public MajorSceneView() {
         
-        this.menu = "\n"
-                    + "\nA Minor Scene is loaded"
+       this.menu = "\n"
+                    + "\nA Major Scene is loaded"
                     + "\n---------------------------------------"
-                    + "\n What will you do?"
+                    + "\n Will you trust the Scenario suggested"
                     + "\n---------------------------------------"
                     + "\n"
-                    + "\n A. Fight"
-                    + "\n B. Flight"
-                    + "\n C. Evade"
+                    + "\n Y. Yes"
+                    + "\n N. No"
                     + "\n Q. Return to Game Menu"
                     + "\n"
                     + "\n---------------------------------------"
                     + "\n Choose Wisely!";              
     }
     
-    public void displayCombatMenuView() {
+    public void displayMajorSceneView() {
              boolean done = false; // set flag to not done
         do {
             // promt for and get players name
@@ -55,14 +55,11 @@ public class CombatMenuView extends View{
         choice = choice.toUpperCase(); // Convert choice to uppercase
         
          switch (choice) {
-            case "A": 
+            case "Y": 
                 this.fight();
                 break;
-            case "B":
+            case "N":
                 this.flight();
-                break;
-            case "C":
-                this.evade();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
