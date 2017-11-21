@@ -12,12 +12,14 @@ package byui.cit260.lostwhilehunting.control;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.QuestionType;
 import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
+import lostwhilehunting.LostWhileHunting;
 
 public class QuestionsAndSceneControl {
     
@@ -380,10 +382,21 @@ public class QuestionsAndSceneControl {
         return questionsContainer;
     }
         
-    public void checkSceneQuestionChoiceAndReturnNewScene() {
+    public String checkSceneQuestionChoiceAndReturnNewScene() {
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation(); 
+        String scene="Cannot load";
         
+        for (Location[] rowCheck : location) {
+                for (Location surePassCheck : rowCheck) {
+                    if (surePassCheck.isVisited() == false) {
+                        scene=surePassCheck.getScenes().getDescription();
+                        
+                        return scene;
+                    }
+                }
+                }  
         
-        
+        return scene;        
     }
     
 }

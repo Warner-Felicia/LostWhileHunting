@@ -24,7 +24,7 @@ public class CombatMenuView extends View{
     public CombatMenuView() {
         
         this.menu = "\n"
-                    + "\nA Minor Scene is loaded"
+                    + "\nA Minor Scene is loaded"+ questionsandscenecontrol.checkSceneQuestionChoiceAndReturnNewScene() + ""
                     + "\n---------------------------------------"
                     + "\n What will you do?"
                     + "\n---------------------------------------"
