@@ -25,7 +25,7 @@ public class MajorSceneView extends View{
     public MajorSceneView() {
         
        this.menu = "\n"
-                    + "\nA Major Scene is loaded"
+                    + "\nA Major Scene is loaded"+ questionsandscenecontrol.checkSceneQuestionChoiceAndReturnNewScene() + ""
                     + "\n---------------------------------------"
                     + "\n Will you trust the Scenario suggested"
                     + "\n---------------------------------------"

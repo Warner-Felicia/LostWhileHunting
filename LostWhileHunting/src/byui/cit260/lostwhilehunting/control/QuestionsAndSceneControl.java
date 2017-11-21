@@ -270,7 +270,7 @@ public class QuestionsAndSceneControl {
         coolStream.setDescription("\n"
                                    +"\n-------------------------------------------------------"
                                    + "\n You found a cool steam, it looks refreshing and clean"
-                                   + "\n You are "+Player.getHealthStatus()+ ". Will you Drink?"
+                                   + "\n Will you Drink?"
                                    + "\n------------------------------------------------------");
         coolStream.setSafe(true);
         coolStream.setSymbol("CS");
@@ -281,7 +281,7 @@ public class QuestionsAndSceneControl {
         cave.setDescription("\n"
                            +"\n----------------------------------------------"
                            + "\n You found a cave, its dark, quiet and murky"
-                           + "\n You are "+Player.getHealthStatus()+ ". Will you Rest?"
+                           + "\n Will you Rest?"
                            + "\n---------------------------------------------");
         cave.setSafe(true);
         cave.setSymbol(" C");
@@ -292,7 +292,7 @@ public class QuestionsAndSceneControl {
         deepCavern.setDescription("\n"
                                    +"\n-----------------------------------------------------------------"
                                    + "\n The cavern before you is deep, but has a grip on the other side"
-                                   + "\n You are "+Player.getHealthStatus()+ ". Will you make a jump for it?|"
+                                   + "\n Will you make a jump for it?|"
                                    + "\n----------------------------------------------------------------");
         deepCavern.setSafe(false);
         deepCavern.setSymbol("DC");
@@ -303,7 +303,7 @@ public class QuestionsAndSceneControl {
         greatRiver.setDescription("\n"
                                   +"\n-------------------------------------------------------"
                                   + "\n The river is running fast, but you see a net and fishes."
-                                  + "\n You are "+Player.getHealthStatus()+ ". Will you grab the net and try to catch the fishes while crossing?"
+                                  + "\n Will you grab the net and try to catch the fishes while crossing?"
                                   + "\n--------------------------------------------");
         greatRiver.setSafe(false);
         greatRiver.setSymbol("GR");
@@ -335,8 +335,7 @@ public class QuestionsAndSceneControl {
         minor1.setNameOfScene("Minor 1");
         minor1.setDescription("\n"
                              +"\n-------------------------------------------------"
-                             + "\n A "+GameControl.minor1()+" approaches, it looks hungry"
-                             + "\n You are "+Player.getHealthStatus()+ "." 
+                             + "\n A "+GameControl.minor1()+" approaches, it looks hungry."
                              + "\n-------------------------------------------------");
         minor1.setSafe(false);
         minor1.setSymbol("*1");
@@ -344,14 +343,20 @@ public class QuestionsAndSceneControl {
         
         RegularSceneType minor2 = new RegularSceneType();
         minor2.setNameOfScene("Minor 2");
-        minor2.setDescription("The player can encounter wolf or bear.");
+        minor2.setDescription("\n"
+                             +"\n-------------------------------------------------"
+                             + "\n A "+GameControl.minor2()+" is sniffing around, it sees you."
+                             + "\n-------------------------------------------------");
         minor2.setSafe(false);
         minor2.setSymbol("*2");
         scenesContainer[SceneType.minor2.ordinal()] = minor2;
         
         RegularSceneType minor3 = new RegularSceneType();
         minor3.setNameOfScene("Minor 3");
-        minor3.setDescription("The player may encounter bear or muggers.");
+        minor3.setDescription("\n"
+                             +"\n--------------------------------------------------------------------"
+                             + "\n A dangerous "+GameControl.minor3()+" approaches, you may be killed."
+                             + "\n-------------------------------------------------------------------");
         minor3.setSafe(false);
         minor3.setSymbol("*3");
         scenesContainer[SceneType.minor3.ordinal()] = minor3;

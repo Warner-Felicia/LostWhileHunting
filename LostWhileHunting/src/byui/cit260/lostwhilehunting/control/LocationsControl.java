@@ -99,40 +99,60 @@ public class LocationsControl {
         return returnSuccessFailure;
     }
     
-    public double loadSimpleSceneIfNotMajorMapCoord(int column, int row){
+    public int loadSimpleSceneIfNotMajorMapCoord(){
         
-        //Declare variable
-        int returnResult = 0;
+        int returnResult=0;
         
-        /*This if statement checks if the column and row is equal
-        Due to each major scene being at 0,0 3,3 5,5 7,7*/
-        if(column == row){
-            
-            //if the column and row is equal check if column equals to a major scene number
-            if(column == 0 || column == 3 || column == 5 || column == 7){
-                
-                System.out.println("You are now at a Major Scene, pay attention to new commands");
-                //loadMajorSceneIfMapCoordTrue(column, row); -- not written yet
-                returnResult = 3;
-                
-            }else{
-                
-                 System.out.println("New Scene Loaded");
-                 //  QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene(); function not written yet
-              
-                returnResult = 5;
-            }
-        }else{
-            
-            System.out.println("New Scene Loaded");
-            // QuestionsAndSceneControl.checkSceneQuestionChoiceAndReturnNewScene(); function not written yet
-            returnResult = 5;
-           
-        }
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation(); 
+        String scene="Cannot load";
+        
+        for (Location[] rowCheck : location) {
+                for (Location surePassCheck : rowCheck) {
+                    if (surePassCheck.isVisited() == false) {
+                        scene=surePassCheck.getScenes().getSymbol();
+                        
+                        if(null != scene)switch (scene) {
+                            case "*1":
+                            case "*2":
+                            case "*3":
+                                returnResult=0;
+                                return returnResult;
+                            case "SA":
+                                returnResult=1;
+                                return returnResult;
+                            case "CS":
+                                returnResult=1;
+                                return returnResult;
+                            case " C":
+                                returnResult=1;
+                                return returnResult;
+                            case "DC":
+                                returnResult=1;
+                                break;
+                            case "GR":
+                                returnResult=1;
+                                return returnResult;
+                            case "ST":
+                                returnResult=1;
+                                return returnResult;
+                            case " G":
+                                returnResult=1;
+                                return returnResult;
+                            default:
+                                System.out.println("Scene error");
+                                break;
+                        }
+                       
+                    }
+                }
+                return returnResult;
+        } 
+        
+               
         return returnResult;
     }
     
-    private String loadMajorSceneIfMapCoordTrue() {
+    private static String loadMajorSceneIfMapCoordTrue() {
         
          Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
          String sceneStatus="";
