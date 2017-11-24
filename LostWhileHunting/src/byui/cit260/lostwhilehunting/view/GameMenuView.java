@@ -43,7 +43,7 @@ public class GameMenuView extends View{
                 + "\n Please make a selection.");
     }
     
-    /*@Override
+    @Override
     public void display() {
         boolean done = false; // set flag to not done
         do {
@@ -56,7 +56,7 @@ public class GameMenuView extends View{
             done = this.doAction(value);
         } 
         while (!done);
-    } */
+    } 
     
     @Override
     public boolean doAction(String choice) {
@@ -98,6 +98,7 @@ public class GameMenuView extends View{
         ItemControl.searchAvailable = true;
         
         LocationsControl.incrementLocation();
+        
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
             CombatMenuView combatMenuView = new CombatMenuView();
