@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -41,7 +42,7 @@ public class QuestionsAndSceneControlTest {
      * Test of loadCombatActions method, of class QuestionsAndSceneControl.
      */
     @Test
-    public void testLoadCombatActions() {
+    public void testLoadCombatActions() throws QuestionsAndSceneControlException {
         System.out.println("loadCombatActions");
         
         // --- Test case 1 ---
@@ -116,7 +117,7 @@ public class QuestionsAndSceneControlTest {
      * Test of loadFlightActions method, of class QuestionsAndSceneControl.
      */
     @Test
-    public void testLoadFlightActions() {
+    public void testLoadFlightActions() throws QuestionsAndSceneControlException {
         System.out.println("loadFlightActions");
         
         // Test Case 1
@@ -203,7 +204,7 @@ public class QuestionsAndSceneControlTest {
      * Test of loadEvadeActions method, of class QuestionsAndSceneControl.
      */
     @Test
-    public void testLoadEvadeActions() {
+    public void testLoadEvadeActions() throws QuestionsAndSceneControlException {
         System.out.println("loadEvadeActions");
         
         // Test Case 1
