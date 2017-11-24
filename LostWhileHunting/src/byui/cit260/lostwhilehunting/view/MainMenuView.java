@@ -93,7 +93,7 @@ public class MainMenuView extends View{
     private void saveGame() {
         System.out.println("** saveGame function called ***");
     }
-}
+
     
     /*public double getDoubleNumber() {
         double number = null;
