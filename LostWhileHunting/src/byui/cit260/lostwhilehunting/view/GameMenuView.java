@@ -96,14 +96,21 @@ public class GameMenuView extends View{
     private void moveToNextLocation() {
         // allows player to search again
         ItemControl.searchAvailable = true;
+        LocationsControl lc = new LocationsControl();
         
         LocationsControl.incrementLocation();
         
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
+            if(lc.loadSimpleSceneIfNotMajorMapCoord()==0){
             CombatMenuView combatMenuView = new CombatMenuView();
             //call combat view
             combatMenuView.displayCombatMenuView();
+            }else{
+                MajorSceneView majorScene = new MajorSceneView();
+                //call the major scene
+                majorScene.displayMajorSceneView();
+            }
         }else{
             System.out.println("\nYou are dead");
             
@@ -185,6 +192,7 @@ public class GameMenuView extends View{
         
         Game game = new Game();
         game = LostWhileHunting.getCurrentGame();
+        LocationsControl checkVisitedStages = new LocationsControl();
         
         Location[][] locations = game.getMap().getLocation();
         
@@ -204,7 +212,8 @@ public class GameMenuView extends View{
             }
             System.out.print("|");
         }
-        System.out.println("\n  ----------------------------");
+        System.out.println("\n  ----------------------------" +"\n" 
+                            + "\n ^^^ You have visited " + checkVisitedStages.checkStages() + " stages ^^^");
  
   
     }

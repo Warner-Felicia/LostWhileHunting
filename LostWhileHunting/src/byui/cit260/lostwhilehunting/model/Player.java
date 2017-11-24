@@ -20,7 +20,8 @@ public class Player implements Serializable{
     private static int numberOfSurePasses = 4;
     private static int injuryTracker = 0;
     private static String healthStatus="Healthy";
-
+    private ArrayList<Game> games = new ArrayList<Game>();
+    
     public static String getHealthStatus() {
         return healthStatus;
     }
@@ -28,7 +29,7 @@ public class Player implements Serializable{
     public static void setHealthStatus(String healthStatus) {
         Player.healthStatus = healthStatus;
     }
-    private ArrayList<Game> games = new ArrayList<Game>();
+    
 
     public static int getInjuryTracker() {
         return injuryTracker;
