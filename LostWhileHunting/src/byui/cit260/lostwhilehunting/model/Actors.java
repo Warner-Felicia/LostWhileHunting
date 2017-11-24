@@ -19,7 +19,7 @@ public enum Actors {
         new Point(0,0)),
     TopshotYoungster("Timmy", "A young teen taught by his father how to shoot "
             + "from a distance.", "speed", new Point(0,0)),
-    BurlyMan("Butch", "A super strong farmer, known to have won many fights.", 
+    BurlyMan("Burly Man", "A super strong farmer, known to have won many fights.", 
             "strength", new Point(0,0)),
     Coyote("coyote", "A hungry dog like animal who makes a lot of noise.", 
             "speed", new Point(0,1)),

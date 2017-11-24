@@ -20,10 +20,10 @@ public class MainMenuView extends View{
                 + "\n----------------------------------------"
                 + "\n| Main Menu                            |"
                 + "\n----------------------------------------"
-                + "\nN - Start A New Game"
-                + "\nC - Continue A Saved Game"
-                + "\nH - Help Menu"
-                + "\nS - Save game"
+                + "\n1 - Start A New Game"
+                + "\n2 - Continue A Saved Game"
+                + "\n3 - Help Menu"
+                + "\n4 - Save game"
                 + "\nQ - Quit"
                 + "\n----------------------------------------");
     }
@@ -49,16 +49,16 @@ public class MainMenuView extends View{
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
+            case "1": // create and start a new game
                 this.startNewGame();
                 break;
-            case "C": // get and start an existing game
+            case "2": // get and start an existing game
                 this.startExistingGame();
                 break;
-            case "H": // display the help menu
+            case "3": // display the help menu
                 this.displayHelpMenu();
                 break;
-            case "S": // save the current game
+            case "4": // save the current game
                 this.saveGame();
                 break;
             default:
@@ -93,6 +93,22 @@ public class MainMenuView extends View{
     private void saveGame() {
         System.out.println("** saveGame function called ***");
     }
+}
+    
+    /*public double getDoubleNumber() {
+        double number = null;
+
+         while (number == null) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+
+            if (value.equals("Q"))
+                break;
+            
+            number = Double.parseDouble(value);
+
+    return number;
+}*/
     
     
 }

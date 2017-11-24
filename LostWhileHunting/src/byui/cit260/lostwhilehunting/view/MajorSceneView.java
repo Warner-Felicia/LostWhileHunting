@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
 import java.util.Scanner;
@@ -92,12 +93,18 @@ public class MajorSceneView extends View{
     }
 
     private void yes() {
-       questionsandscenecontrol.majorSceneYes(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       try {questionsandscenecontrol.majorSceneYes(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());}
+       catch (QuestionsAndSceneControlException qa) {
+           System.out.println(qa.getMessage());
+       }
         gamemenu.display();
     }
     
     private void no() {
-       questionsandscenecontrol.majorSceneNo(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       try {questionsandscenecontrol.majorSceneNo(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());}
+       catch (QuestionsAndSceneControlException qa) {
+           System.out.println(qa.getMessage());
+       }
         gamemenu.display();
     }
 

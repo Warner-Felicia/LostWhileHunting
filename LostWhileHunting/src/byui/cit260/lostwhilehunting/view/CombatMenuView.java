@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
 import java.util.Scanner;
@@ -54,9 +55,10 @@ public class CombatMenuView extends View{
     public boolean doAction(String choice) {
         choice = choice.toUpperCase(); // Convert choice to uppercase
         
-         switch (choice) {
+        switch (choice) {
             case "A": 
                 this.fight();
+                
                 break;
             case "B":
                 this.flight();
@@ -95,17 +97,29 @@ public class CombatMenuView extends View{
     }
 
     private void fight() {
-       questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       try {
+           questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+       } catch (QuestionsAndSceneControlException qa) {
+           System.out.println(qa.getMessage());
+       }
        gamemenu.display();
     }
 
     private void flight() {
-        questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        try {
+            questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        } catch (QuestionsAndSceneControlException qa) {
+           System.out.println(qa.getMessage());
+       } 
         gamemenu.display();
     }
 
     private void evade() {
-        questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        try {
+            questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
+        } catch (QuestionsAndSceneControlException qa) {
+           System.out.println(qa.getMessage());
+       }
         gamemenu.display();
     }
 

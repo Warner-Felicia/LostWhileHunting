@@ -10,6 +10,7 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
@@ -26,9 +27,10 @@ public class QuestionsAndSceneControl {
     ItemControl itemcontrol = new ItemControl();
     Items items = new Items();
     
-    public double loadCombatActions(String hero, String item1, String item2, String item3){
+    public double loadCombatActions(String hero, String item1, String item2, String item3) throws QuestionsAndSceneControlException{
         
-        //Variables
+     
+//Variables
         int itemsEquipped = 0;
         int locationIncrement = 0;
         int regularSceneTypeAmount = 0;
@@ -87,9 +89,8 @@ public class QuestionsAndSceneControl {
                 }
                         
         }else if(hero.equals("")){
-            System.out.println();
-            System.out.println("No hero detected ");
-            returnNumber = 99999;
+            throw new QuestionsAndSceneControlException("No hero selected.");
+            
         }else{
                 
             successFailureBoundary = successFailureBoundary + (itemsEquipped * 10);   
@@ -129,7 +130,8 @@ public class QuestionsAndSceneControl {
                  
     }
     
-    public double loadFlightActions(String hero, String item1, String item2, String item3){
+    public double loadFlightActions(String hero, String item1, String item2, String item3)
+        throws QuestionsAndSceneControlException{
         
         //Variables
         int itemsEquipped = 0;
@@ -157,10 +159,7 @@ public class QuestionsAndSceneControl {
         }
         
         else if(hero.equals("")){
-            System.out.println();
-            System.out.println("No hero detected ");
-            returnNumber = 99999;
-            return returnNumber;
+            throw new QuestionsAndSceneControlException("No hero selected.");
         }
         successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
             
@@ -191,7 +190,8 @@ public class QuestionsAndSceneControl {
         return returnNumber;                        
     }
     
-    public double loadEvadeActions(String hero, String item1, String item2, String item3){
+    public double loadEvadeActions(String hero, String item1, String item2, String item3)
+        throws QuestionsAndSceneControlException{
         
         //Variables
         int itemsEquipped = 0;
@@ -219,10 +219,7 @@ public class QuestionsAndSceneControl {
         }
         
         else if(hero.equals("")){
-            System.out.println();
-            System.out.println("No hero detected ");
-            returnNumber = 99999;
-            return returnNumber;
+            throw new QuestionsAndSceneControlException("No hero selected.");
         }
         successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
             
@@ -406,7 +403,8 @@ public class QuestionsAndSceneControl {
     
     /* Everything below here is for the major scene questions*/
     
-    public double majorSceneYes(String hero, String item1, String item2, String item3){
+    public double majorSceneYes(String hero, String item1, String item2, String item3)
+        throws QuestionsAndSceneControlException{
         
         //Variables
         int itemsEquipped = 0;
@@ -417,6 +415,9 @@ public class QuestionsAndSceneControl {
         double classBonus = 0;
         double returnNumber = 0;
         
+        if (hero == null) 
+            throw new QuestionsAndSceneControlException("No hero selected.");
+    
         
         // loop to count items
         if(item1 != ""){
@@ -470,7 +471,8 @@ public class QuestionsAndSceneControl {
                  
     }
     
-    public double majorSceneNo(String hero, String item1, String item2, String item3){
+    public double majorSceneNo(String hero, String item1, String item2, String item3)
+        throws QuestionsAndSceneControlException{
         
         //Variables
         int itemsEquipped = 0;
@@ -480,6 +482,9 @@ public class QuestionsAndSceneControl {
         double successFailureBoundary = 50;
         double classBonus = 0;
         double returnNumber = 0;
+        
+        if (hero == null) 
+            throw new QuestionsAndSceneControlException("No hero selected.");
         
         
         // loop to count items
@@ -529,6 +534,10 @@ public class QuestionsAndSceneControl {
         }
         return returnNumber;      
                  
+    }
+
+    public boolean getMessage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
