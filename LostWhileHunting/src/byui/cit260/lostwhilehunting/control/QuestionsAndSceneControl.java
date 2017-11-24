@@ -63,6 +63,7 @@ public class QuestionsAndSceneControl {
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    LocationsControl.incrementLocation();
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("You lost "+item1);
@@ -98,6 +99,7 @@ public class QuestionsAndSceneControl {
         
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    LocationsControl.incrementLocation();
                     System.out.println();
                     System.out.println("You lost "+item1);
                     item1 = itemcontrol.generateItemFromItems();
@@ -165,6 +167,7 @@ public class QuestionsAndSceneControl {
             
         if(randomizerNum <= successFailureBoundary){
              //moveToNextLocation();
+             LocationsControl.incrementLocation();
             System.out.println();
             System.out.println("You lost "+item1);
             System.out.println();
@@ -225,6 +228,7 @@ public class QuestionsAndSceneControl {
             
         if(randomizerNum <= successFailureBoundary){
              //moveToNextLocation();
+             LocationsControl.incrementLocation();
             System.out.println();
             System.out.println("You lost "+item1);
             System.out.println();
@@ -442,6 +446,7 @@ public class QuestionsAndSceneControl {
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    LocationsControl.incrementLocation();
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("Brave choice you found two items");
@@ -510,6 +515,7 @@ public class QuestionsAndSceneControl {
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
                     //moveToNextLocation();
+                    LocationsControl.incrementLocation();
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("Good choice but you get nothing, no risk no reward");
