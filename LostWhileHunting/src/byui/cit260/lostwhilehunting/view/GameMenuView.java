@@ -98,7 +98,7 @@ public class GameMenuView extends View{
         ItemControl.searchAvailable = true;
         LocationsControl lc = new LocationsControl();
         
-        LocationsControl.incrementLocation();
+        //LocationsControl.incrementLocation();
         
         if(Player.getInjuryTracker()< 3){
             System.out.println("Injury Tracker: "+Player.getInjuryTracker());
