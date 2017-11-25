@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.GameControl;
+import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
@@ -71,7 +72,11 @@ public class MainMenuView extends View{
 
     // Felicia fix
     private void startNewGame() {
-        GameControl.createNewGame(LostWhileHunting.getPlayer());
+        try {
+            GameControl.createNewGame(LostWhileHunting.getPlayer());
+        } catch (GameControlException gce) {
+            System.out.println(gce.getMessage());
+        }
         
         //display the select a character menu
         SelectACharacterView selectACharacterView = new SelectACharacterView();

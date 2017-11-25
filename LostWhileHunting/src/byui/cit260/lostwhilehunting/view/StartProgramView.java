@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.GameControl;
+import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.util.Scanner;
 
@@ -52,7 +53,12 @@ public class StartProgramView {
               return; //exit the game
           
             //do the requested action and display the next view
-            done = this.doAction(playersName);
+            try {
+                done = this.doAction(playersName);
+            }
+            catch (GameControlException gce) {
+                System.out.println(gce.getMessage());
+            }
           
       }while (!done);   
          
@@ -80,7 +86,7 @@ public class StartProgramView {
         return value;  // return the value entered
     }
 
-    private boolean doAction(String playersName) {
+    private boolean doAction(String playersName) throws GameControlException{
         if (playersName.length() < 2) {
             System.out.println("\nInvalid player's name: "
                 + "The name must be greater than one character in length.");

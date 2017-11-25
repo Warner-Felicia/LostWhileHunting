@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
@@ -23,32 +24,6 @@ import lostwhilehunting.LostWhileHunting;
 public class GameControl {
     
     Player p = new Player();
-    
-    public static void checkContinueAndLoadMainMenu(){
-        
-    }
-    
-    public static void loadMainMenu(){
-        
-    }
-    
-    public static void startGame(){
-        
-    }
-    
-    public static void exitGame(){
-        
-        exit();
-        
-    }
-    
-    public static void saveGameToFile(){
-        
-    }
-    
-    public static void selectHeroAction(){
-        
-    }
     
     public static void assignInjuryOnFail(){
        int injure = 0;
@@ -96,17 +71,8 @@ public class GameControl {
         
     }
     
-    public static void endGameWithCredits(){
-        
-    }
-    
-    public static void tiePlayerNameToHero(){
-        
-        
-    }
-    
-    public static void checkIfActorIsInjuredDeadOrAlive(int injury){
-        
+    public static void checkIfActorIsInjuredDeadOrAlive(int injury) {
+               
         switch(injury){
             case 0:
                 Player.setHealthStatus("Healthy");
@@ -132,9 +98,9 @@ public class GameControl {
 
     // Felicia fix
     
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) throws GameControlException{
         if (name == null) {
-            return null;
+            throw new GameControlException("Player must have a name.");
         }
         
         Player player = new Player();
@@ -145,10 +111,11 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player player) {
+    public static void createNewGame(Player player) throws GameControlException{
         
         if(player == null) 
-            return -1;
+            throw new GameControlException("Player name not passed to" 
+                    + "createNewGame function");
         
         Game game = new Game();
         game.setPlayer(player);
@@ -162,11 +129,11 @@ public class GameControl {
         Map map = LocationsControl.createMap(3, 9, items);
         
         if (map == null){
-            return -1;
+            throw new GameControlException ("Error in creating map object in "
+                    + "createNewGame function.");
         }else {
             game.setMap(map);
             LostWhileHunting.setCurrentGame(game);
-            return 1;
         }
         
         
