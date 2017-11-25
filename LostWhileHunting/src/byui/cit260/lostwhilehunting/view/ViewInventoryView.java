@@ -43,7 +43,8 @@ public class ViewInventoryView{
                     + "\n| Equipped Items                            |"
                     + "\n----------------------------------------------"
                     + "\nItem1: "+Items.getItem1()+" | Item2: "+Items.getItem2()+" | Item3: "+Items.getItem3()+""
-                    + "\nNumber 1 - Quit"
+                    + "\n1 - Count Inventory Items"
+                    + "\nQ - Quit"
                     + "\n---------------------------------------------";
         
                
@@ -51,14 +52,17 @@ public class ViewInventoryView{
       
     
     public void displayinventoryView() {
-        
+        int value=0;
         boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            int value = this.getInput();
-            if (value==1) // user wants to quit
-                return; // exit the game
-            
+            try{
+            value = this.getInput();
+            }catch(NumberFormatException nf){
+                System.out.println("Come on letters dont work! Its only the number 1 to check item amount."
+                                   +"\nOr Simply press Q to exit to the Game Menu.");
+            }
+                        
             // do the requested action and display the next view
             done = this.doAction(value);
         } 
@@ -71,8 +75,9 @@ public class ViewInventoryView{
         
         switch (choice) {
             case 1: // exit
-                System.out.println("\nExiting");
-                return true;
+                this.sumItems();
+                System.out.println("\nYou have "+this.sumItems()+" overall in inventory");
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -85,18 +90,23 @@ public class ViewInventoryView{
     public int getInput() {
        Scanner keyboard = new Scanner(System.in);
         int value = 0;
+        String inputValue;
         boolean valid = false;
         
         while (!valid) {
             System.out.println("\n" + this.menu);
             
-            value = keyboard.nextInt();
-            
-            
-            if (value != 1) {
+            inputValue = keyboard.nextLine();
+                 
+            if (inputValue.length() < 1) {
                 System.out.println("\nInvalid value: value can not be blank");
                 continue;
             }
+            
+            if (inputValue.toUpperCase().equals("Q"))
+                gamemenu.display();
+            
+            value = Integer.parseInt(inputValue);
             
             break; // end the loop
         }
@@ -104,4 +114,17 @@ public class ViewInventoryView{
         return value;  // return the value entered
     }
     
+    private int sumItems(){
+        
+        Game sumItems = LostWhileHunting.getCurrentGame();
+        int range = sumItems.getItems().size() - 1;
+        int total=0;
+        
+        for(int i=0; i <= range; i++){
+            total += sumItems.getItems().get(i).getQuantityInStock();
+            
+        }
+        
+        return total;
+    }
 }
