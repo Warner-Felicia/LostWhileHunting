@@ -14,10 +14,12 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class MainMenuView extends View{
+public class MainMenuView {
+    
+    String menu;
     
     public MainMenuView() {
-        super("\n"
+        this.menu = "\n"
                 + "\n----------------------------------------"
                 + "\n| Main Menu                            |"
                 + "\n----------------------------------------"
@@ -26,17 +28,48 @@ public class MainMenuView extends View{
                 + "\n3 - Help Menu"
                 + "\n4 - Save game"
                 + "\nQ - Quit"
-                + "\n----------------------------------------");
+                + "\n----------------------------------------";
     }
     
-    @Override
+    public int getInput() {
+       Scanner keyboard = new Scanner(System.in);
+        int value = 0;
+        String inputValue;
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.menu);
+            
+            inputValue = keyboard.nextLine();
+                 
+            if (inputValue.length() < 1) {
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            
+            if (inputValue.toUpperCase().equals("Q"))
+                System.exit(0);
+            
+            value = Integer.parseInt(inputValue);
+            
+            break; // end the loop
+        }
+        
+        return value;  // return the value entered
+    }
+    
+    
     public void display() {
-        boolean done = false; // set flag to not done
+        boolean done = false;
+        int value = 0;// set flag to not done
         do {
             // promt for and get players name
-            String value = this.getInput();
-            if (value.toUpperCase().equals("Q")) // user wants to quit
-                System.exit(0); // exit the game
+            
+            try {
+                value = this.getInput();
+            } catch (NumberFormatException nf) {
+                System.out.println("You must enter a valid number.");
+            }
             
             // do the requested action and display the next view
             done = this.doAction(value);
@@ -44,22 +77,19 @@ public class MainMenuView extends View{
         while (!done);
     } 
     
-    @Override
-    public boolean doAction(String choice) {
+    public boolean doAction(int choice) {
        
-        choice = choice.toUpperCase(); // convert choice to upper case
-        
         switch (choice) {
-            case "1": // create and start a new game
+            case 1: // create and start a new game
                 this.startNewGame();
                 break;
-            case "2": // get and start an existing game
+            case 2: // get and start an existing game
                 this.startExistingGame();
-                break;
-            case "3": // display the help menu
+               break;
+            case 3: // display the help menu
                 this.displayHelpMenu();
                 break;
-            case "4": // save the current game
+            case 4: // save the current game
                 this.saveGame();
                 break;
             default:
