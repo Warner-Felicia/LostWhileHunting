@@ -18,7 +18,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Administrator
  */
-public class ViewInventoryView extends View{
+public class ViewInventoryView{
     
     ArrayList<InventoryItem> viewItems = new ArrayList<>();
     
@@ -29,7 +29,7 @@ public class ViewInventoryView extends View{
     
     public ViewInventoryView() {
        
-               super( "\n"
+            this.menu="\n"
                     + "\n----------------------------------------------"
                     + "\n| Inventory Items                            |"
                     + "\n----------------------------------------------"
@@ -43,20 +43,34 @@ public class ViewInventoryView extends View{
                     + "\n| Equipped Items                            |"
                     + "\n----------------------------------------------"
                     + "\nItem1: "+Items.getItem1()+" | Item2: "+Items.getItem2()+" | Item3: "+Items.getItem3()+""
-                    + "\nQ - Quit"
-                    + "\n---------------------------------------------");
+                    + "\nNumber 1 - Quit"
+                    + "\n---------------------------------------------";
         
                
     }
       
+    
+    public void displayinventoryView() {
+        
+        boolean done = false; // set flag to not done
+        do {
+            // promt for and get players name
+            int value = this.getInput();
+            if (value==1) // user wants to quit
+                return; // exit the game
+            
+            // do the requested action and display the next view
+            done = this.doAction(value);
+        } 
+        while (!done);
+    }
       
-    @Override
-    public boolean doAction(String choice) {
+    public boolean doAction(int choice) {
        
-        choice = choice.toUpperCase(); // convert choice to upper case
+       
         
         switch (choice) {
-            case "Q": // exit
+            case 1: // exit
                 System.out.println("\nExiting");
                 return true;
             default:
@@ -67,5 +81,27 @@ public class ViewInventoryView extends View{
         return true;
     }
 
+    
+    public int getInput() {
+       Scanner keyboard = new Scanner(System.in);
+        int value = 0;
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.menu);
+            
+            value = keyboard.nextInt();
+            
+            
+            if (value != 1) {
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            
+            break; // end the loop
+        }
+        
+        return value;  // return the value entered
+    }
     
 }

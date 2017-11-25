@@ -179,7 +179,7 @@ public class GameMenuView extends View{
          ViewInventoryView inventoryView = new ViewInventoryView();
         
         // Display the view inventory view
-        inventoryView.display();
+        inventoryView.displayinventoryView();
          
     }
     
