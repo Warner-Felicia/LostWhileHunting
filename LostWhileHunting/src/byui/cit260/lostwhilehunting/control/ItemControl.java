@@ -10,6 +10,7 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import java.util.Scanner;
@@ -27,7 +28,7 @@ public class ItemControl {
      private int extraLifeAmount = 0;
      public static boolean searchAvailable = true;
    
-    public String searchLocation(){
+    public String searchLocation() throws ItemControlException{
         
         String item = "";
         int itemSpawn = 0;
@@ -69,13 +70,16 @@ public class ItemControl {
         else{ System.out.println("Search yielded nothing");
         return "";
         }
+        
+        if(item==null)
+            throw new ItemControlException("No Item was assigned. Reload Program to see if that fixes error");
                   
        this.addToInventory(item);
        
        return item;
     } 
      
-    public String generateItemFromItems(){
+    public String generateItemFromItems() throws ItemControlException{
         
         String item;
         int itemSpawn;
@@ -110,13 +114,20 @@ public class ItemControl {
        }else{
        System.out.println("You found a: "+item);
        }
+       
+       if(item==null)
+            throw new ItemControlException("No Item was assigned. Reload Program to see if that fixes error");
+       
        Items.setItem1(item);
        this.addToInventory(item);
        
        return item;
     }
     
-    public int addToInventory(String newItem){      
+    public int addToInventory(String newItem) throws ItemControlException{      
+        
+        if(newItem==null)
+            throw new ItemControlException("No Item was passed to inventory. Reload Program to see if that fixes error");
         
         switch(newItem){
             case "Meat":
@@ -204,8 +215,11 @@ public class ItemControl {
         return nonprivateint;
     }
 
-    public void equipItem(String item) {
-         
+    public void equipItem(String item) throws ItemControlException{
+        
+        if(item==null)
+            throw new ItemControlException("No Item was equipped. Reload Program to see if that fixes error");
+        
        if(item=="Map"){ 
         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()!=0){
          int deductMap = LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
@@ -262,8 +276,8 @@ public class ItemControl {
             return;
          }
        }else{
-            System.out.println("\nItem does not exist");
-            return;
+            throw new ItemControlException("No Item by that name exists, Software restart needed");
+         
        }
          
             if(Items.getItem1() == ""){
@@ -283,7 +297,10 @@ public class ItemControl {
    
     }
 
-    private void overWriteItem(String item){
+    private void overWriteItem(String item) throws ItemControlException{
+        
+        if(item==null)
+            throw new ItemControlException("No Item was assigned. Reload Program to see if that fixes error");
         
         System.out.println("\nAll item slots are full");
         System.out.println("\nDo you wish to overwrite? (Y for Yes | N for No)");

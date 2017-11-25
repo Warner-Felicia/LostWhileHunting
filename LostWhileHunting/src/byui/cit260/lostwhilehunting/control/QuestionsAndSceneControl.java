@@ -10,6 +10,7 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
@@ -20,6 +21,8 @@ import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 public class QuestionsAndSceneControl {
@@ -67,8 +70,12 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("You lost "+item1);
+                try {
                     //item1 = generateItemFromItems(): String
                     item1 = itemcontrol.generateItemFromItems();
+                } catch (ItemControlException ex) {
+                    System.out.println(ex.getMessage());
+                }
                     //Set item1
                     items.setItem1(item1);
                     System.out.println();
@@ -102,7 +109,11 @@ public class QuestionsAndSceneControl {
                     LocationsControl.incrementLocation();
                     System.out.println();
                     System.out.println("You lost "+item1);
+                try {
                     item1 = itemcontrol.generateItemFromItems();
+                } catch (ItemControlException ex) {
+                   System.out.println(ex.getMessage());
+                }
                     items.setItem1(item1);
                     System.out.println();
                     System.out.println();
@@ -172,7 +183,11 @@ public class QuestionsAndSceneControl {
             System.out.println("You lost "+item1);
             System.out.println();
             System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            item1 = itemcontrol.generateItemFromItems();
+            try {
+                item1 = itemcontrol.generateItemFromItems();
+            } catch (ItemControlException ex) {
+                System.out.println(ex.getMessage());
+            }
             items.setItem1(item1);
             System.out.println("Item1 status: "+ item1 );
             returnNumber = 1;
@@ -233,7 +248,11 @@ public class QuestionsAndSceneControl {
             System.out.println("You lost "+item1);
             System.out.println();
             System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            item1 = itemcontrol.generateItemFromItems();
+            try {
+                item1 = itemcontrol.generateItemFromItems();
+            } catch (ItemControlException ex) {
+                System.out.println(ex.getMessage());
+            }
             items.setItem1(item1);
             System.out.println("Item1 status: "+ item1 );
             returnNumber = 1;
@@ -450,10 +469,18 @@ public class QuestionsAndSceneControl {
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("Brave choice you found two items");
+                try {
                     //generate Item 1
                     itemcontrol.generateItemFromItems();
+                } catch (ItemControlException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                try {
                     //generate Item 2
                     itemcontrol.generateItemFromItems();
+                } catch (ItemControlException ex) {
+                    System.out.println(ex.getMessage());
+                }
                     System.out.println();
                     //Display: You are one step closer to victory with that awesome choice. Good luck!
                     System.out.println(hero + " You are one step closer to victory with that awesome choice. Good luck!");
