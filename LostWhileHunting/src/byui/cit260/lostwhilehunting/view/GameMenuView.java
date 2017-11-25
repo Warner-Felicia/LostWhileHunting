@@ -3,12 +3,15 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.LocationsControl;
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 /*
@@ -160,7 +163,11 @@ public class GameMenuView extends View{
     private void searchCurrentLocation() {
         ItemControl itemcontrol = new ItemControl();
         if(ItemControl.searchAvailable) {
-            itemcontrol.searchLocation();
+            try {
+                itemcontrol.searchLocation();
+            } catch (ItemControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else {
             System.out.println("\n You have already searched this location."

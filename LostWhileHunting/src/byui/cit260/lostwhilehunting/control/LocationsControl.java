@@ -12,6 +12,7 @@ package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
@@ -20,6 +21,8 @@ import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 public class LocationsControl {
@@ -82,8 +85,12 @@ public class LocationsControl {
                 
                 surePass = surePass - 1; // decrease surePass by 1
                 p.setNumberOfSurePasses(surePass);
-                //This item will be written to the SetInventoryItem function in future iterations
-                inventoryItem = itemcontrol.generateItemFromItems();
+                try {
+                    //This item will be written to the SetInventoryItem function in future iterations
+                    inventoryItem = itemcontrol.generateItemFromItems();
+                } catch (ItemControlException ex) {
+                    System.out.println(ex.getMessage());
+                }
                 System.out.println("Your Sure Pass failed this time, but you found a " + inventoryItem);
                 System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                 returnSuccessFailure = 0;// assign 0 for test class

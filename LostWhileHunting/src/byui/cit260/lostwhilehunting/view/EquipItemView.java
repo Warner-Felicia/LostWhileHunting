@@ -6,10 +6,13 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 /**
@@ -46,28 +49,64 @@ public class EquipItemView extends View{
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "R": // create and start a new game
-                itemcontrol.equipItem("Rifle");
+            case "R": {
+           try {
+               // create and start a new game
+               itemcontrol.equipItem("Rifle");
+           } catch (ItemControlException ex) {
+               System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
-            case "B": // get and start an existing game
-                itemcontrol.equipItem("Bullets");
+            case "B": {
+           try {
+               // get and start an existing game
+               itemcontrol.equipItem("Bullets");
+           } catch (ItemControlException ex) {
+               System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
-            case "K": // display the help menu
-                itemcontrol.equipItem("Knife");
+            case "K": {
+           try {
+               // display the help menu
+               itemcontrol.equipItem("Knife");
+           } catch (ItemControlException ex) {
+              System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
-            case "M": // save the current game
-                itemcontrol.equipItem("Map");
+            case "M": {
+           try {
+               // save the current game
+               itemcontrol.equipItem("Map");
+           } catch (ItemControlException ex) {
+              System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
-            case "N": // save the current game
-                itemcontrol.equipItem("Meat");
+            case "N": {
+           try {
+               // save the current game
+               itemcontrol.equipItem("Meat");
+           } catch (ItemControlException ex) {
+              System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
-            case "E": // save the current game
-                itemcontrol.equipItem("ExtraLife");
+            case "E": {
+           try {
+               // save the current game
+               itemcontrol.equipItem("ExtraLife");
+           } catch (ItemControlException ex) {
+               System.out.println(ex.getMessage());
+           }
+       }
                 
                 break;
             case "Q": // exit
