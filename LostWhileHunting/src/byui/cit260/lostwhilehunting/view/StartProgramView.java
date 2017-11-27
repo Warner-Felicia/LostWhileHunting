@@ -45,10 +45,17 @@ public class StartProgramView {
 
     public void displayStartProgramView() {
         
+        String playersName;
         boolean done = false; //set flag to not done
         do {
             //Prompt for and get players name
-            String playersName = this.getPlayersName();
+            try {
+                playersName = this.getPlayersName();
+            } catch (GameControlException gce) {
+                System.out.println(gce.getMessage());
+                continue;
+            }
+            
             if(playersName.toUpperCase().equals("Q")) //user wants to quit
               return; //exit the game
           
@@ -64,7 +71,7 @@ public class StartProgramView {
          
     }
     
-    public String getPlayersName() {
+    public String getPlayersName() throws GameControlException{
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
@@ -76,8 +83,8 @@ public class StartProgramView {
             value = value.trim();
             
             if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+                throw new GameControlException("The player's name cannot be"
+                        + " blank.");
             }
             
             break; // end the loop
@@ -97,8 +104,8 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) {
-            System.out.println("\nError creating the player.");
-            return false;
+            throw new GameControlException("Error creating player.");
+            
         }
         
         this.displayNextView(player);
