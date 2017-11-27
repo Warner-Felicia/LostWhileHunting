@@ -19,5 +19,5 @@ public enum SceneType {
     goal,
     minor1,
     minor2,
-    minor3
+    minor3;
 }
