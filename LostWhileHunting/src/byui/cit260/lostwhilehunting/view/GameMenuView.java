@@ -71,7 +71,7 @@ public class GameMenuView extends View{
     @Override
     public boolean doAction(String choice) throws NumberFormatException{
         
-        int number = parseInt(choice);
+        int number = Integer.parseInt(choice);
             
         switch (number) {
             case (1): // move to next location
