@@ -14,7 +14,7 @@ import lostwhilehunting.LostWhileHunting;
 
 /**
  *
- * @author Sony
+ * @author Trevon Morris
  */
 public class EndGameView extends View{
     
