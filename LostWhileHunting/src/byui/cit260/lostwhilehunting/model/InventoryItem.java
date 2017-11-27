@@ -43,12 +43,12 @@ public class InventoryItem {
         
         InventoryItem map = new InventoryItem("Map", 0, 0);
         itemsArray.add(map);
+           
+        InventoryItem knife = new InventoryItem("Knife", 0, 0);
+        itemsArray.add(knife);
         
         InventoryItem extraLife = new InventoryItem("Extra Life", 0, 0);
         itemsArray.add(extraLife);
-        
-        InventoryItem knife = new InventoryItem("Knife", 0, 0);
-        itemsArray.add(knife);
         
         // testing our ArrayList
         for (int i = 0; i < itemsArray.size(); i++) {
