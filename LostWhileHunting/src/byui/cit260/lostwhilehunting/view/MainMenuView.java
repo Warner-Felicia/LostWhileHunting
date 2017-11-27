@@ -128,22 +128,5 @@ public class MainMenuView {
     private void saveGame() {
         System.out.println("** saveGame function called ***");
     }
-
-    
-    /*public double getDoubleNumber() {
-        double number = null;
-
-         while (number == null) {
-            String value = this.getInput();
-            value = value.trim().toUpperCase();
-
-            if (value.equals("Q"))
-                break;
-            
-            number = Double.parseDouble(value);
-
-    return number;
-}*/
-    
-    
+  
 }

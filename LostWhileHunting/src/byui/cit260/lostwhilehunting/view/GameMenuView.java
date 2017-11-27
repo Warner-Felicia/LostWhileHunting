@@ -10,6 +10,7 @@ import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,13 +36,13 @@ public class GameMenuView extends View{
                 + "\n-----------------------------------------"
                 + "\n| Game Menu                             |"
                 + "\n----------------------------------------"
-                + "\nM - Move to the next location"
-                + "\nU - Use SurePass"
-                + "\nS - Search Current Location"
-                + "\nI - View Inventory"
-                + "\nC - Check status of player"
-                + "\nE - Equip items"
-                + "\nV - View map"
+                + "\n1 - Move to the next location"
+                + "\n2 - Use SurePass"
+                + "\n3 - Search Current Location"
+                + "\n4 - View Inventory"
+                + "\n5 - Check status of player"
+                + "\n6 - Equip items"
+                + "\n7 - View map"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -57,36 +58,41 @@ public class GameMenuView extends View{
                 mainmenu.display(); // exit the game
             
             // do the requested action and display the next view
-            done = this.doAction(value);
+            try {
+                done = this.doAction(value);
+            } catch (NumberFormatException nf) {
+                System.out.println("You must enter a valid number.");
+                //this.display();
+            }
         } 
         while (!done);
     } 
     
     @Override
-    public boolean doAction(String choice) {
+    public boolean doAction(String choice) throws NumberFormatException{
         
-        choice = choice.toUpperCase();
-        
-        switch (choice) {
-            case ("M"): // move to next location
+        int number = parseInt(choice);
+            
+        switch (number) {
+            case (1): // move to next location
                 this.moveToNextLocation();
                 break;
-            case ("U"): //use SurePass
+            case (2): //use SurePass
                 this.useSurePass();
                 break;
-            case ("S"): // search current location
+            case (3): // search current location
                 this.searchCurrentLocation();
                 break;
-            case ("I"): // view inventory
+            case (4): // view inventory
                 this.viewInventory();
                 break;
-            case ("C"): // check player status
+            case (5): // check player status
                 this.checkPlayerStatus();
                 break;
-            case ("E"): // equip items
+            case (6): // equip items
                 this.equipItems();
                 break;
-            case ("V") : {
+            case (7) : {
             try {
                 // view map
                 this.displayMap();

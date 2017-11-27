@@ -39,9 +39,9 @@ public class SelectACharacterView extends View{
     public boolean doAction(String choice) {
         
         choice = choice.toUpperCase();
-        String hero = "";
-        String heroName = "";
-        String heroType = "";
+        String hero;
+        String heroName;
+        String heroType;
 
         switch (choice) {
             case "B":
