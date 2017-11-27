@@ -70,9 +70,6 @@ public class ViewInventoryView{
     }
       
     public boolean doAction(int choice) {
-       
-       
-        
         switch (choice) {
             case 1: // exit
                 this.sumItems();

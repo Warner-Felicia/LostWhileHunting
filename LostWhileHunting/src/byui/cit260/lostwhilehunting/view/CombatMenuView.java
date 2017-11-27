@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Sony
  */
-public class CombatMenuView extends View{
+public class CombatMenuView {
     
     GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();
@@ -30,9 +30,9 @@ public class CombatMenuView extends View{
                     + "\n What will you do?"
                     + "\n---------------------------------------"
                     + "\n"
-                    + "\n A. Fight"
-                    + "\n B. Flight"
-                    + "\n C. Evade"
+                    + "\n 3. Fight"
+                    + "\n 4. Flight"
+                    + "\n 5. Evade"
                     + "\n Q. Return to Game Menu"
                     + "\n"
                     + "\n---------------------------------------"
@@ -40,30 +40,30 @@ public class CombatMenuView extends View{
     }
     
     public void displayCombatMenuView() {
+        int value = 0;
              boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            String CombatMenuOption = this.getInput();
-            if (CombatMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                gamemenu.display(); // exit the game
-            
+            try{
+            value = this.getInput();
+            }catch(NumberFormatException nf){
+                System.out.println("You typed a wrong value!" + "\nPlease type one of the values next to the option you want to choose. ");
+            }
             // do the requested action and display the next view
-            done = this.doAction(CombatMenuOption);
+            done = this.doAction(value);
         } while (!done);
     }
-@Override
-    public boolean doAction(String choice) {
-        choice = choice.toUpperCase(); // Convert choice to uppercase
+    public boolean doAction(int choice) {
+        
         
         switch (choice) {
-            case "A": 
+            case 3: 
                 this.fight();
-                
                 break;
-            case "B":
+            case 4:
                 this.flight();
                 break;
-            case "C":
+            case 5:
                 this.evade();
                 break;
             default:
@@ -73,23 +73,27 @@ public class CombatMenuView extends View{
         
         return true;
     }
-@Override
-    public String getInput() {
+
+    public int getInput() {
        Scanner keyboard = new Scanner(System.in);
-        String value = "";
+       int value = 0;
+        String inputValue;
         boolean valid = false;
         
         while (!valid) {
             System.out.println("\n" + this.menu);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            inputValue = keyboard.nextLine();
             
-            if (value.length() < 1) {
+            if (inputValue.length() < 1) {
                 System.out.println("Please make a selection");
                 continue;
             }
+           if (inputValue.toUpperCase().equals("Q"))
+                gamemenu.display();
             
+            value = Integer.parseInt(inputValue);
+              
             break;
         }    
         
