@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Administrator
+ * @author Trevon Morris
  */
 public class StartProgramView {
 

@@ -16,7 +16,7 @@ import lostwhilehunting.LostWhileHunting;
 
 /**
  *
- * @author Administrator
+ * @author Trevon Morris
  */
 public class ViewInventoryView{
     
