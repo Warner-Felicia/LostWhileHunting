@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class CheckPlayerStatusView extends View {
     Player player = new Player();
-    Game game = new Game();
+    Game game = new Game(); 
 
     private final String playerStatus;
 
