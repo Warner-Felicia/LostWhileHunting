@@ -159,6 +159,8 @@ public class GameControl {
     
     public static String minor2(){
         String actor;
+        
+        //brackets around the Math.Random sections
         int randomNum = (int) (Math.random()*3);
         
         if(randomNum == 1){

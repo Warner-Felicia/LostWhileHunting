@@ -37,6 +37,8 @@ public class ItemControl {
         searchAvailable = false;
      
         searchChance = (int) (Math.floor(Math.random()*10));
+        
+        //placed brackets around the Mathh.Random section
         itemSpawn = (int) (Math.floor(Math.random()*6));
         if(searchChance <= 2){
             switch (itemSpawn) {
