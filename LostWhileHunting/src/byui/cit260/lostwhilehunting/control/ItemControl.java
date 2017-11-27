@@ -36,8 +36,10 @@ public class ItemControl {
         
         searchAvailable = false;
      
-        searchChance = (int) Math.floor(Math.random()*10);
-        itemSpawn = (int) Math.floor(Math.random()*6);
+        searchChance = (int) (Math.floor(Math.random()*10));
+        
+        //placed brackets around the Mathh.Random section
+        itemSpawn = (int) (Math.floor(Math.random()*6));
         if(searchChance <= 2){
             switch (itemSpawn) {
                 case 1:
@@ -54,6 +56,9 @@ public class ItemControl {
                     break;
                 case 5:
                     item = "ExtraLife";
+                    break;
+                case 6:
+                    item = "Knife";
                     break;
                 default:
                     item = "Knife";
@@ -81,10 +86,10 @@ public class ItemControl {
      
     public String generateItemFromItems() throws ItemControlException{
         
-        String item;
+        String item="";
         int itemSpawn;
         
-        itemSpawn = (int) Math.floor(Math.random()*6);
+        itemSpawn = (int) (Math.floor(Math.random()*6));
         
          switch (itemSpawn) {
              case 1:
@@ -101,6 +106,9 @@ public class ItemControl {
                  break;
              case 5:
                  item = "ExtraLife";
+                 break;
+             case 6:
+                 item = "Knife";
                  break;
              default:
                  item = "Knife";
@@ -233,7 +241,7 @@ public class ItemControl {
          if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()!=0){
          int deductRifle = LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
          deductRifle = deductRifle - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductRifle);
+         LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(deductRifle);
          }else{
             System.out.println("\nYou have no "+ item +" in your inventory");
             return;

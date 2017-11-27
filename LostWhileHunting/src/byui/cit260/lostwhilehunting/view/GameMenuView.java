@@ -109,10 +109,13 @@ public class GameMenuView extends View{
             CombatMenuView combatMenuView = new CombatMenuView();
             //call combat view
             combatMenuView.displayCombatMenuView();
-            }else{
+            }else if(lc.loadSimpleSceneIfNotMajorMapCoord()==1){
                 MajorSceneView majorScene = new MajorSceneView();
                 //call the major scene
                 majorScene.displayMajorSceneView();
+            }else{
+                EndGameView theEnd = new EndGameView();
+                theEnd.displayEndGameView();
             }
         }else{
             System.out.println("\nYou are dead");
