@@ -84,7 +84,7 @@ public class GameControl {
                 break;
             case 2:
                 Player.setHealthStatus("Critical");
-                System.out.println("You are: "+Player.getHealthStatus());
+                System.out.println("You are in : "+Player.getHealthStatus()+" condition.");
                 break;
             case 3:
                 Player.setHealthStatus("Dead");
@@ -119,6 +119,8 @@ public class GameControl {
         
         Game game = new Game();
         game.setPlayer(player);
+        Player.setHealthStatus("Healthy");
+        Player.setInjuryTracker(0);
         
         LostWhileHunting.setCurrentGame(game);
         
@@ -141,7 +143,7 @@ public class GameControl {
     
     public static String minor1(){
         String actor;
-        int randomNum = (int) Math.random()*3;
+        int randomNum = (int) (Math.random()*3);
         System.out.println("Minor load: "+ randomNum);
         
         if(randomNum == 1){
@@ -157,7 +159,9 @@ public class GameControl {
     
     public static String minor2(){
         String actor;
-        int randomNum = (int) Math.random()*3;
+        
+        //brackets around the Math.Random sections
+        int randomNum = (int) (Math.random()*3);
         
         if(randomNum == 1){
             actor = Actors.Bear.getName();
@@ -172,7 +176,7 @@ public class GameControl {
     
     public static String minor3(){
         String actor;
-        int randomNum = (int) Math.random()*3;
+        int randomNum = (int) (Math.random()*3);
         
         if(randomNum == 1){
             actor = Actors.Bear.getName();
