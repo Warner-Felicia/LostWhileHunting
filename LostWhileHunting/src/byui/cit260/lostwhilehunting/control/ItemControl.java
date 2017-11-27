@@ -61,7 +61,7 @@ public class ItemControl {
                     item = "Knife";
                     break;
                 default:
-                    item = "Knife";
+                   
                     break;
             }
             //Ensure that an is used before the E and a before others
@@ -90,7 +90,7 @@ public class ItemControl {
         int itemSpawn;
         
         itemSpawn = (int) (Math.floor(Math.random()*6));
-        
+        System.out.println(itemSpawn);
          switch (itemSpawn) {
              case 1:
                  item = "Meat";
@@ -111,7 +111,7 @@ public class ItemControl {
                  item = "Knife";
                  break;
              default:
-                 item = "Knife";
+               
                  break;
          }
         

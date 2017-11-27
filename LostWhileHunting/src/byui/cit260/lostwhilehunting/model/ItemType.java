@@ -15,5 +15,5 @@ public enum ItemType {
     meat,
     map,
     knife,
-    extraLife
+    extraLife;
 }
