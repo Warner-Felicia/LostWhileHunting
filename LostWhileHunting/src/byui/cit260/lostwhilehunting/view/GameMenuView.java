@@ -4,6 +4,7 @@ import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.LocationsControl;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
+import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
@@ -85,8 +86,14 @@ public class GameMenuView extends View{
             case ("E"): // equip items
                 this.equipItems();
                 break;
-            case ("V") : // view map
+            case ("V") : {
+            try {
+                // view map
                 this.displayMap();
+            } catch (LocationsControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             default: 
                 System.out.println("Please choose an action from this list");
@@ -198,7 +205,7 @@ public class GameMenuView extends View{
         equipitem.display();
     }
 
-    private void displayMap() {
+    private void displayMap() throws LocationsControlException {
         
         Game game = new Game();
         game = LostWhileHunting.getCurrentGame();

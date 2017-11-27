@@ -11,6 +11,7 @@ package byui.cit260.lostwhilehunting.control;
  */
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
+import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
@@ -65,8 +66,12 @@ public class QuestionsAndSceneControl {
             
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
+                try {
                     //moveToNextLocation();
                     LocationsControl.incrementLocation();
+                } catch (LocationsControlException ex) {
+                    Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("You lost "+item1);
@@ -105,8 +110,12 @@ public class QuestionsAndSceneControl {
             
         
                 if(randomizerNum <= successFailureBoundary){
+                try {
                     //moveToNextLocation();
                     LocationsControl.incrementLocation();
+                } catch (LocationsControlException ex) {
+                    Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     System.out.println();
                     System.out.println("You lost "+item1);
                 try {
@@ -177,8 +186,12 @@ public class QuestionsAndSceneControl {
         successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
             
         if(randomizerNum <= successFailureBoundary){
-             //moveToNextLocation();
-             LocationsControl.incrementLocation();
+            try {
+                //moveToNextLocation();
+                LocationsControl.incrementLocation();
+            } catch (LocationsControlException ex) {
+                Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println();
             System.out.println("You lost "+item1);
             System.out.println();
@@ -242,8 +255,12 @@ public class QuestionsAndSceneControl {
         successFailureBoundary = successFailureBoundary + (itemsEquipped * 10) + classBonus;   
             
         if(randomizerNum <= successFailureBoundary){
-             //moveToNextLocation();
-             LocationsControl.incrementLocation();
+            try {
+                //moveToNextLocation();
+                LocationsControl.incrementLocation();
+            } catch (LocationsControlException ex) {
+                Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println();
             System.out.println("You lost "+item1);
             System.out.println();
@@ -464,8 +481,12 @@ public class QuestionsAndSceneControl {
             
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
+                try {
                     //moveToNextLocation();
                     LocationsControl.incrementLocation();
+                } catch (LocationsControlException ex) {
+                    Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("Brave choice you found two items");
@@ -541,8 +562,12 @@ public class QuestionsAndSceneControl {
             
                 //IF (randomizerNumber <= successFailureBoundary)
                 if(randomizerNum <= successFailureBoundary){
+                try {
                     //moveToNextLocation();
                     LocationsControl.incrementLocation();
+                } catch (LocationsControlException ex) {
+                    Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
                     System.out.println();
                     //Display “You lost” + item1
                     System.out.println("Good choice but you get nothing, no risk no reward");

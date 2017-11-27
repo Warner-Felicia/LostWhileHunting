@@ -13,6 +13,7 @@ package byui.cit260.lostwhilehunting.control;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
+import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
@@ -159,13 +160,13 @@ public class LocationsControl {
         return returnResult;
     }
     
-    private static String loadMajorSceneIfMapCoordTrue() {
+    private static String loadMajorSceneIfMapCoordTrue() throws LocationsControlException {
         
          Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
          String sceneStatus="";
         
         if (location == null) {
-            System.out.println("Locations array unsuccessfully passed.");
+            throw new LocationsControlException("Locations array unsuccessfully passed.");
         }
         
          for (int i = 0; i < location.length; i++ ){
@@ -173,8 +174,7 @@ public class LocationsControl {
                  
                 if (location[i][j].isVisited()==false) {
                     if(location[i][j].getScenes().getSymbol()==null){
-                       System.out.println("Symbols bugged.");
-                       return null;
+                       throw new LocationsControlException("Symbols bugged.");
                     }else switch(location[i][j].getScenes().getSymbol()){
                         case "CS":
                             sceneStatus = "major";
@@ -288,12 +288,12 @@ public class LocationsControl {
         
      }
     
-     public static void incrementLocation() {
+     public static void incrementLocation() throws LocationsControlException{
         
         Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         
         if (location == null) {
-            System.out.println("Locations array unsuccessfully passed.");
+            throw new LocationsControlException ("Locations array unsuccessfully passed.");
         }
         
         //Search for next unvisited location
@@ -307,14 +307,14 @@ public class LocationsControl {
         }
     }
      
-     public int checkStages(){
+     public int checkStages() throws LocationsControlException {
        
         Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         int total = 0; 
         // Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         
         if (location == null) {
-            System.out.println("There is an error. The total number of visited stages is undefined.");
+            throw new LocationsControlException("There is an error. The total number of visited stages is undefined.");
         }
         
         //Search for next unvisited location
