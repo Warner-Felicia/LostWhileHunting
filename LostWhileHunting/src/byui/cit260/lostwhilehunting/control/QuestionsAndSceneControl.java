@@ -418,7 +418,7 @@ public class QuestionsAndSceneControl {
         
         Questions question3 = new Questions();
         question3.setQuestion("Will you stand and fight?");
-        question3.setAnswer("Player's choie");
+        question3.setAnswer("Player's choice");
         questionsContainer[QuestionType.question3.ordinal()] = question3;
       
         return questionsContainer;
@@ -432,7 +432,7 @@ public class QuestionsAndSceneControl {
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         scene=surePassCheck.getScenes().getDescription();
-                        
+                        System.out.println("Scene found: "+scene);
                         return scene;
                     }
                 }

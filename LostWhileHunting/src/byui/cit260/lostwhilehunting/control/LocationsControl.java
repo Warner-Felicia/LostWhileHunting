@@ -69,17 +69,11 @@ public class LocationsControl {
                 surePass = surePass - 1; // decrease surePass by 1
                 p.setNumberOfSurePasses(surePass);
                 System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
-                 
-                for (Location[] rowCheck : location) {
-                for (Location surePassCheck : rowCheck) {
-                    if (surePassCheck.isVisited() == false) {
-                        surePassCheck.setVisited(true);
-                        
-                        return 1;
-                    }
-                }
-                }            
-                LostWhileHunting.getCurrentGame().getMap().setLocation(location);
+                 try{
+                incrementLocation();
+                 }catch(LocationsControlException le){
+                     le.getMessage();
+                 }
                 returnSuccessFailure = 1;// assign 1 for test class
                 
             }else{
@@ -118,7 +112,7 @@ public class LocationsControl {
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         scene=surePassCheck.getScenes().getSymbol();
-                        
+                        System.out.println("Acronym: "+scene);
                         if(null != scene)switch (scene) {
                             case "*1":
                             case "*2":
@@ -136,7 +130,7 @@ public class LocationsControl {
                                 return returnResult;
                             case "DC":
                                 returnResult=1;
-                                break;
+                                return returnResult;
                             case "GR":
                                 returnResult=1;
                                 return returnResult;
@@ -301,6 +295,7 @@ public class LocationsControl {
             for (Location column : row) {
                 if (column.isVisited() == false) {
                     column.setVisited(true);
+                    LostWhileHunting.getCurrentGame().getMap().setLocation(location);
                     return;
                 }
             }
