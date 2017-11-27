@@ -143,7 +143,7 @@ public class LocationsControl {
                                 returnResult=1;
                                 return returnResult;
                             case " G":
-                                returnResult=1;
+                                returnResult=2;
                                 return returnResult;
                             default:
                                 System.out.println("Scene error");
