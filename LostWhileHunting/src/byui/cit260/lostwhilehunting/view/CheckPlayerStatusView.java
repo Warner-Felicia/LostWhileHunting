@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 
+import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Player;
@@ -17,7 +18,7 @@ import java.util.Scanner;
  */
 public class CheckPlayerStatusView extends View {
     Player player = new Player();
-    Game game = new Game();
+    Game game = new Game(); 
 
     private final String playerStatus;
 
@@ -28,6 +29,8 @@ public class CheckPlayerStatusView extends View {
                 + "\n Hero: " + game.getHeroClass()
                 + "\n Items Equipped: " + Items.getItem1() + ", " + Items.getItem2() + ", " + Items.getItem3()
                 + "\n Health: " + Player.getHealthStatus()
+                + "\n -----------------------------------------------"
+                + "\n H - Heal"
                 + "\n -----------------------------------------------"
                 + "\n"
                 + "Q - Return To Game Menu";
@@ -71,7 +74,9 @@ public class CheckPlayerStatusView extends View {
 @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
-
+if ("H".equals(choice)){
+GameControl.healPlayerwithMeatOrLife();
+}
         return false;
     }
 
