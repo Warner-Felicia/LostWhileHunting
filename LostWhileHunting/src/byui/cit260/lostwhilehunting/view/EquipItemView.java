@@ -10,6 +10,9 @@ import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +27,7 @@ public class EquipItemView extends View{
     GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
     private String menu;
+    PrintWriter console = LostWhileHunting.getOutFile();
 
     public EquipItemView() {
         super("\n"
@@ -45,7 +49,7 @@ public class EquipItemView extends View{
     
     @Override
     public boolean doAction(String choice) {
-       System.out.println("You had overall "+ this.sumItems()+ " items");
+       this.console.println("You had overall "+ this.sumItems()+ " items");
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
@@ -54,7 +58,7 @@ public class EquipItemView extends View{
                // create and start a new game
                itemcontrol.equipItem("Rifle");
            } catch (ItemControlException ex) {
-               System.out.println(ex.getMessage());
+               ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
@@ -64,7 +68,7 @@ public class EquipItemView extends View{
                // get and start an existing game
                itemcontrol.equipItem("Bullets");
            } catch (ItemControlException ex) {
-               System.out.println(ex.getMessage());
+               ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
@@ -74,7 +78,7 @@ public class EquipItemView extends View{
                // display the help menu
                itemcontrol.equipItem("Knife");
            } catch (ItemControlException ex) {
-              System.out.println(ex.getMessage());
+              ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
@@ -84,7 +88,7 @@ public class EquipItemView extends View{
                // save the current game
                itemcontrol.equipItem("Map");
            } catch (ItemControlException ex) {
-              System.out.println(ex.getMessage());
+              ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
@@ -94,7 +98,7 @@ public class EquipItemView extends View{
                // save the current game
                itemcontrol.equipItem("Meat");
            } catch (ItemControlException ex) {
-              System.out.println(ex.getMessage());
+              ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
@@ -104,19 +108,19 @@ public class EquipItemView extends View{
                // save the current game
                itemcontrol.equipItem("ExtraLife");
            } catch (ItemControlException ex) {
-               System.out.println(ex.getMessage());
+               ErrorView.display(this.getClass().getName(), ex.getMessage());
            }
        }
                 
                 break;
             case "Q": // exit
-                System.out.println("\nExiting");
+                this.console.println("\nExiting");
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
-        System.out.println("You now have "+ this.sumItems()+ " items in Inventory");
+        this.console.println("You now have "+ this.sumItems()+ " items in Inventory");
         return true;
     }
     
@@ -125,13 +129,13 @@ public class EquipItemView extends View{
     public void assigntoSlot(String item){
         if("".equals(Items.getItem1())){
                 Items.setItem1(item);
-                System.out.println(item+" assigned to Item1");
+                this.console.println(item+" assigned to Item1");
             }else if("".equals(Items.getItem2())){
                 Items.setItem2(item); 
-                System.out.println(item+" assigned to Item2");
+                this.console.println(item+" assigned to Item2");
             }else if("".equals(Items.getItem3())){
                 Items.setItem3(item); 
-                System.out.println(item+" assigned to Item3");
+                this.console.println(item+" assigned to Item3");
             }else{
                 this.overWriteItem(item);
             }
@@ -139,32 +143,37 @@ public class EquipItemView extends View{
 
     public void overWriteItem(String item){
         
-        System.out.println("\nAll item slots are full");
-        System.out.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
-        Scanner overWrite = new Scanner(System.in);
+        this.console.println("\nAll item slots are full");
+        this.console.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
+        BufferedReader overWrite = LostWhileHunting.getInFile();
         String overWriteChoice = "";
         boolean checker = false;
          
                     
         while(!checker){    
             
-            overWriteChoice = overWrite.nextLine();
-            overWriteChoice = overWriteChoice.trim();
-            overWriteChoice = overWriteChoice.toUpperCase();
-            System.out.println("You Chose: "+overWriteChoice);    
+            try {
+                overWriteChoice = overWrite.readLine();
+                overWriteChoice = overWriteChoice.trim();
+                overWriteChoice = overWriteChoice.toUpperCase();
+                this.console.println("You Chose: "+overWriteChoice);
+            } 
+            catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+            }
             
             switch (overWriteChoice) {
             case "Y": // create and start a new game
-                System.out.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
+                this.console.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
                 Items.setItem1(item);
                 
                 break;
             case "N": // get and start an existing game
-                 System.out.println("\nNothing was changed");
+                 this.console.println("\nNothing was changed");
                 
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 continue;
             }
                 

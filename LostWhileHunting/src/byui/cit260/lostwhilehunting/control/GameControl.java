@@ -10,19 +10,21 @@ import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.ItemType;
-import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
+import byui.cit260.lostwhilehunting.view.ErrorView;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import static javafx.application.Platform.exit;
 import lostwhilehunting.LostWhileHunting;
+
 
 /**
  *
  * @author Group
  */
 public class GameControl {
-    
+
     Player p = new Player();
     
     public static void assignInjuryOnFail(){
@@ -187,6 +189,25 @@ public class GameControl {
         }
         
         return actor;
-    } 
+    }
+    
+    public static void saveGame(Game game, String filePath) 
+            throws GameControlException{
+            
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);
+            output.flush();
+        }
+        catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+       
+
+    }
+    
     
 }

@@ -6,7 +6,13 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.exceptions.GameControlException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -15,6 +21,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface{
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = LostWhileHunting.getInFile();
+    protected final PrintWriter console = LostWhileHunting.getOutFile();
     
     public View() {
         
@@ -36,24 +45,30 @@ public abstract class View implements ViewInterface{
             
             // do the requested action and display the next view
             done = this.doAction(value);
+            
         } 
         while (!done);
     }
     
     @Override
     public String getInput() {
-       Scanner keyboard = new Scanner(System.in);
+       
         String value = null;
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = keyboard.readLine();
+                value = value.trim();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+            }
+            
             
             if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
+                this.console.println("\nInvalid value: value can not be blank");
                 continue;
             }
             

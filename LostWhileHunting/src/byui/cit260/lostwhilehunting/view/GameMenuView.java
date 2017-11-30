@@ -10,6 +10,9 @@ import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -30,7 +33,7 @@ public class GameMenuView extends View{
     
     MainMenuView mainmenu = new MainMenuView();
     GameControl game = new GameControl();
-    
+        
     public GameMenuView() {
         super("\n" 
                 + "\n-----------------------------------------"
@@ -61,7 +64,7 @@ public class GameMenuView extends View{
             try {
                 done = this.doAction(value);
             } catch (NumberFormatException nf) {
-                System.out.println("You must enter a valid number.");
+                this.console.println("You must enter a valid number.");
                 //this.display();
             }
         } 
@@ -102,7 +105,7 @@ public class GameMenuView extends View{
         }
                 break;
             default: 
-                System.out.println("Please choose an action from this list");
+                this.console.println("Please choose an action from this list");
         }
         
         return false;
@@ -117,7 +120,7 @@ public class GameMenuView extends View{
         //LocationsControl.incrementLocation();
         
         if(Player.getInjuryTracker()< 3){
-            System.out.println("Injury Tracker: "+Player.getInjuryTracker());
+            this.console.println("Injury Tracker: "+Player.getInjuryTracker());
             if(lc.loadSimpleSceneIfNotMajorMapCoord()==0){
             CombatMenuView combatMenuView = new CombatMenuView();
             //call combat view
@@ -131,37 +134,41 @@ public class GameMenuView extends View{
                 theEnd.displayEndGameView();
             }
         }else{
-            System.out.println("\nYou are dead");
+            this.console.println("\nYou are dead");
             
             if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock() > 0){
                 
-                System.out.println("\nYou have "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()+" ExtraLife. Do you want to Use?");
-                System.out.println("\nEnter Y|N");
-                Scanner useLife = new Scanner(System.in);
+                this.console.println("\nYou have "+LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()+" ExtraLife. Do you want to Use?");
+                this.console.println("\nEnter Y|N");
+                BufferedReader useLife = LostWhileHunting.getInFile();
                 String lifeWriteChoice = "";
                 boolean checker = false;
          
                     
                 while(!checker){    
             
-                    lifeWriteChoice = useLife.nextLine();
-                    lifeWriteChoice = lifeWriteChoice.trim();
-                    lifeWriteChoice = lifeWriteChoice.toUpperCase();
-                    System.out.println("You Chose: "+lifeWriteChoice);    
-            
+                    try {
+                        lifeWriteChoice = useLife.readLine();
+                        lifeWriteChoice = lifeWriteChoice.trim();
+                        lifeWriteChoice = lifeWriteChoice.toUpperCase();
+                        this.console.println("You Chose: "+lifeWriteChoice);    
+                    }
+                    catch (IOException ex) {
+                        ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+                    }
                     switch (lifeWriteChoice) {
                         case "Y": // create and start a new game
-                            System.out.println("\nYou were Revived by the Power of the Lord");
+                            this.console.println("\nYou were Revived by the Power of the Lord");
                             Player.setInjuryTracker(0);
                             GameControl.checkIfActorIsInjuredDeadOrAlive(Player.getInjuryTracker());
                 
                             break;
                         case "N": // get and start an existing game
-                            System.out.println("\nYou remain dead");
+                            this.console.println("\nYou remain dead");
                 
                             break;
                         default:
-                            System.out.println("\n*** Invalid selection *** Try again");
+                            this.console.println("\n*** Invalid selection *** Try again");
                             continue;
                     }
                 
@@ -186,7 +193,7 @@ public class GameMenuView extends View{
             }
         }
         else {
-            System.out.println("\n You have already searched this location."
+            this.console.println("\n You have already searched this location."
                    + "\n You may only search a location once.");
         }
     }
@@ -219,23 +226,23 @@ public class GameMenuView extends View{
         
         Location[][] locations = game.getMap().getLocation();
         
-        System.out.println("\n***Lost While Hunting Map***");
-        System.out.print("   1  2  3  4  5  6  7  8  9");
+        this.console.println("\n***Lost While Hunting Map***");
+        this.console.print("   1  2  3  4  5  6  7  8  9");
         for (int i = 0; i < locations.length; i++) {
-            System.out.print("\n  ----------------------------");
-            System.out.print("\n" + (i + 1)+" ");           
+            this.console.print("\n  ----------------------------");
+            this.console.print("\n" + (i + 1)+" ");           
             for (int j = 0; j < locations[i].length; j++) {
-                System.out.print("|");
+                this.console.print("|");
                 Location location = locations[i][j];
                 if (location.isVisited() == true) {
-                    System.out.print(location.getScenes().getSymbol());
+                    this.console.print(location.getScenes().getSymbol());
                 } else {
-                    System.out.print("??");
+                    this.console.print("??");
                 }
             }
-            System.out.print("|");
+            this.console.print("|");
         }
-        System.out.println("\n  ----------------------------" +"\n" 
+        this.console.println("\n  ----------------------------" +"\n" 
                             + "\n ^^^ You have visited " + checkVisitedStages.checkStages() + " stages ^^^");
  
   

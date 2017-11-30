@@ -8,24 +8,29 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import byui.cit260.lostwhilehunting.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
  * @author Trevon Morris
  */
 public class StartProgramView {
-
-    private String promptMessage;
+    
+    private String displayMessage;
+    private PrintWriter console = LostWhileHunting.getOutFile();
     
     public StartProgramView() {
         
-        this.promptMessage = "\nPlease enter your name: ";
+        this.displayMessage = ("\nPlease enter your name: ");
         //display the banner when view is created
         this.displayBanner();
     }
 
-    private void displayBanner() {
+    public void displayBanner() {
         System.out.println("\n******************************************************"
                             +"\n*                                                    *"
                             +"\n*         Welcome to Lost While Hunting              *"
@@ -43,7 +48,7 @@ public class StartProgramView {
                             +"\n******************************************************");
     }
 
-    public void displayStartProgramView() {
+    public void display() {
         
         String playersName;
         boolean done = false; //set flag to not done
@@ -52,7 +57,7 @@ public class StartProgramView {
             try {
                 playersName = this.getPlayersName();
             } catch (GameControlException gce) {
-                System.out.println(gce.getMessage());
+                ErrorView.display(this.getClass().getName(), gce.getMessage());
                 continue;
             }
             
@@ -64,7 +69,7 @@ public class StartProgramView {
                 done = this.doAction(playersName);
             }
             catch (GameControlException gce) {
-                System.out.println(gce.getMessage());
+                ErrorView.display(this.getClass().getName(), gce.getMessage());
             }
           
       }while (!done);   
@@ -72,28 +77,34 @@ public class StartProgramView {
     }
     
     public String getPlayersName() throws GameControlException{
-        Scanner keyboard = new Scanner(System.in);
+        BufferedReader keyboard = LostWhileHunting.getInFile();
         String value = "";
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.promptMessage);
+            System.out.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = keyboard.readLine();
+                value = value.trim();
             
-            if (value.length() < 1) {
-                throw new GameControlException("The player's name cannot be"
+                if (value.length() < 1) {
+                    throw new GameControlException("The player's name cannot be"
                         + " blank.");
-            }
+                }
             
-            break; // end the loop
-        }
+                break; 
+            }
+            catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+
+            }
         
+        }    
         return value;  // return the value entered
     }
 
-    private boolean doAction(String playersName) throws GameControlException{
+    public boolean doAction(String playersName) throws GameControlException{
         if (playersName.length() < 2) {
             System.out.println("\nInvalid player's name: "
                 + "The name must be greater than one character in length.");
@@ -113,7 +124,7 @@ public class StartProgramView {
         
     }
 
-    private void displayNextView(Player player) {
+    public void displayNextView(Player player) {
         System.out.println("\n ======================================"
                           + "\n Welcome to the game " + player.getName() 
                           + "."

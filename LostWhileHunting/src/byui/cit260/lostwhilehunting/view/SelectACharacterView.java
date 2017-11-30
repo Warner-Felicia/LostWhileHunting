@@ -60,13 +60,13 @@ public class SelectACharacterView extends View{
                 heroType = "Spinster"; //used in welcome message
                 break;
             default:
-                System.out.println("You must choose a character from the list.");
+                this.console.println("You must choose a character from the list.");
                 return false;
         }
         game.setHeroClass(hero);
         
         // Display welcome message and GameMenu view
-        System.out.println("\n ======================================"
+        this.console.println("\n ======================================"
                           + "\n You have chosen to be the " + heroType + "."
                           + "\n Your name in the game will be " + heroName + "."
                           + "\n"

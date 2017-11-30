@@ -20,6 +20,8 @@ import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
+import byui.cit260.lostwhilehunting.view.ErrorView;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -30,6 +32,7 @@ public class LocationsControl {
 
     ItemControl itemcontrol = new ItemControl();
     Player p = new Player();
+    PrintWriter console = LostWhileHunting.getOutFile();
     
     public double incrementLocationsMapSceneTypeIfSurePass(int surePass){
         
@@ -49,7 +52,7 @@ public class LocationsControl {
         // This if statement checks the surePass for amount
         if(surePass < 0 || surePass > 4){ //Checks for anomalies
             
-            System.out.println("Hacking attempt detected or Major Catastrophy detected.");
+            ErrorView.display(this.getClass().getName(), "Hacking attempt detected or Major Catastrophy detected.");
             returnSuccessFailure = 99999; // assign 99999 for test class
             
         }else if(surePass != 0){
@@ -65,10 +68,10 @@ public class LocationsControl {
                 and decrease the scenes between each main location.*/
                 //moveToNextLocation(); This function has not been written yet
                 
-                System.out.println("Congrats you have managed to bypass the danger successfully.");
+                this.console.println("Congrats you have managed to bypass the danger successfully.");
                 surePass = surePass - 1; // decrease surePass by 1
                 p.setNumberOfSurePasses(surePass);
-                System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
+                this.console.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                  try{
                 incrementLocation();
                  }catch(LocationsControlException le){
@@ -84,16 +87,16 @@ public class LocationsControl {
                     //This item will be written to the SetInventoryItem function in future iterations
                     inventoryItem = itemcontrol.generateItemFromItems();
                 } catch (ItemControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
                 }
-                System.out.println("Your Sure Pass failed this time, but you found a " + inventoryItem);
-                System.out.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
+                this.console.println("Your Sure Pass failed this time, but you found a " + inventoryItem);
+                this.console.println("You now have "+p.getNumberOfSurePasses()+" surePasses left.");
                 returnSuccessFailure = 0;// assign 0 for test class
                 
             }
         }else{
             
-            System.out.println("You have no Sure Passes left sadly, be careful on your journey");
+            this.console.println("You have no Sure Passes left sadly, be careful on your journey");
             returnSuccessFailure = 99999; // assign 99999 for test class
             
         }
@@ -112,7 +115,7 @@ public class LocationsControl {
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         scene=surePassCheck.getScenes().getSymbol();
-                        System.out.println("Acronym: "+scene);
+                        this.console.println("Acronym: "+scene);
                         if(null != scene)switch (scene) {
                             case "*1":
                             case "*2":
@@ -141,7 +144,7 @@ public class LocationsControl {
                                 returnResult=2;
                                 return returnResult;
                             default:
-                                System.out.println("Scene error");
+                                this.console.println("Scene error");
                                 break;
                         }
                        

@@ -5,8 +5,10 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  * Game Class
@@ -22,6 +24,7 @@ public class Game implements Serializable{
     private Map map;
     private ArrayList<InventoryItem> items = new ArrayList<>();
     private static String heroClass="";
+    private PrintWriter console = LostWhileHunting.getOutFile();
 
        
     //Class public functions
@@ -86,7 +89,7 @@ public class Game implements Serializable{
 
     public void setHeroClass(String heroClass) {
         this.heroClass = heroClass;
-        System.out.println("\n"+heroClass+" Hero Class Selected");
+        this.console.println("\n"+heroClass+" Hero Class Selected");
     }
     
     

@@ -13,7 +13,13 @@ package byui.cit260.lostwhilehunting.control;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import byui.cit260.lostwhilehunting.view.ErrorView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 public class ItemControl {
@@ -27,6 +33,8 @@ public class ItemControl {
      private int mapAmount = 0;
      private int extraLifeAmount = 0;
      public static boolean searchAvailable = true;
+     private PrintWriter console = LostWhileHunting.getOutFile();
+     
    
     public String searchLocation() throws ItemControlException{
         
@@ -65,14 +73,14 @@ public class ItemControl {
                     break;
             }
             //Ensure that an is used before the E and a before others
-            System.out.println();
+            this.console.println();
             if("ExtraLife".equals(item)){
-                System.out.println("You found an: "+item);
+                this.console.println("You found an: "+item);
             }else{
-                System.out.println("You found a: "+item);
+                this.console.println("You found a: "+item);
             }
         }
-        else{ System.out.println("Search yielded nothing");
+        else{ this.console.println("Search yielded nothing");
         return "";
         }
         
@@ -116,11 +124,11 @@ public class ItemControl {
          }
         
        
-       System.out.println();
+       this.console.println();
        if("ExtraLife".equals(item)){
-           System.out.println("You found an: "+item);
+           this.console.println("You found an: "+item);
        }else{
-       System.out.println("You found a: "+item);
+       this.console.println("You found a: "+item);
        }
        
        if(item==null)
@@ -144,7 +152,7 @@ public class ItemControl {
                 meatAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
                 meatAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(meatAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getInventoryType());  
@@ -156,7 +164,7 @@ public class ItemControl {
                 rifleAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
                 rifleAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(rifleAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getInventoryType());  
@@ -168,7 +176,7 @@ public class ItemControl {
                 bulletAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock();
                 bulletAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(bulletAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getInventoryType());  
@@ -180,7 +188,7 @@ public class ItemControl {
                 mapAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
                 mapAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(mapAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getInventoryType());
@@ -193,7 +201,7 @@ public class ItemControl {
                 extraLifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
                 extraLifeAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(extraLifeAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getInventoryType());
@@ -206,7 +214,7 @@ public class ItemControl {
                 knifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock();
                 knifeAmount++;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(knifeAmount);
-                System.out.println("You have "
+                this.console.println("You have "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()
                                   +" "
                                   +LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getInventoryType());
@@ -234,7 +242,7 @@ public class ItemControl {
          deductMap = deductMap - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductMap);
         }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
         }
        }else if(item=="Rifle"){ 
@@ -243,7 +251,7 @@ public class ItemControl {
          deductRifle = deductRifle - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(deductRifle);
          }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
        }
        }else if(item=="Bullets"){ 
@@ -252,7 +260,7 @@ public class ItemControl {
          deductBullets = deductBullets - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(deductBullets);
          }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
          }
        }else if(item=="Knife"){  
@@ -261,7 +269,7 @@ public class ItemControl {
          deductKnife = deductKnife - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(deductKnife);
          }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
        }
        }else if(item=="Meat"){ 
@@ -271,7 +279,7 @@ public class ItemControl {
          deductMeat = deductMeat - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(deductMeat);
          }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
          }
        }else if(item=="ExtraLife"){ 
@@ -280,7 +288,7 @@ public class ItemControl {
          deductExtraLife = deductExtraLife - 1;
          LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(deductExtraLife);
          }else{
-            System.out.println("\nYou have no "+ item +" in your inventory");
+            this.console.println("\nYou have no "+ item +" in your inventory");
             return;
          }
        }else{
@@ -290,13 +298,13 @@ public class ItemControl {
          
             if(Items.getItem1() == ""){
                 Items.setItem1(item);
-                System.out.println(item+" assigned to Item1");
+                this.console.println(item+" assigned to Item1");
             }else if(Items.getItem2()==""){
                 Items.setItem2(item); 
-                System.out.println(item+" assigned to Item2");
+                this.console.println(item+" assigned to Item2");
             }else if(Items.getItem3()==""){
                 Items.setItem3(item); 
-                System.out.println(item+" assigned to Item3");
+                this.console.println(item+" assigned to Item3");
             }else{
                 this.overWriteItem(item);
             }
@@ -310,32 +318,38 @@ public class ItemControl {
         if(item==null)
             throw new ItemControlException("No Item was assigned. Reload Program to see if that fixes error");
         
-        System.out.println("\nAll item slots are full");
-        System.out.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
-        Scanner overWrite = new Scanner(System.in);
+        this.console.println("\nAll item slots are full");
+        this.console.println("\nDo you wish to overwrite? (Y for Yes | N for No)");
+        BufferedReader overWrite = LostWhileHunting.getInFile();
         String overWriteChoice = "";
         boolean checker = false;
          
                     
         while(!checker){    
             
-            overWriteChoice = overWrite.nextLine();
-            overWriteChoice = overWriteChoice.trim();
-            overWriteChoice = overWriteChoice.toUpperCase();
-            System.out.println("You Chose: "+overWriteChoice);    
+            try {
+                overWriteChoice = overWrite.readLine();
+                overWriteChoice = overWriteChoice.trim();
+                overWriteChoice = overWriteChoice.toUpperCase();
+                this.console.println("You Chose: "+overWriteChoice); 
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading "
+                        + "from keyboard.");
+            }
+               
             
             switch (overWriteChoice) {
             case "Y": // create and start a new game
-                System.out.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
+               this.console.println("\nItem1 was overwritten, note that Item1 will always be overwritten");
                 Items.setItem1(item);
                 
                 break;
             case "N": // get and start an existing game
-                 System.out.println("\nNothing was changed");
+                 this.console.println("\nNothing was changed");
                 
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 continue;
             }
                 

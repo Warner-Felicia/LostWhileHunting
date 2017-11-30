@@ -18,6 +18,12 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,18 +38,51 @@ public class LostWhileHunting {
     // Felicia fix
     private static Game currentGame = null;
     private static Player player = null;
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    private static PrintWriter logFile = null;
     
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
+        
         try {
-            startProgramView.displayStartProgramView();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
+        LostWhileHunting.inFile = new BufferedReader(new InputStreamReader(System.in));
+        
+        LostWhileHunting.outFile = new PrintWriter(System.out, true);
+        
+            try {
+                String filePath = "logfile.txt";
+                LostWhileHunting.logFile = new PrintWriter(filePath);
+                
+            }
+            catch (Exception e) {
+                System.out.println("Exception: " + e.toString() +
+                                    "\nCause: " + e.getCause() +
+                                    "\nMessage " +e.getMessage());
+            }
+        startProgramView.display();
+        } 
+        catch (Throwable te) {
+            outFile.println(te.getMessage());
             te.printStackTrace();
-            startProgramView.displayStartProgramView();
+            startProgramView.display();
         }
-                  
+        finally {
+            try {
+                if (LostWhileHunting.inFile != null);
+                LostWhileHunting.inFile.close();
+                
+                if (LostWhileHunting.outFile != null);
+                LostWhileHunting.outFile.close();
+                
+                if (LostWhileHunting.logFile != null);
+                LostWhileHunting.logFile.close();
+            } 
+            catch (IOException ex) {
+                outFile.println("Error closing files.");
+            }
+        }        
     }
 
     public static Game getCurrentGame() {
@@ -61,6 +100,34 @@ public class LostWhileHunting {
     public static void setPlayer(Player player) {
         LostWhileHunting.player = player;
     }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        LostWhileHunting.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        LostWhileHunting.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        LostWhileHunting.logFile = logFile;
+    }
+    
+    
+    
+    
     
     
     

@@ -10,7 +10,10 @@ import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Player;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -51,18 +54,24 @@ public class CheckPlayerStatusView extends View {
     }
 @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
 
         while (!valid) {
-            System.out.println("\n" + this.playerStatus);
+            this.console.println("\n" + this.playerStatus);
 
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = this.keyboard.readLine();
+                value = value.trim();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading "
+                        + "from keyboard.");
+            }
+            
 
             if (value.length() < 1) {
-                System.out.println("Please make a selection");
+                this.console.println("Please make a selection");
                 continue;
             }
 

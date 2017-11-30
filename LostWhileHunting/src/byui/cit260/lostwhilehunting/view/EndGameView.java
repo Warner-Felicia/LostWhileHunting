@@ -9,7 +9,10 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 /**
@@ -59,7 +62,7 @@ public class EndGameView extends View{
                 this.yes();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -67,18 +70,23 @@ public class EndGameView extends View{
     }
 @Override
     public String getInput() {
-       Scanner keyboard = new Scanner(System.in);
+       
         String value = "";
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.menu);
+            this.console.println("\n" + this.menu);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = this.keyboard.readLine();
+                value = value.trim();
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading "
+                        + "from keyboard.");
+            }
             
             if (value.length() < 1) {
-                System.out.println("Please make a selection");
+                this.console.println("Please make a selection");
                 continue;
             }
             

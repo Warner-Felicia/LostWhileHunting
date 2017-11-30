@@ -6,7 +6,11 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.control.LocationsControl;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -29,6 +33,7 @@ public class HelpMenuView {
                     + "\nQ - Quit"
                     + "\n----------------------------------------";
     }
+    private PrintWriter console = LostWhileHunting.getOutFile();
     void displayHelpMenuView() {
         
         boolean done = false; // set flag to not done
@@ -44,22 +49,28 @@ public class HelpMenuView {
     }
 
     private String getHelpMenuOption() {
-       Scanner keyboard = new Scanner(System.in);
+        BufferedReader keyboard = LostWhileHunting.getInFile();
         String value = "";
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.menu);
+            this.console.println("\n" + this.menu);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = keyboard.readLine();
             
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
+                value = value.trim();
+            
+                if (value.length() < 1) {
+                    this.console.println("\nInvalid value: value can not be blank");
+                    continue;
+                }
+            
+                break;
             }
-            
-            break; // end the loop
+            catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+            }
         }
         
         return value;  // return the value entered
@@ -86,7 +97,7 @@ public class HelpMenuView {
                 this.playerStrengthsAndWeaknesses();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -94,23 +105,23 @@ public class HelpMenuView {
     }
 
     private void goalOfTheGame() {
-        System.out.println("\n goalOfTheGame() function called");
+        this.console.println("\n goalOfTheGame() function called");
     }
 
     private void howToMove() {
-        System.out.println("\n howToMove() function called");
+        this.console.println("\n howToMove() function called");
     }
 
     private void chanceSystemExplained() {
-        System.out.println("\n chanceSystemExplained() function called");
+        this.console.println("\n chanceSystemExplained() function called");
     }
 
     private void toolsExplained() {
-        System.out.println("\n toolsExplained() function called");
+        this.console.println("\n toolsExplained() function called");
     }
 
     private void playerStrengthsAndWeaknesses() {
-        System.out.println("\n playerStrengthsAndWeaknesses() function called");
+        this.console.println("\n playerStrengthsAndWeaknesses() function called");
     }
 
     

@@ -10,6 +10,9 @@ import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
@@ -25,6 +28,7 @@ public class ViewInventoryView{
     GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
     private String menu;
+    private PrintWriter console = LostWhileHunting.getOutFile();
     
     
     public ViewInventoryView() {
@@ -59,7 +63,7 @@ public class ViewInventoryView{
             try{
             value = this.getInput();
             }catch(NumberFormatException nf){
-                System.out.println("Come on letters dont work! Its only the number 1 to check item amount."
+                this.console.println("Come on letters dont work! Its only the number 1 to check item amount."
                                    +"\nOr Simply press Q to exit to the Game Menu.");
             }
                         
@@ -73,10 +77,10 @@ public class ViewInventoryView{
         switch (choice) {
             case 1: // exit
                 this.sumItems();
-                System.out.println("\nYou have "+this.sumItems()+" overall in inventory");
+                this.console.println("\nYou have "+this.sumItems()+" overall in inventory");
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -85,27 +89,32 @@ public class ViewInventoryView{
 
     
     public int getInput() {
-       Scanner keyboard = new Scanner(System.in);
+       BufferedReader keyboard = LostWhileHunting.getInFile();
         int value = 0;
         String inputValue;
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.menu);
+            this.console.println("\n" + this.menu);
             
-            inputValue = keyboard.nextLine();
-                 
-            if (inputValue.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
+            try {
+                inputValue = keyboard.readLine();
+            
+                if (inputValue.length() < 1) {
+                this.console.println("\nInvalid value: value can not be blank");
                 continue;
+                }
+            
+                if (inputValue.toUpperCase().equals("Q"))
+                    gamemenu.display();
+            
+                value = Integer.parseInt(inputValue);
+            
+                break; // end the loop
             }
-            
-            if (inputValue.toUpperCase().equals("Q"))
-                gamemenu.display();
-            
-            value = Integer.parseInt(inputValue);
-            
-            break; // end the loop
+            catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+            }
         }
         
         return value;  // return the value entered

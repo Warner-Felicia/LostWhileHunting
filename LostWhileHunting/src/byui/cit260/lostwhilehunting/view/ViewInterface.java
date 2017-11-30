@@ -5,6 +5,8 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.exceptions.GameControlException;
+
 /**
  *
  * @author New User
