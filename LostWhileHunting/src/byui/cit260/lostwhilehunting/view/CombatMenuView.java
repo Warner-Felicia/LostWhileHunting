@@ -26,17 +26,7 @@ public class CombatMenuView {
         
         this.menu = "\n"
                     + "\nA Minor Scene is loaded"+ questionsandscenecontrol.checkSceneQuestionChoiceAndReturnNewScene() + ""
-                    + "\n---------------------------------------"
-                    + "\n What will you do?"
-                    + "\n---------------------------------------"
-                    + "\n"
-                    + "\n 3. Fight"
-                    + "\n 4. Flight"
-                    + "\n 5. Evade"
-                    + "\n Q. Return to Game Menu"
-                    + "\n"
-                    + "\n---------------------------------------"
-                    + "\n Choose Wisely!";              
+                    + questionsandscenecontrol.checkSceneQuestionChoiceAndReturnQuestion();
     }
     
     public void displayCombatMenuView() {

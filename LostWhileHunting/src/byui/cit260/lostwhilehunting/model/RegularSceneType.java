@@ -18,6 +18,7 @@ public class RegularSceneType implements Serializable {
     private String description;
     private boolean safe;
     private String symbol;
+    private String question;
     
     // The constructor of the class
 
@@ -57,6 +58,14 @@ public class RegularSceneType implements Serializable {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
     }
     
     
