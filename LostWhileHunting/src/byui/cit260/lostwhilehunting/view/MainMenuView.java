@@ -90,7 +90,19 @@ public class MainMenuView extends View implements Serializable{
     }
 
     private void startExistingGame() {
-        this.console.println("*** startExistingGame function called ***");
+        this.console.println("\n\nEnter the file path for file wher the "
+                + "game is saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {

@@ -1,1 +1,1 @@
-MainMenuView - java.io.PrintWriter
+MainMenuView - writing aborted; java.io.NotSerializableException: java.io.PrintWriter
