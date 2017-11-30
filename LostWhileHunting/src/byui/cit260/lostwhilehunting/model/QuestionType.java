@@ -5,11 +5,13 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author New User
  */
-public enum QuestionType {
+public enum QuestionType implements Serializable{
     
     question1,
     question2,

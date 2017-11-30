@@ -10,6 +10,7 @@ import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Trevon Morris
  */
-public class EndGameView extends View{
+public class EndGameView extends View implements Serializable{
     
     GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();

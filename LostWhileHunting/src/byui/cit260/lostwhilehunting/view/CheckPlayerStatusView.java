@@ -11,6 +11,7 @@ import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Sony
  */
-public class CheckPlayerStatusView extends View {
+public class CheckPlayerStatusView extends View implements Serializable{
     Player player = new Player();
     Game game = new Game(); 
 

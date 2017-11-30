@@ -5,11 +5,13 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrator
  */
-public enum SceneType {
+public enum SceneType implements Serializable{
     startingArea,
     coolStream,
     cave,

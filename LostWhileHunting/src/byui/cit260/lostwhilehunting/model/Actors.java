@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.model;
 
 import java.awt.Point;
+import java.io.Serializable;
 
 
 
@@ -13,7 +14,7 @@ import java.awt.Point;
  *
  * @author Felicia Warner
  */
-public enum Actors {
+public enum Actors implements Serializable{
     
     Spinster("Sue", "A sweet lady very good at hunting with traps.", "health", 
         new Point(0,0)),

@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
  *
  * @author New User
  */
-public final class Items {
+public final class Items implements Serializable{
     
            
     private static String item1 = "";

@@ -5,11 +5,13 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author New User
  */
-public enum ItemType {
+public enum ItemType implements Serializable{
     rifle,
     bullets,
     meat,

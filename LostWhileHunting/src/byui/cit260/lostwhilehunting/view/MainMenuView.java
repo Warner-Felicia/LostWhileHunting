@@ -10,6 +10,7 @@ import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
@@ -17,7 +18,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class MainMenuView extends View{
+public class MainMenuView extends View implements Serializable{
     
     String menu;
     private PrintWriter console = LostWhileHunting.getOutFile();

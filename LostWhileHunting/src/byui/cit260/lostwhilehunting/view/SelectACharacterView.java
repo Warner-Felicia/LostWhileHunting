@@ -6,6 +6,7 @@
 package byui.cit260.lostwhilehunting.view;
 
 import byui.cit260.lostwhilehunting.model.Game;
+import java.io.Serializable;
 import java.util.Scanner;
 
 
@@ -13,7 +14,7 @@ import java.util.Scanner;
  *
  * @author New User
  */
-public class SelectACharacterView extends View{
+public class SelectACharacterView extends View implements Serializable{
     
     Game game = new Game();
         

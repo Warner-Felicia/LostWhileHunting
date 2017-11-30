@@ -6,13 +6,14 @@
 package byui.cit260.lostwhilehunting.view;
 
 import java.io.PrintWriter;
+import java.io.Serializable;
 import lostwhilehunting.LostWhileHunting;
 
 /**
  *
  * @author New User
  */
-public class ErrorView {
+public class ErrorView implements Serializable{
     
     private static final PrintWriter errorFile = LostWhileHunting.getOutFile();
     private static final PrintWriter logFile = LostWhileHunting.getLogFile();

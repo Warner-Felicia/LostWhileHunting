@@ -15,6 +15,7 @@ import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.view.ErrorView;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import lostwhilehunting.LostWhileHunting;
 
@@ -23,7 +24,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Group
  */
-public class GameControl {
+public class GameControl implements Serializable{
 
     Player p = new Player();
     
