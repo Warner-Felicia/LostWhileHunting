@@ -32,16 +32,7 @@ public class MajorSceneView extends View{
         
        this.menu = "\n"
                     + "\nA Major Scene is loaded"+ questionsandscenecontrol.checkSceneQuestionChoiceAndReturnNewScene() + ""
-                    + "\n---------------------------------------"
-                    + "\n Will you trust the Scenario suggested"
-                    + "\n---------------------------------------"
-                    + "\n"
-                    + "\n Y. Yes"
-                    + "\n N. No"
-                    + "\n Q. Return to Game Menu"
-                    + "\n"
-                    + "\n---------------------------------------"
-                    + "\n Choose Wisely!";              
+                    + questionsandscenecontrol.checkSceneQuestionChoiceAndReturnQuestion();              
     }
     
     public void displayMajorSceneView() {

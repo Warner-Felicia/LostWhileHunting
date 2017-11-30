@@ -294,6 +294,7 @@ public class QuestionsAndSceneControl {
     
     public static RegularSceneType[] createScenes() {
         RegularSceneType[] scenesContainer = new RegularSceneType[10];
+        QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();
         
         RegularSceneType startingArea = new RegularSceneType();
         startingArea.setNameOfScene("Starting Area");
@@ -303,6 +304,16 @@ public class QuestionsAndSceneControl {
                                    + "\n--------------------------------------------");
         startingArea.setSafe(true);
         startingArea.setSymbol("SA");
+        startingArea.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.startingArea.ordinal()] = startingArea;
         
         RegularSceneType coolStream = new RegularSceneType();
@@ -314,6 +325,16 @@ public class QuestionsAndSceneControl {
                                    + "\n------------------------------------------------------");
         coolStream.setSafe(true);
         coolStream.setSymbol("CS");
+        coolStream.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.coolStream.ordinal()] = coolStream;
         
         RegularSceneType cave = new RegularSceneType();
@@ -325,6 +346,16 @@ public class QuestionsAndSceneControl {
                            + "\n---------------------------------------------");
         cave.setSafe(true);
         cave.setSymbol(" C");
+        cave.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.cave.ordinal()] = cave;
         
         RegularSceneType deepCavern = new RegularSceneType();
@@ -336,6 +367,16 @@ public class QuestionsAndSceneControl {
                                    + "\n----------------------------------------------------------------");
         deepCavern.setSafe(false);
         deepCavern.setSymbol("DC");
+        deepCavern.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.deepCaverns.ordinal()] = deepCavern;
         
         RegularSceneType greatRiver = new RegularSceneType();
@@ -347,6 +388,16 @@ public class QuestionsAndSceneControl {
                                   + "\n--------------------------------------------");
         greatRiver.setSafe(false);
         greatRiver.setSymbol("GR");
+        greatRiver.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.greatRiver.ordinal()] = greatRiver;
         
         RegularSceneType smallTown = new RegularSceneType();
@@ -358,6 +409,16 @@ public class QuestionsAndSceneControl {
                                    + "\n-------------------------------------------------");
         smallTown.setSafe(true);
         smallTown.setSymbol("ST");
+        smallTown.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.smallTown.ordinal()] = smallTown;
         
         RegularSceneType goal = new RegularSceneType();
@@ -369,6 +430,16 @@ public class QuestionsAndSceneControl {
                                    + "\n----------------------------------------------------");
         goal.setSafe(false);
         goal.setSymbol(" G");
+        goal.setQuestion("\n---------------------------------------"
+                    + "\n Will you trust the Scenario suggested"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n Y. Yes"
+                    + "\n N. No"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.goal.ordinal()] = goal;
         
         RegularSceneType minor1 = new RegularSceneType();
@@ -379,6 +450,17 @@ public class QuestionsAndSceneControl {
                              + "\n-------------------------------------------------");
         minor1.setSafe(false);
         minor1.setSymbol("*1");
+        minor1.setQuestion("\n---------------------------------------"
+                    + "\n What will you do?"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n 3. Fight"
+                    + "\n 4. Flight"
+                    + "\n 5. Evade"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.minor1.ordinal()] = minor1;
         
         RegularSceneType minor2 = new RegularSceneType();
@@ -389,6 +471,17 @@ public class QuestionsAndSceneControl {
                              + "\n-------------------------------------------------");
         minor2.setSafe(false);
         minor2.setSymbol("*2");
+        minor2.setQuestion("\n---------------------------------------"
+                    + "\n What will you do?"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n 3. Fight"
+                    + "\n 4. Flight"
+                    + "\n 5. Evade"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.minor2.ordinal()] = minor2;
         
         RegularSceneType minor3 = new RegularSceneType();
@@ -399,6 +492,17 @@ public class QuestionsAndSceneControl {
                              + "\n-------------------------------------------------------------------");
         minor3.setSafe(false);
         minor3.setSymbol("*3");
+        minor3.setQuestion("\n---------------------------------------"
+                    + "\n What will you do?"
+                    + "\n---------------------------------------"
+                    + "\n"
+                    + "\n 3. Fight"
+                    + "\n 4. Flight"
+                    + "\n 5. Evade"
+                    + "\n Q. Return to Game Menu"
+                    + "\n"
+                    + "\n---------------------------------------"
+                    + "\n Choose Wisely!");
         scenesContainer[SceneType.minor3.ordinal()] = minor3;
         
         return scenesContainer;
@@ -442,6 +546,23 @@ public class QuestionsAndSceneControl {
                 }  
         
         return scene;        
+    }
+    
+    public String checkSceneQuestionChoiceAndReturnQuestion() {
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation(); 
+        String question="Cannot load";
+        
+        for (Location[] rowCheck : location) {
+                for (Location surePassCheck : rowCheck) {
+                    if (surePassCheck.isVisited() == false) {
+                        question=surePassCheck.getScenes().getQuestion();
+                        System.out.println(question);
+                        return question;
+                    }
+                }
+                }  
+        
+        return question;        
     }
     
     /* Everything below here is for the major scene questions*/
