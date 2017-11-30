@@ -9,6 +9,7 @@ import byui.cit260.lostwhilehunting.control.LocationsControl;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
@@ -16,7 +17,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class HelpMenuView {
+public class HelpMenuView implements Serializable{
     
     MainMenuView mainmenu = new MainMenuView();
     private String menu;

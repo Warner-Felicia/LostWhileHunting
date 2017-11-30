@@ -11,6 +11,7 @@ import byui.cit260.lostwhilehunting.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
@@ -18,7 +19,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Trevon Morris
  */
-public class StartProgramView {
+public class StartProgramView implements Serializable{
     
     private String displayMessage;
     private PrintWriter console = LostWhileHunting.getOutFile();

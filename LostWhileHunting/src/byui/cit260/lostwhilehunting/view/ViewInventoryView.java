@@ -13,6 +13,7 @@ import byui.cit260.lostwhilehunting.model.Items;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
@@ -21,7 +22,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Trevon Morris
  */
-public class ViewInventoryView{
+public class ViewInventoryView implements Serializable{
     
     ArrayList<InventoryItem> viewItems = new ArrayList<>();
     

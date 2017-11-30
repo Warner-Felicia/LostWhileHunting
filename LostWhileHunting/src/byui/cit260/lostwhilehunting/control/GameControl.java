@@ -13,8 +13,11 @@ import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.view.ErrorView;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import lostwhilehunting.LostWhileHunting;
 
@@ -23,7 +26,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Group
  */
-public class GameControl {
+public class GameControl implements Serializable{
 
     Player p = new Player();
     
@@ -202,12 +205,30 @@ public class GameControl {
             output.flush();
         }
         catch (Exception e) {
-            throw new GameControlException(e.getMessage());
+            System.out.println("Exception: " + e.toString() +
+                                    "\nCause: " + e.getCause() +
+                                    "\nMessage " +e.getMessage());
         }
         
        
 
     }
-    
+
+    public static void getSavedGame(String filePath) 
+            throws GameControlException{
+        
+        Game game = null;
+        
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        }
+        catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        LostWhileHunting.setCurrentGame(game);
+    }
     
 }

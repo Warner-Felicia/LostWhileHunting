@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
-public class InventoryItem {
+public class InventoryItem implements Serializable{
 
     // review later
     

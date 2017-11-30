@@ -13,6 +13,7 @@ import byui.cit260.lostwhilehunting.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -29,7 +30,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class GameMenuView extends View{
+public class GameMenuView extends View implements Serializable{
     
     MainMenuView mainmenu = new MainMenuView();
     GameControl game = new GameControl();

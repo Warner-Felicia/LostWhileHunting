@@ -17,12 +17,13 @@ import byui.cit260.lostwhilehunting.view.ErrorView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
-public class ItemControl {
+public class ItemControl implements Serializable{
     
          
      private int itemId = 0;

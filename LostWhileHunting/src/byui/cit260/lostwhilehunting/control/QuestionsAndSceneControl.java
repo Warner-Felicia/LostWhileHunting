@@ -24,11 +24,12 @@ import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
 import byui.cit260.lostwhilehunting.view.ErrorView;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
-public class QuestionsAndSceneControl {
+public class QuestionsAndSceneControl implements Serializable{
     
     ItemControl itemcontrol = new ItemControl();
     Items items = new Items();

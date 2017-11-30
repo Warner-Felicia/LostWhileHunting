@@ -12,6 +12,7 @@ import byui.cit260.lostwhilehunting.model.Game;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +22,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Sony
  */
-public class CombatMenuView {
+public class CombatMenuView implements Serializable{
     
     GameMenuView gamemenu = new GameMenuView();
     Game game = new Game();
