@@ -9,7 +9,13 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -21,6 +27,7 @@ public class CombatMenuView {
     Game game = new Game();
     QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
+    private PrintWriter console = LostWhileHunting.getOutFile();
     
     public CombatMenuView() {
         
@@ -47,7 +54,7 @@ public class CombatMenuView {
             try{
             value = this.getInput();
             }catch(NumberFormatException nf){
-                System.out.println("You typed a wrong value!" + "\nPlease type one of the values next to the option you want to choose. ");
+                this.console.println("You typed a wrong value!" + "\nPlease type one of the values next to the option you want to choose. ");
             }
             // do the requested action and display the next view
             done = this.doAction(value);
@@ -67,7 +74,7 @@ public class CombatMenuView {
                 this.evade();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -75,26 +82,30 @@ public class CombatMenuView {
     }
 
     public int getInput() {
-       Scanner keyboard = new Scanner(System.in);
+       BufferedReader keyboard = LostWhileHunting.getInFile();
        int value = 0;
         String inputValue;
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.menu);
+            this.console.println("\n" + this.menu);
             
-            inputValue = keyboard.nextLine();
-            
-            if (inputValue.length() < 1) {
-                System.out.println("Please make a selection");
+           try {
+               inputValue = keyboard.readLine();
+               
+               if (inputValue.length() < 1) {
+                this.console.println("Please make a selection");
                 continue;
-            }
-           if (inputValue.toUpperCase().equals("Q"))
+                }
+                if (inputValue.toUpperCase().equals("Q"))
                 gamemenu.display();
             
-            value = Integer.parseInt(inputValue);
+                value = Integer.parseInt(inputValue);
               
-            break;
+                break;
+           } catch (IOException ex) {
+               ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
+           }
         }    
         
         return value;
@@ -104,7 +115,7 @@ public class CombatMenuView {
        try {
            questionsandscenecontrol.loadCombatActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
        } catch (QuestionsAndSceneControlException qa) {
-           System.out.println(qa.getMessage());
+           ErrorView.display(this.getClass().getName(), qa.getMessage());
        }
        gamemenu.display();
     }
@@ -113,7 +124,7 @@ public class CombatMenuView {
         try {
             questionsandscenecontrol.loadFlightActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
         } catch (QuestionsAndSceneControlException qa) {
-           System.out.println(qa.getMessage());
+           ErrorView.display(this.getClass().getName(), qa.getMessage());
        } 
         gamemenu.display();
     }
@@ -122,7 +133,7 @@ public class CombatMenuView {
         try {
             questionsandscenecontrol.loadEvadeActions(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());
         } catch (QuestionsAndSceneControlException qa) {
-           System.out.println(qa.getMessage());
+           ErrorView.display(this.getClass().getName(), qa.getMessage());
        }
         gamemenu.display();
     }

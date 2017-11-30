@@ -22,6 +22,8 @@ import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
 import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
+import byui.cit260.lostwhilehunting.view.ErrorView;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
@@ -30,6 +32,7 @@ public class QuestionsAndSceneControl {
     
     ItemControl itemcontrol = new ItemControl();
     Items items = new Items();
+    PrintWriter console = LostWhileHunting.getOutFile();
     
     public double loadCombatActions(String hero, String item1, String item2, String item3) throws QuestionsAndSceneControlException{
         
@@ -72,32 +75,32 @@ public class QuestionsAndSceneControl {
                 } catch (LocationsControlException ex) {
                     Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    System.out.println();
+                    this.console.println();
                     //Display “You lost” + item1
-                    System.out.println("You lost "+item1);
+                    this.console.println("You lost "+item1);
                 try {
                     //item1 = generateItemFromItems(): String
                     item1 = itemcontrol.generateItemFromItems();
                 } catch (ItemControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
                 }
                     //Set item1
                     items.setItem1(item1);
-                    System.out.println();
+                    this.console.println();
                     //Display: hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary)
-                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    this.console.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
                     //Display Item1 status
-                    System.out.println("Item1 status: "+ item1 );
+                    this.console.println("Item1 status: "+ item1 );
                     returnNumber = 1;
                 }else{
                     // do nothing
                     GameControl.assignInjuryOnFail();
-                    System.out.println();
-                    System.out.println("You lost "+item1);
+                    this.console.println();
+                    this.console.println("You lost "+item1);
                     item1 = "";
                     items.setItem1(item1);
-                    System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-                    System.out.println("Item1 status: "+ item1 );
+                    this.console.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    this.console.println("Item1 status: "+ item1 );
                     returnNumber = 0;
                 }
                         
@@ -116,30 +119,30 @@ public class QuestionsAndSceneControl {
                 } catch (LocationsControlException ex) {
                     Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    System.out.println();
-                    System.out.println("You lost "+item1);
+                    this.console.println();
+                    this.console.println("You lost "+item1);
                 try {
                     item1 = itemcontrol.generateItemFromItems();
                 } catch (ItemControlException ex) {
-                   System.out.println(ex.getMessage());
+                   ErrorView.display(this.getClass().getName(), ex.getMessage());
                 }
                     items.setItem1(item1);
-                    System.out.println();
-                    System.out.println();
-                    System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-                    System.out.println("Item1 status :"+ item1 );
+                    this.console.println();
+                    this.console.println();
+                    this.console.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    this.console.println("Item1 status :"+ item1 );
                     returnNumber = 1;
                 }else{
                     // do nothing
                     GameControl.assignInjuryOnFail();
-                    System.out.println();
-                    System.out.println("You lost "+item1);
+                    this.console.println();
+                    this.console.println("You lost "+item1);
                     item1 = "";
                     items.setItem1(item1);
-                    System.out.println();
-                    System.out.println();
-                    System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-                    System.out.println("Item1 status: "+ item1 );
+                    this.console.println();
+                    this.console.println();
+                    this.console.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+                    this.console.println("Item1 status: "+ item1 );
                     returnNumber = 0;
                 }
                 
@@ -192,29 +195,29 @@ public class QuestionsAndSceneControl {
             } catch (LocationsControlException ex) {
                 Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println();
-            System.out.println("You lost "+item1);
-            System.out.println();
-            System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            this.console.println();
+            this.console.println("You lost "+item1);
+            this.console.println();
+            this.console.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
             try {
                 item1 = itemcontrol.generateItemFromItems();
             } catch (ItemControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
             items.setItem1(item1);
-            System.out.println("Item1 status: "+ item1 );
+            this.console.println("Item1 status: "+ item1 );
             returnNumber = 1;
         }
         else{
             // do nothing
             GameControl.assignInjuryOnFail();
-            System.out.println();
-            System.out.println("You lost "+item1);
-            System.out.println();
+            this.console.println();
+            this.console.println("You lost "+item1);
+            this.console.println();
             item1 = "";
             items.setItem1(item1);
-            System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            System.out.println("Item1 status: none");
+            this.console.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            this.console.println("Item1 status: none");
             returnNumber = 0;
         }
         
@@ -261,28 +264,28 @@ public class QuestionsAndSceneControl {
             } catch (LocationsControlException ex) {
                 Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println();
-            System.out.println("You lost "+item1);
-            System.out.println();
-            System.out.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            this.console.println();
+            this.console.println("You lost "+item1);
+            this.console.println();
+            this.console.println(hero + " Success  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
             try {
                 item1 = itemcontrol.generateItemFromItems();
             } catch (ItemControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
             items.setItem1(item1);
-            System.out.println("Item1 status: "+ item1 );
+            this.console.println("Item1 status: "+ item1 );
             returnNumber = 1;
         }
         else{
             // do nothing
             GameControl.assignInjuryOnFail();
-            System.out.println();
-            System.out.println("You lost "+item1);
+            this.console.println();
+            this.console.println("You lost "+item1);
             item1 = "";
             items.setItem1(item1);
-            System.out.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
-            System.out.println("Item1 status: none");
+            this.console.println(hero + " Failure  with a Random number of "+randomizerNum+ " Number of items: "+ itemsEquipped + " SuccessFailureBoundary of: " + successFailureBoundary);
+            this.console.println("Item1 status: none");
             returnNumber = 0;
         }
         
@@ -432,7 +435,7 @@ public class QuestionsAndSceneControl {
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         scene=surePassCheck.getScenes().getDescription();
-                        System.out.println("Scene found: "+scene);
+                        this.console.println("Scene found: "+scene);
                         return scene;
                     }
                 }
@@ -487,35 +490,35 @@ public class QuestionsAndSceneControl {
                 } catch (LocationsControlException ex) {
                     Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    System.out.println();
+                    this.console.println();
                     //Display “You lost” + item1
-                    System.out.println("Brave choice you found two items");
+                    this.console.println("Brave choice you found two items");
                 try {
                     //generate Item 1
                     itemcontrol.generateItemFromItems();
                 } catch (ItemControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
                 }
                 try {
                     //generate Item 2
                     itemcontrol.generateItemFromItems();
                 } catch (ItemControlException ex) {
-                    System.out.println(ex.getMessage());
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
                 }
-                    System.out.println();
+                    this.console.println();
                     //Display: You are one step closer to victory with that awesome choice. Good luck!
-                    System.out.println(hero + " You are one step closer to victory with that awesome choice. Good luck!");
+                    this.console.println(hero + " You are one step closer to victory with that awesome choice. Good luck!");
                     
                     returnNumber = 1;
                 }else{
                     // do nothing
                     GameControl.assignInjuryOnFail();
-                    System.out.println();
-                    System.out.println("You made the wrong choice, you get nothing. Better luck next time.");
+                    this.console.println();
+                    this.console.println("You made the wrong choice, you get nothing. Better luck next time.");
                     item1 = "";
                     items.setItem1(item1);
-                    System.out.println(hero + "You also lost an item sadly :( ");
-                    System.out.println("Item1 status: "+ item1 );
+                    this.console.println(hero + "You also lost an item sadly :( ");
+                    this.console.println("Item1 status: "+ item1 );
                     returnNumber = 0;
                 }
         
@@ -568,24 +571,24 @@ public class QuestionsAndSceneControl {
                 } catch (LocationsControlException ex) {
                     Logger.getLogger(QuestionsAndSceneControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    System.out.println();
+                    this.console.println();
                     //Display “You lost” + item1
-                    System.out.println("Good choice but you get nothing, no risk no reward");
+                    this.console.println("Good choice but you get nothing, no risk no reward");
                    
-                    System.out.println();
+                    this.console.println();
                     //Display: You are one step closer to victory with that awesome choice. Good luck!
-                    System.out.println(hero + " You are one step closer to victory with that lucky choice. Good luck!");
+                    this.console.println(hero + " You are one step closer to victory with that lucky choice. Good luck!");
                     
                     returnNumber = 1;
                 }else{
                     // do nothing
                     GameControl.assignInjuryOnFail();
-                    System.out.println();
-                    System.out.println("You made the wrong choice, a risk is sometimes necessary for success.");
+                    this.console.println();
+                    this.console.println("You made the wrong choice, a risk is sometimes necessary for success.");
                     item1 = "";
                     items.setItem1(item1);
-                    System.out.println(hero + "You also lost an item sadly :( ");
-                    System.out.println("Item1 status: "+ item1 );
+                    this.console.println(hero + "You also lost an item sadly :( ");
+                    this.console.println("Item1 status: "+ item1 );
                     returnNumber = 0;
                 }
         

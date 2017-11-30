@@ -9,7 +9,11 @@ import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Game;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 /**
@@ -22,6 +26,7 @@ public class MajorSceneView extends View{
     Game game = new Game();
     QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
+    private PrintWriter console = LostWhileHunting.getOutFile();
     
     public MajorSceneView() {
         
@@ -63,7 +68,7 @@ public class MajorSceneView extends View{
                 this.no();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
@@ -71,18 +76,23 @@ public class MajorSceneView extends View{
     }
 @Override
     public String getInput() {
-       Scanner keyboard = new Scanner(System.in);
+       
         String value = "";
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.menu);
+            this.console.println("\n" + this.menu);
             
-            value = keyboard.nextLine();
-            value = value.trim();
+            try {
+                value = this.keyboard.readLine();
+                value = value.trim();
+            } catch (IOException ex) {
+                this.console.println("Error reading from keyboard.");
+            }
+            
             
             if (value.length() < 1) {
-                System.out.println("Please make a selection");
+                this.console.println("Please make a selection");
                 continue;
             }
             
@@ -95,7 +105,7 @@ public class MajorSceneView extends View{
     private void yes() {
        try {questionsandscenecontrol.majorSceneYes(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());}
        catch (QuestionsAndSceneControlException qa) {
-           System.out.println(qa.getMessage());
+           ErrorView.display(this.getClass().getName(), qa.getMessage());
        }
         gamemenu.display();
     }
@@ -103,7 +113,7 @@ public class MajorSceneView extends View{
     private void no() {
        try {questionsandscenecontrol.majorSceneNo(game.getHeroClass(), Items.getItem1(), Items.getItem2(), Items.getItem3());}
        catch (QuestionsAndSceneControlException qa) {
-           System.out.println(qa.getMessage());
+           ErrorView.display(this.getClass().getName(), qa.getMessage());
        }
         gamemenu.display();
     }
