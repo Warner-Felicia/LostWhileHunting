@@ -5,9 +5,11 @@
  */
 package byui.cit260.lostwhilehunting.model;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
+import lostwhilehunting.LostWhileHunting;
 
 
 
@@ -21,6 +23,7 @@ public final class Items implements Serializable{
     private static String item1 = "";
     private static String item2 = "";
     private static String item3 = "";
+    private static PrintWriter console = LostWhileHunting.getOutFile();
 
     public static String getItem1() {
         return item1;
@@ -28,6 +31,7 @@ public final class Items implements Serializable{
 
     public static void setItem1(String item1) {
         Items.item1 = item1;
+        Items.console.println("\n"+item1+" placed in Item 1 and replicated to inventory");
     }
 
     public static String getItem2() {

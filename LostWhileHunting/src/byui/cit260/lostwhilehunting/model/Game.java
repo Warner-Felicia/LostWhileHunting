@@ -17,14 +17,14 @@ import lostwhilehunting.LostWhileHunting;
 public class Game implements Serializable{
     
     //class instance variables
-    private double totalScore;
-    private int numberOfSaves;
-    private long totalTime;
+    private double totalScore=0;
+    private int numberOfSaves=0;
+    private long totalTime=0;
     private Player player;
     private Map map;
     private ArrayList<InventoryItem> items = new ArrayList<>();
     private static String heroClass="";
-    private PrintWriter console = LostWhileHunting.getOutFile();
+    //private final PrintWriter console = LostWhileHunting.getOutFile();
 
        
     //Class public functions
@@ -89,7 +89,7 @@ public class Game implements Serializable{
 
     public void setHeroClass(String heroClass) {
         this.heroClass = heroClass;
-        this.console.println("\n"+heroClass+" Hero Class Selected");
+       // this.console.println("\n"+heroClass+" Hero Class Selected");
     }
     
     

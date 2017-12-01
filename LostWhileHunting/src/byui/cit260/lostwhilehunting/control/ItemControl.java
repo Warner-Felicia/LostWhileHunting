@@ -234,76 +234,82 @@ public class ItemControl implements Serializable{
 
     public void equipItem(String item) throws ItemControlException{
         
+        int mapAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
+        int rifleAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
+        int bulletsAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock();
+        int knifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock();
+        int meatAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
+        int extraLifeAmount=LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
+        
         if(item==null)
             throw new ItemControlException("No Item was equipped. Reload Program to see if that fixes error");
         
-       if(item=="Map"){ 
-        if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock()!=0){
-         int deductMap = LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).getQuantityInStock();
-         deductMap = deductMap - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductMap);
-        }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
-        }
-       }else if(item=="Rifle"){ 
-         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock()!=0){
-         int deductRifle = LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).getQuantityInStock();
-         deductRifle = deductRifle - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(deductRifle);
-         }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
-       }
-       }else if(item=="Bullets"){ 
-         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock()!=0){
-         int deductBullets = LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).getQuantityInStock();
-         deductBullets = deductBullets - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(deductBullets);
-         }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
+         switch (item) {
+             case "Map":
+                 if(mapAmount != 0){
+                     int deductMap = mapAmount;
+                     deductMap = deductMap - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.map.ordinal()).setQuantityInStock(deductMap);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }        break;
+             case "Rifle":
+                 if(rifleAmount != 0){
+                     int deductRifle = rifleAmount;
+                     deductRifle = deductRifle - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.rifle.ordinal()).setQuantityInStock(deductRifle);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }         break;
+             case "Bullets":
+                 if(bulletsAmount != 0){
+                     int deductBullets = bulletsAmount;
+                     deductBullets = deductBullets - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.bullets.ordinal()).setQuantityInStock(deductBullets);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }       break;
+             case "Knife":
+                 if(knifeAmount != 0){
+                     int deductKnife = knifeAmount;
+                     deductKnife = deductKnife - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(deductKnife);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }         break;
+             case "Meat":
+                 if(meatAmount != 0){
+                     int deductMeat = meatAmount;
+                     deductMeat = deductMeat - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(deductMeat);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }       break;
+             case "ExtraLife":
+                 if(extraLifeAmount != 0){
+                     int deductExtraLife = extraLifeAmount;
+                     deductExtraLife = deductExtraLife - 1;
+                     LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(deductExtraLife);
+                 }else{
+                     this.console.println("\nYou have no "+ item +" in your inventory");
+                     return;
+                 }       break;
+             default:
+                 throw new ItemControlException("No Item by that name exists, Software restart needed");
          }
-       }else if(item=="Knife"){  
-         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock()!=0){
-         int deductKnife = LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).getQuantityInStock();
-         deductKnife = deductKnife - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.knife.ordinal()).setQuantityInStock(deductKnife);
-         }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
-       }
-       }else if(item=="Meat"){ 
-
-           if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock()!=0){
-         int deductMeat = LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
-         deductMeat = deductMeat - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(deductMeat);
-         }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
-         }
-       }else if(item=="ExtraLife"){ 
-         if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock()!=0){
-         int deductExtraLife = LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
-         deductExtraLife = deductExtraLife - 1;
-         LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(deductExtraLife);
-         }else{
-            this.console.println("\nYou have no "+ item +" in your inventory");
-            return;
-         }
-       }else{
-            throw new ItemControlException("No Item by that name exists, Software restart needed");
          
-       }
-         
-            if(Items.getItem1() == ""){
+            if("".equals(Items.getItem1())){
                 Items.setItem1(item);
                 this.console.println(item+" assigned to Item1");
-            }else if(Items.getItem2()==""){
+            }else if("".equals(Items.getItem2())){
                 Items.setItem2(item); 
                 this.console.println(item+" assigned to Item2");
-            }else if(Items.getItem3()==""){
+            }else if("".equals(Items.getItem3())){
                 Items.setItem3(item); 
                 this.console.println(item+" assigned to Item3");
             }else{
