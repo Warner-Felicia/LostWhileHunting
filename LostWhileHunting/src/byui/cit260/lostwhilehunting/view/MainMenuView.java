@@ -90,7 +90,7 @@ public class MainMenuView extends View implements Serializable{
     }
 
     private void startExistingGame() {
-        this.console.println("\n\nEnter the file path for file wher the "
+        this.console.println("\n\nEnter the file path for file where the "
                 + "game is saved.");
         
         String filePath = this.getInput();

@@ -56,7 +56,7 @@ public class GameControl implements Serializable{
                 life--;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(life);
             }else{
-                System.out.println("You have no Extra Life");
+                LostWhileHunting.getOutFile().println("You have no Extra Life");
             }
         }else if(Player.getHealthStatus() != "Healthy" && Player.getHealthStatus() != "Dead"){
             if(meatAmount > 0){
@@ -66,10 +66,10 @@ public class GameControl implements Serializable{
                 meat--;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(meat);
             }else{
-                System.out.println("You have no Meat left");
+                LostWhileHunting.getOutFile().println("You have no Meat left");
             }
         }else{
-            System.out.println("Your neither dead or injured");
+            LostWhileHunting.getOutFile().println("Your neither dead or injured");
         }
     }
     
@@ -83,22 +83,22 @@ public class GameControl implements Serializable{
         switch(injury){
             case 0:
                 Player.setHealthStatus("Healthy");
-                System.out.println("You are: "+Player.getHealthStatus());
+                LostWhileHunting.getOutFile().println("You are: "+Player.getHealthStatus());
                 break;
             case 1:
                 Player.setHealthStatus("Injured");
-                System.out.println("You are: "+Player.getHealthStatus());
+                LostWhileHunting.getOutFile().println("You are: "+Player.getHealthStatus());
                 break;
             case 2:
                 Player.setHealthStatus("Critical");
-                System.out.println("You are in : "+Player.getHealthStatus()+" condition.");
+                LostWhileHunting.getOutFile().println("You are in : "+Player.getHealthStatus()+" condition.");
                 break;
             case 3:
                 Player.setHealthStatus("Dead");
-                System.out.println("You are: "+Player.getHealthStatus());
+                LostWhileHunting.getOutFile().println("You are: "+Player.getHealthStatus());
                 break;
             default:
-                System.out.println("You are in an unknown state");    
+                LostWhileHunting.getOutFile().println("You are in an unknown state");    
                 break;
         }
     }
@@ -151,7 +151,7 @@ public class GameControl implements Serializable{
     public static String minor1(){
         String actor;
         int randomNum = (int) (Math.random()*3);
-        System.out.println("Minor load: "+ randomNum);
+        LostWhileHunting.getOutFile().println("Minor load: "+ randomNum);
         
         if(randomNum == 1){
             actor = Actors.Coyote.getName();
@@ -207,7 +207,7 @@ public class GameControl implements Serializable{
             output.flush();
         }
         catch (Exception e) {
-            System.out.println("Exception: " + e.toString() +
+            LostWhileHunting.getOutFile().println("Exception: " + e.toString() +
                                     "\nCause: " + e.getCause() +
                                     "\nMessage " +e.getMessage());
         }

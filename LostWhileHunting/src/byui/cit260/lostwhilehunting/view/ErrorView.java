@@ -30,7 +30,7 @@ public class ErrorView implements Serializable{
             
             logFile.flush();
         } catch (Exception e) {
-            System.out.println("Error writing to log file.");
+            LostWhileHunting.getOutFile().println("Error writing to log file.");
         }
     }
     

@@ -5,6 +5,8 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import java.io.PrintWriter;
+import lostwhilehunting.LostWhileHunting;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +19,8 @@ import static org.junit.Assert.*;
  * @author Administrator
  */
 public class LocationsControlTest {
+    
+    PrintWriter console = LostWhileHunting.getOutFile();
     
     public LocationsControlTest() {
     }
@@ -42,28 +46,28 @@ public class LocationsControlTest {
      */
     @Test
     public void testIncrementLocationsMapSceneTypeIfSurePass() {
-        System.out.println("\n\n\nincrementLocationsMapSceneTypeIfSurePass");
+        this.console.println("\n\n\nincrementLocationsMapSceneTypeIfSurePass");
         int surePass = 4;
         LocationsControl instance = new LocationsControl();
         double expResult = 1.0;
         double result = instance.incrementLocationsMapSceneTypeIfSurePass(surePass);
         assertEquals(expResult, result, 1.0);
         
-        System.out.println("\nincrementLocationsMapSceneTypeIfSurePass");
+        this.console.println("\nincrementLocationsMapSceneTypeIfSurePass");
         surePass = 3;
         
         expResult = 1.0;
         result = instance.incrementLocationsMapSceneTypeIfSurePass(surePass);
         assertEquals(expResult, result, 1.0);
         
-        System.out.println("\nincrementLocationsMapSceneTypeIfSurePass");
+        this.console.println("\nincrementLocationsMapSceneTypeIfSurePass");
         surePass = 2;
         
         expResult = 1.0;
         result = instance.incrementLocationsMapSceneTypeIfSurePass(surePass);
         assertEquals(expResult, result, 1.0);
         
-        System.out.println("\nincrementLocationsMapSceneTypeIfSurePass");
+        this.console.println("\nincrementLocationsMapSceneTypeIfSurePass");
         surePass = 1;
         
         expResult = 1.0;
@@ -76,7 +80,7 @@ public class LocationsControlTest {
      */
     @Test
     public void testLoadSimpleSceneIfNotMajorMapCoord() {
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 1");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 1");
         int column = 0;
         int row = 0;
         LocationsControl instance = new LocationsControl();
@@ -85,7 +89,7 @@ public class LocationsControlTest {
         assertEquals(expResult, result, 3);
         
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 2");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 2");
         column = 3;
         row = 3;
         
@@ -93,7 +97,7 @@ public class LocationsControlTest {
         result = instance.loadSimpleSceneIfNotMajorMapCoord();
         assertEquals(expResult, result, 3);
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 3");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 3");
         column = 5;
         row = 5;
         
@@ -101,7 +105,7 @@ public class LocationsControlTest {
         result = instance.loadSimpleSceneIfNotMajorMapCoord();
         assertEquals(expResult, result, 3);
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 4");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Major Scene Check 4");
         column = 7;
         row = 7;
         
@@ -109,7 +113,7 @@ public class LocationsControlTest {
         result = instance.loadSimpleSceneIfNotMajorMapCoord();
         assertEquals(expResult, result, 3);
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 1");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 1");
         column = 1;
         row = 1;
         
@@ -117,7 +121,7 @@ public class LocationsControlTest {
         result = instance.loadSimpleSceneIfNotMajorMapCoord();
         assertEquals(expResult, result, 5);
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 2");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 2");
         column = 0;
         row = 1;
         
@@ -125,7 +129,7 @@ public class LocationsControlTest {
         result = instance.loadSimpleSceneIfNotMajorMapCoord();
         assertEquals(expResult, result, 5);
         
-        System.out.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 3");
+        this.console.println("\nloadSimpleSceneIfNotMajorMapCoord Minor Scene Check 3");
         column = 4;
         row = 1;
         

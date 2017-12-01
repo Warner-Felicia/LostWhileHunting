@@ -6,6 +6,8 @@
 package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
+import java.io.PrintWriter;
+import lostwhilehunting.LostWhileHunting;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +20,8 @@ import static org.junit.Assert.*;
  * @author Administrator
  */
 public class ItemControlTest {
+    
+    PrintWriter console = LostWhileHunting.getOutFile();
     
     public ItemControlTest() {
     }
@@ -45,36 +49,36 @@ public class ItemControlTest {
     public void testSearchLocation() throws ItemControlException {
         
         
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         ItemControl instance = new ItemControl();
         String expResult = "Knife";
         String result = instance.searchLocation();
         assertEquals(expResult, result, "Knife");
         
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         expResult = "";
         result = instance.searchLocation();
         assertEquals(expResult, result, "");
         
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         expResult = "Meat";
         result = instance.searchLocation();
         assertEquals(expResult, result, "Meat");
         
         
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         expResult = "Rifle";
         result = instance.searchLocation();
         assertEquals(expResult, result, "Rifle");
         
         
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         expResult = "Bullets";
         result = instance.searchLocation();
         assertEquals(expResult, result, "Bullets");
         
              
-        System.out.println("searchLocation");
+        this.console.println("searchLocation");
         expResult = "ExtraLife";
         result = instance.searchLocation();
         assertEquals(expResult, result, "ExtraLife");
@@ -87,56 +91,56 @@ public class ItemControlTest {
      
     @Test
     public void testGenerateItemFromItems() throws ItemControlException {
-        System.out.println("generateItemFromItems");
+        this.console.println("generateItemFromItems");
         ItemControl instance = new ItemControl();
         String expResult = "";
         String result = instance.generateItemFromItems();
         assertEquals(expResult, result);
         
         
-        System.out.println("\ngenerateItemFromItems ExtraLife Test");
+        this.console.println("\ngenerateItemFromItems ExtraLife Test");
         expResult = "ExtraLife";
         result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned "+result);
+            this.console.println("Another Item returned "+result);
         }
         
-        System.out.println("\ngenerateItemFromItems Meat Test");
+        this.console.println("\ngenerateItemFromItems Meat Test");
         expResult = "Meat";
         result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned "+result);
+            this.console.println("Another Item returned "+result);
         }
         
-        System.out.println("\ngenerateItemFromItems Rifle Test");
+        this.console.println("\ngenerateItemFromItems Rifle Test");
         expResult = "Rifle";
         result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned "+result);
+            this.console.println("Another Item returned "+result);
         }
         
-        System.out.println("\ngenerateItemFromItems Map test");
+        this.console.println("\ngenerateItemFromItems Map test");
         expResult = "Map";
         result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned "+result);
+            this.console.println("Another Item returned "+result);
         }
         
-        System.out.println("\ngenerateItemFromItems Knife Test");
+        this.console.println("\ngenerateItemFromItems Knife Test");
         expResult = "Knife";
         result = instance.generateItemFromItems();
         if(expResult == result){
         assertEquals(expResult, result);
         }else{
-            System.out.println("Another Item returned "+result);
+            this.console.println("Another Item returned "+result);
         }
     }*/
 
@@ -145,7 +149,7 @@ public class ItemControlTest {
      
     @Test
     public void testAddToInventory() throws ItemControlException {
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         String newItem = "Meat";
         ItemControl instance = new ItemControl();
         int expResult = 1;
@@ -154,7 +158,7 @@ public class ItemControlTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         newItem = "Rifle";
         expResult = 2;
         result = instance.addToInventory(newItem);
@@ -162,7 +166,7 @@ public class ItemControlTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         newItem = "Bullets";
         expResult = 3;
         result = instance.addToInventory(newItem);
@@ -170,7 +174,7 @@ public class ItemControlTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         newItem = "Map";
         expResult = 4;
         result = instance.addToInventory(newItem);
@@ -178,7 +182,7 @@ public class ItemControlTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         newItem = "ExtraLife";
         expResult = 5;
         result = instance.addToInventory(newItem);
@@ -186,7 +190,7 @@ public class ItemControlTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
         
-        System.out.println("addToInventory");
+        this.console.println("addToInventory");
         newItem = "Knife";
         expResult = 6;
         result = instance.addToInventory(newItem);
@@ -202,11 +206,11 @@ public class ItemControlTest {
      
     @Test
     public void testEquipItem() throws ItemControlException {
-        System.out.println("equipItem");
+        this.console.println("equipItem");
         String item = "Meat";
         ItemControl instance = new ItemControl();
         
-        System.out.println("Itemfeedback: "+instance.);
+        this.console.println("Itemfeedback: "+instance.);
         // TODO review the generated test code and remove the default call to fail.
        
     }*/

@@ -8,6 +8,7 @@ package byui.cit260.lostwhilehunting.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -60,7 +61,7 @@ public class InventoryItem implements Serializable{
         for (int i = 0; i < itemsArray.size(); i++) {
             
             InventoryItem item = itemsArray.get(i);
-            System.out.println("\n\tItem: " + item.getInventoryType()
+            LostWhileHunting.getOutFile().println("\n\tItem: " + item.getInventoryType()
                     + "\n\tQuantity: " + item.getQuantityInStock()
                     + "\n\tRequired: " + item.getRequiredAmount());
                     

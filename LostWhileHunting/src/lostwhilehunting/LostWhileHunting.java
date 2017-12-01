@@ -57,7 +57,7 @@ public class LostWhileHunting {
                 
             }
             catch (Exception e) {
-                System.out.println("Exception: " + e.toString() +
+                getOutFile().println("Exception: " + e.toString() +
                                     "\nCause: " + e.getCause() +
                                     "\nMessage " +e.getMessage());
             }

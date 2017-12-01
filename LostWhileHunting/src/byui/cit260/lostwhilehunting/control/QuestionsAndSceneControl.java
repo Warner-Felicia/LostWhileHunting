@@ -557,7 +557,7 @@ public class QuestionsAndSceneControl implements Serializable{
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         question=surePassCheck.getScenes().getQuestion();
-                        System.out.println(question);
+                        this.console.println(question);
                         return question;
                     }
                 }

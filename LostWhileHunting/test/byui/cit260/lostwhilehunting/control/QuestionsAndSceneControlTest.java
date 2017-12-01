@@ -6,6 +6,8 @@
 package byui.cit260.lostwhilehunting.control;
 
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
+import java.io.PrintWriter;
+import lostwhilehunting.LostWhileHunting;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +20,8 @@ import static org.junit.Assert.*;
  * @author Administrator
  */
 public class QuestionsAndSceneControlTest {
+    
+    PrintWriter console = LostWhileHunting.getOutFile();
     
     public QuestionsAndSceneControlTest() {
     }
@@ -43,10 +47,10 @@ public class QuestionsAndSceneControlTest {
      */
     @Test
     public void testLoadCombatActions() throws QuestionsAndSceneControlException {
-        System.out.println("loadCombatActions");
+        this.console.println("loadCombatActions");
         
         // --- Test case 1 ---
-        System.out.println("\tTest case 1");
+        this.console.println("\tTest case 1");
         
         //define the input variables
         String hero = "burlyMan";
@@ -64,7 +68,7 @@ public class QuestionsAndSceneControlTest {
         
         
         // --- Test case 2 ---
-        System.out.println("\tTest case 2");
+        this.console.println("\tTest case 2");
         hero = "topshotYoungster";
         item1 = "meat";
         item2 = "rifle";
@@ -76,7 +80,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1);
         
         // --- Test case 3 ---
-        System.out.println("\tTest case 3");
+        this.console.println("\tTest case 3");
         hero = "spinster";
         item1 = "rifle";
         item2 = "meat";
@@ -88,7 +92,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1);
         
         // --- Test case 4 --
-        System.out.println("\tTest case 4");
+        this.console.println("\tTest case 4");
         hero = "burlyMan";
         item1 = "";
         item2 = "";
@@ -100,7 +104,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1);
         
         // --- Test case 5 --
-        System.out.println("\tTest case 5");
+        this.console.println("\tTest case 5");
         hero = "";
         item1 = "meat";
         item2 = "rifle";
@@ -118,10 +122,10 @@ public class QuestionsAndSceneControlTest {
      */
     @Test
     public void testLoadFlightActions() throws QuestionsAndSceneControlException {
-        System.out.println("loadFlightActions");
+        this.console.println("loadFlightActions");
         
         // Test Case 1
-        System.out.println("\tTest Case 1");
+        this.console.println("\tTest Case 1");
         
         //define input variables
         String hero = "BurlyMan";
@@ -138,7 +142,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 2
-        System.out.println("\tTest Case 2");
+        this.console.println("\tTest Case 2");
         
         //define input variables
         hero = "TopshotYoungster";
@@ -152,7 +156,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 3
-        System.out.println("\tTest Case 3");
+        this.console.println("\tTest Case 3");
         
         //define input variables
         hero = "Spinster";
@@ -166,7 +170,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 4
-        System.out.println("\tTest Case 4");
+        this.console.println("\tTest Case 4");
         
         //define input variables
         hero = "BurlyMan";
@@ -183,7 +187,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
             
         // Test Case 5
-        System.out.println("\tTest Case 5");
+        this.console.println("\tTest Case 5");
         
         //define input variables
         hero = "";
@@ -205,10 +209,10 @@ public class QuestionsAndSceneControlTest {
      */
     @Test
     public void testLoadEvadeActions() throws QuestionsAndSceneControlException {
-        System.out.println("loadEvadeActions");
+        this.console.println("loadEvadeActions");
         
         // Test Case 1
-        System.out.println("\tTest Case 1");
+        this.console.println("\tTest Case 1");
         
         //define input variables
         String hero = "BurlyMan";
@@ -225,7 +229,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 2
-        System.out.println("\tTest Case 2");
+        this.console.println("\tTest Case 2");
         
         //define input variables
         hero = "TopshotYoungster";
@@ -239,7 +243,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 3
-        System.out.println("\tTest Case 3");
+        this.console.println("\tTest Case 3");
         
         //define input variables
         hero = "Spinster";
@@ -253,7 +257,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
         
         // Test Case 4
-        System.out.println("\tTest Case 4");
+        this.console.println("\tTest Case 4");
         
         //define input variables
         hero = "BurlyMan";
@@ -270,7 +274,7 @@ public class QuestionsAndSceneControlTest {
         assertEquals(expResult, result, 1.0);
             
         // Test Case 5
-        System.out.println("\tTest Case 5");
+        this.console.println("\tTest Case 5");
         
         //define input variables
         hero = "";
@@ -292,7 +296,7 @@ public class QuestionsAndSceneControlTest {
      */
     @Test
     public void testCheckSceneQuestionChoiceAndReturnNewScene() {
-        System.out.println("checkSceneQuestionChoiceAndReturnNewScene");
+        this.console.println("checkSceneQuestionChoiceAndReturnNewScene");
         QuestionsAndSceneControl instance = new QuestionsAndSceneControl();
         instance.checkSceneQuestionChoiceAndReturnNewScene();
         
