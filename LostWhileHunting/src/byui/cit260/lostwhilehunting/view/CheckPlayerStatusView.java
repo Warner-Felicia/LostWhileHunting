@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lostwhilehunting.LostWhileHunting;
 
 /**
  *
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class CheckPlayerStatusView extends View implements Serializable{
     Player player = new Player();
-    Game game = new Game(); 
+    Game game = LostWhileHunting.getCurrentGame();
 
     private final String playerStatus;
 
@@ -92,7 +93,7 @@ GameControl.healPlayerwithMeatOrLife();
 
     private String playerName() {
         Player players = new Player();
-        String playerName = player.getName();
+        String playerName = game.getPlayer().getName();
        
 
         if (" ".equals(playerName)) {

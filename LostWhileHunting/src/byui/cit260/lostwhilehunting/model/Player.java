@@ -57,7 +57,7 @@ public class Player implements Serializable{
 
     public void setNumberOfSurePasses(int numberOfSurePasses) {
         this.numberOfSurePasses = numberOfSurePasses;
-    }
+    }  
     
     //Game Class getter and setter methods
 

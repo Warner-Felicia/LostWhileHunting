@@ -23,7 +23,7 @@ public class Game implements Serializable{
     private Player player;
     private Map map;
     private ArrayList<InventoryItem> items = new ArrayList<>();
-    private static String heroClass="";
+    private String heroClass="";
     //private final PrintWriter console = LostWhileHunting.getOutFile();
 
        

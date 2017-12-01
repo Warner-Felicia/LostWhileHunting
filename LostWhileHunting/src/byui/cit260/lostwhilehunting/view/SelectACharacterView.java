@@ -8,6 +8,7 @@ package byui.cit260.lostwhilehunting.view;
 import byui.cit260.lostwhilehunting.model.Game;
 import java.io.Serializable;
 import java.util.Scanner;
+import lostwhilehunting.LostWhileHunting;
 
 
 /**
@@ -16,7 +17,7 @@ import java.util.Scanner;
  */
 public class SelectACharacterView extends View implements Serializable{
     
-    Game game = new Game();
+    Game game = LostWhileHunting.getCurrentGame();
         
     public SelectACharacterView() {
         super("\n"
@@ -64,7 +65,10 @@ public class SelectACharacterView extends View implements Serializable{
                 this.console.println("You must choose a character from the list.");
                 return false;
         }
+        
+        game = LostWhileHunting.getCurrentGame();
         game.setHeroClass(hero);
+        LostWhileHunting.setCurrentGame(game);
         
         // Display welcome message and GameMenu view
         this.console.println("\n ======================================"
