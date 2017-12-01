@@ -21,6 +21,11 @@ public class InventoryItem implements Serializable{
     private String inventoryType;
     private int quantityInStock;
     private int requiredAmount;
+    
+    public InventoryItem() {
+    
+           
+    }
 
     public InventoryItem(String inventoryType, int quantityInStock, int requiredAmount) {
     

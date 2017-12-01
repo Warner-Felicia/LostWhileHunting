@@ -5,6 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.control;
 
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,9 +40,9 @@ public class ItemControlTest {
 
     /**
      * Test of searchLocation method, of class ItemControl.
-     */
+     
     @Test
-    public void testSearchLocation() {
+    public void testSearchLocation() throws ItemControlException {
         
         
         System.out.println("searchLocation");
@@ -79,13 +80,13 @@ public class ItemControlTest {
         assertEquals(expResult, result, "ExtraLife");
         
                 
-    }
+    }*/
 
     /**
      * Test of generateItemFromItems method, of class ItemControl.
-     */
+     
     @Test
-    public void testGenerateItemFromItems() {
+    public void testGenerateItemFromItems() throws ItemControlException {
         System.out.println("generateItemFromItems");
         ItemControl instance = new ItemControl();
         String expResult = "";
@@ -137,13 +138,13 @@ public class ItemControlTest {
         }else{
             System.out.println("Another Item returned "+result);
         }
-    }
+    }*/
 
     /**
      * Test of addToInventory method, of class ItemControl.
-     */
+     
     @Test
-    public void testAddToInventory() {
+    public void testAddToInventory() throws ItemControlException {
         System.out.println("addToInventory");
         String newItem = "Meat";
         ItemControl instance = new ItemControl();
@@ -191,23 +192,24 @@ public class ItemControlTest {
         result = instance.addToInventory(newItem);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
         
         
-    }
+    }*/
 
     /**
      * Test of equipItem method, of class ItemControl.
-     */
+     
     @Test
-    public void testEquipItem() {
+    public void testEquipItem() throws ItemControlException {
         System.out.println("equipItem");
         String item = "Meat";
         ItemControl instance = new ItemControl();
-        instance.equipItem(item);
+        
+        System.out.println("Itemfeedback: "+instance.);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+       
+    }*/
     
     
     

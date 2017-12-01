@@ -44,23 +44,25 @@ public class GameControl implements Serializable{
         int heal;
         int life;
         int meat;
+        int extraLifeAmount = LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
+        int meatAmount = LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
         
         heal = Player.getInjuryTracker();
         if(Player.getHealthStatus()=="Dead"){
-            if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock() > 0){
+            if(extraLifeAmount > 0){
                 heal=0;
                 Player.setInjuryTracker(heal);
-                life=LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).getQuantityInStock();
+                life=extraLifeAmount;
                 life--;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.extraLife.ordinal()).setQuantityInStock(life);
             }else{
                 System.out.println("You have no Extra Life");
             }
         }else if(Player.getHealthStatus() != "Healthy" && Player.getHealthStatus() != "Dead"){
-            if(LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock() > 0){
+            if(meatAmount > 0){
                 heal--;
                 Player.setInjuryTracker(heal);
-                meat=LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).getQuantityInStock();
+                meat=meatAmount;
                 meat--;
                 LostWhileHunting.getCurrentGame().getItems().get(ItemType.meat.ordinal()).setQuantityInStock(meat);
             }else{
