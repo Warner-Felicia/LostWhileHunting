@@ -540,7 +540,6 @@ public class QuestionsAndSceneControl implements Serializable{
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         scene=surePassCheck.getScenes().getDescription();
-                        this.console.println("Scene found: "+scene);
                         return scene;
                     }
                 }
@@ -557,7 +556,7 @@ public class QuestionsAndSceneControl implements Serializable{
                 for (Location surePassCheck : rowCheck) {
                     if (surePassCheck.isVisited() == false) {
                         question=surePassCheck.getScenes().getQuestion();
-                        this.console.println(question);
+                        
                         return question;
                     }
                 }

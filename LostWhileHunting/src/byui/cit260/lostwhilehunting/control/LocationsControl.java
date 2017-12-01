@@ -151,7 +151,7 @@ public class LocationsControl implements Serializable{
                        
                     }
                 }
-                return returnResult;
+               
         } 
         
                

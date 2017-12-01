@@ -122,17 +122,23 @@ public class GameMenuView extends View implements Serializable{
         
         if(Player.getInjuryTracker()< 3){
             this.console.println("Injury Tracker: "+Player.getInjuryTracker());
-            if(lc.loadSimpleSceneIfNotMajorMapCoord()==0){
-            CombatMenuView combatMenuView = new CombatMenuView();
-            //call combat view
-            combatMenuView.displayCombatMenuView();
-            }else if(lc.loadSimpleSceneIfNotMajorMapCoord()==1){
-                MajorSceneView majorScene = new MajorSceneView();
-                //call the major scene
-                majorScene.displayMajorSceneView();
-            }else{
-                EndGameView theEnd = new EndGameView();
-                theEnd.displayEndGameView();
+            switch (lc.loadSimpleSceneIfNotMajorMapCoord()) {
+                case 0:
+                    CombatMenuView combatMenuView = new CombatMenuView();
+                    //call combat view
+                    combatMenuView.displayCombatMenuView();
+                    break;
+                case 1:
+                    MajorSceneView majorScene = new MajorSceneView();
+                    //call the major scene
+                    majorScene.displayMajorSceneView();
+                    break;
+                case 2:
+                    EndGameView theEnd = new EndGameView();
+                    theEnd.displayEndGameView();
+                    break;
+                default: 
+                    this.console.write("No scene loaded");
             }
         }else{
             this.console.println("\nYou are dead");
