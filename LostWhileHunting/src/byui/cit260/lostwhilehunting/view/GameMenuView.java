@@ -33,7 +33,7 @@ import lostwhilehunting.LostWhileHunting;
 public class GameMenuView extends View implements Serializable{
     
     MainMenuView mainmenu = new MainMenuView();
-    GameControl game = new GameControl();
+    Game game = LostWhileHunting.getCurrentGame();
         
     public GameMenuView() {
         super("\n" 
@@ -221,7 +221,7 @@ public class GameMenuView extends View implements Serializable{
 
     private void displayMap() throws LocationsControlException {
         
-        Game game = new Game();
+        
         game = LostWhileHunting.getCurrentGame();
         LocationsControl checkVisitedStages = new LocationsControl();
         

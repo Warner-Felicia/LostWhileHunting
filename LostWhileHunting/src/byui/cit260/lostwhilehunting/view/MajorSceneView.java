@@ -24,7 +24,7 @@ import lostwhilehunting.LostWhileHunting;
 public class MajorSceneView extends View implements Serializable{
     
     GameMenuView gamemenu = new GameMenuView();
-    Game game = new Game();
+    Game game = LostWhileHunting.getCurrentGame();
     QuestionsAndSceneControl questionsandscenecontrol = new QuestionsAndSceneControl();    
     private final String menu;
     private PrintWriter console = LostWhileHunting.getOutFile();
