@@ -1,0 +1,9 @@
+
+********* Item Inventory ********  
+InventoryType | Quantity In Stock
+Rifle                 0
+Bullets               0
+Meat                  0
+Map                   0
+Knife                 0
+Extra Life            0

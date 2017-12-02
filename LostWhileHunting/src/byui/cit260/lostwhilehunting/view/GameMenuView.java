@@ -87,8 +87,14 @@ public class GameMenuView extends View implements Serializable{
             case (3): // search current location
                 this.searchCurrentLocation();
                 break;
-            case (4): // view inventory
+            case (4): {
+            try {
+                // view inventory
                 this.viewInventory();
+            } catch (ItemControlException ex) {
+                ex.getMessage();
+            }
+        }
                 break;
             case (5): // check player status
                 this.checkPlayerStatus();
@@ -205,7 +211,7 @@ public class GameMenuView extends View implements Serializable{
         }
     }
 
-    private void viewInventory() {
+    private void viewInventory() throws ItemControlException {
          ViewInventoryView inventoryView = new ViewInventoryView();
         
         // Display the view inventory view

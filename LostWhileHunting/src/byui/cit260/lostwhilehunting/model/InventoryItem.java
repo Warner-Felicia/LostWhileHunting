@@ -132,7 +132,8 @@ public class InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return " "+this.getInventoryType() + "      " +"      " + this.getQuantityInStock() + "         " + "        "+ this.getRequiredAmount() + "       \n";
+                //super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
