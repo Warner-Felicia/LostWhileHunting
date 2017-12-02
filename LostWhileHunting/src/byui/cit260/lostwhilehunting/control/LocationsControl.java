@@ -10,8 +10,6 @@ package byui.cit260.lostwhilehunting.control;
  * @author Group
  */
 
-import byui.cit260.lostwhilehunting.control.ItemControl;
-import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Location;
@@ -23,10 +21,7 @@ import byui.cit260.lostwhilehunting.model.SceneType;
 import byui.cit260.lostwhilehunting.view.ErrorView;
 import java.io.PrintWriter;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
 
 public class LocationsControl implements Serializable{

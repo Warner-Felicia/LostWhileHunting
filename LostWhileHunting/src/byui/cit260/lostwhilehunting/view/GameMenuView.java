@@ -7,15 +7,12 @@ import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
-import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
-import static java.lang.Integer.parseInt;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
@@ -47,6 +44,7 @@ public class GameMenuView extends View implements Serializable{
                 + "\n5 - Check status of player"
                 + "\n6 - Equip items"
                 + "\n7 - View map"
+                + "\n8 - Print list of map locations"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -104,6 +102,9 @@ public class GameMenuView extends View implements Serializable{
                 Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                break;
+            case (8):
+                this.getMapFilePath();
                 break;
             default: 
                 this.console.println("Please choose an action from this list");
@@ -253,6 +254,37 @@ public class GameMenuView extends View implements Serializable{
                             + "\n ^^^ You have visited " + checkVisitedStages.checkStages() + " stages ^^^");
  
   
+    }
+
+    private void getMapFilePath() {
+        this.console.println("\n\nEnter the file path for the file where "
+                + "the game will be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            this.printMap(filePath);
+        }
+        catch (Exception e) {
+            ErrorView.display("MainMenuView", e.getMessage());
+        }
+    }
+
+    private void printMap(String filePath) {
+        
+        try (PrintWriter out = new PrintWriter(filePath)) {
+            
+            out.println("\n\n          Map Locations          ");
+            out.println("\n----------------------------------------------");
+            out.printf("%n %-15s %20s %20s", "SceneNumber", "SceneName", "Visited");
+            out.println("\n----------------------------------------------");
+            
+            out.flush();
+            
+            
+        }
+        catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
     }
 
 }
