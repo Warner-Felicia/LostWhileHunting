@@ -5,7 +5,10 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
+import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
+import byui.cit260.lostwhilehunting.exceptions.GameControlException;
+import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.ItemType;
@@ -25,6 +28,7 @@ import lostwhilehunting.LostWhileHunting;
 public class ViewInventoryView implements Serializable{
     
     ArrayList<InventoryItem> viewItems = new ArrayList<>();
+    InventoryCharacterStream callPrint = new InventoryCharacterStream();
     
     GameMenuView gamemenu = new GameMenuView();
     ItemControl itemcontrol= new ItemControl();
@@ -48,7 +52,8 @@ public class ViewInventoryView implements Serializable{
                     + "\n| Equipped Items                            |"
                     + "\n----------------------------------------------"
                     + "\nItem1: "+Items.getItem1()+" | Item2: "+Items.getItem2()+" | Item3: "+Items.getItem3()+""
-                    + "\n1 - Count Inventory Items"
+                    + "\nS - Count Inventory Items"
+                    + "\nP - Print Inventory to a file"
                     + "\nQ - Quit"
                     + "\n---------------------------------------------";
         
@@ -56,29 +61,31 @@ public class ViewInventoryView implements Serializable{
     }
       
     
-    public void displayinventoryView() {
-        int value=0;
+    public void displayinventoryView() throws ItemControlException {
         boolean done = false; // set flag to not done
         do {
             // promt for and get players name
-            try{
-            value = this.getInput();
-            }catch(NumberFormatException nf){
-                this.console.println("Come on letters dont work! Its only the number 1 to check item amount."
-                                   +"\nOr Simply press Q to exit to the Game Menu.");
-            }
-                        
+            String viewInventoryOption = this.getInput();
+            if (viewInventoryOption.toUpperCase().equals("Q")) // user wants to quit
+                return; // exit the game
+            
             // do the requested action and display the next view
-            done = this.doAction(value);
-        } 
-        while (!done);
+            done = this.doAction(viewInventoryOption);
+        } while (!done);
     }
       
-    public boolean doAction(int choice) {
-        switch (choice) {
-            case 1: // exit
+    public boolean doAction(String choice) throws ItemControlException {
+        switch (choice.toUpperCase()) {
+            case "S": // exit
                 this.sumItems();
                 this.console.println("\nYou have "+this.sumItems()+" overall in inventory");
+                break;
+            case "P": // exit
+                try{
+                this.printItemsToFile();
+                }catch(IOException ie){
+                    ie.getMessage();
+                }
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -89,10 +96,10 @@ public class ViewInventoryView implements Serializable{
     }
 
     
-    public int getInput() {
+    public String getInput() {
        BufferedReader keyboard = LostWhileHunting.getInFile();
         int value = 0;
-        String inputValue;
+        String inputValue="";
         boolean valid = false;
         
         while (!valid) {
@@ -109,8 +116,6 @@ public class ViewInventoryView implements Serializable{
                 if (inputValue.toUpperCase().equals("Q"))
                     gamemenu.display();
             
-                value = Integer.parseInt(inputValue);
-            
                 break; // end the loop
             }
             catch (IOException ex) {
@@ -118,7 +123,7 @@ public class ViewInventoryView implements Serializable{
             }
         }
         
-        return value;  // return the value entered
+        return inputValue;  // return the value entered
     }
     
     private int sumItems(){
@@ -133,5 +138,13 @@ public class ViewInventoryView implements Serializable{
         }
         
         return total;
+    }
+
+    private void printItemsToFile() throws ItemControlException, IOException{
+        this.console.println("\n\nEnter the file path for the Item save ");
+        String filePath = this.getInput();
+        
+        callPrint.saveItems(filePath);
+        
     }
 }
