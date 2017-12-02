@@ -37,7 +37,8 @@ public class CheckPlayerStatusView extends View implements Serializable{
                 + "\n -----------------------------------------------"
                 + "\n H - Heal"
                 + "\n -----------------------------------------------"
-                + "\n"
+                + "\n D - Download Player Status"
+                + "\n -----------------------------------------------"
                 + "Q - Return To Game Menu";
     }
 
