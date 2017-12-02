@@ -81,14 +81,18 @@ public class InventoryCharacterStream {
               
               }
             } 
-                         
-        
+               
+                   
             out.flush();
             out.close();
+            
+            this.console.println("The following file was successfully written to: "+ filePath);
          
         } catch (UnsupportedEncodingException e) {
+            ErrorView.display("ViewInventoryView", filePath+"error cannot be written");
             e.printStackTrace();
         } catch (FileNotFoundException e) {
+            ErrorView.display("ViewInventoryView", filePath+"No file path");
             e.printStackTrace();
         } finally {
             if(out != null) {
