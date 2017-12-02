@@ -278,22 +278,28 @@ public class GameMenuView extends View implements Serializable{
     }
 
     private void printMap(String filePath) {
-        
-        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+       
+        Location[][] locations = game.getMap().getLocation();
         int sceneNumber = 0;
+        String visited = null;
         
         try (PrintWriter out = new PrintWriter(filePath)) {
             
             out.println("\n\n          Map Locations          ");
-            out.printf("%n %-15s %20s %20s", "SceneNumber", "SceneType", "Visited");
+            out.printf("%n %-15s %-20s %-20s", "SceneNumber", "SceneType", "Visited");
             out.println("\n---------------------------------------------------------------");
             
-            for (Location[] row : location) {
-                for (Location column : row) {
-                    sceneNumber++;
-                    out.printf("%n %-15s %20s %20s", sceneNumber, 
-                            "35", "65");
-                }    
+            for (int i = 0; i < locations.length; i++) {
+                for (int j = 0; j < locations[i].length; j++) {
+                Location location = locations[i][j];
+                sceneNumber++;
+                if (location.isVisited() == true)
+                    visited = "Yes";
+                else
+                    visited = "No";
+                
+                out.printf("%n %-15s %20s %20s", sceneNumber, location.getScenes().getNameOfScene(), visited);
+                }
             }
             
             
