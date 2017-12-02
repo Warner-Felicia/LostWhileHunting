@@ -300,7 +300,9 @@ public class ItemControl implements Serializable{
                      return;
                  }       break;
              default:
+                 ErrorView.display(this.getClass().getName(), "\n*** No Item by that name exists, Software restart needed *** Restart Game");
                  throw new ItemControlException("No Item by that name exists, Software restart needed");
+                 
          }
          
             if("".equals(Items.getItem1())){
