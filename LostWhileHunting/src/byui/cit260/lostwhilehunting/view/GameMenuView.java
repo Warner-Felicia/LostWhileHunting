@@ -7,7 +7,9 @@ import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
+import static byui.cit260.lostwhilehunting.model.ItemType.map;
 import byui.cit260.lostwhilehunting.model.Location;
+import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -277,12 +279,22 @@ public class GameMenuView extends View implements Serializable{
 
     private void printMap(String filePath) {
         
+        Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
+        int sceneNumber = 0;
+        
         try (PrintWriter out = new PrintWriter(filePath)) {
             
             out.println("\n\n          Map Locations          ");
-            out.printf("%n %-15s %20s %20s", "SceneNumber", "SceneName", "Visited");
+            out.printf("%n %-15s %20s %20s", "SceneNumber", "SceneType", "Visited");
             out.println("\n---------------------------------------------------------------");
-            out.printf("%n %-15s %20s %20s", 
+            
+            for (Location[] row : location) {
+                for (Location column : row) {
+                    sceneNumber++;
+                    out.printf("%n %-15s %20s %20s", sceneNumber, 
+                            "35", "65");
+                }    
+            }
             
             
             out.flush();
