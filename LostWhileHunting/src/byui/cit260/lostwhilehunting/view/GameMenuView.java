@@ -280,9 +280,10 @@ public class GameMenuView extends View implements Serializable{
         try (PrintWriter out = new PrintWriter(filePath)) {
             
             out.println("\n\n          Map Locations          ");
-            out.println("\n----------------------------------------------");
             out.printf("%n %-15s %20s %20s", "SceneNumber", "SceneName", "Visited");
-            out.println("\n----------------------------------------------");
+            out.println("\n---------------------------------------------------------------");
+            out.printf("%n %-15s %20s %20s", 
+            
             
             out.flush();
             
