@@ -286,8 +286,8 @@ public class GameMenuView extends View implements Serializable{
         try (PrintWriter out = new PrintWriter(filePath)) {
             
             out.println("\n\n          Map Locations          ");
-            out.printf("%n %-15s %-20s %-20s", "SceneNumber", "SceneType", "Visited");
-            out.println("\n---------------------------------------------------------------");
+            out.printf("%n%-15s%-20s%-15s", "SceneNumber", "SceneType", "Visited");
+            out.println("\n----------------------------------------------------------");
             
             for (int i = 0; i < locations.length; i++) {
                 for (int j = 0; j < locations[i].length; j++) {
@@ -297,19 +297,21 @@ public class GameMenuView extends View implements Serializable{
                     visited = "Yes";
                 else
                     visited = "No";
-                
-                out.printf("%n %-15s %20s %20s", sceneNumber, location.getScenes().getNameOfScene(), visited);
+                          
+                out.printf("%-27s%-25s%-10s%n", sceneNumber, location.getScenes().getNameOfScene(), visited);
                 }
             }
-            
-            
+                        
             out.flush();
-            
-            
+                   
         }
         catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
+            
         }
+        
+        this.console.println("Your information has been written to the "
+                + "requested file.");
     }
 
 }
