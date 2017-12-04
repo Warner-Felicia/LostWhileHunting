@@ -138,7 +138,7 @@ public class CheckPlayerStatusView extends View implements Serializable{
               System.out.println(paragraphArray[i]);
           }
        } catch (IOException ex) {
-            System.out.print("Error - the file path doesn't excist");
+            System.out.print("Error - the file path doesn't exist");
         }
         
         try {
@@ -158,7 +158,7 @@ public class CheckPlayerStatusView extends View implements Serializable{
         FileReader read = new FileReader(filePath);
         BufferedReader dataRead = new BufferedReader(read);
         
-        int numberOfParagraphs = 3;
+        int numberOfParagraphs = 10;
         String[] textRead = new String[numberOfParagraphs];
         
         for (int i=0; i < numberOfParagraphs; i++){
