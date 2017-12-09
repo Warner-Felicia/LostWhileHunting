@@ -28,10 +28,10 @@ public class MainMenuView extends View implements Serializable{
                 + "\n----------------------------------------"
                 + "\n| Main Menu                            |"
                 + "\n----------------------------------------"
-                + "\n1 - Start A New Game"
-                + "\n2 - Continue A Saved Game"
-                + "\n3 - Help Menu"
-                + "\n4 - Save game"
+                + "\nN - Start A New Game"
+                + "\nC - Continue A Saved Game"
+                + "\nH - Help Menu"
+                + "\nS - Save game"
                 + "\nQ - Quit"
                 + "\n----------------------------------------");
     }
@@ -54,18 +54,20 @@ public class MainMenuView extends View implements Serializable{
     
     @Override    
     public boolean doAction(String choice) {
-       
+
+        choice = choice.toUpperCase();
+        
         switch (choice) {
-            case "1": // create and start a new game
+            case "N": // create and start a new game
                 this.startNewGame();
                 break;
-            case "2": // get and start an existing game
+            case "C": // get and start an existing game
                 this.startExistingGame();
                break;
-            case "3": // display the help menu
+            case "H": // display the help menu
                 this.displayHelpMenu();
                 break;
-            case "4": // save the current game
+            case "S": // save the current game
                 this.saveGame();
                 break;
             default:
@@ -110,7 +112,7 @@ public class MainMenuView extends View implements Serializable{
         HelpMenuView helpMenuView = new HelpMenuView();
         
         // Display the main menu view
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {
