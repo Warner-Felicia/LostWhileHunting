@@ -1,2 +1,0 @@
-byui.cit260.lostwhilehunting.view.StartProgramView - The player's name cannot be blank.
-MainMenuView - q (The system cannot find the file specified)
