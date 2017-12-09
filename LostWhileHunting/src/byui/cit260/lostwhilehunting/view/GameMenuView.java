@@ -39,14 +39,14 @@ public class GameMenuView extends View implements Serializable{
                 + "\n-----------------------------------------"
                 + "\n| Game Menu                             |"
                 + "\n----------------------------------------"
-                + "\n1 - Move to the next location"
-                + "\n2 - Use SurePass"
-                + "\n3 - Search Current Location"
-                + "\n4 - View Inventory"
-                + "\n5 - Check status of player"
-                + "\n6 - Equip items"
-                + "\n7 - View map"
-                + "\n8 - Print list of map locations"
+                + "\nM - Move to the next location"
+                + "\nU - Use SurePass"
+                + "\nS - Search Current Location"
+                + "\nI - View Inventory"
+                + "\nP - Check status of player"
+                + "\nE - Equip items"
+                + "\nV - View map"
+                + "\nL - Print list of map locations"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -75,19 +75,19 @@ public class GameMenuView extends View implements Serializable{
     @Override
     public boolean doAction(String choice) throws NumberFormatException{
         
-        int number = Integer.parseInt(choice);
-            
-        switch (number) {
-            case (1): // move to next location
+        choice = choice.toUpperCase();
+        
+        switch (choice) {
+            case ("M"): // move to next location
                 this.moveToNextLocation();
                 break;
-            case (2): //use SurePass
+            case ("U"): //use SurePass
                 this.useSurePass();
                 break;
-            case (3): // search current location
+            case ("S"): // search current location
                 this.searchCurrentLocation();
                 break;
-            case (4): {
+            case ("I"): {
             try {
                 // view inventory
                 this.viewInventory();
@@ -96,22 +96,22 @@ public class GameMenuView extends View implements Serializable{
             }
         }
                 break;
-            case (5): // check player status
+            case ("P"): // check player status
                 this.checkPlayerStatus();
                 break;
-            case (6): // equip items
+            case ("E"): // equip items
                 this.equipItems();
                 break;
-            case (7) : {
-            try {
+            case ("V") : {
+                try {
                 // view map
-                this.displayMap();
+                    this.displayMap();
             } catch (LocationsControlException ex) {
                 Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
                 break;
-            case (8):
+            case ("L"):
                 this.getMapFilePath();
                 break;
             default: 
