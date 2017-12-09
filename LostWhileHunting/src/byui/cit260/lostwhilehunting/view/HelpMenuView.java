@@ -17,84 +17,43 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author New User
  */
-public class HelpMenuView implements Serializable{
+public class HelpMenuView extends View implements Serializable{
     
     MainMenuView mainmenu = new MainMenuView();
     private String menu;
     public HelpMenuView() {
-        this.menu = "\n"
-                    + "\n----------------------------------------"
-                    + "\n| Help Menu                            |"
-                    + "\n----------------------------------------"
-                    + "\n1 - What is the goal of the game?"
-                    + "\n2 - How to move"
-                    + "\n3 - Chance system explained"
-                    + "\n4 - Tools explained"
-                    + "\n5 - Player strengths and weaknesses"
-                    + "\nQ - Quit"
-                    + "\n----------------------------------------";
+        super("\n"
+                + "\n----------------------------------------"
+                + "\n| Help Menu                            |"
+                + "\n----------------------------------------"
+                + "\nG - What is the goal of the game?"
+                + "\nM - How to move"
+                + "\nC - Chance system explained"
+                + "\nI - Items explained"
+                + "\nP - Player strengths and weaknesses"
+                + "\nQ - Return go Main Menu"
+                + "\n----------------------------------------");
     }
-    private PrintWriter console = LostWhileHunting.getOutFile();
-    void displayHelpMenuView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promt for and get players name
-            String helpMenuOption = this.getHelpMenuOption();
-            if (helpMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(helpMenuOption);
-        } while (!done);
-    }
-
-    private String getHelpMenuOption() {
-        BufferedReader keyboard = LostWhileHunting.getInFile();
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            this.console.println("\n" + this.menu);
-            
-            try {
-                value = keyboard.readLine();
-            
-                value = value.trim();
-            
-                if (value.length() < 1) {
-                    this.console.println("\nInvalid value: value can not be blank");
-                    continue;
-                }
-            
-                break;
-            }
-            catch (IOException ex) {
-                ErrorView.display(this.getClass().getName(), "Error reading from keyboard.");
-            }
-        }
-        
-        return value;  // return the value entered
-    }
-
-    private boolean doAction(String choice) {
+    
+    @Override
+    public boolean doAction(String choice) {
        
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "1": 
+            case "G": 
                 this.goalOfTheGame();
                 break;
-            case "2":
+            case "M":
                 this.howToMove();
                 break;
-            case "3":
+            case "C":
                 this.chanceSystemExplained();
                 break;
-            case "4": 
-                this.toolsExplained();
+            case "I": 
+                this.itemsExplained();
                 break;
-            case "5": 
+            case "P": 
                 this.playerStrengthsAndWeaknesses();
                 break;
             default:
@@ -102,27 +61,59 @@ public class HelpMenuView implements Serializable{
                 break;
         }
         
-        return true;
+        return false;
     }
 
     private void goalOfTheGame() {
-        this.console.println("\n goalOfTheGame() function called");
+        this.console.println("\n----------------------------------------" 
+                           + "\nThe goal of the game is to pass by all "
+                           + "\nthe obstacles you face and to reunite "
+                           + "\nwith your group.");
     }
 
     private void howToMove() {
-        this.console.println("\n howToMove() function called");
+        this.console.println("\n----------------------------------------"
+                           + "\nTo move, you must select M from the Game"
+                           + "\nMenu.  You will then be moved to the next"
+                           + "\nlocation.  You move along a pre-determined"
+                           + "\npath, so you do not get to choose which "
+                           + "\ndirection to move.");
+        
     }
 
     private void chanceSystemExplained() {
-        this.console.println("\n chanceSystemExplained() function called");
+        this.console.println("\n----------------------------------------"
+                           + "\nThere is an element of chance with each "
+                           + "\nobstacle you encounter. However, there "
+                           + "\nare things that you can do to increase "
+                           + "\nyour chances of success. Having items "
+                           + "\nequipped will help you. Also each "
+                           + "\ncharacter has a talent for either fight, "
+                           + "\nflight or evade which will also increase "
+                           + "\nthe chance of success.");
     }
 
-    private void toolsExplained() {
-        this.console.println("\n toolsExplained() function called");
+    private void itemsExplained() {
+        this.console.println("\n----------------------------------------"
+                           + "\nThere are several times that you can "
+                           + "\nfind during the game.  They are rifle, "
+                           + "\nbullets, meat, map, knife, and extra "
+                           + "\nlife. All of them will increase your "
+                           + "\nchance of succeeding against an "
+                           + "\nobstacle. However, meat can also heal "
+                           + "\nyou when you become injured and an "
+                           + "\nextra life can restore full health when "
+                           + "\nyou die.");
     }
 
     private void playerStrengthsAndWeaknesses() {
-        this.console.println("\n playerStrengthsAndWeaknesses() function called");
+        this.console.println("\n----------------------------------------"
+                           + "\nEach player has a specific strength to "
+                           + "\neither fight an obstacle, flee the "
+                           + "\nobstacle, or evade the obstacle. "
+                           + "\nExperiment with the different actions "
+                           + "\nand see if you can find which strength "
+                           + "\nyour character has.");
     }
 
     
