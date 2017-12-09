@@ -310,7 +310,7 @@ public class LocationsControl implements Serializable{
             throw new LocationsControlException("There is an error. The total number of visited stages is undefined.");
         }
         
-        //Compute the numbers of visited stages.
+        //Compute the numbers of visited stages!
         for (Location[] row : location) {
             for (Location column : row) {
                 if (column.isVisited() == false) {
