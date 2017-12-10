@@ -9,18 +9,14 @@ package byui.cit260.lostwhilehunting.control;
  *
  * @author Group
  */
-import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.exceptions.QuestionsAndSceneControlException;
-import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Items;
 import byui.cit260.lostwhilehunting.model.Location;
-import byui.cit260.lostwhilehunting.model.Player;
 import byui.cit260.lostwhilehunting.model.QuestionType;
 import byui.cit260.lostwhilehunting.model.Questions;
 import byui.cit260.lostwhilehunting.model.RegularSceneType;
-import byui.cit260.lostwhilehunting.model.SceneQuestions;
 import byui.cit260.lostwhilehunting.model.SceneType;
 import byui.cit260.lostwhilehunting.view.ErrorView;
 import java.io.PrintWriter;
@@ -346,7 +342,7 @@ public class QuestionsAndSceneControl implements Serializable{
                            + "\n Will you Rest?"
                            + "\n---------------------------------------------");
         cave.setSafe(true);
-        cave.setSymbol(" C");
+        cave.setSymbol("C");
         cave.setQuestion("\n---------------------------------------"
                     + "\n Will you trust the Scenario suggested"
                     + "\n---------------------------------------"
@@ -430,7 +426,7 @@ public class QuestionsAndSceneControl implements Serializable{
                                    + "\n Congrats and we hope you enjoyed the game "
                                    + "\n----------------------------------------------------");
         goal.setSafe(false);
-        goal.setSymbol(" G");
+        goal.setSymbol("G");
         goal.setQuestion("\n---------------------------------------"
                     + "\n Will you trust the Scenario suggested"
                     + "\n---------------------------------------"

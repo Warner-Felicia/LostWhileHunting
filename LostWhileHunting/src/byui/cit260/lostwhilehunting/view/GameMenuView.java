@@ -7,16 +7,13 @@ import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.exceptions.LocationsControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.ItemType;
-import static byui.cit260.lostwhilehunting.model.ItemType.map;
 import byui.cit260.lostwhilehunting.model.Location;
-import byui.cit260.lostwhilehunting.model.Map;
 import byui.cit260.lostwhilehunting.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
@@ -48,8 +45,9 @@ public class GameMenuView extends View implements Serializable{
                 + "\nP - Check status of player"
                 + "\nE - Equip items"
                 + "\nV - View map"
-                + "\nL - Print list of map locations"
-                + "\nA - Sort list of map locations by name"
+                + "\nL - Print List of Map Locations"
+                + "\nA - Sort List of Map Locations by Name"
+                + "\nD - Sort Scene Symbols"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -119,6 +117,9 @@ public class GameMenuView extends View implements Serializable{
                 break;
             case ("A"):
                 this.sortMapLocationsByName();
+                break;
+            case ("D"):
+                this.sortSceneSymbols();
                 break;
             default: 
                 this.console.println("Please choose an action from this list");
@@ -348,10 +349,10 @@ public class GameMenuView extends View implements Serializable{
     }
 
     private void sortMapLocationsByName() {
-        this.console.println("sortMapLocationsByName() function called");
-        
+                
         Location[][] location = game.getMap().getLocation();
         
+        //create 1d array of location names
         String locationName[] = new String[27];
             
         int x = 0;
@@ -362,13 +363,38 @@ public class GameMenuView extends View implements Serializable{
                     x++;
                 }
         }
-        
+       //sort array 
        Arrays.sort(locationName);
        
+       //display array
        for (int i = 0; i < locationName.length; i++) {
            this.console.println(locationName[i]);
        }
                     
+    }
+
+    private void sortSceneSymbols() {
+        
+        Location[][] location = game.getMap().getLocation();
+        
+        //create 1d array of location descriptions
+        String locationSymbol[] = new String[27];
+            
+        int x = 0;
+        
+        for (int i=0; i < 3; i++) {
+                for (int j=0; j < 9; j++) {
+                    locationSymbol[x] = location[i][j].getScenes().getSymbol();
+                    x++;
+                }
+        }
+        
+        Arrays.sort(locationSymbol);
+        
+        for (int i = 0; i < locationSymbol.length; i++) {
+            this.console.println(locationSymbol[i]);
+        }
+        
     }
        
 }
