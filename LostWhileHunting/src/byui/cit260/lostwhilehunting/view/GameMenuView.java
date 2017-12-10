@@ -258,9 +258,36 @@ public class GameMenuView extends View implements Serializable{
             }
             this.console.print("|");
         }
-        this.console.println("\n  ----------------------------" +"\n" 
-                            + "\n ^^^ You have visited " + checkVisitedStages.checkStages() + " stages ^^^");
- 
+       
+        switch(checkVisitedStages.checkStages()){
+            case 1:
+                this.console.println("\n  ----------------------------" +"\n" 
+                            + "\n <<< You just passed the first stage! You have more to explore in this game! >>>"
+                + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***"); 
+                break;
+            case 10:
+                this.console.println("\n  ----------------------------" +"\n" 
+                            + "\n <<< Now you are in stage 10. You have survived well! >>>"
+                + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***"); 
+                break;
+            case 19:
+                this.console.println("\n  ----------------------------" +"\n" 
+                            + "\n <<< You are a master of surviving! You passed stage 18. >>>"
+                + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***"); 
+            case 26:
+                this.console.println("\n  ----------------------------" +"\n" 
+                            + "\n <<< Wow, you are almost finishing! You have one more stage to survive. >>>"
+                + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***"); 
+            case 27:
+                this.console.println("\n  ----------------------------" +"\n" 
+                            + "\n <<< Congratulation! You survived. >>>"
+                + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***"); 
+                break;
+            default: 
+                this.console.println("\n  ----------------------------" +"\n" 
+                        + "\n *** Progress: " + ((checkVisitedStages.checkStages() * 100)/27) + "% ***");
+                break;
+        }
   
     }
 

@@ -305,13 +305,12 @@ public class LocationsControl implements Serializable{
        
         Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         int total = 0; 
-        // Location[][] location = LostWhileHunting.getCurrentGame().getMap().getLocation();
         
         if (location == null) {
             throw new LocationsControlException("There is an error. The total number of visited stages is undefined.");
         }
         
-        //Search for next unvisited location
+        //Compute the numbers of visited stages!
         for (Location[] row : location) {
             for (Location column : row) {
                 if (column.isVisited() == false) {
@@ -319,6 +318,6 @@ public class LocationsControl implements Serializable{
                 }
             }
         }
-        return (27 - total);
+        return (28 - total);
     }
 }
