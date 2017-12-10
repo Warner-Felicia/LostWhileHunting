@@ -7,6 +7,7 @@ package byui.cit260.lostwhilehunting.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 import lostwhilehunting.LostWhileHunting;
 
@@ -14,7 +15,7 @@ import lostwhilehunting.LostWhileHunting;
  *
  * @author Administrator
  */
-public class InventoryItem implements Serializable{
+public class InventoryItem implements Serializable, Comparable<InventoryItem> {
 
     // review later
     
@@ -91,7 +92,28 @@ public class InventoryItem implements Serializable{
     public void setRequiredAmount(int requiredAmount) {
         this.requiredAmount = requiredAmount;
     }
+    
+    public int compareTo(InventoryItem compareInventoryItem) {
+        
+        int compareQuantity = ((InventoryItem) compareInventoryItem).getQuantityInStock();
+        
+        return this.quantityInStock - compareQuantity;
+    }
+    
+    public static Comparator<InventoryItem> ItemNameComparator
+                          = new Comparator<InventoryItem>() {
 
+	    public int compare(InventoryItem item1, InventoryItem item2) {
+
+	      String itemName1 = item1.getInventoryType().toUpperCase();
+	      String itemName2 = item2.getInventoryType().toUpperCase();
+
+	      return itemName1.compareTo(itemName2);
+
+	    }
+
+	};
+    
     @Override
     public int hashCode() {
         int hash = 7;

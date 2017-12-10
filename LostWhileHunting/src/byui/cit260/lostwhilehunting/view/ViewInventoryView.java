@@ -13,11 +13,15 @@ import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
 import byui.cit260.lostwhilehunting.model.ItemType;
 import byui.cit260.lostwhilehunting.model.Items;
+import static byui.cit260.lostwhilehunting.view.InventoryCharacterStream.game;
+import static byui.cit260.lostwhilehunting.view.InventoryCharacterStream.items;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
@@ -54,6 +58,8 @@ public class ViewInventoryView implements Serializable{
                     + "\nItem1: "+Items.getItem1()+" | Item2: "+Items.getItem2()+" | Item3: "+Items.getItem3()+""
                     + "\nS - Count Inventory Items"
                     + "\nP - Print Inventory to a file"
+                    + "\nA - Sort Inventory Alphebetically"
+                    + "\nN - Sort Inventory by Quantity"
                     + "\nQ - Quit"
                     + "\n---------------------------------------------";
         
@@ -87,12 +93,19 @@ public class ViewInventoryView implements Serializable{
                     ie.getMessage();
                 }
                 break;
+            case "A":
+                this.sortItemsByName();
+                break;
+            case "N":
+                this.sortItemsByQuantity();
+                break;                   
+              
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         
-        return true;
+        return false;
     }
 
     
@@ -147,4 +160,31 @@ public class ViewInventoryView implements Serializable{
         callPrint.saveItems(filePath);
         
     }
-}
+
+    private void sortItemsByName() {
+                
+        game = LostWhileHunting.getCurrentGame();
+        items = game.getItems();
+        
+        Collections.sort(items, InventoryItem.ItemNameComparator);
+        
+        for (InventoryItem item: items) {
+            this.console.println(item.getInventoryType() + " " 
+                    + item.getQuantityInStock());
+        }
+    }
+
+    private void sortItemsByQuantity() {
+        
+        game = LostWhileHunting.getCurrentGame();
+        items = game.getItems();
+        
+        Collections.sort(items);
+        
+        for (InventoryItem item: items) {
+            this.console.println(item.getInventoryType() + " " 
+                    + item.getQuantityInStock());
+        }
+    }
+}    
+       
