@@ -5,9 +5,7 @@
  */
 package byui.cit260.lostwhilehunting.view;
 
-import byui.cit260.lostwhilehunting.control.GameControl;
 import byui.cit260.lostwhilehunting.control.ItemControl;
-import byui.cit260.lostwhilehunting.exceptions.GameControlException;
 import byui.cit260.lostwhilehunting.exceptions.ItemControlException;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.model.InventoryItem;
@@ -20,9 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Scanner;
 import lostwhilehunting.LostWhileHunting;
 
 /**

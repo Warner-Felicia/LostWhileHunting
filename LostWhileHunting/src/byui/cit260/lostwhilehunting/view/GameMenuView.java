@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lostwhilehunting.LostWhileHunting;
@@ -47,6 +49,7 @@ public class GameMenuView extends View implements Serializable{
                 + "\nE - Equip items"
                 + "\nV - View map"
                 + "\nL - Print list of map locations"
+                + "\nA - Sort list of map locations by name"
                 + "\nQ - Return to Main Menu"
                 + "\n----------------------------------------"
                 + "\n Please make a selection.");
@@ -113,6 +116,9 @@ public class GameMenuView extends View implements Serializable{
                 break;
             case ("L"):
                 this.getMapFilePath();
+                break;
+            case ("A"):
+                this.sortMapLocationsByName();
                 break;
             default: 
                 this.console.println("Please choose an action from this list");
@@ -341,6 +347,30 @@ public class GameMenuView extends View implements Serializable{
                 + "requested file.");
     }
 
+    private void sortMapLocationsByName() {
+        this.console.println("sortMapLocationsByName() function called");
+        
+        Location[][] location = game.getMap().getLocation();
+        
+        String locationName[] = new String[27];
+            
+        int x = 0;
+        
+        for (int i=0; i < 3; i++) {
+                for (int j=0; j < 9; j++) {
+                    locationName[x] = location[i][j].getScenes().getNameOfScene();
+                    x++;
+                }
+        }
+        
+       Arrays.sort(locationName);
+       
+       for (int i = 0; i < locationName.length; i++) {
+           this.console.println(locationName[i]);
+       }
+                    
+    }
+       
 }
 
     

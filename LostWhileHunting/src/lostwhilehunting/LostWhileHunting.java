@@ -5,25 +5,13 @@
  */
 package lostwhilehunting;
 
-import byui.cit260.lostwhilehunting.model.Actors;
 import byui.cit260.lostwhilehunting.model.Player;
-import byui.cit260.lostwhilehunting.model.Map;
-import byui.cit260.lostwhilehunting.model.Location;
-import byui.cit260.lostwhilehunting.model.Items;
-import byui.cit260.lostwhilehunting.model.Questions;
-import byui.cit260.lostwhilehunting.model.RegularSceneType;
-import byui.cit260.lostwhilehunting.model.ResourceSceneAmount;
-import byui.cit260.lostwhilehunting.model.SceneQuestions;
-import byui.cit260.lostwhilehunting.control.QuestionsAndSceneControl;
-import byui.cit260.lostwhilehunting.control.ItemControl;
 import byui.cit260.lostwhilehunting.model.Game;
 import byui.cit260.lostwhilehunting.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
